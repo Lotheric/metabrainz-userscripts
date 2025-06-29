@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Quebec Flag Everywhere
 // @namespace    https://musicbrainz.org/
-// @version      1.12
+// @version      1.13
 // @description  Prepend a flag span before Québec links, with one alignment for normal text and another for <h1> headers.
 // @match        https://*.musicbrainz.org/*
 // @grant        none
@@ -29,11 +29,11 @@
       vertical-align: text-top !important;
       position: relative !important;
       top: 0 !important;
+      right: -2px !important;
     }
     /* Header context: any flag immediately within an <h1> */
     h1 .flag.flag-QC {
       vertical-align: text-center !important;
-      /* nudge down 2px to match Canada header flags */
       top: 5px !important;
       right: -4px !important;
     }

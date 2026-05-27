@@ -1,1 +1,1 @@
-MusicBrainz userscript written by chatGPT. Use at your own risk.
+MusicBrainz userscripts written by AI. Use at your own risk.

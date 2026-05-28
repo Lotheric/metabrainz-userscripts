@@ -3,8 +3,8 @@
 // @namespace    https://github.com/userscripts/deezer-no-upsell
 // @version      2026-05-28.0802
 // @description  Automatically dismisses the "Try Deezer Premium" nag popup on the free tier.
-// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/blob/main/Deezer_Hide_Premium_Upsell_Popup.user.js
-// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/blob/main/Deezer_Hide_Premium_Upsell_Popup.user.js
+// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/Deezer_Hide_Premium_Upsell_Popup.user.js
+// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/Deezer_Hide_Premium_Upsell_Popup.user.js
 // @author       Lotheric
 // @tag          ai-created
 // @icon         https://community.metabrainz.org/user_avatar/community.metabrainz.org/lotheric/288/88429_2.png

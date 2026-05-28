@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         MusicBrainz: Always Show and Sort All Releases by Year
 // @namespace    https://musicbrainz.org/
-// @version      2026-05-27.2111
+// @version      2026-05-28.0803
 // @description  Automatically forces ?all=1&va=0 on artist pages and sorts release group tables by year. Includes a small toggle switch.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/blob/main/MusicBrainz_Always_Show_and_Sort_All_Releases_by_Year.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/blob/main/MusicBrainz_Always_Show_and_Sort_All_Releases_by_Year.user.js
 // @author       Lotheric
 // @tag          ai-created
+// @icon         https://community.metabrainz.org/user_avatar/community.metabrainz.org/lotheric/288/88429_2.png
 // @match        https://musicbrainz.org/artist/*
 // @match        https://beta.musicbrainz.org/artist/*
 // @grant        none

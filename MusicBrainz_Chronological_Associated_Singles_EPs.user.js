@@ -3,8 +3,8 @@
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts
 // @version      2026-07-01.1314
 // @description  Sorts associated singles by release date for MusicBrainz Table layouts with custom date styling.
-// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Chronological_Associated_Singles_EPs.js
-// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Chronological_Associated_Singles_EPs.js
+// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Chronological_Associated_Singles_EPs.user.js
+// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Chronological_Associated_Singles_EPs.user.js
 // @author       Lotheric
 // @tag          ai-created
 // @match        *://musicbrainz.org/release-group/*

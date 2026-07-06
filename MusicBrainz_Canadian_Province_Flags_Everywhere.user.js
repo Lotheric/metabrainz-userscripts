@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Canadian Province Flags Everywhere
 // @namespace    https://musicbrainz.org/
-// @version      2026-07-06.1226
+// @version      2026-07-06.1246
 // @description  Shows flags of Canadian provinces and territories on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Canadian_Province_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Canadian_Province_Flags_Everywhere.user.js
@@ -16,7 +16,16 @@
 (function() {
   'use strict';
 
-  // UUIDs are used as an explicit secondary filter for provinces that share names with cities.
+  /**
+   * @typedef {Object} Province
+   * @property {string} name - The human-readable name of the province.
+   * @property {RegExp} regex - The exact-match regex to identify the province name.
+   * @property {string} code - The short code (e.g., QC, BC).
+   * @property {string} url - The URL to the official Wikimedia flag SVG.
+   * @property {string} [uuid] - Optional MusicBrainz Area UUID to strictly prevent false positives on cities.
+   */
+
+  /** @type {Province[]} */
   const PROVINCES = [
     { name: 'Alberta', regex: /^Alberta$/i, code: 'AB', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Flag_of_Alberta.svg' },
     { name: 'British Columbia', regex: /^(British Columbia|Colombie-Britannique)$/i, code: 'BC', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_British_Columbia.svg' },
@@ -33,23 +42,24 @@
     { name: 'Yukon', regex: /^Yukon$/i, code: 'YT', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Yukon.svg' }
   ];
 
-  // 1) Minimal CSS
+  // 1) Stripped CSS - We only enforce the physical SVG dimensions to match native PNGs.
+  // MusicBrainz's native `.flag` CSS handles borders, margins, and vertical alignment for us.
   const css = `
     img.flag-CA-prov {
       width: 16px !important;
       height: 11px !important;
       object-fit: cover !important;
-      display: inline-block !important;
-      vertical-align: middle !important;
-      border: 1px solid #ccc !important; 
-      margin: 0 !important;
     }
   `;
   const style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
 
-  // Helper 1: Safely extract pure text
+  /**
+   * Safely extract pure text, stripping emojis and specific disambiguations.
+   * @param {Element} el - The DOM element to extract text from.
+   * @returns {string} The cleaned text string.
+   */
   function getCleanText(el) {
     let text = el.textContent || '';
     text = text.replace(/[^\p{L}\p{N}\s\-()',.]/gu, ''); 
@@ -57,28 +67,64 @@
     return text.trim();
   }
 
-  // Helper 2: Aggressively seek and destroy all native MB icons and ghost spaces
-  function nukeIconsAndSpaces(el) {
-    el.querySelectorAll('.area-icon, .type-icon, .arealink').forEach(n => n.remove());
-
-    let prev = el.previousSibling;
+  /**
+   * Surgically cleans preceding siblings and leading text spaces to prep for native insertion.
+   * @param {Node} target - The core text node or wrapper to clean around.
+   */
+  function cleanTarget(target) {
+    if (!target) return;
+    
+    // Nuke external icons and spaces leading up to the target
+    /** @type {Node | null} */
+    let prev = target.previousSibling;
     while (prev) {
-      if (prev.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(prev.nodeValue)) {
-        let toKill = prev;
-        prev = prev.previousSibling;
+      let toKill = prev;
+      prev = prev.previousSibling;
+      
+      if (toKill.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(toKill.nodeValue || '')) {
         toKill.remove();
-      } else if (prev.nodeType === Node.ELEMENT_NODE && 
-                (prev.classList.contains('area-icon') || 
-                 prev.classList.contains('type-icon') || 
-                 prev.classList.contains('arealink') ||
-                 (prev.tagName === 'SPAN' && !prev.textContent.trim()))) {
-        let toKill = prev;
-        prev = prev.previousSibling;
+      } else if (toKill.nodeType === Node.ELEMENT_NODE && 
+                (/** @type {Element} */ (toKill).classList.contains('area-icon') || 
+                 /** @type {Element} */ (toKill).classList.contains('type-icon') || 
+                 /** @type {Element} */ (toKill).classList.contains('arealink') ||
+                 (/** @type {Element} */ (toKill).tagName === 'SPAN' && !toKill.textContent.trim()))) {
         toKill.remove();
       } else {
         break; 
       }
     }
+    
+    // Strip leading spaces from the target itself to guarantee a clean flush baseline
+    if (target.nodeType === Node.TEXT_NODE && target.nodeValue) {
+      target.nodeValue = target.nodeValue.replace(/^[\s\u00A0]+/, '');
+    } else if (target.firstChild && target.firstChild.nodeType === Node.TEXT_NODE && target.firstChild.nodeValue) {
+      target.firstChild.nodeValue = target.firstChild.nodeValue.replace(/^[\s\u00A0]+/, '');
+    }
+    
+    // Ensure no internal icons survived
+    if (target.nodeType === Node.ELEMENT_NODE) {
+      /** @type {Element} */ (target).querySelectorAll('.area-icon, .type-icon, .arealink').forEach(n => n.remove());
+    }
+  }
+
+  /**
+   * Generates the native MusicBrainz span and img structure.
+   * @param {Province} match 
+   * @returns {HTMLSpanElement}
+   */
+  function createFlagIcon(match) {
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'area-icon';
+    
+    // Tags the image with the native 'flag' class so it inherits MB's exact styles
+    const img = document.createElement('img');
+    img.className = 'flag flag-CA-prov';
+    img.src = match.url;
+    img.alt = match.name;
+    img.title = match.name;
+    
+    iconSpan.appendChild(img);
+    return iconSpan;
   }
 
   // 2) Main Logic
@@ -86,82 +132,58 @@
     
     // --- PART A: Headers ---
     if (window.location.pathname.includes('/area/')) {
-      document.querySelectorAll('h1, h2').forEach(heading => {
+      document.querySelectorAll('h1, h2').forEach(/** @param {HTMLElement} heading */ heading => {
         if (heading.dataset.flagProcessed || heading.querySelector(`a[href*="/area/"]`)) return; 
         
-        const cleanText = getCleanText(heading);
-        
         const match = PROVINCES.find(p => {
-            // Rule 1: Text MUST match the province name exactly
-            if (!p.regex.test(cleanText)) return false;
-            // Rule 2: If a UUID is specified in our dictionary, the current URL MUST contain it
+            if (!p.regex.test(getCleanText(heading))) return false;
             if (p.uuid) return window.location.pathname.includes(p.uuid);
             return true;
         });
         
         if (match) {
           heading.dataset.flagProcessed = '1';
-          nukeIconsAndSpaces(heading);
           
-          let target = heading.querySelector('bdi') || heading;
+          let bdi = heading.querySelector('bdi');
+          let target = bdi || Array.from(heading.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent && n.textContent.trim() !== '') || heading;
           
-          if (target.firstChild && target.firstChild.nodeType === Node.TEXT_NODE) {
-              target.firstChild.nodeValue = target.firstChild.nodeValue.replace(/^[\s\u00A0]+/, '');
-          }
+          cleanTarget(target);
+          const iconSpan = createFlagIcon(match);
 
-          const img = document.createElement('img');
-          img.className = 'flag flag-CA-prov';
-          img.src = match.url;
-          img.alt = match.name;
-          img.title = match.name;
-
-          if (target.firstChild && target.firstChild.nodeType === Node.TEXT_NODE) {
-              const txtNode = target.firstChild;
-              txtNode.parentNode.insertBefore(document.createTextNode('\u00A0'), txtNode);
-              txtNode.parentNode.insertBefore(img, txtNode.previousSibling);
-          } else {
-              target.prepend(document.createTextNode('\u00A0'));
-              target.prepend(img);
+          if (target === heading) {
+             heading.prepend(document.createTextNode(' '));
+             heading.prepend(iconSpan);
+          } else if (target.parentNode) {
+             target.parentNode.insertBefore(iconSpan, target);
+             target.parentNode.insertBefore(document.createTextNode(' '), target); 
           }
         }
       });
     }
 
     // --- PART B: Links ---
-    document.querySelectorAll(`a[href*="/area/"]`).forEach(link => {
+    document.querySelectorAll('a[href*="/area/"]').forEach(/** @param {HTMLAnchorElement} link */ link => {
       if (link.dataset.flagProcessed) return;
       
-      const cleanText = getCleanText(link);
-      
       const match = PROVINCES.find(p => {
-          // Rule 1: Text MUST match the province name exactly (ignores tabs like "Overview")
-          if (!p.regex.test(cleanText)) return false;
-          // Rule 2: If a UUID is specified, the link's URL MUST contain it (ignores cities like Québec City)
+          if (!p.regex.test(getCleanText(link))) return false;
           if (p.uuid) return link.href.includes(p.uuid);
           return true;
       });
       
       if (match) {
         link.dataset.flagProcessed = '1';
-        nukeIconsAndSpaces(link);
-        if (link.parentElement && link.parentElement.tagName === 'BDI') {
-            nukeIconsAndSpaces(link.parentElement);
-        }
-
-        const target = link.querySelector('bdi') || link;
         
-        if (target.firstChild && target.firstChild.nodeType === Node.TEXT_NODE) {
-             target.firstChild.nodeValue = target.firstChild.nodeValue.replace(/^[\s\u00A0]+/, '');
+        /** @type {Node} */
+        let wrapper = (link.parentElement && link.parentElement.tagName === 'BDI') ? link.parentElement : link;
+        
+        cleanTarget(wrapper);
+        const iconSpan = createFlagIcon(match);
+
+        if (wrapper.parentNode) {
+            wrapper.parentNode.insertBefore(iconSpan, wrapper);
+            wrapper.parentNode.insertBefore(document.createTextNode(' '), wrapper); 
         }
-
-        const img = document.createElement('img');
-        img.className = 'flag flag-CA-prov';
-        img.src = match.url;
-        img.alt = match.name;
-        img.title = match.name;
-
-        target.prepend(document.createTextNode('\u00A0'));
-        target.prepend(img);
       }
     });
   }

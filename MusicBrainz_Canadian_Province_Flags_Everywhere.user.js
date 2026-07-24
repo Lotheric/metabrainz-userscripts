@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         MusicBrainz: Canadian Province Flags Everywhere
 // @namespace    https://musicbrainz.org/
-// @version      2026-07-23.1033
+// @version      2026-07-23.2201
 // @description  Shows flags of Canadian provinces and territories on MusicBrainz.
-// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Canadian_Province_Flags_Everywhere.user.js
-// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Canadian_Province_Flags_Everywhere.user.js
+// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
+// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @author       Lotheric
 // @tag          ai-created
 // @icon         https://community.metabrainz.org/user_avatar/community.metabrainz.org/lotheric/288/88429_2.png

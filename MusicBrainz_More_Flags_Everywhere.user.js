@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://musicbrainz.org/
-// @version      2026-07-23.2248
+// @version      2026-07-24.1603
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -26,6 +26,33 @@
 
   /** @type {Region[]} */
   const REGIONS = [
+    // --- Argentina (Provinces) ---
+    { name: 'Buenos Aires Province', uuid: 'a6e0a033-8f5d-438b-a99c-2d956f7a9661', code: 'AR-B', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Buenos_Aires.svg' },
+    { name: 'Catamarca', uuid: '213be5eb-0b5c-4989-a3f0-b86da46b435c', code: 'AR-K', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Catamarca.svg' },
+    { name: 'Chaco', uuid: 'fb6648cb-ea68-43e7-9f1f-a3b561f6d076', code: 'AR-H', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_del_Chaco.svg' },
+    { name: 'Chubut', uuid: '488f5013-a8a5-4503-bdbe-bbf0c3f02b53', code: 'AR-U', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_del_Chubut.svg' },
+    { name: 'Córdoba', uuid: '02d22ccc-7cd3-4432-994e-95342d8b5112', code: 'AR-X', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_C%C3%B3rdoba.svg' },
+    { name: 'Corrientes', uuid: 'e3e68517-4f4e-4dbe-8772-f0132fdaec46', code: 'AR-W', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Corrientes.svg' },
+    { name: 'Entre Ríos', uuid: 'b6f81cac-ce4a-420e-a26e-668c121bd377', code: 'AR-E', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Entre_R%C3%ADos.svg' },
+    { name: 'Formosa', uuid: 'ca91a014-c2ea-4933-afbb-2693af18c6ee', code: 'AR-P', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Formosa.svg' },
+    { name: 'Jujuy', uuid: 'c0ee2b9f-66c3-4d04-9a5e-74ac1fa475b6', code: 'AR-Y', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Jujuy.svg' },
+    { name: 'La Pampa', uuid: '1d48454d-7ad9-456d-8170-7a6dae2bd04d', code: 'AR-L', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_La_Pampa.svg' },
+    { name: 'La Rioja', uuid: '7d71113b-34ab-4c5f-8634-0a7c645ac6a7', code: 'AR-F', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_La_Rioja.svg' },
+    { name: 'Mendoza', uuid: '078142c9-cdfb-4e99-b3e8-651af6173572', code: 'AR-M', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Mendoza.svg' },
+    { name: 'Misiones', uuid: 'fa83d743-10e1-40c4-8679-4746dfb81e91', code: 'AR-N', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Misiones.svg' },
+    { name: 'Neuquén', uuid: '5e1ad53b-b03e-4eed-8ce3-4bc8a80192e1', code: 'AR-Q', url: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Bandera_de_la_Provincia_del_Neuquen.svg' },
+    { name: 'Río Negro', uuid: 'd1807821-3007-4fb4-ba90-e4da179b3f4e', code: 'AR-R', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Bandera_de_la_Provincia_del_Río_Negro.svg' },
+    { name: 'Salta', uuid: '7af9d1ab-5c47-4497-afd3-80260a69d225', code: 'AR-A', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Salta.svg' },
+    { name: 'San Juan', uuid: '440070a9-70c4-4aa4-b2de-dbdb80c76d39', code: 'AR-J', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_San_Juan.svg' },
+    { name: 'San Luis', uuid: 'b1d26b74-30b4-4b57-9a6d-298570e097d6', code: 'AR-D', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_San_Luis.svg' },
+    { name: 'Santa Cruz', uuid: 'a069aabc-e52a-4589-9dd9-42a4eb5c12a0', code: 'AR-Z', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Santa_Cruz.svg' },
+    { name: 'Santa Fe', uuid: '54cad475-f076-4617-a6ac-290776bc811b', code: 'AR-S', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Santa_Fe.svg' },
+    { name: 'Santiago del Estero', uuid: 'f2102dc1-43fc-4b14-8f44-f2bf8ef3d121', code: 'AR-G', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Santiago_del_Estero.svg' },
+    { name: 'Tierra del Fuego', uuid: '71f74901-50a6-4240-a73b-be3f8c51d2f4', code: 'AR-V', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Tierra_del_Fuego.svg' },
+    { name: 'Tucumán', uuid: '952e7230-5088-41eb-a48a-fb9608ae67b4', code: 'AR-T', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Tucum%C3%A1n.svg' },
+    // --- Argentina (Autonomous City) ---
+    { name: 'Buenos Aires', uuid: '2bd8607d-56fe-4fa1-96e3-3badd6a98588', code: 'AR-C', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Ciudad_de_Buenos_Aires.svg' },
+
     // --- Australia (States) ---
     { name: 'New South Wales', uuid: 'ee8fe1ca-7455-485d-afbc-064844f5ee43', code: 'AU-NSW', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_New_South_Wales.svg' },
     { name: 'Queensland', uuid: 'c1e9cc93-f223-470d-b9e1-653709de68c3', code: 'AU-QLD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Queensland.svg' },
@@ -36,6 +63,17 @@
     // --- Australia (Territories) ---
     { name: 'Australian Capital Territory', uuid: 'f37a9e19-2e4b-4573-b65b-2ab6fcf6ea51', code: 'AU-ACT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Australian_Capital_Territory.svg' },
     { name: 'Northern Territory', uuid: 'f82f6486-960d-4bdf-b95b-e24b6c77a5ec', code: 'AU-NT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Northern_Territory.svg' },
+
+    // --- Austria (States) ---
+    { name: 'Burgenland', uuid: '8df1819e-ba9b-44a4-9550-3a099c691a4c', code: 'AT-1', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Burgenland.svg' },
+    { name: 'Kärnten', uuid: '837417a1-e3fe-412a-a525-2622fd5aafa6', code: 'AT-2', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Carinthia.svg' },
+    { name: 'Niederösterreich', uuid: '3daad85f-1712-476d-8c44-7a76969231ca', code: 'AT-3', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Lower_Austria.svg' },
+    { name: 'Oberösterreich', uuid: '667229dd-a326-49c0-a282-bb7eb3fea5bc', code: 'AT-4', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Upper_Austria.svg' },
+    { name: 'Salzburg', uuid: 'e684b527-18ff-4f84-85db-4a66f3b10dd0', code: 'AT-5', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Salzburg.svg' },
+    { name: 'Steiermark', uuid: '7500e764-604e-4576-b51c-5504f0db66a8', code: 'AT-6', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Styria.svg' },
+    { name: 'Tirol', uuid: '94c82f6a-70ed-485e-aaa2-5dcf11f80e98', code: 'AT-7', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Tirol.svg' },
+    { name: 'Vorarlberg', uuid: 'eacec681-6fb0-4e14-96a1-e181320c5c07', code: 'AT-8', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vorarlberg.svg' },
+    { name: 'Wien', uuid: 'afff1a94-a98b-4322-8874-3148139ab6da', code: 'AT-9', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vienna.svg' },
 
     // --- Belgium (Regions) ---
     { name: 'Brussels', uuid: '7bda5d46-4809-41dc-a0b8-e889ff818f2e', code: 'BE-BRU', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_the_Brussels-Capital_Region.svg' },
@@ -98,6 +136,60 @@
     { name: 'Northwest Territories', uuid: '77acc8b0-2a12-4831-b142-d5ea39702424', code: 'CA-NT', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_the_Northwest_Territories.svg' },
     { name: 'Nunavut', uuid: '79c3204c-1cd8-4906-a2d7-43aeb997927c', code: 'CA-NU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Flag_of_Nunavut.svg' },
     { name: 'Yukon', uuid: '97aef002-a327-4237-a2d3-25244d425d17', code: 'CA-YT', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Yukon.svg' },
+
+    // --- Chile (Regions and Provinces) ---
+    { name: 'Aisén del General Carlos Ibáñez del Campo', uuid: 'f8efcc5a-b64e-4be6-9a38-78f5e7b47174', code: 'CL-AI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aysen,_Chile.svg' },
+    { name: 'Antofagasta', uuid: 'e449eed6-c518-46c9-9caa-714328c7b062', code: 'CL-AN', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Antofagasta_Region,_Chile.svg' },
+    { name: 'Araucanía', uuid: '09badaa3-940a-45b1-857d-6102e4cee7f5', code: 'CL-AR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_La_Araucania,_Chile.svg' },
+    { name: 'Arica y Parinacota', uuid: '9b74be71-764d-4114-b6d3-9632f3dca6e8', code: 'CL-AP', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Arica_y_Parinacota%2C_Chile.svg' },
+    { name: 'Atacama', uuid: 'a05aded6-a868-431c-a430-f75ed958f8a7', code: 'CL-AT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Atacama,_Chile.svg' },
+    { name: 'Bío-Bío', uuid: '0dfb54b3-dd37-4a6e-8188-58cc3b579bf8', code: 'CL-BI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Biob%C3%ADo_Region,_Chile.svg' },
+    { name: 'Coquimbo', uuid: '756c8b08-34d5-4694-afde-60475ee76276', code: 'CL-CO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Coquimbo_Region,_Chile.svg' },
+    { name: 'Curicó', uuid: 'cfdbf190-bc0a-4826-8923-cb959b7bc20b', code: 'CL-CU', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Logo_de_la_DPP_Curicó.svg' },
+    { name: "Libertador General Bernardo O'Higgins", uuid: '6a743600-5468-4dba-aa84-cf096cf697da', code: 'CL-LI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_O%27Higgins_Region,_Chile.svg' },
+    { name: 'Los Lagos', uuid: '6bace072-b9bd-4526-8a47-29cd977fdaf9', code: 'CL-LL', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Los_Lagos_Region,_Chile.svg' },
+    { name: 'Los Ríos', uuid: '6d443452-f596-40c4-8143-67efb6a432f4', code: 'CL-LR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Los_R%C3%ADos,_Chile.svg' },
+    { name: 'Magallanes', uuid: '57b2d71b-0c3e-4ccb-a2ed-7da367134517', code: 'CL-MA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Magallanes_y_la_Ant%C3%A1rtica_Chilena,_Chile.svg' },
+    { name: 'Maule', uuid: 'daac8aeb-d4b2-468b-aefd-d77a6b53a127', code: 'CL-ML', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Maule_Region.svg' },
+    { name: 'Región Metropolitana de Santiago', uuid: '8270a6f3-3e8d-482d-8cb6-649912ac5a63', code: 'CL-RM', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Flag_of_the_Metropolitan_Region%2C_Chile.svg' },
+    { name: 'Tarapacá', uuid: '2b7c03e7-24b2-4966-92a5-d3fcc4d9177d', code: 'CL-TA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Tarapaca,_Chile.svg' },
+    { name: 'Valparaíso', uuid: '448375eb-82d9-43ba-b114-6bfc2db011c8', code: 'CL-VS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Valparaiso,_Chile.svg' },
+
+    // --- Colombia (Departments) ---
+    { name: 'Amazonas', uuid: '1642cac2-0960-484b-9316-8832b31d4c0e', code: 'CO-AMA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Amazonas_(Colombia).svg' },
+    { name: 'Antioquia', uuid: '704b5889-896e-4f3a-b941-d2e3a8b50462', code: 'CO-ANT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Antioquia_Department.svg' },
+    { name: 'Arauca', uuid: 'c6337711-12a7-4c32-9a58-3043f7729901', code: 'CO-ARA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Arauca.svg' },
+    { name: 'Atlántico', uuid: 'c4ea2500-202a-43a3-bb02-6efd61752fa6', code: 'CO-ATL', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_Atlántico.svg' },
+    { name: 'Bolívar', uuid: '9f3cd9d4-5517-49a4-9404-b35777bbba3e', code: 'CO-BOL', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Bolívar_%28Colombia%29.svg' },
+    { name: 'Boyacá', uuid: '2f2deded-349a-4d3a-8582-8f6c36421574', code: 'CO-BOY', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Boyac%C3%A1_Department.svg' },
+    { name: 'Caldas', uuid: '4ad560ae-e487-4cd1-a495-4afe9ca749be', code: 'CO-CAL', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Caldas.svg' },
+    { name: 'Caquetá', uuid: '3ff7f940-12e0-4370-97b1-5696f30478d0', code: 'CO-CAQ', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b0/Flag_of_Caquetá.svg' },
+    { name: 'Casanare', uuid: '42bba264-eebd-49bb-9219-23d4e4b8ca9d', code: 'CO-CAS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Casanare.svg' },
+    { name: 'Cauca', uuid: '3d135a13-a53d-439f-b919-b8a14dc3ff0c', code: 'CO-CAU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Cauca.svg' },
+    { name: 'Cesar', uuid: 'f22e07bd-e548-4dcc-97df-3760e856fb38', code: 'CO-CES', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Cesar.svg' },
+    { name: 'Chocó', uuid: 'fa659f3f-ee18-40d3-b4b9-e93469d78183', code: 'CO-CHO', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_Chocó.svg' },
+    { name: 'Córdoba', uuid: '1261dfab-d2cb-4cc4-96ac-e1388dc14f87', code: 'CO-COR', url: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Córdoba_Department.svg' },
+    { name: 'Cundinamarca', uuid: '41e03f4c-cecb-418a-b451-fca56c4a047b', code: 'CO-CUN', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Cundinamarca.svg' },
+    { name: 'Guainía', uuid: 'a834af57-da32-4d13-9b6f-1ae1aef7a8a5', code: 'CO-GUA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Guainía.svg' },
+    { name: 'Guaviare', uuid: 'e50c44a6-571d-400c-a259-9fe280717ff9', code: 'CO-GUV', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Guaviare.svg' },
+    { name: 'Huila', uuid: '57bbc8ff-7b37-45e9-ba61-8ccc453c4387', code: 'CO-HUI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Huila.svg' },
+    { name: 'La Guajira', uuid: 'b682fba9-45f2-4c35-bc5f-69d3ce6a456c', code: 'CO-LAG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_La_Guajira.svg' },
+    { name: 'Magdalena', uuid: 'd6a6abe3-e25f-4c90-b45a-3749b0dcb134', code: 'CO-MAG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Magdalena.svg' },
+    { name: 'Meta', uuid: '1b452518-0c96-4f1f-a9d8-ce6093e40bba', code: 'CO-MET', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Meta.svg' },
+    { name: 'Nariño', uuid: 'c83fcdc9-e996-4864-97ad-855de5c04c16', code: 'CO-NAR', url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_Nariño.svg' },
+    { name: 'Norte de Santander', uuid: 'ad531c8b-2969-4f91-919a-17f4e2f646aa', code: 'CO-NSA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Norte_de_Santander.svg' },
+    { name: 'Putumayo', uuid: '90333bf3-2d8f-44cd-8845-8d912d43977f', code: 'CO-PUT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Putumayo.svg' },
+    { name: 'Quindío', uuid: '3c2401a7-af29-44b1-be67-97cd8da7e086', code: 'CO-QUI', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Quindío_Department.svg' },
+    { name: 'Risaralda', uuid: 'c9bc27c3-311f-4bb6-a91c-5826eb41e67b', code: 'CO-RIS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Risaralda.svg' },
+    { name: 'San Andrés, Providencia y Santa Catalina', uuid: 'c4cf7ea1-9dad-4406-a0ac-b19fd67d5a13', code: 'CO-SAP', url: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_San_Andrés_y_Providencia.svg' },
+    { name: 'Santander', uuid: '4bb35881-5913-4709-9674-c1b44aa74188', code: 'CO-SAN', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Santander_Department.svg' },
+    { name: 'Sucre', uuid: '8f165540-7917-4b8e-a259-dcfb97ed09f0', code: 'CO-SUC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sucre.svg' },
+    { name: 'Tolima', uuid: '9b309ca9-26c0-4b9b-8c17-99bbf87ef8b0', code: 'CO-TOL', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Tolima.svg' },
+    { name: 'Valle del Cauca', uuid: '4367702c-1865-4c28-8420-ccda38424bf5', code: 'CO-VAC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Valle_del_Cauca.svg' },
+    { name: 'Vaupés', uuid: 'f01a5305-1c78-4627-8537-087648a3d7d5', code: 'CO-VAU', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Vaupés.svg' },
+    { name: 'Vichada', uuid: '48f3b824-f6cd-494e-aa0f-4ea2f7687a93', code: 'CO-VID', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vichada.svg' },
+    // --- Colombia (Capital District) ---
+    { name: 'Bogotá', uuid: '6f85c2b6-4250-468b-9bd8-300fd8b451ad', code: 'CO-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Bogotá.svg' },
 
     // --- Czechia (Regions) ---
     { name: 'Jihočeský kraj', uuid: '91eb4aae-2c2b-4dc1-b972-1b44eaf6fbc1', code: 'CZ-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Bohemian_Region.svg' },
@@ -207,6 +299,35 @@
     { name: 'Schleswig-Holstein', uuid: '26486d74-1d5b-40db-857f-a8f49c64175b', code: 'DE-SH', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Schleswig-Holstein.svg' },
     { name: 'Thüringen', uuid: 'ff2ee1ad-febe-4b48-8999-e77870b62744', code: 'DE-TH', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Thuringia.svg' },
 
+    // --- Hungary (Counties) ---
+    { name: 'Bács-Kiskun', uuid: '87f750a3-698a-461a-9d4d-ffdf1c8ea32d', code: 'HU-BK', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_B%C3%A1cs-Kiskun_County.svg' },
+    { name: 'Baranya', uuid: '321a81c0-c248-4194-8a3b-07795e9d4403', code: 'HU-BA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Baranya_County.svg' },
+    { name: 'Békés', uuid: '70b1bdc5-eaf5-4881-8bd8-fdc2bf1335dc', code: 'HU-BE', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/FLAG-Békés-megye.svg' },
+    { name: 'Borsod-Abaúj-Zemplén', uuid: '38faff13-04a6-4b99-b942-59794e9f05c9', code: 'HU-BZ', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/FLAG-Borsod-Abaúj-Zemplén-megye.svg' },
+    { name: 'Csongrád', uuid: 'b764933f-6ac1-4084-8fe2-4bcc5cab9eca', code: 'HU-CS', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Flag_of_Csongrad-Csanad_megye.svg' },
+    { name: 'Fejér', uuid: 'bd61cca1-ac7c-4159-a5d1-4c4ec5f85825', code: 'HU-FE', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/FLAG-Fejér-megye.svg' },
+    { name: 'Győr-Moson-Sopron', uuid: '3500d466-d94c-43ad-bfed-c6449d8b7ce7', code: 'HU-GS', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/FLAG-Gyor-Moson-Sopron-megye.svg' },
+    { name: 'Hajdú-Bihar', uuid: 'b8ceefc4-8cd2-47a2-b2f5-0e98d4f9628c', code: 'HU-HB', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/FLAG-Hajdú-Bihar-megye.svg' },
+    { name: 'Heves', uuid: '74c42553-f3ba-4dcf-85c6-5b118bb2eff6', code: 'HU-HE', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/FLAG-Heves-megye.svg' },
+    { name: 'Jász-Nagykun-Szolnok', uuid: 'bf5a9e53-1f62-4f0d-a410-228a6766100a', code: 'HU-JN', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/FLAG-Jasz-Nagykun-Szolnok.svg' },
+    { name: 'Komárom-Esztergom', uuid: '0c71a6e8-b96f-4f51-9521-26e9d8015fbd', code: 'HU-KE', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/FLAG-Komárom-Esztergom-megye.svg' },
+    { name: 'Nógrád', uuid: 'f327094d-c57e-4550-a768-e6a122137f2b', code: 'HU-NO', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/FLAG-Nograd.svg' },
+    { name: 'Pest', uuid: 'b96293b9-ebde-4b1c-afad-f8e613d4e598', code: 'HU-PE', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/FLAG-Pest-megye.svg' },
+    { name: 'Somogy', uuid: '0e336969-e4f8-4576-9210-228e02917da1', code: 'HU-SO', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/FLAG-Somogy-megye.svg' },
+    { name: 'Szabolcs-Szatmár-Bereg', uuid: 'd9b98083-be42-49b5-81f0-ec1698dcfe2c', code: 'HU-SZ', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag-Szabolcs-Szatmar-Bereg-megye.svg' },
+    { name: 'Tolna', uuid: '5a6ad14a-a8ed-4ca1-901a-b470d0304d4f', code: 'HU-TO', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/FLAG-Tolna-megye.svg' },
+    { name: 'Vas', uuid: 'f2a68f3b-0db3-4122-ae86-8564d025e298', code: 'HU-VA', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/FLAG-Vas-megye.svg' },
+    { name: 'Veszprém', uuid: '4471c682-968c-451c-a36b-00ff448e4185', code: 'HU-VE', url: 'https://upload.wikimedia.org/wikipedia/commons/6/63/FLAG-Veszprém-megye.svg' },
+    { name: 'Zala', uuid: '5f10ff36-dd74-42ee-8aa0-7fe7779956e4', code: 'HU-ZA', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/FLAG-Zala-megye.svg' },
+    // --- Hungary (Autonomous City) ---
+    { name: 'Budapest', uuid: 'f1ac379f-8cd3-45c3-8da0-80c429b36c5e', code: 'HU-BU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Budapest.svg' },
+
+    // --- Ireland (Provinces) ---
+    { name: 'Connaught', uuid: '99c3f001-64d3-4174-a302-fb14204117af', code: 'IE-C', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Connacht.svg' },
+    { name: 'Leinster', uuid: 'e673d48d-9eec-4941-a5fe-9e6c330f9b26', code: 'IE-L', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Leinster.svg' },
+    { name: 'Munster', uuid: 'f5ecb4b1-b287-4b01-9d7a-7c366ede50f9', code: 'IE-M', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Munster.svg' },
+    { name: 'Ulster', uuid: '7340c1ff-5c2b-4871-b557-efbaa557ee17', code: 'IE-U', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Ulster.svg' },
+
     // --- Italy (Regions) ---
     { name: 'Abruzzo', uuid: '3b8ff9c2-2e0c-460c-8ac8-e1625db6a0ad', code: 'IT-65', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Abruzzo.svg' },
     { name: 'Basilicata', uuid: '7fa7a14b-23ef-4028-bb54-0b8b544c07bd', code: 'IT-77', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Basilicata.svg' },
@@ -298,6 +419,92 @@
     { name: 'Sint Eustatius', uuid: '4e1fa760-00ea-4dc8-8456-96104f683c2b', code: 'BQ-SE', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sint_Eustatius.svg' },
     { name: 'Saba', uuid: '79bbadb0-3942-429f-b943-ee749d00cb91', code: 'BQ-SA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saba.svg' },
 
+    // --- Norway (Counties) ---
+    { name: 'Agder', uuid: '50e3bfe3-422d-4137-bec7-bf4f6b0c882c', code: 'NO-42', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Agder.svg' },
+    { name: 'Akershus', uuid: 'ae593ad5-3f84-4ad5-89c7-7575cefd339c', code: 'NO-32', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Akershus.svg' },
+    { name: 'Buskerud', uuid: '8708899d-4622-4e66-8579-b0a43ae503f4', code: 'NO-33', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Buskerud.svg' },
+    { name: 'Finnmark', uuid: 'e29f64f6-0d89-44cd-ab16-91c2a05e8d03', code: 'NO-56', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Finnmark.svg' },
+    { name: 'Hedmark', uuid: 'c0bdf8d0-831a-4f5f-88cb-2061edbb8cd5', code: 'NO-04', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Hedmark.svg' },
+    { name: 'Hordaland', uuid: '951fc8dc-3fa9-4c64-96a2-e239f0666609', code: 'NO-12', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Hordaland.svg' },
+    { name: 'Møre og Romsdal', uuid: '298570dc-c876-4691-b913-5b3f4ba5a66a', code: 'NO-15', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_M%C3%B8re_og_Romsdal.svg' },
+    { name: 'Nord-Trøndelag', uuid: '2f56a4b2-8e4e-48e8-9fbc-253f05facde3', code: 'NO-17', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Nord-Tr%C3%B8ndelag.svg' },
+    { name: 'Nordland', uuid: 'fd7a5b26-56d9-4fa2-9805-b9f467fa4879', code: 'NO-18', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Nordland.svg' },
+    { name: 'Oppland', uuid: '3b12f7e5-802b-4d58-b600-aef20b7cad78', code: 'NO-05', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Oppland.svg' },
+    { name: 'Oslo', uuid: 'f80d529e-f242-46ef-a090-d193ed23075f', code: 'NO-03', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Oslo.svg' },
+    { name: 'Rogaland', uuid: 'fb98464f-3c9c-4c91-94bc-89f30d0a42f9', code: 'NO-11', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Rogaland.svg' },
+    { name: 'Sogn og Fjordane', uuid: '548f69bb-b842-4ff6-9945-6ea9d6a8de13', code: 'NO-14', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sogn_og_Fjordane.svg' },
+    { name: 'Sør-Trøndelag', uuid: 'ca597d1d-eddc-4c92-a9d9-7d860bdaa5d0', code: 'NO-16', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_S%C3%B8r-Tr%C3%B8ndelag.svg' },
+    { name: 'Telemark', uuid: 'e7125d46-63c1-4b14-95c1-e0e6e4b312ec', code: 'NO-40', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Telemark.svg' },
+    { name: 'Troms', uuid: '17735446-0490-4b1a-bcd2-856d8c4d20c6', code: 'NO-55', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Troms.svg' },
+    { name: 'Vestfold', uuid: 'c3bb81dc-642e-4f9d-9d9c-3bc7b671b07c', code: 'NO-39', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vestfold.svg' },
+    { name: 'Østfold', uuid: 'c65cf3eb-e577-4c5e-820c-222ac18ce621', code: 'NO-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_%C3%98stfold.svg' },
+    // --- Norway (Former Counties) ---
+    { name: 'Aust-Agder', uuid: '0bd0e394-e3aa-4e33-b06c-80a4aede075f', code: 'NO-09', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aust-Agder.svg' },
+    { name: 'Vest-Agder', uuid: 'dd3304af-d4a7-44e2-838d-aa539bbac0be', code: 'NO-10', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vest-Agder.svg' },
+
+    // --- Poland (Voivodeships) ---
+    { name: 'Dolnośląskie', uuid: 'e01a7d82-16e5-4644-9359-eaf2cef729fa', code: 'PL-DS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_dolno%C5%9Bl%C4%85skie_flag.svg' },
+    { name: 'Kujawsko-pomorskie', uuid: '114ed91f-900e-4329-9031-896b183d8e1c', code: 'PL-KP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_kujawsko-pomorskie_flag.svg' },
+    { name: 'Lubelskie', uuid: '5189e378-49f7-4766-b5a5-627d79f16bec', code: 'PL-LU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_lubelskie_flag.svg' },
+    { name: 'Lubuskie', uuid: '8a3de21e-6bb8-4dcd-9460-5bdbe26ee2bc', code: 'PL-LB', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_lubuskie_flag.svg' },
+    { name: 'Łódzkie', uuid: 'fd800799-e76a-49cd-a3d8-599aa1570f5e', code: 'PL-LD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_%C5%82%C3%B3dzkie_flag.svg' },
+    { name: 'Małopolskie', uuid: 'c02806b4-ba8f-4b15-8531-f12a59fdc9b3', code: 'PL-MA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_ma%C5%82opolskie_flag.svg' },
+    { name: 'Mazowieckie', uuid: '52a0fd3a-8730-45d8-a3af-286f377d91b5', code: 'PL-MZ', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_mazowieckie_flag.svg' },
+    { name: 'Opolskie', uuid: '5bd44f46-e60c-4cc3-9fa7-e45e5fd1bfb7', code: 'PL-OP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_opolskie_flag.svg' },
+    { name: 'Podkarpackie', uuid: '770de882-48b7-45d7-a6df-7d426cedc39a', code: 'PL-PK', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_podkarpackie_flag.svg' },
+    { name: 'Podlaskie', uuid: '15d8fc75-c719-4f6d-8818-a95a49304e77', code: 'PL-PD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_podlaskie_flag.svg' },
+    { name: 'Pomorskie', uuid: 'c277ffb1-7e0f-4d3b-8688-03471ecfe49a', code: 'PL-PM', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_pomorskie_flag.svg' },
+    { name: 'Śląskie', uuid: '34cee74b-bb90-4f7d-82c1-63ec20007145', code: 'PL-SL', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_%C5%9Bl%C4%85skie_flag.svg' },
+    { name: 'Świętokrzyskie', uuid: 'c3f1e0ce-b9ef-4648-bb9c-c504cb6dae0f', code: 'PL-SK', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_%C5%9Bwi%C4%99tokrzyskie_flag.svg' },
+    { name: 'Warmińsko-mazurskie', uuid: '14fec11f-829b-4127-9a96-e83b272ed9ee', code: 'PL-WN', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_warmi%C5%84sko-mazurskie_flag.svg' },
+    { name: 'Wielkopolskie', uuid: '52e7ac8f-4a25-49c6-8637-1bdaa4b08d74', code: 'PL-WP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_wielkopolskie_flag.svg' },
+    { name: 'Zachodniopomorskie', uuid: '78ab1f28-e113-4491-a483-09addee2ecdc', code: 'PL-ZP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_zachodniopomorskie_flag.svg' },
+
+    // --- Romania (Counties) ---
+    { name: 'Alba', uuid: 'e1448a13-a925-41e0-861e-9c378e323ec6', code: 'RO-AB', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/RO_Alba_County_Flag.svg' },
+    { name: 'Arad', uuid: 'a822e235-69e6-4d16-825e-b2c77aa6a480', code: 'RO-AR', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d6/ROU_AR_Arad_Flag.svg' },
+    { name: 'Argeș', uuid: 'd0063372-8996-4498-b86d-f850bb6b4b32', code: 'RO-AG', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Drapel_Județul_Argeș.png' },
+    { name: 'Bacău', uuid: '07b8aa5c-3082-45d4-a69b-2681e98f9383', code: 'RO-BC', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Bacau_flag.webp' },
+    { name: 'Bihor', uuid: '75b9f53b-03e4-4b95-b7d6-3a6bdbded6a2', code: 'RO-BH', url: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Bihor_County%2C_Romania.svg' },
+    { name: 'Bistrița-Năsăud', uuid: '15b344a0-8fb9-42f3-81b1-c90d15edc30c', code: 'RO-BN', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag-of-bistrita-nasaud-county.jpg' },
+    { name: 'Botoșani', uuid: '6c128047-9439-4086-8844-20bf7315b56b', code: 'RO-BT', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag-of-botosani-county.jpg' },
+    { name: 'Brăila', uuid: 'ac473e95-8c32-4642-8af4-5ad9f0f09002', code: 'RO-BR', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Drapel_Județul_Brăila.png' },
+    { name: 'Brașov', uuid: 'e7f6c883-54d6-4371-bca4-872c024397b7', code: 'RO-BV', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag-of-Brașov-County.png' },
+    { name: 'Buzău', uuid: '6aee9072-54d9-4e07-9fa9-4fe5912f56b8', code: 'RO-BZ', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Drapel_Județul_Buzău.png' },
+    { name: 'Călărași', uuid: 'e587c4f8-7092-46ad-a47b-808b89d3fa80', code: 'RO-CL', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Drapel_Județul_Călărași.png' },
+    { name: 'Caraș-Severin', uuid: '4b6dd751-ad34-4a64-8615-8f2c08b20d28', code: 'RO-CS', url: 'https://upload.wikimedia.org/wikipedia/commons/7/76/Flag_of_Caras-Severin_County.gif' },
+    { name: 'Cluj', uuid: 'cf0788d4-cde5-4cb7-aff1-5452330de8aa', code: 'RO-CJ', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Cluj_flag.webp' },
+    { name: 'Constanța', uuid: '7ac5975b-f555-448e-9fc7-104b165795fc', code: 'RO-CT', url: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Drapel_Județul_Constanța.png' },
+    { name: 'Covasna', uuid: '6c7037d5-c4de-427a-87e5-b213c7d41a39', code: 'RO-CV', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Flag_of_Covasna_County%2C_Romania.svg' },
+    { name: 'Dâmbovița', uuid: 'f944648c-ac13-4e17-82f1-1b28ed4d732a', code: 'RO-DB', url: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Drapel_Județul_Dâmbovița.png' },
+    { name: 'Dolj', uuid: '209c5d0a-a26a-4682-90be-2a4c6b5db6f3', code: 'RO-DJ', url: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Drapel_Județul_Dolj.png' },
+    { name: 'Galați', uuid: 'f8bf7fc5-0da3-4ccf-8db8-9e93c2ef5e1d', code: 'RO-GL', url: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Drapel_Județul_Galați.png' },
+    { name: 'Giurgiu', uuid: '7fa57738-5a14-4769-b372-b4e1cebbf3e5', code: 'RO-GR', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Giurgiu_County%2C_Romania.svg' },
+    { name: 'Gorj', uuid: '90c02c1d-4432-4911-8513-2e0af9eacf15', code: 'RO-GJ', url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Gorj_flag.webp' },
+    { name: 'Harghita', uuid: '49c21126-cdde-41d2-b75b-228935b2a068', code: 'RO-HR', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Harghita_County.gif' },
+    { name: 'Hunedoara', uuid: '5f090e5d-9d9d-4b26-b1b4-da0e1ed7fbcc', code: 'RO-HD', url: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Hunedoara_flag.webp' },
+    { name: 'Ialomița', uuid: 'dbe62274-b3fc-45a1-a2a8-1180e08260ac', code: 'RO-IL', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Ialomiţa_County%2C_Romania.svg' },
+    { name: 'Iași', uuid: '3131d772-b6f0-4ddb-a3e8-a499005f6ed1', code: 'RO-IS', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Drapel_Județul_Iași.png' },
+    { name: 'Ilfov', uuid: '42d009e4-5fb6-4994-b19d-c7eb496eb0be', code: 'RO-IF', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Ilfov_flag.webp' },
+    { name: 'Maramureș', uuid: '855e53ae-36b6-467a-9d50-0aea9efc400b', code: 'RO-MM', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Maramure%C8%99_County.svg' },
+    { name: 'Mehedinți', uuid: 'e383f64c-5835-4594-86a9-3aa83adda74d', code: 'RO-MH', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Mehedinti_flag.webp' },
+    { name: 'Mureș', uuid: 'b740802c-8e2b-45f3-8713-5c40666e0291', code: 'RO-MS', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Mureș-County-Flag.png' },
+    { name: 'Neamț', uuid: '302c12fd-c5fe-4a09-86b1-bec9e68a25b5', code: 'RO-NT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Drapel_Județul_Neamț.png' },
+    { name: 'Olt', uuid: 'c17f341e-fb39-4330-8fd3-5cd7fcbee19c', code: 'RO-OT', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Drapel_Județul_Olt.png' },
+    { name: 'Prahova', uuid: '7d56da01-4427-458f-be29-e5df90646aa2', code: 'RO-PH', url: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Prahova_flag.png' },
+    { name: 'Sălaj', uuid: 'a3266621-1224-4370-b163-cf3a3c96fb91', code: 'RO-SJ', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Drapel_Județul_Sălaj.png' },
+    { name: 'Satu Mare', uuid: 'c030a597-3f17-4282-9cfb-2e8b128e4eab', code: 'RO-SM', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Flag_of_Satu_Mare_County.png' },
+    { name: 'Sibiu', uuid: 'a37d3d0a-26af-4426-b125-f30ee3c6cba4', code: 'RO-SB', url: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Drapel_Județul_Sibiu.png' },
+    { name: 'Suceava', uuid: 'e26e09ed-79a9-4e88-84b3-82e9dd11f009', code: 'RO-SV', url: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Drapel_Județul_Suceava.png' },
+    { name: 'Teleorman', uuid: '10e8ecf7-af60-4803-b784-1b35650b6fef', code: 'RO-TR', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Drapel_Județul_Teleorman.png' },
+    { name: 'Timiș', uuid: '29e72968-6ced-495d-a1bf-10680153986c', code: 'RO-TM', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Timis_flag.webp' },
+    { name: 'Tulcea', uuid: '2652c57b-013e-4750-b684-7326cf62896c', code: 'RO-TL', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Drapel_Județul_Tulcea.png' },
+    { name: 'Vâlcea', uuid: '9529de40-8979-4626-a972-c1e8079c1eff', code: 'RO-VL', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Valcea_flag.webp' },
+    { name: 'Vaslui', uuid: '69d4ab57-9a2d-484c-a786-4d8b0542fa9e', code: 'RO-VS', url: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Drapel_Județul_Vaslui.png' },
+    { name: 'Vrancea', uuid: 'c6773e7d-1aa9-424a-87e2-3717e8798394', code: 'RO-VN', url: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Drapel_Județul_Vrancea.png' },
+    // --- Romania (Municipality) ---
+    { name: 'București', uuid: '72ac17ca-9a6b-415b-9fcc-5d1a8e7afeee', code: 'RO-B', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Bucharest.svg' },
+
     // --- Russia (Oblasts) ---
     { name: 'Amurskaya oblast\'', uuid: '9061f48b-e736-48e9-9e9f-990e0b887d6c', code: 'RU-AMU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Amur_Oblast.svg' },
     { name: 'Arkhangel\'skaya oblast\'', uuid: '42600c00-4b16-41b0-9c6e-4eda7bf00680', code: 'RU-ARK', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Arkhangelsk_Oblast.svg' },
@@ -387,6 +594,49 @@
     { name: 'Moscow', uuid: 'f310740c-ad62-48c0-839b-e86581b9f464', code: 'RU-MOW', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Moscow.svg' },
     { name: 'Sankt-Peterburg', uuid: '808e1ef8-5390-4300-a615-c4df977cc349', code: 'RU-SPE', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saint_Petersburg.svg' },
 
+    // --- Slovakia (Regions) ---
+    { name: 'Banskobystrický kraj', uuid: '9fc6ee0c-980a-4c41-9616-55ee8521874d', code: 'SK-BC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Banskobystricky_vlajka.svg' },
+    { name: 'Bratislavský kraj', uuid: '7e6e18c7-5ca0-49e6-8755-3fdfb46ba684', code: 'SK-BL', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bratislavsky_vlajka.svg' },
+    { name: 'Košický kraj', uuid: 'b02d061a-c961-4c3e-8841-3a754c492386', code: 'SK-KI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kosicky_vlajka.svg' },
+    { name: 'Nitriansky kraj', uuid: '4c223d65-0cb6-4279-8d0b-c99ec4b4341b', code: 'SK-NI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nitriansky_vlajka.svg' },
+    { name: 'Prešovský kraj', uuid: 'bab8b52c-8e47-453f-9e50-df8898aa97aa', code: 'SK-PV', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Presovsky_vlajka.svg' },
+    { name: 'Trenčiansky kraj', uuid: '08affe0c-f350-4567-866b-75b1cd352219', code: 'SK-TC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Trenciansky_vlajka.svg' },
+    { name: 'Trnavský kraj', uuid: 'af74bfa5-35cc-451b-8e94-12aa83645647', code: 'SK-TA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Trnavsky_vlajka.svg' },
+    { name: 'Žilinský kraj', uuid: 'c21410fe-17d0-43f2-8c53-a44f1c350612', code: 'SK-ZI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Zilinsky_vlajka.svg' },
+
+    // --- South Africa (Provinces) ---
+    { name: 'Eastern Cape', uuid: 'b0f5a1fc-2f41-4c64-9383-19074799469c', code: 'ZA-EC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Eastern_Cape_Province.png' },
+    { name: 'Free State', uuid: '5376b015-48e6-4be8-9827-1f246c43868e', code: 'ZA-FS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Free_State_Province.png' },
+    { name: 'Gauteng', uuid: '9c8c3e3a-6d06-4b89-ac76-96aff8687b45', code: 'ZA-GP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Gauteng_Province.png' },
+    { name: 'KwaZulu-Natal', uuid: '5821559c-41a7-433d-b6af-3c96c8ed4a7a', code: 'ZA-NL', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_KwaZulu-Natal_Province.png' },
+    { name: 'Limpopo', uuid: '222d0da4-b670-4ba7-a094-0dbdee63b1e2', code: 'ZA-LP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Limpopo_Province.png' },
+    { name: 'Mpumalanga', uuid: 'fb281ae7-3796-4b5f-9e4d-af96a93c4141', code: 'ZA-MP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Mpumalanga_Province.svg' },
+    { name: 'North West', uuid: '8fba923b-d811-419e-be64-6ab34d5f0ef6', code: 'ZA-NW', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_North_West_Province.png' },
+    { name: 'Northern Cape', uuid: '84c2ac7d-79eb-4f8f-8777-09b984f2dd85', code: 'ZA-NC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Northern_Cape_Province.png' },
+    { name: 'Western Cape', uuid: '2c2a555d-7e53-4dd2-aa2b-eddc9376c9bf', code: 'ZA-WC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Western_Cape_Province.png' },
+
+    // --- South Korea (Cities) ---
+    { name: 'Busan', uuid: 'c8a88ba5-5d4e-4cbf-b8ab-dd0e6d99a940', code: 'KR-26', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Busan.svg' },
+    { name: 'Daegu', uuid: 'a2fe541f-e702-459e-b6b9-b119101265fb', code: 'KR-27', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Daegu.svg' },
+    { name: 'Daejeon', uuid: 'afc6d9f8-2785-454b-89a4-837bb5d89ca1', code: 'KR-30', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Daejeon.svg' },
+    { name: 'Incheon', uuid: '805deaa9-f30c-4856-baa4-19f206df64ce', code: 'KR-28', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Incheon.svg' },
+    { name: 'Sejong', uuid: '6a1dccb5-0a56-4be0-97ad-fad586fff64f', code: 'KR-50', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sejong_City.svg' },
+    { name: 'Seoul', uuid: 'aa03e165-4c73-4959-91c0-a99f9fa8ecab', code: 'KR-11', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Seoul.svg' },
+    { name: 'Ulsan', uuid: '91054c41-1932-4d4e-9c74-f3089cf57227', code: 'KR-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Ulsan.svg' },
+    // --- South Korea (Provinces) ---
+    { name: 'Chungcheongbuk-do', uuid: 'b14480fa-ca13-45ef-be7d-c5d306bec497', code: 'KR-43', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_North_Chungcheong_Province.svg' },
+    { name: 'Chungcheongnam-do', uuid: '087176dc-cd18-4522-a01a-7affd9ea8a00', code: 'KR-44', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Chungcheong_Province.svg' },
+    { name: 'Gangwon-do', uuid: 'a2c306bc-84d2-477b-916a-69b736a03ede', code: 'KR-42', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Gangwon_State.svg' },
+    { name: 'Gyeonggi-do', uuid: 'da7988eb-7408-4856-9dd5-33bd62a2385b', code: 'KR-41', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Gyeonggi_Province.svg' },
+    { name: 'Gyeongsangbuk-do', uuid: 'ecf7f3bf-ba48-4027-81ae-a7f4d75181eb', code: 'KR-47', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_North_Gyeongsang_Province.svg' },
+    { name: 'Gyeongsangnam-do', uuid: 'f9926c51-726a-4298-8a10-20855d802971', code: 'KR-48', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Gyeongsang_Province.svg' },
+    { name: 'Jeju-do', uuid: 'f1da4002-2f29-4d12-b771-d251d8f079c2', code: 'KR-49', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Jeju_Province.svg' },
+    { name: 'Jeollabuk-do', uuid: 'fee9c74b-b87c-47ac-96ae-b46717ab36fa', code: 'KR-45', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Jeonbuk_State,_South_Korea.svg' },
+    // --- South Korea (Former City) ---
+    { name: 'Gwangju', uuid: '8bf652ee-a640-4d61-98b3-b37303c2213e', code: 'KR-29', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Gwangju.svg' },
+    // --- South Korea (Former Provinces) ---
+    { name: 'Jeollanam-do', uuid: '787ea952-67d0-4674-933e-d9174c803b7b', code: 'KR-46', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Jeolla_Province.svg' },
+
     // --- Spain (Autonomous Communities) ---
     { name: 'Andalucía', uuid: '2b67f2d6-b7ff-4b51-952c-9c4943cd637e', code: 'ES-AN', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Bandera_de_Andalucia.svg' },
     { name: 'Aragón', uuid: '27bb034f-d022-4ecb-b8e4-12ed48f3286c', code: 'ES-AR', url: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Flag_of_Aragon.svg' },
@@ -459,9 +709,39 @@
     { name: 'Zug', uuid: '81c0bef1-9878-48bf-aaa2-e0342f0688cc', code: 'CH-ZG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canton_of_Zug.svg' },
     { name: 'Zürich', uuid: '6e9c8367-459e-4271-ac33-7658cdeeb271', code: 'CH-ZH', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canton_of_Z%C3%BCrich.svg' },
 
+    // --- Ukraine (Oblasts) ---
+    { name: 'Cherkas\'ka Oblast\'', uuid: '0877fc7c-eaed-4de5-9a03-0a9f977a4e94', code: 'UA-71', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Cherkasy_Oblast.svg' },
+    { name: 'Chernihivs\'ka Oblast\'', uuid: 'a9c9e71e-43f6-4aad-a470-de3f3aec6d40', code: 'UA-74', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Chernihiv_Oblast.svg' },
+    { name: 'Chernivets\'ka Oblast\'', uuid: 'f491f92e-e657-43ed-8eb2-5bee763d0ccc', code: 'UA-77', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Chernivtsi_Oblast.svg' },
+    { name: 'Dnipropetrovs\'ka Oblast\'', uuid: '3884a385-0bbe-47f9-bd21-f4eb05c535bb', code: 'UA-12', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Dnipropetrovsk_Oblast.svg' },
+    { name: 'Donets\'ka Oblast\'', uuid: 'd18f98af-57f4-43af-a12a-a860e0545fe5', code: 'UA-14', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Donetsk_Oblast.svg' },
+    { name: 'Ivano-Frankivs\'ka Oblast\'', uuid: '33635a21-84fb-484b-91cd-adc875a17b3c', code: 'UA-26', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Ivano-Frankivsk_Oblast.svg' },
+    { name: 'Kharkivs\'ka Oblast\'', uuid: 'd4568475-5a6a-43e9-ab49-4bdbe2b746ce', code: 'UA-63', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Kharkiv_Oblast.svg' },
+    { name: 'Khersons\'ka Oblast\'', uuid: '8cc59f2d-dd08-47f1-bf36-418f6c65a947', code: 'UA-65', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Kherson_Oblast.svg' },
+    { name: 'Khmel\'nyts\'ka Oblast\'', uuid: '8725b70a-745a-4a38-a004-ecbbb8c08bbc', code: 'UA-68', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Khmelnytskyi_Oblast.svg' },
+    { name: 'Kirovohrads\'ka Oblast\'', uuid: '3bef8750-f0fe-42b4-82f0-562a4875c246', code: 'UA-35', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Kirovohrad_Oblast.svg' },
+    { name: 'Kyïvs\'ka Oblast\'', uuid: '783981f6-86e6-437e-849a-b95bb9039336', code: 'UA-32', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Kyiv_Oblast.svg' },
+    { name: 'L\'vivs\'ka Oblast\'', uuid: '997a775f-fd0d-4371-884a-6260d4df1cfa', code: 'UA-46', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Lviv_Oblast.svg' },
+    { name: 'Luhans\'ka Oblast\'', uuid: '3890e088-4cdc-4d03-ae73-4fefb0076b15', code: 'UA-09', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Luhansk_Oblast.svg' },
+    { name: 'Mykolaïvs\'ka Oblast\'', uuid: '3001cf25-4df2-4ffe-891c-87639d5e9c03', code: 'UA-48', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Mykolaiv_Oblast.svg' },
+    { name: 'Odes\'ka Oblast\'', uuid: '2982896a-1d3d-4e10-87f0-e69ed42ff485', code: 'UA-51', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Odesa_Oblast.svg' },
+    { name: 'Poltavs\'ka Oblast\'', uuid: '9aa0186f-7e1c-4162-b100-03083f844700', code: 'UA-53', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Poltava_Oblast.svg' },
+    { name: 'Rivnens\'ka Oblast\'', uuid: '4588b235-1002-4075-9dcd-604ba603d3d0', code: 'UA-56', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Rivne_Oblast.svg' },
+    { name: 'Sums\'ka Oblast\'', uuid: 'eada54dc-7dcc-439b-84b8-7ffe02516ac4', code: 'UA-59', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sumy_Oblast.svg' },
+    { name: 'Ternopil\'s\'ka Oblast\'', uuid: 'b875a439-cc00-4b72-bba9-511f873dec9f', code: 'UA-61', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Ternopil_Oblast.svg' },
+    { name: 'Vinnyts\'ka Oblast\'', uuid: 'c8125356-b93a-46f4-8b77-4bf4ff6b6f04', code: 'UA-05', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vinnytsia_Oblast.svg' },
+    { name: 'Volyns\'ka Oblast\'', uuid: '31039258-dc1d-496d-8339-f7036ea52baa', code: 'UA-07', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Volyn_Oblast.svg' },
+    { name: 'Zakarpats\'ka Oblast\'', uuid: '56960785-0d23-4654-bfa3-da6db8fedc37', code: 'UA-21', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Zakarpattia_Oblast.svg' },
+    { name: 'Zaporiz\'ka Oblast\'', uuid: '1e114e21-1cf2-4730-8d29-b1a64b920e11', code: 'UA-23', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Zaporizhzhia_Oblast.svg' },
+    { name: 'Zhytomyrs\'ka Oblast\'', uuid: '716ce7fe-313c-485e-a219-4e87287612c6', code: 'UA-18', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Zhytomyr_Oblast.svg' },
+    // --- Ukraine (Cities) ---
+    { name: 'Kyïv', uuid: '51c526a4-ed34-4eaf-94cf-0b96cd019d47', code: 'UA-30', url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kyiv_Kurovskyi.svg' },
+    { name: 'Sevastopol\'', uuid: '9c50516f-5315-4fba-a279-c09511dd6d5a', code: 'UA-40', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sevastopol.svg' },
+    // --- Ukraine (Autonomous Republic) ---
+    { name: 'Avtonomna Respublika Krym', uuid: '3cc9dfbe-e4b6-4e49-8bbc-3cb16932086a', code: 'UA-43', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Crimea.svg' },
+
     // --- United Kingdom (Countries) ---
     { name: 'England', uuid: '9d5dd675-3cf4-4296-9e39-67865ebee758', code: 'GB-ENG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_England.svg' },
-    { name: 'Northern Ireland', uuid: '2b30f961-ed7c-40d2-a9c5-6a905b35439a', code: 'GB-NIR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ulster_banner.svg' },
     { name: 'Scotland', uuid: '6fa1c7da-6689-4cec-85f9-680f853e8a08', code: 'GB-SCT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Scotland.svg' },
     { name: 'Wales', uuid: '8297708c-5743-47d6-a5ac-f40a41c49ad9', code: 'GB-WLS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Wales.svg' },
 

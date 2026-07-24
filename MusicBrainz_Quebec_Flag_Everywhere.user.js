@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         MusicBrainz: Quebec Flag Everywhere
 // @namespace    https://musicbrainz.org/
-// @version      2026-07-06.1149
+// @version      2026-07-23.2201
 // @description  Prepend a flag span before Québec links, with one alignment for normal text and another for <h1> headers.
-// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Canadian_Province_Flags_Everywhere.user.js
-// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Canadian_Province_Flags_Everywhere.user.js
+// @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
+// @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @author       Lotheric
 // @tag          ai-created
 // @icon         https://community.metabrainz.org/user_avatar/community.metabrainz.org/lotheric/288/88429_2.png

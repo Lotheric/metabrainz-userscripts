@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://musicbrainz.org/
-// @version      2026-07-24.1603
-// @description  Shows flags of areas that aren't countries on MusicBrainz.
+// @version      2026-07-25.1825
+// @description  Shows flags of areas that aren't countries on MusicBrainz. Uses IndexedDB for caching.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @author       Lotheric
@@ -442,6 +442,27 @@
     { name: 'Aust-Agder', uuid: '0bd0e394-e3aa-4e33-b06c-80a4aede075f', code: 'NO-09', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aust-Agder.svg' },
     { name: 'Vest-Agder', uuid: 'dd3304af-d4a7-44e2-838d-aa539bbac0be', code: 'NO-10', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vest-Agder.svg' },
 
+    // --- Paraguay (Departments) ---
+    { name: 'Alto Paraguay', uuid: 'b60d6245-4660-4ed5-8f01-0f6f4fc69b50', code: 'PY-16', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Bandera_de_Alto_Paraguay.png' },
+    { name: 'Alto Paraná', uuid: 'd0e10d1a-b641-4d1b-b580-35c0be68a1ee', code: 'PY-10', url: 'https://upload.wikimedia.org/wikipedia/commons/7/76/Bandera_del_Departamento_de_Alto_Paraná.png' },
+    { name: 'Amambay', uuid: 'c65da01c-eff0-407d-b18a-422206f6c5b3', code: 'PY-13', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b0/Flag_of_Amambay.svg' },
+    { name: 'Boquerón', uuid: '19f88b1b-63d8-4f66-9021-b7405493cac2', code: 'PY-19', url: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Boquerón_Department.svg' },
+    { name: 'Caaguazú', uuid: 'f270bc18-bc32-44a9-8c89-326d4815625e', code: 'PY-5', url: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Caaguazú_Department.svg' },
+    { name: 'Caazapá', uuid: 'b6a96c16-11b7-4c30-9c6e-1425994c952e', code: 'PY-6', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Caazapá_Department.svg' },
+    { name: 'Canindeyú', uuid: '636e5889-3e0f-4279-b97f-f8240f4eb935', code: 'PY-14', url: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_Canindeyú_Department.svg' },
+    { name: 'Central', uuid: 'ad85013a-417c-4e4b-a8ce-dc0fe4339d60', code: 'PY-11', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Flag_of_Central_Department%2C_Paraguay.svg' },
+    { name: 'Concepción', uuid: 'efa66668-604f-4746-adf5-749b5adaede3', code: 'PY-1', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Flag_of_Concepción_Department.svg' },
+    { name: 'Cordillera', uuid: 'e9d40666-4548-45d6-b706-bafe834ffc90', code: 'PY-3', url: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Flag_of_Cordillera%2C_Paraguay.svg' },
+    { name: 'Guairá', uuid: '1572bc83-70fc-4a46-b06c-8ed214b2baa7', code: 'PY-4', url: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Flag_of_Guairá_Department.svg' },
+    { name: 'Itapúa', uuid: '93b8fe88-3a58-4edd-8be1-f1f81fa4e3a5', code: 'PY-7', url: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Flag_of_Itapúa_Department.svg' },
+    { name: 'Misiones', uuid: '5a78fefe-c633-4ccf-9ea6-2ab98c0aeee8', code: 'PY-8', url: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Misiones%2C_Paraguay.svg' },
+    { name: 'Paraguarí', uuid: '4c7d5095-4a2b-420a-97f8-f3b4388c2096', code: 'PY-9', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Flag_of_Paraguarí_Department.svg' },
+    { name: 'Presidente Hayes', uuid: '8142ac52-20e2-4229-9252-c68f539f3078', code: 'PY-15', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Bandera_del_Departamento_de_Presidente_Hayes%282025%29.png' },
+    { name: 'San Pedro', uuid: 'cc12d50b-e1a9-49c8-95bf-6919eeb1d5e8', code: 'PY-2', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_San_Pedro_Department_%28Paraguay%29.svg' },
+    { name: 'Ñeembucú', uuid: 'bfc82496-8d99-48d8-94f2-cedefde32f9b', code: 'PY-12', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Bandera_del_Departamento_de_Ñeembucú.jpg' },
+    // --- Paraguay (Capital District) ---
+    { name: 'Asunción', uuid: 'f1d8d4e7-e72a-4782-a350-f60a3e5b69b6', code: 'PY-ASU', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Flag_of_Asunción.svg' },
+
     // --- Poland (Voivodeships) ---
     { name: 'Dolnośląskie', uuid: 'e01a7d82-16e5-4644-9359-eaf2cef729fa', code: 'PL-DS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_dolno%C5%9Bl%C4%85skie_flag.svg' },
     { name: 'Kujawsko-pomorskie', uuid: '114ed91f-900e-4329-9031-896b183d8e1c', code: 'PL-KP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_kujawsko-pomorskie_flag.svg' },
@@ -797,7 +818,26 @@
     { name: 'Wisconsin', uuid: '10cb2ebd-1bc7-4c11-b10d-54f60c421d20', code: 'US-WI', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_Wisconsin.svg' },
     { name: 'Wyoming', uuid: 'c2dca60c-5a5f-43b9-8591-3d4e454cac4e', code: 'US-WY', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Wyoming.svg' },
     // --- United States (District) ---
-    { name: 'Washington D.C.', uuid: 'af59135f-38b5-4ea4-b4e2-dd28c5f0bad7', code: 'US-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg' }
+    { name: 'Washington D.C.', uuid: 'af59135f-38b5-4ea4-b4e2-dd28c5f0bad7', code: 'US-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg' },
+
+    // --- Uruguay (Departments) ---
+    { name: 'Artigas', uuid: 'be86ade4-0166-44e7-82d1-7625a5d6156c', code: 'UY-AR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Artigas_Department.svg' },
+    { name: 'Canelones', uuid: '2dcc1093-b5ff-4228-8dcd-7ea063265e7e', code: 'UY-CA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canelones_Department.svg' },
+    { name: 'Cerro Largo', uuid: 'be8c2317-bd80-4540-b45c-335a6ce65ed1', code: 'UY-CL', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Cerro_Largo_Department.svg' },
+    { name: 'Colonia', uuid: '28af4fbb-951a-4a9f-9448-b449166b0cb3', code: 'UY-CO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Colonia_Department.svg' },
+    { name: 'Durazno', uuid: 'c03a898d-2bad-431d-aa98-f9775a59ad9f', code: 'UY-DU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Durazno_Department.svg' },
+    { name: 'Flores', uuid: '87bfb905-ea0a-4891-bffc-7e2fe52e8d0f', code: 'UY-FS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Flores_Department.svg' },
+    { name: 'Florida', uuid: '289222ec-bf34-4021-b664-f25dbbbf7c38', code: 'UY-FD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Florida_Department.svg' },
+    { name: 'Lavalleja', uuid: '49f00fb2-f114-40be-9b2d-1f934c90b941', code: 'UY-LA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Lavalleja_Department.svg' },
+    { name: 'Maldonado', uuid: '17d3f143-3304-43bc-8471-fc123ef70181', code: 'UY-MA', url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_Maldonado_Department.png' },
+    { name: 'Paysandú', uuid: '665a4625-d61b-4e0e-bcff-05db2bbd1d0b', code: 'UY-PA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Paysand%C3%BA_Department.svg' },
+    { name: 'Río Negro', uuid: 'd2a09d24-3e6a-491e-ae80-25d41415106e', code: 'UY-RN', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Flag_of_Rio_Negro_Department.svg' },
+    { name: 'Rivera', uuid: '12c77d23-c993-43f0-b44f-830bb954849a', code: 'UY-RV', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Rivera_Department.png' },
+    { name: 'Rocha', uuid: 'b5bc1204-b2e7-4cf9-af7a-905d2a3d502f', code: 'UY-RO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Rocha_Department.svg' },
+    { name: 'Salto', uuid: '26c5c977-c9a5-4b8e-a985-08e4221e0567', code: 'UY-SA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Salto_Department.svg' },
+    { name: 'San José', uuid: '95dac740-75da-484f-8094-3d4b547391fe', code: 'UY-SJ', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_San_Jos%C3%A9_Department.svg' },
+    { name: 'Soriano', uuid: '41fe82fc-014c-40fa-b8e0-681bda0eaefa', code: 'UY-SO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Soriano_Department.svg' },
+    { name: 'Treinta y Tres', uuid: '94349cbf-8dde-4187-9343-69f6851c78c2', code: 'UY-TT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Treinta_y_Tres_Department.svg' }
   ];
 
   const css = `
@@ -820,26 +860,89 @@
   style.textContent = css;
   document.head.appendChild(style);
 
-  // --- Caching Logic ---
+
+  // --- Caching Logic (IndexedDB) ---
+  let dbPromise = null;
 
   /**
-   * @param {string} code
-   * @returns {string | null}
+   * Initializes or fetches the IndexedDB database for flags.
+   * @returns {Promise<IDBDatabase>}
    */
-  function getCachedFlag(code) {
+  function getDB() {
+    if (!dbPromise) {
+      dbPromise = new Promise((resolve, reject) => {
+        const request = indexedDB.open('MusicBrainzFlags', 1);
+        request.onupgradeneeded = (event) => {
+          const db = event.target.result;
+          if (!db.objectStoreNames.contains('flags')) {
+            db.createObjectStore('flags');
+          }
+        };
+        request.onsuccess = (event) => resolve(event.target.result);
+        request.onerror = (event) => reject(event.target.error);
+      });
+    }
+    return dbPromise;
+  }
+
+  /**
+   * Reads a flag from IndexedDB.
+   * @param {string} code
+   * @returns {Promise<string | null>}
+   */
+  function getCachedFlagDB(code) {
+    return getDB().then(db => {
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction('flags', 'readonly');
+        const store = transaction.objectStore('flags');
+        const request = store.get(code);
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => resolve(null); // Return null to trigger refetch
+      });
+    }).catch(() => null);
+  }
+
+  /**
+   * Writes a flag to IndexedDB.
+   * @param {string} code
+   * @param {string} dataUrl
+   * @returns {Promise<void>}
+   */
+  function setCachedFlagDB(code, dataUrl) {
+    return getDB().then(db => {
+      return new Promise((resolve, reject) => {
+        const transaction = db.transaction('flags', 'readwrite');
+        const store = transaction.objectStore('flags');
+        const request = store.put(dataUrl, code);
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      });
+    }).catch(err => console.warn('Could not save flag to IndexedDB', err));
+  }
+
+  /**
+   * Cleans out any old flags sitting in localStorage from older versions of this script.
+   */
+  function clearOldLocalStorageCache() {
     try {
-      return localStorage.getItem('mb_flag_cache_' + code);
+      for (let i = localStorage.length - 1; i >= 0; i--) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('mb_flag_cache_')) {
+          localStorage.removeItem(key);
+        }
+      }
     } catch (e) {
-      return null;
+      console.warn("Could not clear old localStorage flags", e);
     }
   }
 
   /**
+   * Fetches SVG, turns it into a DataURL, and saves it to IDB.
    * @param {Region} match
+   * @param {HTMLImageElement} imgElement
    */
-  function fetchAndCache(match) {
+  function fetchAndCache(match, imgElement) {
     const fetchingKey = 'mb_flag_fetching_' + match.code;
-    const cacheKey = 'mb_flag_cache_' + match.code;
 
     try {
       if (sessionStorage.getItem(fetchingKey)) return;
@@ -856,10 +959,14 @@
         reader.onloadend = () => {
           try {
             if (typeof reader.result === 'string') {
-              localStorage.setItem(cacheKey, reader.result);
+              setCachedFlagDB(match.code, reader.result);
+              // Safely update the image if it rendered before fetching finished
+              if (imgElement && imgElement.src !== reader.result) {
+                imgElement.src = reader.result;
+              }
             }
           } catch (e) {
-            console.warn('Could not save flag to localStorage', e);
+            console.warn('Error processing flag blob', e);
           } finally {
             try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
           }
@@ -913,17 +1020,18 @@
 
     const img = document.createElement('img');
     img.className = 'flag flag-custom-region';
-
-    const cachedSrc = getCachedFlag(match.code);
-    if (cachedSrc) {
-      img.src = cachedSrc;
-    } else {
-      img.src = match.url;
-      fetchAndCache(match);
-    }
-
     img.alt = match.name;
     img.title = match.name;
+
+    // Async IndexedDB lookup
+    getCachedFlagDB(match.code).then(cachedSrc => {
+      if (cachedSrc) {
+        img.src = cachedSrc;
+      } else {
+        img.src = match.url; // Immediately render native URL fallback
+        fetchAndCache(match, img); // Fetch DataURL and store async
+      }
+    });
 
     iconSpan.appendChild(img);
     return iconSpan;
@@ -993,6 +1101,7 @@
   }
 
   function init() {
+    clearOldLocalStorageCache(); // Free up the QuotaExceededError right away
     insertFlags();
     new MutationObserver(() => insertFlags()).observe(document.body, { childList: true, subtree: true });
   }

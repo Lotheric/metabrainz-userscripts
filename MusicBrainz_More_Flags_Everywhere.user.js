@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
-// @namespace    https://musicbrainz.org/
-// @version      2026-07-25.1825
+// @namespace    https://github.com/Lotheric/metabrainz-userscripts/
+// @version      2026-07-27.1944
 // @description  Shows flags of areas that aren't countries on MusicBrainz. Uses IndexedDB for caching.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -10,7 +10,9 @@
 // @icon         https://community.metabrainz.org/user_avatar/community.metabrainz.org/lotheric/288/88429_2.png
 // @match        https://musicbrainz.org/*
 // @match        https://beta.musicbrainz.org/*
-// @grant        none
+// @grant        GM_xmlhttpRequest
+// @connect      commons.wikimedia.org
+// @connect      upload.wikimedia.org
 // ==/UserScript==
 
 (function() {
@@ -864,10 +866,6 @@
   // --- Caching Logic (IndexedDB) ---
   let dbPromise = null;
 
-  /**
-   * Initializes or fetches the IndexedDB database for flags.
-   * @returns {Promise<IDBDatabase>}
-   */
   function getDB() {
     if (!dbPromise) {
       dbPromise = new Promise((resolve, reject) => {
@@ -885,11 +883,6 @@
     return dbPromise;
   }
 
-  /**
-   * Reads a flag from IndexedDB.
-   * @param {string} code
-   * @returns {Promise<string | null>}
-   */
   function getCachedFlagDB(code) {
     return getDB().then(db => {
       return new Promise((resolve, reject) => {
@@ -897,17 +890,11 @@
         const store = transaction.objectStore('flags');
         const request = store.get(code);
         request.onsuccess = () => resolve(request.result);
-        request.onerror = () => resolve(null); // Return null to trigger refetch
+        request.onerror = () => resolve(null);
       });
     }).catch(() => null);
   }
 
-  /**
-   * Writes a flag to IndexedDB.
-   * @param {string} code
-   * @param {string} dataUrl
-   * @returns {Promise<void>}
-   */
   function setCachedFlagDB(code, dataUrl) {
     return getDB().then(db => {
       return new Promise((resolve, reject) => {
@@ -920,9 +907,6 @@
     }).catch(err => console.warn('Could not save flag to IndexedDB', err));
   }
 
-  /**
-   * Cleans out any old flags sitting in localStorage from older versions of this script.
-   */
   function clearOldLocalStorageCache() {
     try {
       for (let i = localStorage.length - 1; i >= 0; i--) {
@@ -937,9 +921,7 @@
   }
 
   /**
-   * Fetches SVG, turns it into a DataURL, and saves it to IDB.
-   * @param {Region} match
-   * @param {HTMLImageElement} imgElement
+   * Fetches SVG using GM_xmlhttpRequest to bypass CORS, turns it into a DataURL, and saves it to IDB.
    */
   function fetchAndCache(match, imgElement) {
     const fetchingKey = 'mb_flag_fetching_' + match.code;
@@ -949,41 +931,45 @@
       sessionStorage.setItem(fetchingKey, '1');
     } catch (e) {}
 
-    fetch(match.url)
-      .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.blob();
-      })
-      .then(blob => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          try {
-            if (typeof reader.result === 'string') {
-              setCachedFlagDB(match.code, reader.result);
-              // Safely update the image if it rendered before fetching finished
-              if (imgElement && imgElement.src !== reader.result) {
-                imgElement.src = reader.result;
+    // Bypass CORS utilizing GM_xmlhttpRequest instead of standard fetch
+    GM_xmlhttpRequest({
+      method: 'GET',
+      url: match.url,
+      responseType: 'blob',
+      onload: function(response) {
+        if (response.status >= 200 && response.status < 300) {
+          const blob = response.response;
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            try {
+              if (typeof reader.result === 'string') {
+                setCachedFlagDB(match.code, reader.result);
+                // Safely update the image if it rendered before fetching finished
+                if (imgElement && imgElement.src !== reader.result) {
+                  imgElement.src = reader.result;
+                }
               }
+            } catch (e) {
+              console.warn('Error processing flag blob', e);
+            } finally {
+              try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
             }
-          } catch (e) {
-            console.warn('Error processing flag blob', e);
-          } finally {
-            try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
-          }
-        };
-        reader.readAsDataURL(blob);
-      })
-      .catch(err => {
+          };
+          reader.readAsDataURL(blob);
+        } else {
+          console.error(`Error fetching flag for ${match.name}: HTTP ${response.status}`);
+          try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
+        }
+      },
+      onerror: function(err) {
         console.error(`Error fetching flag for ${match.name}:`, err);
         try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
-      });
+      }
+    });
   }
 
   // --- DOM Manipulation ---
 
-  /**
-   * @param {Element} el
-   */
   function nukeIconsAndSpaces(el) {
     el.querySelectorAll('.area-icon, .type-icon, .arealink').forEach(n => n.remove());
 
@@ -1010,10 +996,6 @@
     }
   }
 
-  /**
-   * @param {Region} match
-   * @returns {HTMLSpanElement}
-   */
   function createFlagIcon(match) {
     const iconSpan = document.createElement('span');
     iconSpan.className = 'area-icon';
@@ -1100,10 +1082,24 @@
     });
   }
 
+  let debounceTimer;
+
   function init() {
-    clearOldLocalStorageCache(); // Free up the QuotaExceededError right away
+    clearOldLocalStorageCache();
     insertFlags();
-    new MutationObserver(() => insertFlags()).observe(document.body, { childList: true, subtree: true });
+
+    // Use debounce to prevent DOM loop flooding seen in 1.png and 2.png
+    const observer = new MutationObserver(() => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+            // Disconnect temporarily so changes do not trigger the observer again
+            observer.disconnect();
+            insertFlags();
+            observer.observe(document.body, { childList: true, subtree: true });
+        }, 150);
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 
   if (document.readyState === 'loading') {

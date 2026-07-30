@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-07-30.0938
+// @version      2026-07-30.1031
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -37,7 +37,21 @@
     { name: 'Antarctica', uuid: 'aca6cbc7-4f3b-3020-8de3-c21718fe24f1', code: 'AQ', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/True_South_Antarctic_Flag.svg' },
     { name: 'Antigua and Barbuda', uuid: '2a8cc14f-8d47-389b-b54d-e94312b23d27', code: 'AG', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg' },
     { name: 'Argentina', uuid: 'e71360c5-55ce-32d3-9bc7-cfa5f5fecf5c', code: 'AR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Argentina.svg' },
+    { name: 'Armenia', uuid: '6474fa20-e0d6-3ef2-95ce-a6f73408cd5e', code: 'AM', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg' },
+    { name: 'Aruba', uuid: 'ae8222dd-0b5b-3962-9671-30375b625ce9', code: 'AW', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Aruba.svg' },
     { name: 'Australia', uuid: '106e0bec-b638-3b37-b731-f53d507dc00e', code: 'AU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Australia.svg' },
+    { name: 'Austria', uuid: 'caac77d1-a5c8-3e6e-8e27-90b44dcc1446', code: 'AT', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Austria.svg' },
+    { name: 'Azerbaijan', uuid: 'b211ad01-2f7d-32e9-80ed-cfd6c9eb6845', code: 'AZ', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Azerbaijan.svg' },
+    { name: 'Bahamas', uuid: 'f8b33963-7364-33be-8c6c-5ab2e1075ae1', code: 'BS', url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_the_Bahamas.svg' },
+    { name: 'Bahrein', uuid: '65f4f7a6-d3c1-3a6b-a726-85e147d555b7', code: 'BH', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg' },
+    { name: 'Bangladesh', uuid: '20395c3e-610c-34fd-9995-6b6f299121f2', code: 'BD', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg' },
+    { name: 'Barbados', uuid: 'e5d8d205-81d3-3cd3-8956-d5aaa0c0173f', code: 'BB', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Barbados.svg' },
+    { name: 'Belarus', uuid: '660e3c48-b301-3c8c-9708-0f71d5d094d6', code: 'BY', url: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Belarus.svg' },
+    { name: 'Belgium', uuid: '5b8a5ee5-0bb3-34cf-9a75-c27c44e341fc', code: 'BE', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg' },
+    { name: 'Belize', uuid: '6bf45af6-f1bf-357c-91b5-9593a9c32cb0', code: 'BZ', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Belize.svg' },
+    { name: 'Benin', uuid: '1f72ee74-2d3f-3a40-846b-e3d780b73dd2', code: 'BJ', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Benin.svg' },
+    { name: 'Bermuda', uuid: 'df3bbd94-6a4c-3fc3-bb6e-cd701623db8a', code: 'BM', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bermuda.svg' },
+
     { name: 'Brazil', uuid: 'b253ba64-d6e0-3165-afde-b03a7d420cc5', code: 'BR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Brazil.svg' },
     { name: 'Canada', uuid: '71bbafaa-e825-3e15-8ca9-017dcad1748b', code: 'CA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canada.svg' },
     { name: 'Denmark', uuid: '01918349-f00e-3fa1-aa05-0951a84f3df9', code: 'DK', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Denmark.svg' },

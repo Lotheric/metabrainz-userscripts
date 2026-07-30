@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-07-30.1033
+// @version      2026-07-30.1038
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js

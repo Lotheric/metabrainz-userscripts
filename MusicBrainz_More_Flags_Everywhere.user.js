@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-07-27.1944
+// @version      2026-07-31.1456
 // @description  Shows flags of areas that aren't countries on MusicBrainz. Uses IndexedDB for caching.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -138,6 +138,21 @@
     { name: 'Northwest Territories', uuid: '77acc8b0-2a12-4831-b142-d5ea39702424', code: 'CA-NT', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_the_Northwest_Territories.svg' },
     { name: 'Nunavut', uuid: '79c3204c-1cd8-4906-a2d7-43aeb997927c', code: 'CA-NU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Flag_of_Nunavut.svg' },
     { name: 'Yukon', uuid: '97aef002-a327-4237-a2d3-25244d425d17', code: 'CA-YT', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Yukon.svg' },
+    // --- Canada (Regions) ---
+    { name: 'Cape Breton', uuid: '40713e43-6184-4248-99b9-5f15103b47de', code: 'CA-NS-CB', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Cape_Breton_Island_Flag_%28Eagle%29.svg' },
+    { name: 'Labrador', uuid: '275bdbd4-3bcd-4b27-8316-cd2f0da765c3', code: 'CA-NL-LB', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Labrador.svg' },
+    { name: 'Nunavik', uuid: '48691d34-cdf3-4f07-a84f-7cbab5dba7c8', code: 'CA-QC-NU', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Nunavik_%28Thomassie_Mangiok%29.svg' },
+    { name: 'Saguenay–Lac-Saint-Jean', uuid: 'a9595f2a-0211-4e1f-a446-0c61dc0aeacb', code: 'CA-QC-02', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Saguenay-Lac-Saint-Jean.svg' },
+    // --- Canada (Municipalities) ---
+    { name: 'Charlottetown', uuid: '17b6837b-bd65-4ad9-8440-c28794348704', code: 'CA-PE-CHA', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Charlottetown.svg' },
+    { name: 'Hamilton', uuid: 'c45dab1e-8cb1-4ca3-af6c-0762c590f333', code: 'CA-QC-HAM', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Hamilton.svg' },
+    { name: 'Montréal', uuid: 'c3cc624e-b963-49cf-ad0b-e318cb341963', code: 'CA-QC-MTL', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Montreal.svg' },
+    { name: 'Ottawa', uuid: 'bbc88d72-1f32-4936-8dc6-b62b3318e1c4', code: 'CA-QC-OTT', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Flag_of_Ottawa%2C_Ontario.svg' },
+    { name: 'Québec', uuid: 'e1804252-7413-4a4d-a34d-d21a8e8e752b', code: 'CA-QC-QUE', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Flag_of_Quebec_City.svg' },
+    { name: 'Regina', uuid: 'f2855648-5890-4942-b248-f8ca0d5e2a89', code: 'CA-SK-REG', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Flag_of_Regina.svg' },
+    { name: 'Toronto', uuid: '74b24e62-d2fe-42d2-9d96-31f2da756c77', code: 'CA-ON-TOR', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Toronto%2C_Canada.svg' },
+    { name: 'Vancouver', uuid: '6ccc62d1-bdd8-4f08-8fae-bfaa5310e5ef', code: 'CA-ON-VAN', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Flag_of_Vancouver.svg' },
+    { name: 'Winnipeg', uuid: '35307acf-aba0-4ca7-9df6-b9398d873a8f', code: 'CA-ON-WPG', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Flag_of_Winnipeg.svg' },
 
     // --- Chile (Regions and Provinces) ---
     { name: 'Aisén del General Carlos Ibáñez del Campo', uuid: 'f8efcc5a-b64e-4be6-9a38-78f5e7b47174', code: 'CL-AI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aysen,_Chile.svg' },
@@ -767,6 +782,13 @@
     { name: 'England', uuid: '9d5dd675-3cf4-4296-9e39-67865ebee758', code: 'GB-ENG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_England.svg' },
     { name: 'Scotland', uuid: '6fa1c7da-6689-4cec-85f9-680f853e8a08', code: 'GB-SCT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Scotland.svg' },
     { name: 'Wales', uuid: '8297708c-5743-47d6-a5ac-f40a41c49ad9', code: 'GB-WLS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Wales.svg' },
+    // --- United Kingdom (Crown Dependencies) ---
+    { name: 'Alderney', uuid: '10c1cfab-7caf-4f46-b666-188237608b40', code: 'GB-ALD', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Alderney.svg' },
+    { name: 'Sark', uuid: '24d14d4f-4fb6-4838-8ffb-470a4e8cc281', code: 'GB-SAR', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Flag_of_Sark_%28bordered%29.svg' },
+    // --- United Kingdom (Overseas Territories) ---
+    { name: 'Ascension', uuid: '17e091a9-f91d-494f-bd63-3ec6f0c38d73', code: 'SH-AC', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Ascension_Island.svg' },
+    { name: 'Saint Helena', uuid: '8a2a7450-8ab1-485f-b63d-f849f2966c0b', code: 'SH-HL', url: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Saint_Helena.svg' },
+    { name: 'Tristan da Cunha', uuid: 'd19ab530-a1d4-4c89-ba92-d89ed771fcac', code: 'SH-TA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Tristan_da_Cunha.svg' },
 
     // --- United States (States) ---
     { name: 'Alabama', uuid: 'cffc0190-1aa2-489f-b6f9-43b9a9e01a91', code: 'US-AL', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Alabama.svg' },
@@ -821,6 +843,50 @@
     { name: 'Wyoming', uuid: 'c2dca60c-5a5f-43b9-8591-3d4e454cac4e', code: 'US-WY', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Wyoming.svg' },
     // --- United States (District) ---
     { name: 'Washington D.C.', uuid: 'af59135f-38b5-4ea4-b4e2-dd28c5f0bad7', code: 'US-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg' },
+    // --- United States (Territories) ---
+    { name: 'Johnston Atoll', uuid: '9eb0b3a4-b212-40ff-9009-6b65ff988ea2', code: 'UM-67', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flag_of_the_Johnston_Atoll.svg' },
+    { name: 'Midway Islands', uuid: '0a2a0867-543f-40db-a8d8-6c6c99d55431', code: 'UM-71', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_the_Midway_Islands_%28local%29.svg' },
+    { name: 'Palmyra Atoll', uuid: '3704d613-b691-4bc3-a535-4a25f5368d56', code: 'UM-95', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_Palmyra_Atoll_%28local%29.svg' },
+    { name: 'Wake Island', uuid: '926aa4ca-d61b-4e42-b52b-7312351fabf5', code: 'UM-79', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Wake_Island.svg' },
+    // --- United States (Cities) ---
+    { name: 'Atlanta', uuid: '26e0e534-19ea-4645-bfb3-1aa4e83a4046', code: 'US-GA-ATL', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Atlanta.svg' },
+    { name: 'Austin', uuid: '58d2816b-daf9-4fc5-962c-06967f14a5e5', code: 'US-TX-ATX', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Austin%2C_Texas.svg' },
+    { name: 'Baltimore', uuid: '2fb5445d-3987-49fe-957a-f730a7acc4a2', code: 'US-MD-BAL', url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Baltimore%2C_Maryland.svg' },
+    { name: 'Boston', uuid: 'e331bfdf-b908-429c-a79b-710cf9c06abb', code: 'US-MA-BOS', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Boston.svg' },
+    { name: 'Charlotte', uuid: 'a647136e-1680-4456-bd3a-750752331141', code: 'US-NC-CLT', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_Charlotte%2C_North_Carolina.svg' },
+    { name: 'Chicago', uuid: '29a709d8-0320-493e-8d0c-f2c386662b7f', code: 'US-IL-CHI', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Chicago%2C_Illinois.svg' },
+    { name: 'Cincinnati', uuid: 'b2cf490f-a8a7-4875-a1b7-addede3b327f', code: 'US-OH-CIN', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Cincinnati%2C_Ohio.svg' },
+    { name: 'Cleveland', uuid: '7b2ca1e7-e7f6-4155-881d-c660a45c11e8', code: 'US-OH-CLE', url: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Cleveland%2C_Ohio.svg' },
+    { name: 'Columbus', uuid: '18187bcb-18e6-4075-903e-fb976db17a55', code: 'US-OH-COL', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Flag_of_Columbus%2C_Ohio.svg' },
+    { name: 'Dallas', uuid: 'e96f1c0d-721b-470d-a9c4-0aa2d89cf9e7', code: 'US-TX-DAL', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Dallas.svg' },
+    { name: 'Denver', uuid: 'fc1aee9a-f1a8-45dc-8820-af6b5d7f7450', code: 'US-CO-DEN', url: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Denver%2C_Colorado.svg' },
+    { name: 'Detroit', uuid: 'b03ff310-d8e2-45cf-9455-769f76641eb2', code: 'US-MI-DET', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Detroit.svg' },
+    { name: 'Houston', uuid: 'c920948b-83e3-40b7-8fe9-9ab5abaac55b', code: 'US-TX-HOU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/97/Flag_of_Houston_Texas.svg' },
+    { name: 'Indianapolis', uuid: '3bb238a4-c2a4-44e5-9843-a63e71b17e83', code: 'US-IN-IND', url: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Indianapolis.svg' },
+    { name: 'Jacksonville', uuid: '92d87c63-fc98-46cb-b3a6-a75a4b67d1cf', code: 'US-FL-JKS', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Jacksonville%2C_Florida.svg' },
+    { name: 'Kansas City', uuid: 'c1fc21db-40e9-47f5-af93-f3ebe6581113', code: 'US-MO-KC', url: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kansas_City%2C_Missouri.svg' },
+    { name: 'Las Vegas', uuid: 'cd22d0ba-c79b-45b3-a8e0-617b240df5f0', code: 'US-NV-LV', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Las_Vegas%2C_Nevada.svg' },
+    { name: 'Los Angeles', uuid: '1f40c6e1-47ba-4e35-996f-fe6ee5840e62', code: 'US-CA-LA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Flag_of_Los_Angeles%2C_California.svg' },
+    { name: 'New Orleans', uuid: '3c5a0506-d852-4e96-8d1e-d8126328f3be', code: 'US-LA-NO', url: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_New_Orleans%2C_Louisiana.svg' },
+    { name: 'New York City', uuid: '74e50e58-5deb-4b99-93a2-decbb365c07f', code: 'US-NY-NYC', url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_New_York_City.svg' },
+    { name: 'Miami', uuid: '4a9aeb42-3763-4234-8fb8-1167ac1dfdfe', code: 'US-FL-MIA', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Miami%2C_Florida.svg' },
+    { name: 'Minneapolis', uuid: '3e80aaa7-9b71-450f-8147-0ecf101d8f1a', code: 'US-MN-MIN', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Minneapolis.svg' },
+    { name: 'Nashville', uuid: 'e68879f9-bd95-41ff-96ba-c082ff37cc74', code: 'US-TN-NSH', url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Nashville.png' },
+    { name: 'Orlando', uuid: 'ec1e55f4-03df-4ba1-a314-1ab959aa3fd6', code: 'US-FL-ORL', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Orlando%2C_Florida.svg' },
+    { name: 'Philadelphia', uuid: '0eeb01c2-6e31-46ad-96b8-319749f731d2', code: 'US-PA-PHI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_Philadelphia%2C_Pennsylvania.svg' },
+    { name: 'Phoenix', uuid: '7f1c8f3f-69a9-454a-8633-c3d3a628858b', code: 'US-AZ-PHX', url: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Flag_of_Phoenix%2C_Arizona.svg' },
+    { name: 'Pittsburgh', uuid: '787abc26-28ce-44f8-a2d1-82d86b5d28a8', code: 'US-PA-PIT', url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Pittsburgh%2C_Pennsylvania.svg' },
+    { name: 'Portland', uuid: '2b748d6e-bc1c-4434-9f7b-ecd6332bc557', code: 'US-OR-POR', url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Portland%2C_Oregon.svg' },
+    { name: 'Raleigh', uuid: '3f8828b9-ba93-4604-9b92-1f616fa1abd1', code: 'US-NC-RAL', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Raleigh%2C_North_Carolina.svg' },
+    { name: 'Sacramento', uuid: '21879fba-fe4e-4dbc-99e8-cad9142e5618', code: 'US-CA-SAC', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Flag_of_Sacramento%2C_California.svg' },
+    { name: 'Salt Lake City', uuid: 'e5936529-76b1-449e-a2e9-6ed98fe8d0d9', code: 'US-UT-SLC', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Salt_Lake_City_%282020%29.svg' },
+    { name: 'San Antonio', uuid: 'a6f7157a-bfab-49e8-a22b-240ade4552ca', code: 'US-TX-SA', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_San_Antonio%2C_Texas.svg' },
+    { name: 'San Diego', uuid: '82f3a697-ba65-404d-a1ed-360147af7d10', code: 'US-CA-SD', url: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_San_Diego%2C_California.svg' },
+    { name: 'San Francisco', uuid: '83f22bb6-4631-443c-bace-9fae8540362a', code: 'US-CA-SF', url: 'https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_San_Francisco%2C_California.svg' },
+    { name: 'San Juan', uuid: 'c3503bb7-f32d-4536-a1af-b2623f54ab4f', code: 'US-PR-SJ', url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_San_Juan%2C_Puerto_Rico.svg' },
+    { name: 'Seattle', uuid: '10adc6b5-63bf-4b4e-993e-ed83b05c22fc', code: 'US-WA-SEA', url: 'https://upload.wikimedia.org/wikipedia/en/6/6d/Flag_of_Seattle.svg' },
+    { name: 'St. Louis', uuid: '759f9567-9107-40ef-a825-e57824a62e70', code: 'US-MO-SL', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_St._Louis%2C_Missouri.svg' },
+    { name: 'Tampa', uuid: 'ff21865c-ce46-4417-967c-a3d2d02d29bf', code: 'US-FL-TB', url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_Tampa%2C_Florida.svg' },
 
     // --- Uruguay (Departments) ---
     { name: 'Artigas', uuid: 'be86ade4-0166-44e7-82d1-7625a5d6156c', code: 'UY-AR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Artigas_Department.svg' },

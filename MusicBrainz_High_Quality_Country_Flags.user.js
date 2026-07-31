@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-07-30.1842
+// @version      2026-07-30.2138
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -55,7 +55,7 @@
     { name: 'Bermuda', uuid: 'df3bbd94-6a4c-3fc3-bb6e-cd701623db8a', code: 'BM', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bermuda.svg' },
     { name: 'Bhutan', uuid: '2cbd5484-647d-3752-8acd-933ced4f9a24', code: 'BT', url: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Flag_of_Bhutan.svg' },
     { name: 'Bolivia', uuid: 'a5aed4a3-8ce1-3ab3-bfee-b008cff6b857', code: 'BO', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg' },
-    { name: 'Bonaire', uuid: '48b6011b-bfe4-49c6-b215-a6a15b9af756', code: 'BQ', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Bonaire.svg' },
+    { name: 'Bonaire, Sint Eustatius and Saba', uuid: '48b6011b-bfe4-49c6-b215-a6a15b9af756', code: 'BQ', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Bonaire.svg' },
     { name: 'Bosnia and Herzegovina', uuid: 'f2b64f81-6d36-35b3-94b9-5ba53d693914', code: 'BA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg' },
     { name: 'Bostwana', uuid: 'e5e11b08-d26d-341c-af28-69d3c26607f7', code: 'BW', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg' },
     { name: 'Bouvet Island', uuid: '3413ecd3-a1f0-3e21-a226-d9ff3ed480b7', code: 'BV', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg' },
@@ -150,6 +150,7 @@
     { name: 'Kazakhstan', uuid: '92d52542-3363-351c-a8b6-d991e0bccb8f', code: 'KZ', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg' },
     { name: 'Kenya', uuid: '023da4a0-acee-3fb1-b91e-5de74ccf787b', code: 'KE', url: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Kenya.svg' },
     { name: 'Kiribati', uuid: '2b425457-0a4f-3282-9d2f-0a0e0f7db2e5', code: 'KI', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kiribati.svg' },
+    { name: 'Kosovo', uuid: '7b6ae6b7-6f4f-43df-aab8-0c72531ea8ae', code: 'XK', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_Kosovo.svg' },
     { name: 'Kuwait', uuid: 'f03f2625-dc7d-38b2-a058-4e9ca0e10424', code: 'KW', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg' },
     { name: 'Kyrgyzstan', uuid: '188b4a6b-a4d8-3864-ba46-8446c7b658b4', code: 'KG', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Kyrgyzstan.svg' },
     { name: 'Laos', uuid: 'c81cb1f4-0858-3f28-9082-c06e2ce24bea', code: 'LA', url: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Laos.svg' },

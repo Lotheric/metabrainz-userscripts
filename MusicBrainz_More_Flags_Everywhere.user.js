@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-07-31.1456
-// @description  Shows flags of areas that aren't countries on MusicBrainz. Uses IndexedDB for caching.
+// @version      2026-08-01.1829
+// @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @author       Lotheric
@@ -20,10 +20,10 @@
 
   /**
    * @typedef {Object} Region
-   * @property {string} name - The human-readable name of the region.
-   * @property {string} uuid - The MusicBrainz Area UUID for precise matching.
-   * @property {string} code - The short code (e.g., CA-QC, US-AL, ES-AN).
-   * @property {string} url - The URL to the official Wikimedia flag SVG.
+   * @property {string} name
+   * @property {string} uuid
+   * @property {string} code
+   * @property {string} url
    */
 
   /** @type {Region[]} */
@@ -841,13 +841,16 @@
     { name: 'West Virginia', uuid: 'bb32d812-8161-44e1-8a73-7a0d4a6d3f96', code: 'US-WV', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_West_Virginia.svg' },
     { name: 'Wisconsin', uuid: '10cb2ebd-1bc7-4c11-b10d-54f60c421d20', code: 'US-WI', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_Wisconsin.svg' },
     { name: 'Wyoming', uuid: 'c2dca60c-5a5f-43b9-8591-3d4e454cac4e', code: 'US-WY', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Wyoming.svg' },
+
     // --- United States (District) ---
     { name: 'Washington D.C.', uuid: 'af59135f-38b5-4ea4-b4e2-dd28c5f0bad7', code: 'US-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg' },
+
     // --- United States (Territories) ---
     { name: 'Johnston Atoll', uuid: '9eb0b3a4-b212-40ff-9009-6b65ff988ea2', code: 'UM-67', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flag_of_the_Johnston_Atoll.svg' },
     { name: 'Midway Islands', uuid: '0a2a0867-543f-40db-a8d8-6c6c99d55431', code: 'UM-71', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_the_Midway_Islands_%28local%29.svg' },
     { name: 'Palmyra Atoll', uuid: '3704d613-b691-4bc3-a535-4a25f5368d56', code: 'UM-95', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_Palmyra_Atoll_%28local%29.svg' },
     { name: 'Wake Island', uuid: '926aa4ca-d61b-4e42-b52b-7312351fabf5', code: 'UM-79', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Wake_Island.svg' },
+
     // --- United States (Cities) ---
     { name: 'Atlanta', uuid: '26e0e534-19ea-4645-bfb3-1aa4e83a4046', code: 'US-GA-ATL', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Atlanta.svg' },
     { name: 'Austin', uuid: '58d2816b-daf9-4fc5-962c-06967f14a5e5', code: 'US-TX-ATX', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Austin%2C_Texas.svg' },
@@ -916,6 +919,27 @@
       display: inline-block !important;
       border: 1px solid #ccc !important;
       margin: 0 !important;
+      pointer-events: none !important;
+    }
+
+    span.area-icon[data-mb-flag="1"] {
+      line-height: 0;
+      vertical-align: middle;
+    }
+
+    /* Ensure hidden nodes and their children are invisible */
+    [data-mb-flag-hidden="1"],
+    [data-mb-flag-hidden="1"] * {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    /* NEW: hide empty arealink spans (site uses background-image on empty arealink to show icon) */
+    span.arealink:empty,
+    a[href*="/area/"] > span.arealink:empty {
+      display: none !important;
     }
 
     img.flag, .area-icon img {
@@ -928,8 +952,7 @@
   style.textContent = css;
   document.head.appendChild(style);
 
-
-  // --- Caching Logic (IndexedDB) ---
+  // --- IndexedDB caching ---
   let dbPromise = null;
 
   function getDB() {
@@ -938,9 +961,7 @@
         const request = indexedDB.open('MusicBrainzFlags', 1);
         request.onupgradeneeded = (event) => {
           const db = event.target.result;
-          if (!db.objectStoreNames.contains('flags')) {
-            db.createObjectStore('flags');
-          }
+          if (!db.objectStoreNames.contains('flags')) db.createObjectStore('flags');
         };
         request.onsuccess = (event) => resolve(event.target.result);
         request.onerror = (event) => reject(event.target.error);
@@ -950,59 +971,42 @@
   }
 
   function getCachedFlagDB(code) {
-    return getDB().then(db => {
-      return new Promise((resolve, reject) => {
-        const transaction = db.transaction('flags', 'readonly');
-        const store = transaction.objectStore('flags');
-        const request = store.get(code);
-        request.onsuccess = () => resolve(request.result);
-        request.onerror = () => resolve(null);
-      });
-    }).catch(() => null);
+    return getDB().then(db => new Promise((resolve) => {
+      const tx = db.transaction('flags','readonly');
+      const store = tx.objectStore('flags');
+      const req = store.get(code);
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => resolve(null);
+    })).catch(()=>null);
   }
 
   function setCachedFlagDB(code, dataUrl) {
-    return getDB().then(db => {
-      return new Promise((resolve, reject) => {
-        const transaction = db.transaction('flags', 'readwrite');
-        const store = transaction.objectStore('flags');
-        const request = store.put(dataUrl, code);
-        request.onsuccess = () => resolve();
-        request.onerror = () => reject(request.error);
-      });
-    }).catch(err => console.warn('Could not save flag to IndexedDB', err));
+    return getDB().then(db => new Promise((resolve,reject)=> {
+      const tx = db.transaction('flags','readwrite');
+      const store = tx.objectStore('flags');
+      const req = store.put(dataUrl, code);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(request.error);
+    })).catch(err=>console.warn('Could not save flag to IndexedDB', err));
   }
 
   function clearOldLocalStorageCache() {
     try {
       for (let i = localStorage.length - 1; i >= 0; i--) {
         const key = localStorage.key(i);
-        if (key && key.startsWith('mb_flag_cache_')) {
-          localStorage.removeItem(key);
-        }
+        if (key && key.startsWith('mb_flag_cache_')) localStorage.removeItem(key);
       }
-    } catch (e) {
-      console.warn("Could not clear old localStorage flags", e);
-    }
+    } catch (e) { console.warn("Could not clear old localStorage flags", e); }
   }
 
-  /**
-   * Fetches SVG using GM_xmlhttpRequest to bypass CORS, turns it into a DataURL, and saves it to IDB.
-   */
   function fetchAndCache(match, imgElement) {
     const fetchingKey = 'mb_flag_fetching_' + match.code;
-
-    try {
-      if (sessionStorage.getItem(fetchingKey)) return;
-      sessionStorage.setItem(fetchingKey, '1');
-    } catch (e) {}
-
-    // Bypass CORS utilizing GM_xmlhttpRequest instead of standard fetch
+    try { if (sessionStorage.getItem(fetchingKey)) return; sessionStorage.setItem(fetchingKey, '1'); } catch(e){}
     GM_xmlhttpRequest({
       method: 'GET',
       url: match.url,
       responseType: 'blob',
-      onload: function(response) {
+      onload(response) {
         if (response.status >= 200 && response.status < 300) {
           const blob = response.response;
           const reader = new FileReader();
@@ -1010,77 +1014,193 @@
             try {
               if (typeof reader.result === 'string') {
                 setCachedFlagDB(match.code, reader.result);
-                // Safely update the image if it rendered before fetching finished
-                if (imgElement && imgElement.src !== reader.result) {
-                  imgElement.src = reader.result;
-                }
+                if (imgElement && imgElement.src !== reader.result) imgElement.src = reader.result;
               }
-            } catch (e) {
-              console.warn('Error processing flag blob', e);
-            } finally {
-              try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
-            }
+            } catch (e) { console.warn('Error processing flag blob', e); }
+            try { sessionStorage.removeItem(fetchingKey); } catch(e){}
           };
           reader.readAsDataURL(blob);
         } else {
           console.error(`Error fetching flag for ${match.name}: HTTP ${response.status}`);
-          try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
+          try { sessionStorage.removeItem(fetchingKey); } catch(e){}
         }
       },
-      onerror: function(err) {
+      onerror(err) {
         console.error(`Error fetching flag for ${match.name}:`, err);
-        try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
+        try { sessionStorage.removeItem(fetchingKey); } catch(e){}
       }
     });
   }
 
-  // --- DOM Manipulation ---
+  // --- Helpers to hide/restore site icon nodes safely ---
+
+  function markHidden(el) {
+    try {
+      if (!el || !el.style) return;
+      if (el.dataset && el.dataset.mbFlag === '1') return; // never hide our own nodes
+      if (!el.dataset.mbFlagHidden) {
+        el.dataset.mbFlagOrigDisplay = el.style.display || '';
+        el.dataset.mbFlagHidden = '1';
+        el.style.display = 'none';
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  function restoreHiddenSiteIcons(container) {
+    try {
+      const parent = container && container.parentNode ? container.parentNode : null;
+      if (!parent || parent.nodeType !== Node.ELEMENT_NODE) return;
+      const hidden = parent.querySelectorAll && parent.querySelectorAll('[data-mb-flag-hidden="1"]');
+      if (!hidden) return;
+      hidden.forEach(h => {
+        try {
+          const el = h;
+          const orig = el.dataset.mbFlagOrigDisplay;
+          if (typeof orig === 'string') el.style.display = orig;
+          else el.style.removeProperty('display');
+          delete el.dataset.mbFlagHidden;
+          delete el.dataset.mbFlagOrigDisplay;
+        } catch (e) {}
+      });
+    } catch (e) { console.warn('restoreHiddenSiteIcons error', e); }
+  }
+
+  /**
+   * Hide variants of site icons safely:
+   * - empty / icon-only span.arealink
+   * - images used for site flags (img.mb-hq-flag-img and images inside span.flag)
+   * - icon descendants of anchors linking to /area/, but not the <a> text/node itself
+   */
+  function hideAdjacentSiteIcons(wrapper) {
+    try {
+      if (!wrapper) return;
+      if (wrapper.nodeType !== Node.ELEMENT_NODE) wrapper = wrapper.parentElement;
+      if (!wrapper) return;
+      const parent = wrapper.parentElement;
+      if (!parent) return;
+
+      const isIconOnly = (el) => {
+        if (!el) return false;
+        // If any visible text node exists, not icon-only
+        for (const node of Array.from(el.childNodes || [])) {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent && node.textContent.trim()) return false;
+        }
+        // If any descendant is not an icon-like element, then not icon-only
+        const nonIcon = Array.from(el.querySelectorAll('*')).some(d => {
+          if (d.dataset && d.dataset.mbFlag === '1') return false; // ignore our nodes
+          const cls = (d.className || '').toString();
+          const tag = (d.tagName || '').toUpperCase();
+          const isIconLike =
+            cls.includes('area-icon') ||
+            cls.includes('type-icon') ||
+            cls.includes('arealink') ||
+            cls.includes('flag') ||
+            tag === 'IMG' ||
+            tag === 'SVG';
+          return !isIconLike;
+        });
+        return !nonIcon;
+      };
+
+      // 1) Hide empty/icon-only span.arealink in same parent
+      try {
+        parent.querySelectorAll && parent.querySelectorAll('span.arealink').forEach(s => {
+          try {
+            if (s.dataset && s.dataset.mbFlag === '1') return;
+            if (isIconOnly(s)) markHidden(s);
+          } catch (e) {}
+        });
+      } catch (e) {}
+
+      // 2) For anchors to /area/, hide arealink children or flag images inside them (not the anchor)
+      try {
+        parent.querySelectorAll && parent.querySelectorAll('a[href*="/area/"]').forEach(a => {
+          try {
+            if (a.dataset && a.dataset.mbFlag === '1') return;
+            const childArealink = a.querySelector && a.querySelector('.arealink');
+            if (childArealink && !(childArealink.dataset && childArealink.dataset.mbFlag === '1')) {
+              if (isIconOnly(childArealink)) markHidden(childArealink);
+            }
+            // hide direct image icon children
+            const img = a.querySelector && (a.querySelector('img.mb-hq-flag-img') || a.querySelector('span.flag img') || a.querySelector('img'));
+            if (img && !(img.dataset && img.dataset.mbFlag === '1')) markHidden(img);
+          } catch (e) {}
+        });
+      } catch (e) {}
+
+      // 3) Also hide span.flag / images in small neighborhood around wrapper
+      const children = Array.from(parent.children || []);
+      const wrapperIndex = children.indexOf(wrapper);
+      if (wrapperIndex !== -1) {
+        const start = Math.max(0, wrapperIndex - 6);
+        const end = Math.min(children.length - 1, wrapperIndex + 6);
+        for (let i = start; i <= end; i++) {
+          const child = children[i];
+          if (!child) continue;
+          try {
+            child.querySelectorAll && child.querySelectorAll('span.flag, img.mb-hq-flag-img, img').forEach(d => {
+              if (d.dataset && d.dataset.mbFlag === '1') return;
+              if (d.tagName === 'IMG') markHidden(d);
+              else {
+                d.querySelectorAll && d.querySelectorAll('img, .area-icon, .type-icon, .arealink').forEach(dd => {
+                  if (dd.dataset && dd.dataset.mbFlag === '1') return;
+                  markHidden(dd);
+                });
+              }
+            });
+          } catch (e) {}
+        }
+      } else {
+        // fallback: scan parent descendants conservatively
+        try {
+          parent.querySelectorAll && parent.querySelectorAll('span.flag, img.mb-hq-flag-img, img').forEach(img => {
+            if (img.dataset && img.dataset.mbFlag === '1') return;
+            if (img.tagName === 'IMG') markHidden(img);
+            else {
+              img.querySelectorAll && img.querySelectorAll('img, .area-icon, .type-icon, .arealink').forEach(d => {
+                if (d.dataset && d.dataset.mbFlag === '1') return;
+                markHidden(d);
+              });
+            }
+          });
+        } catch (e) {}
+      }
+    } catch (e) {
+      console.warn('hideAdjacentSiteIcons error', e);
+    }
+  }
+
+  // --- DOM Manipulation & insertion ---
 
   function nukeIconsAndSpaces(el) {
-    el.querySelectorAll('.area-icon, .type-icon, .arealink').forEach(n => n.remove());
-
+    try { restoreHiddenSiteIcons(el); } catch(e){}
+    try { el.querySelectorAll && el.querySelectorAll('span.area-icon[data-mb-flag="1"]').forEach(n => n.remove()); } catch(e){}
     let prev = el.previousSibling;
     while (prev) {
       let toKill = prev;
       prev = prev.previousSibling;
-
       if (toKill.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(toKill.nodeValue || '')) {
         if (toKill.parentNode) toKill.parentNode.removeChild(toKill);
       } else if (toKill.nodeType === Node.ELEMENT_NODE) {
-        const elNode = /** @type {Element} */ (toKill);
-        if (elNode.classList.contains('area-icon') ||
-            elNode.classList.contains('type-icon') ||
-            elNode.classList.contains('arealink') ||
-            (elNode.tagName === 'SPAN' && (!elNode.textContent || !elNode.textContent.trim()))) {
-          elNode.remove();
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
+        const elNode = toKill;
+        if (elNode.dataset && elNode.dataset.mbFlag === '1') elNode.remove();
+        else break;
+      } else break;
     }
   }
 
   function createFlagIcon(match) {
     const iconSpan = document.createElement('span');
     iconSpan.className = 'area-icon';
-
+    iconSpan.dataset.mbFlag = '1';
     const img = document.createElement('img');
     img.className = 'flag flag-custom-region';
     img.alt = match.name;
     img.title = match.name;
-
-    // Async IndexedDB lookup
     getCachedFlagDB(match.code).then(cachedSrc => {
-      if (cachedSrc) {
-        img.src = cachedSrc;
-      } else {
-        img.src = match.url; // Immediately render native URL fallback
-        fetchAndCache(match, img); // Fetch DataURL and store async
-      }
-    });
-
+      if (cachedSrc) img.src = cachedSrc;
+      else { img.src = match.url; fetchAndCache(match, img); }
+    }).catch(()=>{ img.src = match.url; });
     iconSpan.appendChild(img);
     return iconSpan;
   }
@@ -1088,89 +1208,66 @@
   function insertFlags() {
     if (window.location.pathname.includes('/area/')) {
       const pageMatch = REGIONS.find(p => window.location.pathname.includes(p.uuid));
-
       if (pageMatch) {
-        document.querySelectorAll('h1').forEach(/** @param {Element} headingEl */ (headingEl) => {
-          const heading = /** @type {HTMLElement} */ (headingEl);
+        document.querySelectorAll('h1').forEach(headingEl => {
+          const heading = headingEl;
           if (heading.dataset.flagProcessed || heading.querySelector(`a[href*="/area/"]`)) return;
-
           heading.dataset.flagProcessed = '1';
-
           let bdi = heading.querySelector('bdi');
           let textNode = Array.from(heading.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent && n.textContent.trim() !== '');
-
-          /** @type {Element | Node} */
           let target = bdi || textNode || heading;
-
           if (target.parentElement) nukeIconsAndSpaces(target.parentElement);
-
           const iconSpan = createFlagIcon(pageMatch);
-
           if (target === heading) {
-              heading.prepend(document.createTextNode(' '));
-              heading.prepend(iconSpan);
+            heading.prepend(document.createTextNode(' '));
+            heading.prepend(iconSpan);
           } else if (target.parentNode) {
-              target.parentNode.insertBefore(iconSpan, target);
-              target.parentNode.insertBefore(document.createTextNode(' '), target);
+            target.parentNode.insertBefore(iconSpan, target);
+            target.parentNode.insertBefore(document.createTextNode(' '), target);
           }
         });
       }
     }
 
-    document.querySelectorAll('a[href*="/area/"]').forEach(/** @param {Element} linkEl */ (linkEl) => {
-      const link = /** @type {HTMLAnchorElement} */ (linkEl);
+    document.querySelectorAll('a[href*="/area/"]').forEach(linkEl => {
+      const link = linkEl;
       if (link.dataset.flagProcessed) return;
-
-      if (link.closest('.tabs')) {
-        link.dataset.flagProcessed = '1';
-        return;
-      }
-
+      if (link.closest('.tabs')) { link.dataset.flagProcessed = '1'; return; }
       const match = REGIONS.find(p => {
         const regex = new RegExp(`/area/${p.uuid}(/?|\\?.*|#.*)$`, 'i');
         return regex.test(link.href);
       });
-
       if (match) {
         link.dataset.flagProcessed = '1';
-
-        /** @type {Element} */
         let wrapper = (link.parentElement && link.parentElement.tagName === 'BDI') ? link.parentElement : link;
-
+        hideAdjacentSiteIcons(wrapper);
         nukeIconsAndSpaces(wrapper);
         const iconSpan = createFlagIcon(match);
-
         if (wrapper.parentNode) {
-            wrapper.parentNode.insertBefore(iconSpan, wrapper);
-            wrapper.parentNode.insertBefore(document.createTextNode(' '), wrapper);
+          wrapper.parentNode.insertBefore(iconSpan, wrapper);
+          wrapper.parentNode.insertBefore(document.createTextNode(' '), wrapper);
         }
       }
     });
   }
 
+  // --- Init and observer ---
   let debounceTimer;
-
   function init() {
     clearOldLocalStorageCache();
     insertFlags();
-
-    // Use debounce to prevent DOM loop flooding seen in 1.png and 2.png
     const observer = new MutationObserver(() => {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => {
-            // Disconnect temporarily so changes do not trigger the observer again
-            observer.disconnect();
-            insertFlags();
-            observer.observe(document.body, { childList: true, subtree: true });
-        }, 150);
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        observer.disconnect();
+        insertFlags();
+        observer.observe(document.body, { childList: true, subtree: true });
+      }, 150);
     });
-
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
-  if (document.readyState === 'loading') {
-    window.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') window.addEventListener('DOMContentLoaded', init);
+  else init();
+
 })();

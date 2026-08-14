@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-08-01.1829
+// @version      2026-08-14.1440
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -172,6 +172,9 @@
     { name: 'Tarapacá', uuid: '2b7c03e7-24b2-4966-92a5-d3fcc4d9177d', code: 'CL-TA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Tarapaca,_Chile.svg' },
     { name: 'Valparaíso', uuid: '448375eb-82d9-43ba-b114-6bfc2db011c8', code: 'CL-VS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Valparaiso,_Chile.svg' },
 
+    // --- China (Region) ---
+    { name: 'Tibet', uuid: 'dd70d245-d0b4-4169-8538-cdb45807adaf', code: 'CN-XZ', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Flag_of_Tibet.svg' },
+    
     // --- Colombia (Departments) ---
     { name: 'Amazonas', uuid: '1642cac2-0960-484b-9316-8832b31d4c0e', code: 'CO-AMA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Amazonas_(Colombia).svg' },
     { name: 'Antioquia', uuid: '704b5889-896e-4f3a-b941-d2e3a8b50462', code: 'CO-ANT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Antioquia_Department.svg' },

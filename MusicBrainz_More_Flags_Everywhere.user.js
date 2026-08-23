@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-08-14.1440
+// @version      2026-08-22.2155
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -145,6 +145,7 @@
     { name: 'Saguenay–Lac-Saint-Jean', uuid: 'a9595f2a-0211-4e1f-a446-0c61dc0aeacb', code: 'CA-QC-02', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Saguenay-Lac-Saint-Jean.svg' },
     // --- Canada (Municipalities) ---
     { name: 'Charlottetown', uuid: '17b6837b-bd65-4ad9-8440-c28794348704', code: 'CA-PE-CHA', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Charlottetown.svg' },
+    { name: 'Halifax', uuid: 'd5210692-e55c-4111-9517-5d798cf172cd', code: 'CA-NS-HFX', url: 'https://upload.wikimedia.org/wikipedia/en/e/e0/Halifax_Flag.svg' },
     { name: 'Hamilton', uuid: 'c45dab1e-8cb1-4ca3-af6c-0762c590f333', code: 'CA-QC-HAM', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Hamilton.svg' },
     { name: 'Montréal', uuid: 'c3cc624e-b963-49cf-ad0b-e318cb341963', code: 'CA-QC-MTL', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Montreal.svg' },
     { name: 'Ottawa', uuid: 'bbc88d72-1f32-4936-8dc6-b62b3318e1c4', code: 'CA-QC-OTT', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Flag_of_Ottawa%2C_Ontario.svg' },

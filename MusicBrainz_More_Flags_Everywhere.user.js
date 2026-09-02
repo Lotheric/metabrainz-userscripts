@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         MusicBrainz: More Flags Everywhere
+// @name         [Beta] MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-08-22.2155
+// @version      2026-09-02.1407
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -15,7 +15,7 @@
 // @connect      upload.wikimedia.org
 // ==/UserScript==
 
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -175,7 +175,7 @@
 
     // --- China (Region) ---
     { name: 'Tibet', uuid: 'dd70d245-d0b4-4169-8538-cdb45807adaf', code: 'CN-XZ', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Flag_of_Tibet.svg' },
-    
+
     // --- Colombia (Departments) ---
     { name: 'Amazonas', uuid: '1642cac2-0960-484b-9316-8832b31d4c0e', code: 'CO-AMA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Amazonas_(Colombia).svg' },
     { name: 'Antioquia', uuid: '704b5889-896e-4f3a-b941-d2e3a8b50462', code: 'CO-ANT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Antioquia_Department.svg' },
@@ -976,22 +976,22 @@
 
   function getCachedFlagDB(code) {
     return getDB().then(db => new Promise((resolve) => {
-      const tx = db.transaction('flags','readonly');
+      const tx = db.transaction('flags', 'readonly');
       const store = tx.objectStore('flags');
       const req = store.get(code);
       req.onsuccess = () => resolve(req.result);
       req.onerror = () => resolve(null);
-    })).catch(()=>null);
+    })).catch(() => null);
   }
 
   function setCachedFlagDB(code, dataUrl) {
-    return getDB().then(db => new Promise((resolve,reject)=> {
-      const tx = db.transaction('flags','readwrite');
+    return getDB().then(db => new Promise((resolve, reject) => {
+      const tx = db.transaction('flags', 'readwrite');
       const store = tx.objectStore('flags');
       const req = store.put(dataUrl, code);
       req.onsuccess = () => resolve();
       req.onerror = () => reject(request.error);
-    })).catch(err=>console.warn('Could not save flag to IndexedDB', err));
+    })).catch(err => console.warn('Could not save flag to IndexedDB', err));
   }
 
   function clearOldLocalStorageCache() {
@@ -1005,7 +1005,7 @@
 
   function fetchAndCache(match, imgElement) {
     const fetchingKey = 'mb_flag_fetching_' + match.code;
-    try { if (sessionStorage.getItem(fetchingKey)) return; sessionStorage.setItem(fetchingKey, '1'); } catch(e){}
+    try { if (sessionStorage.getItem(fetchingKey)) return; sessionStorage.setItem(fetchingKey, '1'); } catch (e) { }
     GM_xmlhttpRequest({
       method: 'GET',
       url: match.url,
@@ -1021,17 +1021,17 @@
                 if (imgElement && imgElement.src !== reader.result) imgElement.src = reader.result;
               }
             } catch (e) { console.warn('Error processing flag blob', e); }
-            try { sessionStorage.removeItem(fetchingKey); } catch(e){}
+            try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
           };
           reader.readAsDataURL(blob);
         } else {
           console.error(`Error fetching flag for ${match.name}: HTTP ${response.status}`);
-          try { sessionStorage.removeItem(fetchingKey); } catch(e){}
+          try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
         }
       },
       onerror(err) {
         console.error(`Error fetching flag for ${match.name}:`, err);
-        try { sessionStorage.removeItem(fetchingKey); } catch(e){}
+        try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
       }
     });
   }
@@ -1064,7 +1064,7 @@
           else el.style.removeProperty('display');
           delete el.dataset.mbFlagHidden;
           delete el.dataset.mbFlagOrigDisplay;
-        } catch (e) {}
+        } catch (e) { }
       });
     } catch (e) { console.warn('restoreHiddenSiteIcons error', e); }
   }
@@ -1112,9 +1112,9 @@
           try {
             if (s.dataset && s.dataset.mbFlag === '1') return;
             if (isIconOnly(s)) markHidden(s);
-          } catch (e) {}
+          } catch (e) { }
         });
-      } catch (e) {}
+      } catch (e) { }
 
       // 2) For anchors to /area/, hide arealink children or flag images inside them (not the anchor)
       try {
@@ -1128,9 +1128,9 @@
             // hide direct image icon children
             const img = a.querySelector && (a.querySelector('img.mb-hq-flag-img') || a.querySelector('span.flag img') || a.querySelector('img'));
             if (img && !(img.dataset && img.dataset.mbFlag === '1')) markHidden(img);
-          } catch (e) {}
+          } catch (e) { }
         });
-      } catch (e) {}
+      } catch (e) { }
 
       // 3) Also hide span.flag / images in small neighborhood around wrapper
       const children = Array.from(parent.children || []);
@@ -1152,7 +1152,7 @@
                 });
               }
             });
-          } catch (e) {}
+          } catch (e) { }
         }
       } else {
         // fallback: scan parent descendants conservatively
@@ -1167,7 +1167,7 @@
               });
             }
           });
-        } catch (e) {}
+        } catch (e) { }
       }
     } catch (e) {
       console.warn('hideAdjacentSiteIcons error', e);
@@ -1177,8 +1177,8 @@
   // --- DOM Manipulation & insertion ---
 
   function nukeIconsAndSpaces(el) {
-    try { restoreHiddenSiteIcons(el); } catch(e){}
-    try { el.querySelectorAll && el.querySelectorAll('span.area-icon[data-mb-flag="1"]').forEach(n => n.remove()); } catch(e){}
+    try { restoreHiddenSiteIcons(el); } catch (e) { }
+    try { el.querySelectorAll && el.querySelectorAll('span.area-icon[data-mb-flag="1"]').forEach(n => n.remove()); } catch (e) { }
     let prev = el.previousSibling;
     while (prev) {
       let toKill = prev;
@@ -1195,16 +1195,23 @@
 
   function createFlagIcon(match) {
     const iconSpan = document.createElement('span');
-    iconSpan.className = 'area-icon';
+    iconSpan.className = 'custom-area-icon';
     iconSpan.dataset.mbFlag = '1';
     const img = document.createElement('img');
-    img.className = 'flag flag-custom-region';
+    img.dataset.mbFlag = '1';
+    img.className = 'flag-custom-region';
     img.alt = match.name;
     img.title = match.name;
+    img.style.width = '16px';
+    img.style.height = '11px';
+    img.style.verticalAlign = 'baseline';
+    img.style.marginRight = '1px'; // add 1px of padding in front of the text
+    img.style.display = 'inline-block';
+
     getCachedFlagDB(match.code).then(cachedSrc => {
       if (cachedSrc) img.src = cachedSrc;
       else { img.src = match.url; fetchAndCache(match, img); }
-    }).catch(()=>{ img.src = match.url; });
+    }).catch(() => { img.src = match.url; });
     iconSpan.appendChild(img);
     return iconSpan;
   }
@@ -1237,13 +1244,23 @@
       const link = linkEl;
       if (link.dataset.flagProcessed) return;
       if (link.closest('.tabs')) { link.dataset.flagProcessed = '1'; return; }
+
+      // If the link is a native MB prepended annotation icon (usually inside .area-icon or has no text/an image), skip it.
+      if (!link.textContent.trim() || link.closest('.area-icon') || link.closest('.type-icon') || link.querySelector('img')) {
+        link.dataset.flagProcessed = '1';
+        link.style.display = 'none';
+        const iconSpanParent = link.closest('.area-icon');
+        if (iconSpanParent && iconSpanParent.tagName === 'SPAN') iconSpanParent.style.display = 'none';
+        return;
+      }
+
       const match = REGIONS.find(p => {
         const regex = new RegExp(`/area/${p.uuid}(/?|\\?.*|#.*)$`, 'i');
         return regex.test(link.href);
       });
       if (match) {
         link.dataset.flagProcessed = '1';
-        let wrapper = (link.parentElement && link.parentElement.tagName === 'BDI') ? link.parentElement : link;
+        let wrapper = link;
         hideAdjacentSiteIcons(wrapper);
         nukeIconsAndSpaces(wrapper);
         const iconSpan = createFlagIcon(match);

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-07-30.2138
+// @version      2026-09-02.1642
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -15,7 +15,7 @@
 // @connect      upload.wikimedia.org
 // ==/UserScript==
 
-(function() {
+(function () {
   'use strict';
 
   /**
@@ -295,19 +295,9 @@
     if (!el || el.nodeType !== 1) return false;
     if (el.dataset && (el.dataset.hqSkip === 'true' || el.dataset.hqProcessed === 'true')) return true;
     try {
-      const skipSelectors = [
-        '.tabs',
-        'ul.tabs',
-        '.subtabs',
-        '.page_tabs',
-        '[role="tablist"]',
-        '.tabs-wrap'
-      ];
-      for (const sel of skipSelectors) {
-        if (el.closest && el.closest(sel)) {
-          try { el.dataset.hqSkip = 'true'; } catch (e) {}
-          return true;
-        }
+      if (el.closest('.tabs, ul.tabs, .subtabs, .page_tabs, [role="tablist"], .tabs-wrap')) {
+        try { el.dataset.hqSkip = 'true'; } catch (e) { }
+        return true;
       }
     } catch (e) {
       // swallow
@@ -315,8 +305,15 @@
     return false;
   }
 
+  const nodeCache = new Map();
+
   // Create and style inline <img> for flags
   function createFlagImgElement(code, url) {
+    if (nodeCache.has(code)) {
+      const cachedImg = nodeCache.get(code).cloneNode(true);
+      if (cachedImg.src !== url) cachedImg.src = url;
+      return cachedImg;
+    }
     const img = document.createElement('img');
     img.className = 'mb-hq-flag-img';
     img.setAttribute('data-hq-flag', code);
@@ -332,14 +329,16 @@
     img.style.setProperty('box-shadow', '0 0 0 1px #ccc', 'important');
     img.style.setProperty('border', 'none', 'important');
     img.src = url;
+
+    nodeCache.set(code, img.cloneNode(true));
     return img;
   }
 
   function styleExistingImg(img, code, url) {
     img.classList.add('mb-hq-flag-img');
     img.setAttribute('data-hq-flag', code);
-    try { img.alt = ''; } catch (e) {}
-    try { img.setAttribute('aria-hidden', 'true'); } catch (e) {}
+    try { img.alt = ''; } catch (e) { }
+    try { img.setAttribute('aria-hidden', 'true'); } catch (e) { }
     img.style.setProperty('width', '16px', 'important');
     img.style.setProperty('height', '11px', 'important');
     img.style.setProperty('display', 'inline-block', 'important');
@@ -354,13 +353,8 @@
   // Remove leftover space reserved by background flags (only when it looks like flag-space)
   function removeLegacySpacingIfNeeded(el) {
     try {
-      const cs = window.getComputedStyle(el);
-      const padLeftRaw = cs.paddingInlineStart || cs.paddingLeft || '0px';
-      const padLeft = parseFloat(padLeftRaw) || 0;
-      if (padLeft >= 10) {
-        el.style.setProperty('padding-left', '0px', 'important');
-        try { el.style.setProperty('padding-inline-start', '0px', 'important'); } catch (e) {}
-      }
+      el.style.setProperty('padding-left', '0px', 'important');
+      try { el.style.setProperty('padding-inline-start', '0px', 'important'); } catch (e) { }
       el.style.setProperty('background-image', 'none', 'important');
       el.style.setProperty('background-position', '0 50%', 'important');
       el.style.setProperty('background-size', 'auto', 'important');
@@ -374,7 +368,7 @@
       document.querySelectorAll('.flag[data-hq-processed]').forEach(el => {
         // if wrapper doesn't contain a recognized processed image, clear markers so we can reprocess
         const hasOurImg = !!el.querySelector('img.mb-hq-flag-img');
-        const hasAnyFlagImg = !!Array.from(el.querySelectorAll('img')).find(i => (i.src||'').includes('/flags/'));
+        const hasAnyFlagImg = !!Array.from(el.querySelectorAll('img')).find(i => (i.src || '').includes('/flags/'));
         if (!hasOurImg && !hasAnyFlagImg) {
           el.removeAttribute('data-hq-processed');
           el.removeAttribute('data-hq-code');
@@ -431,15 +425,47 @@
       });
     } catch (e) {
       // swallow to avoid breaking page scripts
-      try { console.error('MBHQ: processFlags failed', e); } catch (e2) {}
+      try { console.error('MBHQ: processFlags failed', e); } catch (e2) { }
     }
   }
 
+  const pendingPromises = new Map();
+
   // applyHQToElement(el, code, markOnSuccess)
-  // If markOnSuccess is true, sets data-hq-processed only after an image was inserted/updated
   function applyHQToElement(el, code, markOnSuccess) {
     const url = flagDataMap.get(code);
     if (!url) return;
+    if (shouldSkipElement(el)) return;
+
+    if (url.startsWith('data:')) {
+      _doApplyHQ(el, code, url, markOnSuccess);
+    } else {
+      if (!pendingPromises.has(code)) {
+        const p = getCachedFlagDB(code).then(cached => {
+          if (cached) {
+            flagDataMap.set(code, cached);
+            return cached;
+          }
+          const country = COUNTRIES.find(c => c.code === code);
+          if (country) {
+            fetchAndCache(country, (newData) => {
+              flagDataMap.set(code, newData);
+              updateAllProcessedFlagsForCode(code);
+            });
+          }
+          return url;
+        });
+        pendingPromises.set(code, p);
+      }
+
+      pendingPromises.get(code).then(finalUrl => {
+        if (el.dataset.hqProcessed === 'true') return;
+        _doApplyHQ(el, code, finalUrl, markOnSuccess);
+      });
+    }
+  }
+
+  function _doApplyHQ(el, code, url, markOnSuccess) {
     if (shouldSkipElement(el)) return;
 
     // Helper to mark processed (on the wrapper or image)
@@ -449,7 +475,7 @@
           node.dataset.hqProcessed = 'true';
           node.dataset.hqCode = code;
         }
-      } catch (e) {}
+      } catch (e) { }
     }
 
     // If element itself is an <img>, update in-place
@@ -469,7 +495,7 @@
     try {
       existingFlagImg = Array.from(el.querySelectorAll('img')).find(img => {
         if (img.classList.contains('mb-hq-flag-img')) return true;
-        try { if ((img.src || '').includes('/flags/')) return true; } catch (e) {}
+        try { if ((img.src || '').includes('/flags/')) return true; } catch (e) { }
         if (img.classList.contains('flag')) return true;
         return false;
       });
@@ -483,7 +509,7 @@
         // mark wrapper too for quick lookup
         markProcessed(el);
         removeLegacySpacingIfNeeded(el);
-      } catch (e) {}
+      } catch (e) { }
       return;
     }
 
@@ -528,30 +554,20 @@
     }
   }
 
-  // Update all processed flags when cached Base64 becomes available
-  function updateAllProcessedFlags() {
-    ensureFlagMap();
-    document.querySelectorAll('[data-hq-processed="true"]').forEach(el => {
-      const code = el.dataset.hqCode;
-      if (!code) return;
-      const url = flagDataMap.get(code);
-      if (!url) return;
+  function updateAllProcessedFlagsForCode(code) {
+    const url = flagDataMap.get(code);
+    if (!url) return;
+    document.querySelectorAll(`[data-hq-processed="true"][data-hq-code="${code}"]`).forEach(el => {
       if (shouldSkipElement(el)) return;
-
       if (el.tagName === 'IMG') {
-        try { el.src = url; } catch (e) {}
-        if (el.parentElement) removeLegacySpacingIfNeeded(el.parentElement);
+        try { el.src = url; } catch (e) { }
         return;
       }
-
       let img = null;
       try { img = el.querySelector('img.mb-hq-flag-img[data-hq-flag="' + code + '"]') || el.querySelector('img.mb-hq-flag-img') || el.querySelector('img'); } catch (e) { img = null; }
       if (img) {
         if (shouldSkipElement(img)) return;
-        try { styleExistingImg(img, code, url); img.dataset.hqProcessed = 'true'; } catch (e) {}
-        removeLegacySpacingIfNeeded(el);
-      } else {
-        applyHQToElement(el, code, /*markOnSuccess=*/true);
+        try { styleExistingImg(img, code, url); } catch (e) { }
       }
     });
   }
@@ -598,7 +614,7 @@
           request.onerror = () => reject(request.error);
         } catch (e) { resolve(); }
       });
-    }).catch(() => {});
+    }).catch(() => { });
   }
 
   function clearOldLocalStorageCache() {
@@ -607,7 +623,7 @@
         const key = localStorage.key(i);
         if (key && key.startsWith('mb_hq_flag_cache_')) localStorage.removeItem(key);
       }
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function fetchAndCache(country, callback) {
@@ -615,13 +631,13 @@
     try {
       if (sessionStorage.getItem(fetchingKey)) return;
       sessionStorage.setItem(fetchingKey, '1');
-    } catch (e) {}
+    } catch (e) { }
 
     GM_xmlhttpRequest({
       method: 'GET',
       url: country.url,
       responseType: 'blob',
-      onload: function(response) {
+      onload: function (response) {
         if (response.status >= 200 && response.status < 300) {
           const reader = new FileReader();
           reader.onloadend = () => {
@@ -630,16 +646,16 @@
                 setCachedFlagDB(country.code, reader.result);
                 if (callback) callback(reader.result);
               }
-            } catch (e) {} finally {
-              try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
+            } catch (e) { } finally {
+              try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
             }
           };
           reader.readAsDataURL(response.response);
         } else {
-          try { sessionStorage.removeItem(fetchingKey); } catch (e) {}
+          try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
         }
       },
-      onerror: function() { try { sessionStorage.removeItem(fetchingKey); } catch (e) {} }
+      onerror: function () { try { sessionStorage.removeItem(fetchingKey); } catch (e) { } }
     });
   }
 
@@ -649,22 +665,6 @@
     clearStaleProcessedMarkers();
     ensureFlagMap();
 
-    // populate map and try to use cached Base64
-    COUNTRIES.forEach(country => {
-      flagDataMap.set(country.code, country.url);
-      getCachedFlagDB(country.code).then(cached => {
-        if (cached) {
-          flagDataMap.set(country.code, cached);
-          updateAllProcessedFlags();
-        } else {
-          fetchAndCache(country, (newData) => {
-            flagDataMap.set(country.code, newData);
-            updateAllProcessedFlags();
-          });
-        }
-      });
-    });
-
     // initial processing
     processFlags();
 
@@ -672,7 +672,7 @@
     const observer = new MutationObserver(() => {
       if (observer._scheduled) return;
       observer._scheduled = setTimeout(() => {
-        try { processFlags(); } catch (e) {}
+        try { processFlags(); } catch (e) { }
         clearTimeout(observer._scheduled);
         observer._scheduled = null;
       }, 120);
@@ -680,7 +680,7 @@
     observer.observe(document.body, { childList: true, subtree: true });
 
     // expose manual trigger
-    try { window.MBHQ_processFlags = processFlags; } catch (e) {}
+    try { window.MBHQ_processFlags = processFlags; } catch (e) { }
   }
 
   if (document.readyState === 'loading') {

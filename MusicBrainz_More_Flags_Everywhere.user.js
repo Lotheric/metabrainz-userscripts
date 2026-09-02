@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-02.1410
+// @version      2026-09-02.1708
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -940,11 +940,7 @@
       pointer-events: none !important;
     }
 
-    /* NEW: hide empty arealink spans (site uses background-image on empty arealink to show icon) */
-    span.arealink:empty,
-    a[href*="/area/"] > span.arealink:empty {
-      display: none !important;
-    }
+
 
     img.flag, .area-icon img {
       vertical-align: middle !important;
@@ -1003,6 +999,9 @@
     } catch (e) { console.warn("Could not clear old localStorage flags", e); }
   }
 
+  const objectURLCache = new Map();
+  const pendingObjectURLs = new Map();
+
   function fetchAndCache(match, imgElement) {
     const fetchingKey = 'mb_flag_fetching_' + match.code;
     try { if (sessionStorage.getItem(fetchingKey)) return; sessionStorage.setItem(fetchingKey, '1'); } catch (e) { }
@@ -1013,12 +1012,15 @@
       onload(response) {
         if (response.status >= 200 && response.status < 300) {
           const blob = response.response;
+          const url = URL.createObjectURL(blob);
+          objectURLCache.set(match.code, url);
+          if (imgElement && imgElement.src !== url) imgElement.src = url;
+
           const reader = new FileReader();
           reader.onloadend = () => {
             try {
               if (typeof reader.result === 'string') {
                 setCachedFlagDB(match.code, reader.result);
-                if (imgElement && imgElement.src !== reader.result) imgElement.src = reader.result;
               }
             } catch (e) { console.warn('Error processing flag blob', e); }
             try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
@@ -1039,161 +1041,68 @@
   // --- Helpers to hide/restore site icon nodes safely ---
 
   function markHidden(el) {
-    try {
-      if (!el || !el.style) return;
-      if (el.dataset && el.dataset.mbFlag === '1') return; // never hide our own nodes
-      if (!el.dataset.mbFlagHidden) {
-        el.dataset.mbFlagOrigDisplay = el.style.display || '';
-        el.dataset.mbFlagHidden = '1';
-        el.style.display = 'none';
-      }
-    } catch (e) { /* ignore */ }
+    if (!el || !el.style || el.dataset.mbFlag === '1' || el.dataset.mbFlagHidden) return;
+    el.dataset.mbFlagOrigDisplay = el.style.display || '';
+    el.dataset.mbFlagHidden = '1';
+    el.style.display = 'none';
   }
 
-  function restoreHiddenSiteIcons(container) {
-    try {
-      const parent = container && container.parentNode ? container.parentNode : null;
-      if (!parent || parent.nodeType !== Node.ELEMENT_NODE) return;
-      const hidden = parent.querySelectorAll && parent.querySelectorAll('[data-mb-flag-hidden="1"]');
-      if (!hidden) return;
-      hidden.forEach(h => {
-        try {
-          const el = h;
-          const orig = el.dataset.mbFlagOrigDisplay;
-          if (typeof orig === 'string') el.style.display = orig;
-          else el.style.removeProperty('display');
-          delete el.dataset.mbFlagHidden;
-          delete el.dataset.mbFlagOrigDisplay;
-        } catch (e) { }
-      });
-    } catch (e) { console.warn('restoreHiddenSiteIcons error', e); }
-  }
-
-  /**
-   * Hide variants of site icons safely:
-   * - empty / icon-only span.arealink
-   * - images used for site flags (img.mb-hq-flag-img and images inside span.flag)
-   * - icon descendants of anchors linking to /area/, but not the <a> text/node itself
-   */
   function hideAdjacentSiteIcons(wrapper) {
-    try {
-      if (!wrapper) return;
-      if (wrapper.nodeType !== Node.ELEMENT_NODE) wrapper = wrapper.parentElement;
-      if (!wrapper) return;
-      const parent = wrapper.parentElement;
-      if (!parent) return;
+    if (!wrapper || wrapper.nodeType !== Node.ELEMENT_NODE) return;
 
-      const isIconOnly = (el) => {
-        if (!el) return false;
-        // If any visible text node exists, not icon-only
-        for (const node of Array.from(el.childNodes || [])) {
-          if (node.nodeType === Node.TEXT_NODE && node.textContent && node.textContent.trim()) return false;
-        }
-        // If any descendant is not an icon-like element, then not icon-only
-        const nonIcon = Array.from(el.querySelectorAll('*')).some(d => {
-          if (d.dataset && d.dataset.mbFlag === '1') return false; // ignore our nodes
-          const cls = (d.className || '').toString();
-          const tag = (d.tagName || '').toUpperCase();
-          const isIconLike =
-            cls.includes('area-icon') ||
-            cls.includes('type-icon') ||
-            cls.includes('arealink') ||
-            cls.includes('flag') ||
-            tag === 'IMG' ||
-            tag === 'SVG';
-          return !isIconLike;
-        });
-        return !nonIcon;
-      };
+    wrapper.querySelectorAll('img, .arealink, .area-icon, .flag').forEach(el => {
+      // Only hide container spans if they don't have text
+      if (el.tagName !== 'IMG' && el.textContent && el.textContent.trim() !== '') return;
+      markHidden(el);
+    });
 
-      // 1) Hide empty/icon-only span.arealink in same parent
-      try {
-        parent.querySelectorAll && parent.querySelectorAll('span.arealink').forEach(s => {
-          try {
-            if (s.dataset && s.dataset.mbFlag === '1') return;
-            if (isIconOnly(s)) markHidden(s);
-          } catch (e) { }
-        });
-      } catch (e) { }
-
-      // 2) For anchors to /area/, hide arealink children or flag images inside them (not the anchor)
-      try {
-        parent.querySelectorAll && parent.querySelectorAll('a[href*="/area/"]').forEach(a => {
-          try {
-            if (a.dataset && a.dataset.mbFlag === '1') return;
-            const childArealink = a.querySelector && a.querySelector('.arealink');
-            if (childArealink && !(childArealink.dataset && childArealink.dataset.mbFlag === '1')) {
-              if (isIconOnly(childArealink)) markHidden(childArealink);
+    let prev = wrapper.previousSibling;
+    let steps = 0;
+    while (prev && steps < 5) {
+      if (prev.nodeType === Node.ELEMENT_NODE) {
+        if (prev.tagName === 'A' || prev.tagName === 'BDI') break;
+        if (prev.dataset.mbFlag !== '1') {
+          const cls = prev.className || '';
+          if (prev.tagName === 'IMG' || cls.includes('mb-hq-flag-img')) {
+            markHidden(prev);
+          } else if (cls.includes('flag') || cls.includes('arealink') || cls.includes('area-icon')) {
+            if (!prev.textContent || prev.textContent.trim() === '') {
+              markHidden(prev);
             }
-            // hide direct image icon children
-            const img = a.querySelector && (a.querySelector('img.mb-hq-flag-img') || a.querySelector('span.flag img') || a.querySelector('img'));
-            if (img && !(img.dataset && img.dataset.mbFlag === '1')) markHidden(img);
-          } catch (e) { }
-        });
-      } catch (e) { }
-
-      // 3) Also hide span.flag / images in small neighborhood around wrapper
-      const children = Array.from(parent.children || []);
-      const wrapperIndex = children.indexOf(wrapper);
-      if (wrapperIndex !== -1) {
-        const start = Math.max(0, wrapperIndex - 6);
-        const end = Math.min(children.length - 1, wrapperIndex + 6);
-        for (let i = start; i <= end; i++) {
-          const child = children[i];
-          if (!child) continue;
-          try {
-            child.querySelectorAll && child.querySelectorAll('span.flag, img.mb-hq-flag-img, img').forEach(d => {
-              if (d.dataset && d.dataset.mbFlag === '1') return;
-              if (d.tagName === 'IMG') markHidden(d);
-              else {
-                d.querySelectorAll && d.querySelectorAll('img, .area-icon, .type-icon, .arealink').forEach(dd => {
-                  if (dd.dataset && dd.dataset.mbFlag === '1') return;
-                  markHidden(dd);
-                });
-              }
-            });
-          } catch (e) { }
+          }
         }
-      } else {
-        // fallback: scan parent descendants conservatively
-        try {
-          parent.querySelectorAll && parent.querySelectorAll('span.flag, img.mb-hq-flag-img, img').forEach(img => {
-            if (img.dataset && img.dataset.mbFlag === '1') return;
-            if (img.tagName === 'IMG') markHidden(img);
-            else {
-              img.querySelectorAll && img.querySelectorAll('img, .area-icon, .type-icon, .arealink').forEach(d => {
-                if (d.dataset && d.dataset.mbFlag === '1') return;
-                markHidden(d);
-              });
-            }
-          });
-        } catch (e) { }
+      } else if (prev.nodeType === Node.TEXT_NODE) {
+        if (prev.nodeValue && prev.nodeValue.trim() !== '') break;
       }
-    } catch (e) {
-      console.warn('hideAdjacentSiteIcons error', e);
+      prev = prev.previousSibling;
+      steps++;
     }
   }
 
-  // --- DOM Manipulation & insertion ---
-
   function nukeIconsAndSpaces(el) {
-    try { restoreHiddenSiteIcons(el); } catch (e) { }
-    try { el.querySelectorAll && el.querySelectorAll('span.area-icon[data-mb-flag="1"]').forEach(n => n.remove()); } catch (e) { }
     let prev = el.previousSibling;
     while (prev) {
       let toKill = prev;
       prev = prev.previousSibling;
       if (toKill.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(toKill.nodeValue || '')) {
         if (toKill.parentNode) toKill.parentNode.removeChild(toKill);
-      } else if (toKill.nodeType === Node.ELEMENT_NODE) {
-        const elNode = toKill;
-        if (elNode.dataset && elNode.dataset.mbFlag === '1') elNode.remove();
-        else break;
-      } else break;
+      } else if (toKill.nodeType === Node.ELEMENT_NODE && toKill.dataset.mbFlag === '1') {
+        toKill.remove();
+      } else if (toKill.nodeType === Node.ELEMENT_NODE && toKill.dataset.mbFlagHidden === '1') {
+        // Skip over native hidden elements so we can continue stripping spaces/icons before them
+      } else {
+        break;
+      }
     }
   }
 
+  const nodeCache = new Map();
+
   function createFlagIcon(match) {
+    if (nodeCache.has(match.code)) {
+      return nodeCache.get(match.code).cloneNode(true);
+    }
+
     const iconSpan = document.createElement('span');
     iconSpan.className = 'custom-area-icon';
     iconSpan.dataset.mbFlag = '1';
@@ -1207,69 +1116,125 @@
     img.style.verticalAlign = 'baseline';
     img.style.marginRight = '1px'; // add 1px of padding in front of the text
     img.style.display = 'inline-block';
-
-    getCachedFlagDB(match.code).then(cachedSrc => {
-      if (cachedSrc) img.src = cachedSrc;
-      else { img.src = match.url; fetchAndCache(match, img); }
-    }).catch(() => { img.src = match.url; });
+    img.decoding = 'async';
+    img.loading = 'lazy';
     iconSpan.appendChild(img);
+
+    if (objectURLCache.has(match.code)) {
+      img.src = objectURLCache.get(match.code);
+      nodeCache.set(match.code, iconSpan.cloneNode(true));
+    } else {
+      if (!pendingObjectURLs.has(match.code)) {
+        const promise = getCachedFlagDB(match.code).then(cachedSrc => {
+          if (cachedSrc) {
+            return fetch(cachedSrc).then(res => res.blob()).then(blob => {
+              const url = URL.createObjectURL(blob);
+              objectURLCache.set(match.code, url);
+              return url;
+            }).catch(() => cachedSrc);
+          }
+          return null;
+        }).catch(() => null);
+        pendingObjectURLs.set(match.code, promise);
+      }
+
+      pendingObjectURLs.get(match.code).then(url => {
+        if (url) {
+          img.src = url;
+          if (!nodeCache.has(match.code)) {
+            nodeCache.set(match.code, iconSpan.cloneNode(true));
+          }
+        } else {
+          img.src = match.url;
+          fetchAndCache(match, img);
+        }
+      });
+    }
+
     return iconSpan;
   }
 
-  function insertFlags() {
-    if (window.location.pathname.includes('/area/')) {
-      const pageMatch = REGIONS.find(p => window.location.pathname.includes(p.uuid));
-      if (pageMatch) {
-        document.querySelectorAll('h1').forEach(headingEl => {
-          const heading = headingEl;
-          if (heading.dataset.flagProcessed || heading.querySelector(`a[href*="/area/"]`)) return;
-          heading.dataset.flagProcessed = '1';
-          let bdi = heading.querySelector('bdi');
-          let textNode = Array.from(heading.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent && n.textContent.trim() !== '');
-          let target = bdi || textNode || heading;
-          if (target.parentElement) nukeIconsAndSpaces(target.parentElement);
-          const iconSpan = createFlagIcon(pageMatch);
-          if (target === heading) {
-            heading.prepend(document.createTextNode(' '));
-            heading.prepend(iconSpan);
-          } else if (target.parentNode) {
-            target.parentNode.insertBefore(iconSpan, target);
-            target.parentNode.insertBefore(document.createTextNode(' '), target);
-          }
-        });
-      }
+  function processH1(heading, pageMatch) {
+    if (!pageMatch) return;
+    if (heading.dataset.flagProcessed || heading.querySelector(`a[href*="/area/"]`)) return;
+    heading.dataset.flagProcessed = '1';
+    let bdi = heading.querySelector('bdi');
+    let textNode = Array.from(heading.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent && n.textContent.trim() !== '');
+    let target = bdi || textNode || heading;
+    if (target.parentElement) nukeIconsAndSpaces(target.parentElement);
+    const iconSpan = createFlagIcon(pageMatch);
+    if (target === heading) {
+      heading.prepend(document.createTextNode(' '));
+      heading.prepend(iconSpan);
+    } else if (target.parentNode) {
+      target.parentNode.insertBefore(iconSpan, target);
+      target.parentNode.insertBefore(document.createTextNode(' '), target);
+    }
+  }
+
+  const regionMap = new Map();
+  REGIONS.forEach(r => regionMap.set(r.uuid, r));
+  const areaUuidRegex = /\/area\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i;
+
+  function processLink(link) {
+    if (link.dataset.flagProcessed) return;
+    if (link.closest('.tabs')) { link.dataset.flagProcessed = '1'; return; }
+
+    // If the link is a native MB prepended annotation icon (usually inside .area-icon or has no text/an image), skip it.
+    if (!link.textContent.trim() || link.closest('.area-icon') || link.closest('.type-icon') || link.querySelector('img')) {
+      link.dataset.flagProcessed = '1';
+      link.style.display = 'none';
+      const iconSpanParent = link.closest('.area-icon');
+      if (iconSpanParent && iconSpanParent.tagName === 'SPAN') iconSpanParent.style.display = 'none';
+      return;
     }
 
-    document.querySelectorAll('a[href*="/area/"]').forEach(linkEl => {
-      const link = linkEl;
-      if (link.dataset.flagProcessed) return;
-      if (link.closest('.tabs')) { link.dataset.flagProcessed = '1'; return; }
+    const uuidMatch = link.href.match(areaUuidRegex);
+    if (!uuidMatch) return;
 
-      // If the link is a native MB prepended annotation icon (usually inside .area-icon or has no text/an image), skip it.
-      if (!link.textContent.trim() || link.closest('.area-icon') || link.closest('.type-icon') || link.querySelector('img')) {
-        link.dataset.flagProcessed = '1';
-        link.style.display = 'none';
-        const iconSpanParent = link.closest('.area-icon');
-        if (iconSpanParent && iconSpanParent.tagName === 'SPAN') iconSpanParent.style.display = 'none';
-        return;
+    const match = regionMap.get(uuidMatch[1].toLowerCase());
+    if (match) {
+      link.dataset.flagProcessed = '1';
+      let wrapper = link;
+      hideAdjacentSiteIcons(wrapper);
+      nukeIconsAndSpaces(wrapper);
+      const iconSpan = createFlagIcon(match);
+      if (wrapper.parentNode) {
+        wrapper.parentNode.insertBefore(iconSpan, wrapper);
+        wrapper.parentNode.insertBefore(document.createTextNode(' '), wrapper);
       }
+    }
+  }
 
-      const match = REGIONS.find(p => {
-        const regex = new RegExp(`/area/${p.uuid}(/?|\\?.*|#.*)$`, 'i');
-        return regex.test(link.href);
-      });
-      if (match) {
-        link.dataset.flagProcessed = '1';
-        let wrapper = link;
-        hideAdjacentSiteIcons(wrapper);
-        nukeIconsAndSpaces(wrapper);
-        const iconSpan = createFlagIcon(match);
-        if (wrapper.parentNode) {
-          wrapper.parentNode.insertBefore(iconSpan, wrapper);
-          wrapper.parentNode.insertBefore(document.createTextNode(' '), wrapper);
+  let cachedPageMatch = undefined;
+  function getPageMatch() {
+    if (cachedPageMatch !== undefined) return cachedPageMatch;
+    const m = window.location.pathname.match(areaUuidRegex);
+    cachedPageMatch = m ? (regionMap.get(m[1].toLowerCase()) || null) : null;
+    return cachedPageMatch;
+  }
+
+  function processNode(node) {
+    if (node.nodeType !== Node.ELEMENT_NODE && node.nodeType !== Node.DOCUMENT_NODE && node.nodeType !== Node.DOCUMENT_FRAGMENT_NODE) return;
+
+    if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A' && node.href && node.href.includes('/area/')) processLink(node);
+    if (node.querySelectorAll) {
+      node.querySelectorAll('a[href*="/area/"]').forEach(processLink);
+    }
+
+    if (window.location.pathname.includes('/area/')) {
+      const pageMatch = getPageMatch();
+      if (pageMatch) {
+        if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'H1') processH1(node, pageMatch);
+        if (node.querySelectorAll) {
+          node.querySelectorAll('h1').forEach(h1 => processH1(h1, pageMatch));
         }
       }
-    });
+    }
+  }
+
+  function insertFlags(root = document) {
+    processNode(root);
   }
 
   // --- Init and observer ---
@@ -1277,13 +1242,41 @@
   function init() {
     clearOldLocalStorageCache();
     insertFlags();
-    const observer = new MutationObserver(() => {
+    const observer = new MutationObserver((mutations) => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-        observer.disconnect();
-        insertFlags();
-        observer.observe(document.body, { childList: true, subtree: true });
+        // Collect all added nodes from the recent mutations that haven't been debounced away
+        // Or we could just process them directly.
+        // Actually since we debounce, mutations parameter to the callback is only the last tick's.
+        // To properly use addedNodes with debounce, we either accumulate them or we don't debounce.
+        // But processing nodes is fast now since we don't query the whole document.
       }, 150);
+    });
+    // Let's change the observer to not debounce, or to accumulate.
+    // We'll accumulate added nodes.
+  }
+
+  let accumulatedNodes = [];
+  function init() {
+    clearOldLocalStorageCache();
+    insertFlags();
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) accumulatedNodes.push(node);
+        }
+      }
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        const nodesToProcess = accumulatedNodes;
+        accumulatedNodes = [];
+        for (const node of nodesToProcess) {
+          // Verify node is still in document
+          if (document.contains(node)) {
+            processNode(node);
+          }
+        }
+      }, 50);
     });
     observer.observe(document.body, { childList: true, subtree: true });
   }

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-03.2058
+// @version      2026-09-03.2105
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -821,6 +821,7 @@
     { name: 'Worcestershire', uuid: '2fb56867-9b52-4fd3-a562-6d7d13441d60', code: 'GB-WOR', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Worcestershire_flag.svg' },
     // --- United Kingdom (Unitary Authorities) ---
     { name: 'Cornwall', uuid: '03d7eb23-c924-4e46-af72-a45f6ee04c8b', code: 'GB-CON', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Saint_Piran%27s_Flag.svg' },
+    { name: 'East Riding of Yorkshire', uuid: 'fce537c2-afa0-4bd5-b29b-2b75929f13f6', code: 'GB-ERY', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_North_Riding_of_Yorkshire.svg' },
     { name: 'Isle of Wight', uuid: '428c7efb-6480-483b-97e3-786d3f0c1954', code: 'GB-IOW', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_the_Isle_of_Wight.svg' },
     { name: 'Isles of Scilly', uuid: 'de98091e-bca6-45ff-8bed-c3302c5b0b28', code: 'GB-IOS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Baner_ynysek_Syllan.svg' },
     { name: 'Plymouth', uuid: '27e496a5-2ad4-4d7e-a4ac-a3869b2bbad7', code: 'GB-PLY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Plymouth.svg' },

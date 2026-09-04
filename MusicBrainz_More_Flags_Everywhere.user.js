@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-02.1708
+// @version      2026-09-03.2058
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -793,7 +793,41 @@
     { name: 'Ascension', uuid: '17e091a9-f91d-494f-bd63-3ec6f0c38d73', code: 'SH-AC', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Ascension_Island.svg' },
     { name: 'Saint Helena', uuid: '8a2a7450-8ab1-485f-b63d-f849f2966c0b', code: 'SH-HL', url: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Saint_Helena.svg' },
     { name: 'Tristan da Cunha', uuid: 'd19ab530-a1d4-4c89-ba92-d89ed771fcac', code: 'SH-TA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Tristan_da_Cunha.svg' },
-
+    // --- United Kingdom (Counties) ---
+    { name: 'Cambridgeshire', uuid: 'a7206e39-259e-4d27-8c6c-7c29c3926385', code: 'GB-CAM', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Cambridgeshire_Flag.svg' },
+    { name: 'Cumbria', uuid: '8923be10-140a-4efc-bc9a-112ae16512ed', code: 'GB-CMA', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Community_flag_of_Cumbria.svg' },
+    { name: 'Derbyshire', uuid: '55dd286a-f047-423b-9062-37408f148633', code: 'GB-DBY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Derbyshire_flag.svg' },
+    { name: 'Devon', uuid: '2021b983-80b8-4f6b-a2a9-7d33c23e15b6', code: 'GB-DEV', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Devon.svg' },
+    { name: 'Dorset', uuid: '2d71b77c-cec0-47dd-9516-fd01db91ca13', code: 'GB-DOR', url: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Dorset.svg' },
+    { name: 'East Sussex', uuid: '61b6a12e-4751-4fe3-b40d-ecb84f29736c', code: 'GB-ESX', url: 'https://en.wikipedia.org/wiki/Portal:East_Sussex#/media/File:Flag_of_East_Sussex.svg' },
+    { name: 'Essex', uuid: 'c58e25fa-9d99-4ff3-b4b8-a7e7b2cf452c', code: 'GB-ESS', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Flag_of_Essex.svg' },
+    { name: 'Gloucestershire', uuid: 'da806ae8-ff93-4988-93ee-4bee3c5a56bf', code: 'GB-GLS', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Severn_Cross.svg' },
+    { name: 'Hampshire', uuid: 'e12f6f8d-b5e9-4b15-ab88-4298e3e1a1b3', code: 'GB-HAM', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/County_Flag_of_Hampshire.svg' },
+    { name: 'Hertfordshire', uuid: '9a5d387b-26b2-4bea-a9c9-f2844148a4aa', code: 'GB-HRT', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/County_Flag_of_Hertfordshire.svg' },
+    { name: 'Kent', uuid: '24404231-7564-4b11-9168-95dd148049a7', code: 'GB-KEN', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/FlagOfKent.svg' },
+    { name: 'Lancashire', uuid: '5c6f4550-e4ae-4570-99c9-dc133582d1aa', code: 'GB-LAN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Lancashire_County_Flag.svg' },
+    { name: 'Leicestershire', uuid: '939f6e4f-0d8b-4c94-af04-b7f683da8968', code: 'GB-LEC', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Leicestershire.svg' },
+    { name: 'Lincolnshire', uuid: '1bede359-1a1e-40d3-a03e-28d928182caf', code: 'GB-LIN', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Lincolnshire_flag.svg' },
+    { name: 'Norfolk', uuid: '1f73fbd2-48ee-4951-b750-47c6c92ba7ae', code: 'GB-NFK', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Flag_of_Norfolk.svg' },
+    { name: 'North Yorkshire', uuid: 'a584d799-9025-4c7c-a72a-cf214ff16563', code: 'GB-NYK', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_North_Riding_of_Yorkshire.svg' },
+    { name: 'Nottinghamshire', uuid: '5ee7ea17-1e59-453f-b410-a1412893f5f2', code: 'GB-NTT', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/County_Flag_of_Nottinghamshire.svg' },
+    { name: 'Oxfordshire', uuid: '44e5e20e-8fbc-4b07-b3f2-22f2199186fd', code: 'GB-OXF', url: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Flag_of_Oxfordshire.svg' },
+    { name: 'Somerset', uuid: 'aff4808a-7e67-49ab-8d51-af0864c824e0', code: 'GB-SOM', url: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Somerset_Flag.svg' },
+    { name: 'Staffordshire', uuid: '84cc125d-5c91-4ec3-ad7c-31751359bb51', code: 'GB-STS', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Staffordshire_Flag.svg' },
+    { name: 'Suffolk', uuid: '6e2d2d30-dbc9-4d27-99f7-df571dbd0646', code: 'GB-SFK', url: 'https://upload.wikimedia.org/wikipedia/commons/0/01/County_Flag_of_Suffolk.svg' },
+    { name: 'Surrey', uuid: 'fe92d6d6-4f35-4a0e-a48a-b802ae9cdaf4', code: 'GB-SRY', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_the_County_of_Surrey.svg' },
+    { name: 'Warwickshire', uuid: 'bbfed5f7-9a49-40f0-a787-9ce951e3097d', code: 'GB-WAR', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Warwickshire.svg' },
+    { name: 'West Sussex', uuid: 'a7251dbd-388c-4fdf-a294-1bcde106ddf7', code: 'GB-WSX', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_West_Sussex.svg' },
+    { name: 'Worcestershire', uuid: '2fb56867-9b52-4fd3-a562-6d7d13441d60', code: 'GB-WOR', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Worcestershire_flag.svg' },
+    // --- United Kingdom (Unitary Authorities) ---
+    { name: 'Cornwall', uuid: '03d7eb23-c924-4e46-af72-a45f6ee04c8b', code: 'GB-CON', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Saint_Piran%27s_Flag.svg' },
+    { name: 'Isle of Wight', uuid: '428c7efb-6480-483b-97e3-786d3f0c1954', code: 'GB-IOW', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_the_Isle_of_Wight.svg' },
+    { name: 'Isles of Scilly', uuid: 'de98091e-bca6-45ff-8bed-c3302c5b0b28', code: 'GB-IOS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Baner_ynysek_Syllan.svg' },
+    { name: 'Plymouth', uuid: '27e496a5-2ad4-4d7e-a4ac-a3869b2bbad7', code: 'GB-PLY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Plymouth.svg' },
+    { name: 'Rutland', uuid: 'a8000b64-a257-441c-9b1b-1084a7f5b626', code: 'GB-RUT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Rutland_County_Flag.svg' },
+    { name: 'Shropshire', uuid: '3fd2c297-7015-4cc0-ad37-48dcb262621f', code: 'GB-SHR', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Flag_of_Shropshire.svg' },
+    { name: 'York', uuid: '3a28f05b-59e0-4aa1-9a79-b96f5ef6403b', code: 'GB-YOR', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_York.svg' },
+    
     // --- United States (States) ---
     { name: 'Alabama', uuid: 'cffc0190-1aa2-489f-b6f9-43b9a9e01a91', code: 'US-AL', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Alabama.svg' },
     { name: 'Alaska', uuid: '821b0738-e1a2-4636-82e0-b5ca8b331679', code: 'US-AK', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Alaska.svg' },

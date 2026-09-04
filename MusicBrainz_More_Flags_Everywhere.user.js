@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-03.2109
+// @version      2026-09-04.0925
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -799,7 +799,6 @@
     { name: 'Derbyshire', uuid: '55dd286a-f047-423b-9062-37408f148633', code: 'GB-DBY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Derbyshire_flag.svg' },
     { name: 'Devon', uuid: '2021b983-80b8-4f6b-a2a9-7d33c23e15b6', code: 'GB-DEV', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Devon.svg' },
     { name: 'Dorset', uuid: '2d71b77c-cec0-47dd-9516-fd01db91ca13', code: 'GB-DOR', url: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Dorset.svg' },
-    { name: 'East Sussex', uuid: '61b6a12e-4751-4fe3-b40d-ecb84f29736c', code: 'GB-ESX', url: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_East_Sussex.svg' },
     { name: 'Essex', uuid: 'c58e25fa-9d99-4ff3-b4b8-a7e7b2cf452c', code: 'GB-ESS', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Flag_of_Essex.svg' },
     { name: 'Gloucestershire', uuid: 'da806ae8-ff93-4988-93ee-4bee3c5a56bf', code: 'GB-GLS', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Severn_Cross.svg' },
     { name: 'Hampshire', uuid: 'e12f6f8d-b5e9-4b15-ab88-4298e3e1a1b3', code: 'GB-HAM', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/County_Flag_of_Hampshire.svg' },
@@ -828,7 +827,7 @@
     { name: 'Rutland', uuid: 'a8000b64-a257-441c-9b1b-1084a7f5b626', code: 'GB-RUT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Rutland_County_Flag.svg' },
     { name: 'Shropshire', uuid: '3fd2c297-7015-4cc0-ad37-48dcb262621f', code: 'GB-SHR', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Flag_of_Shropshire.svg' },
     { name: 'York', uuid: '3a28f05b-59e0-4aa1-9a79-b96f5ef6403b', code: 'GB-YOR', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_York.svg' },
-    
+
     // --- United States (States) ---
     { name: 'Alabama', uuid: 'cffc0190-1aa2-489f-b6f9-43b9a9e01a91', code: 'US-AL', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Alabama.svg' },
     { name: 'Alaska', uuid: '821b0738-e1a2-4636-82e0-b5ca8b331679', code: 'US-AK', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Alaska.svg' },
@@ -1213,7 +1212,7 @@
 
   function processLink(link) {
     if (link.dataset.flagProcessed) return;
-    if (link.closest('.tabs')) { link.dataset.flagProcessed = '1'; return; }
+    if (link.closest('.tabs') || link.closest('#sidebar')) { link.dataset.flagProcessed = '1'; return; }
 
     // If the link is a native MB prepended annotation icon (usually inside .area-icon or has no text/an image), skip it.
     if (!link.textContent.trim() || link.closest('.area-icon') || link.closest('.type-icon') || link.querySelector('img')) {

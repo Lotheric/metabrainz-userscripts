@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-04.0925
+// @version      2026-09-04.1727
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -819,13 +819,31 @@
     { name: 'West Sussex', uuid: 'a7251dbd-388c-4fdf-a294-1bcde106ddf7', code: 'GB-WSX', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_West_Sussex.svg' },
     { name: 'Worcestershire', uuid: '2fb56867-9b52-4fd3-a562-6d7d13441d60', code: 'GB-WOR', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Worcestershire_flag.svg' },
     // --- United Kingdom (Unitary Authorities) ---
+    { name: 'Bournemouth', uuid: 'ca133b15-39a3-449a-95d8-9008c437da7d', code: 'GB-BCP', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Bournemouth_town_flag.svg' },
+    { name: 'Cardiff', uuid: 'f0b226db-8e22-40e6-9a53-d839cfec6228', code: 'GB-CRF', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Cardiff.svg' },
     { name: 'Cornwall', uuid: '03d7eb23-c924-4e46-af72-a45f6ee04c8b', code: 'GB-CON', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Saint_Piran%27s_Flag.svg' },
     { name: 'East Riding of Yorkshire', uuid: 'fce537c2-afa0-4bd5-b29b-2b75929f13f6', code: 'GB-ERY', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_North_Riding_of_Yorkshire.svg' },
+    { name: 'Gwynedd', uuid: '33a9cc60-fc72-4397-bd95-a94777d9e939', code: 'GB-GWN', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Gwynedd_%283-2%29.svg' },
+    { name: 'Isle of Anglesey', uuid: '74b3db14-539d-488d-8e66-1f5c8036e2ff', code: 'GB-AGY', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Anglesey.svg' },
     { name: 'Isle of Wight', uuid: '428c7efb-6480-483b-97e3-786d3f0c1954', code: 'GB-IOW', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_the_Isle_of_Wight.svg' },
     { name: 'Isles of Scilly', uuid: 'de98091e-bca6-45ff-8bed-c3302c5b0b28', code: 'GB-IOS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Baner_ynysek_Syllan.svg' },
+    { name: 'Kingston upon Hull', uuid: 'aab5b67e-3b98-44a5-8336-1c3d326d9082', code: 'GB-KHL', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Flag_of_Kingston-upon-Hull.png' },
+    { name: 'Leicester', uuid: '806b9b3b-5daf-4eaa-807d-7a2a29cde0da', code: 'GB-LCE', url: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_the_City_of_Leicester.png' },
+    { name: 'Luton', uuid: 'fce4afff-8d49-4f1f-977a-10edbe839331', code: 'GB-LUT', url: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Luton.png' },
+    { name: 'Milton Keynes', uuid: '8d28d7ab-0714-4d07-aadb-8bf60dcce6f9', code: 'GB-MIK', url: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_Milton_Keynes.png' },
+    { name: 'Northumberland', uuid: '6beecf16-22b7-4463-9999-73c79243fd56', code: 'GB-NBL', url: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Northumberland.svg' },
+    { name: 'Nottingham', uuid: 'f988aff4-5221-4b36-9174-befec694f906', code: 'GB-NGM', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Flag_of_Nottingham.png' },
     { name: 'Plymouth', uuid: '27e496a5-2ad4-4d7e-a4ac-a3869b2bbad7', code: 'GB-PLY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Plymouth.svg' },
+    { name: 'Portsmouth', uuid: '7b6383fb-468f-4a2b-916f-b4cbbfb5253e', code: 'GB-POR', url: 'https://upload.wikimedia.org/wikipedia/commons/5/56/City_Flag_of_Portsmouth.svg' },
     { name: 'Rutland', uuid: 'a8000b64-a257-441c-9b1b-1084a7f5b626', code: 'GB-RUT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Rutland_County_Flag.svg' },
     { name: 'Shropshire', uuid: '3fd2c297-7015-4cc0-ad37-48dcb262621f', code: 'GB-SHR', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Flag_of_Shropshire.svg' },
+    { name: 'Southampton', uuid: '32950a38-9edd-42fd-aec9-26128507ff06', code: 'GB-STH', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Flag_of_Southampton.png' },
+    { name: 'Southend-on-Sea', uuid: 'f706259c-989f-4a92-bbac-211135b5c207', code: 'GB-SOS', url: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Flag_of_Southend-on-Sea.png' },
+    { name: 'Swansea', uuid: 'f449c819-0a9b-4c08-9446-6e7d5bd48d08', code: 'GB-SWA', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/SWANSEA_FLAG.jpg' },
+    { name: 'Swindon', uuid: 'aee482fe-df6b-4f0f-849f-18f2329bab7c', code: 'GB-SWD', url: 'https://www.fotw.info/images/g/gb-e-swindon.gif' },
+    { name: 'Torfaen', uuid: 'b51fabf7-3a82-430e-b553-e45b1ee724c6', code: 'GB-TOF', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/FLAG_OF_TORFAEN.jpg' },
+    { name: 'Vale of Glamorgan', uuid: '495c38be-f0cd-4206-a259-7ba778817975', code: 'GB-VGL', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Glamorgan_Flag.svg' },
+    { name: 'Wrexham', uuid: 'acd67bc2-3eac-4e04-afe1-70a0663ec59f', code: 'GB-WRC', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Flag_of_Wrexham.png' },
     { name: 'York', uuid: '3a28f05b-59e0-4aa1-9a79-b96f5ef6403b', code: 'GB-YOR', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_York.svg' },
 
     // --- United States (States) ---

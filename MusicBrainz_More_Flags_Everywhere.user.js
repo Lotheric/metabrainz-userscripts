@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-04.1727
+// @version      2026-09-04.1935
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -370,6 +370,16 @@
     { name: 'Umbria', uuid: '76c96288-1551-4570-a7e2-2a778119c73f', code: 'IT-55', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Umbria.svg' },
     { name: 'Valle d\'Aosta', uuid: 'fc7bbbe5-5fa7-4695-b32e-f919f0017843', code: 'IT-23', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aosta_Valley.svg' },
     { name: 'Veneto', uuid: 'a98ab30d-fb0f-491a-933a-154e3d77a8e0', code: 'IT-34', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Veneto.svg' },
+
+    // --- Kenya (Counties) ---
+    { name: 'Kisii County', uuid: 'adcd623b-bcbb-47ec-9669-3f44f903390e', code: 'KE-16', url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Flag_of_Kisii_County.gif' },
+    { name: 'Laikipia County', uuid: '69ee8bca-a163-49f4-8ef4-fb546d2879b0', code: 'KE-20', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Laikipia_County.png' },
+    { name: 'Mombasa County', uuid: '822b5821-eac1-4c1a-bdf2-c0f995ffcf0b', code: 'KE-28', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Mombasa_County.png' },
+    { name: 'Nairobi County', uuid: '1daf3c54-771e-4d33-9fc3-445d6419f8a0', code: 'KE-30', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Nairobi_County.svg' },
+    { name: 'Taita–Taveta County', uuid: '39cd63ac-afc3-4c25-a4d5-8a33e8ba4fc5', code: 'KE-39', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Taita_Taveta_County.png' },
+    // --- Kenya (Cities) ---
+    { name: 'Mombasa', uuid: '0782e67a-4326-41e3-a49c-7db270efd87a', code: 'KE-MBS', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Mombasa_flag.png' },
+    { name: 'Nairobi', uuid: '4cc373f3-8b60-400b-8aa3-6df3fe4ab8fb', code: 'KE-NRB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Nairobi.svg' },
 
     // --- Japan (Prefectures) ---
     { name: 'Aichi', uuid: '4b190b90-aafd-4d87-8a51-95a710516176', code: 'JP-23', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aichi_Prefecture.svg' },

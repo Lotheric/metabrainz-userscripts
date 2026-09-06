@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         [Beta] MusicBrainz: High Quality Country Flags
+// @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-05.2014
+// @version      2026-09-05.2039
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -432,7 +432,7 @@
       const areaUuidRegex = /\/area\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i;
       document.querySelectorAll('a[href*="/area/"]:not([data-hq-processed]):not([data-hq-skip])').forEach(link => {
         if (shouldSkipElement(link)) return;
-        if (link.closest('.tabs') || link.closest('#sidebar')) {
+        if (link.closest('.tabs') || link.closest('.external_links')) {
           try { link.dataset.hqSkip = 'true'; } catch (e) { }
           return;
         }

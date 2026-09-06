@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-05.2039
+// @version      2026-09-05.2048
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1237,6 +1237,7 @@
   const regionMap = new Map();
   REGIONS.forEach(r => regionMap.set(r.uuid, r));
   const areaUuidRegex = /\/area\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i;
+  const directAreaLinkRegex = /\/area\/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\/?(?:\?.*|#.*)?$/i;
 
   function processLink(link) {
     if (link.dataset.flagProcessed) return;
@@ -1251,7 +1252,7 @@
       return;
     }
 
-    const uuidMatch = link.href.match(areaUuidRegex);
+    const uuidMatch = link.href.match(directAreaLinkRegex);
     if (!uuidMatch) return;
 
     const match = regionMap.get(uuidMatch[1].toLowerCase());

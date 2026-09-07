@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-07.1003
+// @version      2026-09-07.1026
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -251,6 +251,20 @@
     { name: 'Valgamaa', uuid: '2b652d19-18e0-48d0-9a5a-03c23ce81244', code: 'EE-81', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Valgamaa_lipp.svg' },
     { name: 'Viljandimaa', uuid: 'e54b4028-d809-4fb8-adf1-73aa8791071f', code: 'EE-84', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Viljandimaa_lipp.svg' },
     { name: 'Võrumaa', uuid: '6cfe8fd8-20c7-4ca7-817e-fa6c41267f24', code: 'EE-87', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%B5rumaa_lipp.svg' },
+
+    // --- Ethiopia (Regional States) ---
+    { name: 'Āfar', uuid: '341fe439-8b5f-4602-9d75-59c61cbb8ced', code: 'ET-AF', url: 'https://upload.wikimedia.org/wikipedia/commons/1/13/Flag_of_the_Afar_Region.svg' },
+    { name: 'Āmara', uuid: 'd575ba3a-157b-42e8-9f98-8caa7630ae59', code: 'ET-AM', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_the_Amhara_Region.svg' },
+    { name: 'Bīnshangul Gumuz', uuid: 'd2f4fa1f-2005-4633-97b7-39ed6a63e774', code: 'ET-BE', url: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_the_Benishangul-Gumuz_Region.svg' },
+    { name: 'Gambēla Hizboch', uuid: 'b941dd75-b0d1-47c3-a769-5b7cc4571069', code: 'ET-GA', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Flag_of_the_Gambella_Region.svg' },
+    { name: 'Hārerī Hizb', uuid: 'bda949af-d9e9-46c3-9fee-d26a2fc565cb', code: 'ET-HA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Harari_Flag.svg' },
+    { name: 'Oromīya', uuid: '75a0d079-4d6b-44bb-9386-82718fabeec3', code: 'ET-OR', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Flag_of_the_Oromia_Region.svg' },
+    { name: 'Sumalē', uuid: '64ca25d2-d3bb-4645-9b00-c1716b5ae855', code: 'ET-SO', url: 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Somali_Region_%281994-2008%2C_2018-%29.svg' },
+    { name: 'Tigray', uuid: '1ddf91bd-113c-4a9e-8a3f-d2e42631e8ca', code: 'ET-TI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_the_Tigray_Region.svg' },
+    { name: 'YeDebub Bihēroch Bihēreseboch na Hizboch', uuid: '90d4540e-7c0a-4bc4-a7c1-bf2c0a99b6e3', code: 'ET-SN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Flag_of_the_Southern_Nations%2C_Nationalities%2C_and_Peoples%27_Region.svg' },
+    // --- Ethiopia (Administrations) ---
+    { name: 'Ādīs Ābeba', uuid: '8474f16d-03a0-4a09-adf3-df2d1e65ba2f', code: 'ET-AA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Addis_Ababa.svg' },
+    { name: 'Dirē Dawa', uuid: 'c37f15fb-78f1-4117-8310-43aad0f3369f', code: 'ET-DD', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Dire_Dawa%2C_Ethiopia.svg' },
 
     // --- Finland (Regions) ---
     { name: 'Etelä-Karjala', uuid: '8a39f710-9e3a-424c-99c6-f7bdab06d1db', code: 'FI-02', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Etel%C3%A4-Karjala.vaakuna.svg' },

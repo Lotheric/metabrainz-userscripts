@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-05.2048
+// @version      2026-09-07.0914
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -372,11 +372,14 @@
     { name: 'Veneto', uuid: 'a98ab30d-fb0f-491a-933a-154e3d77a8e0', code: 'IT-34', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Veneto.svg' },
 
     // --- Kenya (Counties) ---
+    { name: 'Kakamega County', uuid: 'a4d61696-08f0-4ba3-9ce0-dd330cdeb72f', code: 'KE-11', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Kakamega_County.gif' },
     { name: 'Kisii County', uuid: 'adcd623b-bcbb-47ec-9669-3f44f903390e', code: 'KE-16', url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Flag_of_Kisii_County.gif' },
+    { name: 'Kisumu County', uuid: '0c72afd8-7b22-45e3-883c-2a86a1b9708a', code: 'KE-17', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Kisumu_County.png' },
     { name: 'Laikipia County', uuid: '69ee8bca-a163-49f4-8ef4-fb546d2879b0', code: 'KE-20', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Laikipia_County.png' },
     { name: 'Mombasa County', uuid: '822b5821-eac1-4c1a-bdf2-c0f995ffcf0b', code: 'KE-28', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Mombasa_County.png' },
     { name: 'Nairobi County', uuid: '1daf3c54-771e-4d33-9fc3-445d6419f8a0', code: 'KE-30', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Nairobi_County.svg' },
     { name: 'Taita–Taveta County', uuid: '39cd63ac-afc3-4c25-a4d5-8a33e8ba4fc5', code: 'KE-39', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Taita_Taveta_County.png' },
+    { name: 'Uasin Gishu County', uuid: 'e3120b6f-ee12-40df-be12-5f2fa4a2520f', code: 'KE-44', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Uasin_Gishu_County.gif' },
     // --- Kenya (Cities) ---
     { name: 'Mombasa', uuid: '0782e67a-4326-41e3-a49c-7db270efd87a', code: 'KE-MBS', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Mombasa_flag.png' },
     { name: 'Nairobi', uuid: '4cc373f3-8b60-400b-8aa3-6df3fe4ab8fb', code: 'KE-NRB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Nairobi.svg' },
@@ -1049,7 +1052,7 @@
       const req = store.put(dataUrl, code);
       req.onsuccess = () => resolve();
       req.onerror = () => reject(request.error);
-    })).catch(err => console.warn('Could not save flag to IndexedDB', err));
+    })).catch(err => { /* console.warn('Could not save flag to IndexedDB', err); */ });
   }
 
   function clearOldLocalStorageCache() {
@@ -1058,7 +1061,7 @@
         const key = localStorage.key(i);
         if (key && key.startsWith('mb_flag_cache_')) localStorage.removeItem(key);
       }
-    } catch (e) { console.warn("Could not clear old localStorage flags", e); }
+    } catch (e) { /* console.error("MBMF: Error in clearOldLocalStorageCache", e); */ }
   }
 
   const objectURLCache = new Map();
@@ -1067,6 +1070,7 @@
   function fetchAndCache(match, imgElement) {
     const fetchingKey = 'mb_flag_fetching_' + match.code;
     try { if (sessionStorage.getItem(fetchingKey)) return; sessionStorage.setItem(fetchingKey, '1'); } catch (e) { }
+    /* GM_xmlhttpRequest is a userscript manager API. If running outside, consider a fallback to fetch() */
     GM_xmlhttpRequest({
       method: 'GET',
       url: match.url,
@@ -1302,22 +1306,7 @@
 
   // --- Init and observer ---
   let debounceTimer;
-  function init() {
-    clearOldLocalStorageCache();
-    insertFlags();
-    const observer = new MutationObserver((mutations) => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        // Collect all added nodes from the recent mutations that haven't been debounced away
-        // Or we could just process them directly.
-        // Actually since we debounce, mutations parameter to the callback is only the last tick's.
-        // To properly use addedNodes with debounce, we either accumulate them or we don't debounce.
-        // But processing nodes is fast now since we don't query the whole document.
-      }, 150);
-    });
-    // Let's change the observer to not debounce, or to accumulate.
-    // We'll accumulate added nodes.
-  }
+
 
   let accumulatedNodes = [];
   function init() {

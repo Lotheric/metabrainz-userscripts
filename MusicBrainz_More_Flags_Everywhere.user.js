@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-07.1115
+// @version      2026-09-07.1228
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -478,6 +478,25 @@
     { name: 'Rivercess', uuid: '2b470769-eb21-440a-ba1b-0b178fe5809e', code: 'LR-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_Rivercess_County.svg' },
     { name: 'River Gee', uuid: '7d195291-4565-4031-b748-ec51c14d760d', code: 'LR-RG', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_River_Gee_County.svg' },
     { name: 'Sinoe', uuid: '60d19394-fc82-478e-986e-a0cdd1125463', code: 'LR-SI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_Sinoe_County.svg' },
+
+    // --- Malaysia (States) ---
+    { name: 'Johor', uuid: '7074ad56-379d-4298-bb88-80fdf249cf86', code: 'MY-01', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Flag_of_Johor.svg' },
+    { name: 'Kedah', uuid: '4aba1d2e-5b87-49b4-a0e4-128897d999c1', code: 'MY-02', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Flag_of_Kedah.svg' },
+    { name: 'Kelantan', uuid: '25fd48af-150e-45fb-bf1e-2c268eb668a2', code: 'MY-03', url: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Kelantan.svg' },
+    { name: 'Melaka', uuid: '41e3bd81-5107-4c6d-9e34-740b1f40fc77', code: 'MY-04', url: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_Malacca.svg' },
+    { name: 'Negeri Sembilan', uuid: '82a31662-e192-4b17-a650-79b5b23adc5b', code: 'MY-05', url: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_Negeri_Sembilan.svg' },
+    { name: 'Pahang', uuid: '866822a9-5230-4293-9b43-257fc1e07eeb', code: 'MY-06', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Pahang.svg' },
+    { name: 'Perak', uuid: 'cf701d61-32b2-4306-b9cc-5659ef2db694', code: 'MY-08', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_Perak.svg' },
+    { name: 'Perlis', uuid: 'c753bdc6-9204-4417-af15-93a4994a0f22', code: 'MY-09', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Perlis.svg' },
+    { name: 'Pulau Pinang', uuid: '92f6eade-9f6d-4370-87ad-b9f3ffa573b0', code: 'MY-07', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Penang_%28Malaysia%29.svg' },
+    { name: 'Sabah', uuid: '4f73b407-722a-430b-af40-e477029ae6f8', code: 'MY-12', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Flag_of_Sabah.svg' },
+    { name: 'Sarawak', uuid: '05fa380d-3ced-4ff7-a005-ff2e7f4d05b0', code: 'MY-13', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Sarawak.svg' },
+    { name: 'Selangor', uuid: 'e5119ed0-a74d-46fe-ba24-efe5c39d8797', code: 'MY-10', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Flag_of_Selangor.svg' },
+    { name: 'Terengganu', uuid: '915dd65b-5f2e-4f96-a02d-32deb7989de7', code: 'MY-11', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Terengganu.svg' },
+    // --- Malaysia (Federal Territories) ---
+    { name: 'Kuala Lumpur', uuid: 'b9516e0b-4223-47a6-a64a-8750450c8c05', code: 'MY-14', url: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Kuala_Lumpur%2C_Malaysia.svg' },
+    { name: 'Putrajaya', uuid: '0814fbc0-db72-487b-ba05-9c83b6cf9af2', code: 'MY-16', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Putrajaya.svg' },
+    { name: 'Wilayah Persekutuan Labuan', uuid: 'a79d303b-1873-4357-a59d-5c060dbc2f92', code: 'MY-15', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Labuan.svg' },
 
     // --- Netherlands (Kingdom) ---
     { name: 'Kingdom of the Netherlands', uuid: 'aee96acc-29ab-4f1b-b23d-52012b29c25b', code: 'NL-KD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Netherlands.svg' },

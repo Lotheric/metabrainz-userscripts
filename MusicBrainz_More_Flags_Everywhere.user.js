@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-07.1026
+// @version      2026-09-07.1039
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -211,6 +211,11 @@
     { name: 'Vichada', uuid: '48f3b824-f6cd-494e-aa0f-4ea2f7687a93', code: 'CO-VID', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vichada.svg' },
     // --- Colombia (Capital District) ---
     { name: 'Bogotá', uuid: '6f85c2b6-4250-468b-9bd8-300fd8b451ad', code: 'CO-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Bogotá.svg' },
+
+    // --- Comoros (Islands) ---
+    { name: 'Andjazîdja (Anjazījah)', uuid: 'c50166c5-4422-4490-a1c0-e465b4b26335', code: 'KM-G', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Grande_Comore.svg' },
+    { name: 'Andjouân (Anjwān)', uuid: '064512b6-d31f-4875-957b-0ab7b428d31f', code: 'KM-A', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Flag_of_Anjouan_%28official%29.svg' },
+    { name: 'Moûhîlî (Mūhīlī)', uuid: '3ebe38a6-03ef-43a8-af4d-e1a6d9a2e76c', code: 'KM-M', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag_of_Mohéli_%28official%29.svg' },
 
     // --- Czechia (Regions) ---
     { name: 'Jihočeský kraj', uuid: '91eb4aae-2c2b-4dc1-b972-1b44eaf6fbc1', code: 'CZ-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Bohemian_Region.svg' },

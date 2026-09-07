@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-07.1039
+// @version      2026-09-07.1115
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -320,6 +320,16 @@
     { name: 'Picardie', uuid: '25fd67e9-3788-4cea-b26b-e6a4d36b43b5', code: 'FR-S', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_Picardie.svg' },
     { name: 'Poitou-Charentes', uuid: '76b1cb18-c458-419c-985f-5558870e48b1', code: 'FR-T', url: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Poitou-Charentes_flag.svg' },
     { name: 'Rhône-Alpes', uuid: '7f996abe-449b-4209-a0f8-c6ba9105e5e7', code: 'FR-V', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Rh%C3%B4ne-Alpes.svg' },
+
+    // --- Georgia (Autonomous Republics) ---
+    { name: 'Abkhazia', uuid: '2b9e5ac3-1583-44d9-9864-94919a58df51', code: 'GE-AB', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_the_Republic_of_Abkhazia.svg' },
+    { name: 'Ajaria', uuid: 'cbbe7923-a5e9-416a-994e-35fc4101c6ff', code: 'GE-AJ', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Adjara.svg' },
+    // --- Georgia (Cities) ---
+    { name: 'Batumi', uuid: 'e95abe3d-0f73-42b8-a023-5307cd71ca23', code: 'GE-BUS', url: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Batumi.svg' },
+    { name: 'Kutaisi', uuid: 'cdc23cff-c4ec-4d47-9755-cc157c250bec', code: 'GE-KUT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_Kutaisi%2C_Georgia.svg' },
+    { name: 'Poti', uuid: '3d2c5c56-6a08-4b71-aa4d-1ec47ac22dbb', code: 'GE-PTI', url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Poti.svg' },
+    { name: 'Rustavi', uuid: '91ee99c6-6dbf-433e-b855-43c8e95bd71b', code: 'GE-RUS', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Rustavi.svg' },
+    { name: 'Tbilisi', uuid: '76c77b6c-f1e1-4a58-8fe1-01a7efadd1f7', code: 'GE-TB', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Tbilisi.svg' },
 
     // --- Germany (States) ---
     { name: 'Baden-Württemberg', uuid: '4b8c47dd-0fe2-450e-8a21-d4d739ee0e0c', code: 'DE-BW', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Baden-W%C3%BCrttemberg.svg' },

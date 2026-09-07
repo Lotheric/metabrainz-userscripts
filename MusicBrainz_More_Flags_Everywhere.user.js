@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-07.0914
+// @version      2026-09-07.1003
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -371,19 +371,6 @@
     { name: 'Valle d\'Aosta', uuid: 'fc7bbbe5-5fa7-4695-b32e-f919f0017843', code: 'IT-23', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aosta_Valley.svg' },
     { name: 'Veneto', uuid: 'a98ab30d-fb0f-491a-933a-154e3d77a8e0', code: 'IT-34', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Veneto.svg' },
 
-    // --- Kenya (Counties) ---
-    { name: 'Kakamega County', uuid: 'a4d61696-08f0-4ba3-9ce0-dd330cdeb72f', code: 'KE-11', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Kakamega_County.gif' },
-    { name: 'Kisii County', uuid: 'adcd623b-bcbb-47ec-9669-3f44f903390e', code: 'KE-16', url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Flag_of_Kisii_County.gif' },
-    { name: 'Kisumu County', uuid: '0c72afd8-7b22-45e3-883c-2a86a1b9708a', code: 'KE-17', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Kisumu_County.png' },
-    { name: 'Laikipia County', uuid: '69ee8bca-a163-49f4-8ef4-fb546d2879b0', code: 'KE-20', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Laikipia_County.png' },
-    { name: 'Mombasa County', uuid: '822b5821-eac1-4c1a-bdf2-c0f995ffcf0b', code: 'KE-28', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Mombasa_County.png' },
-    { name: 'Nairobi County', uuid: '1daf3c54-771e-4d33-9fc3-445d6419f8a0', code: 'KE-30', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Nairobi_County.svg' },
-    { name: 'Taita–Taveta County', uuid: '39cd63ac-afc3-4c25-a4d5-8a33e8ba4fc5', code: 'KE-39', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Taita_Taveta_County.png' },
-    { name: 'Uasin Gishu County', uuid: 'e3120b6f-ee12-40df-be12-5f2fa4a2520f', code: 'KE-44', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Uasin_Gishu_County.gif' },
-    // --- Kenya (Cities) ---
-    { name: 'Mombasa', uuid: '0782e67a-4326-41e3-a49c-7db270efd87a', code: 'KE-MBS', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Mombasa_flag.png' },
-    { name: 'Nairobi', uuid: '4cc373f3-8b60-400b-8aa3-6df3fe4ab8fb', code: 'KE-NRB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Nairobi.svg' },
-
     // --- Japan (Prefectures) ---
     { name: 'Aichi', uuid: '4b190b90-aafd-4d87-8a51-95a710516176', code: 'JP-23', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aichi_Prefecture.svg' },
     { name: 'Akita', uuid: '503b016a-1878-452f-adf5-945d78a2d4be', code: 'JP-05', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Akita_Prefecture.svg' },
@@ -432,6 +419,36 @@
     { name: 'Yamagata', uuid: 'e8b89635-8f58-4d90-9db0-e0e5706de4b3', code: 'JP-06', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamagata_Prefecture.svg' },
     { name: 'Yamaguchi', uuid: 'e3e7bb57-f90c-4572-a628-e25d8d5397d6', code: 'JP-35', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamaguchi_Prefecture.svg' },
     { name: 'Yamanashi', uuid: '3a2b1ec7-c003-4f38-bf13-f4aefc994b5b', code: 'JP-19', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamanashi_Prefecture.svg' },
+
+    // --- Kenya (Counties) ---
+    { name: 'Kakamega County', uuid: 'a4d61696-08f0-4ba3-9ce0-dd330cdeb72f', code: 'KE-11', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Kakamega_County.gif' },
+    { name: 'Kisii County', uuid: 'adcd623b-bcbb-47ec-9669-3f44f903390e', code: 'KE-16', url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Flag_of_Kisii_County.gif' },
+    { name: 'Kisumu County', uuid: '0c72afd8-7b22-45e3-883c-2a86a1b9708a', code: 'KE-17', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Kisumu_County.png' },
+    { name: 'Laikipia County', uuid: '69ee8bca-a163-49f4-8ef4-fb546d2879b0', code: 'KE-20', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Laikipia_County.png' },
+    { name: 'Mombasa County', uuid: '822b5821-eac1-4c1a-bdf2-c0f995ffcf0b', code: 'KE-28', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Mombasa_County.png' },
+    { name: 'Nairobi County', uuid: '1daf3c54-771e-4d33-9fc3-445d6419f8a0', code: 'KE-30', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Nairobi_County.svg' },
+    { name: 'Taita–Taveta County', uuid: '39cd63ac-afc3-4c25-a4d5-8a33e8ba4fc5', code: 'KE-39', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Taita_Taveta_County.png' },
+    { name: 'Uasin Gishu County', uuid: 'e3120b6f-ee12-40df-be12-5f2fa4a2520f', code: 'KE-44', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Uasin_Gishu_County.gif' },
+    // --- Kenya (Cities) ---
+    { name: 'Mombasa', uuid: '0782e67a-4326-41e3-a49c-7db270efd87a', code: 'KE-MBS', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Mombasa_flag.png' },
+    { name: 'Nairobi', uuid: '4cc373f3-8b60-400b-8aa3-6df3fe4ab8fb', code: 'KE-NRB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Nairobi.svg' },
+
+    // --- Liberia (Counties) ---
+    { name: 'Bomi', uuid: 'c2d218fd-916b-46e8-b675-1cbb13f04118', code: 'LR-BM', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Flag_of_Bomi_County.svg' },
+    { name: 'Bong', uuid: 'babc18a8-cecc-40bf-b466-d389ff27acf4', code: 'LR-BG', url: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Bong_County.svg' },
+    { name: 'Gbarpolu', uuid: '7736c174-0649-4a0a-9b44-c872d1ed96dd', code: 'LR-GP', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Gbarpolu_County.svg' },
+    { name: 'Grand Bassa', uuid: '2fc21911-7579-4a94-80a3-aa44a0fa0020', code: 'LR-GB', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Grand_Bassa_County.svg' },
+    { name: 'Grand Cape Mount', uuid: '5c97139a-e426-4535-9c4b-967bb0ffaa27', code: 'LR-CM', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Grand_Cape_Mount_County.svg' },
+    { name: 'Grand Gedeh', uuid: 'b655a7f5-e143-4cdf-ac43-da7ab055f801', code: 'LR-GG', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Grand_Gedeh_County.svg' },
+    { name: 'Grand Kru', uuid: '7388db1d-1039-4861-af3e-2c4a0381b1c2', code: 'LR-GK', url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Grand_Kru_County.svg' },
+    { name: 'Lofa', uuid: 'c5f2471a-3da7-47a2-be41-026fc9d3f174', code: 'LR-LO', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Lofa_County.svg' },
+    { name: 'Margibi', uuid: '52aca24c-161c-4e18-a777-b5b625dad52e', code: 'LR-MG', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Margibi_County.svg' },
+    { name: 'Maryland', uuid: '422ad54b-0d5f-4fc4-9142-920868320649', code: 'LR-MY', url: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Maryland_County.svg' },
+    { name: 'Montserrado', uuid: 'd777437d-cafe-4c80-84a2-8d68b64a9a74', code: 'LR-MO', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Montserrado_County.svg' },
+    { name: 'Nimba', uuid: '9bb5d1ef-e346-4114-8bea-b18117ead23a', code: 'LR-NI', url: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Flag_of_Nimba_County.svg' },
+    { name: 'Rivercess', uuid: '2b470769-eb21-440a-ba1b-0b178fe5809e', code: 'LR-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_Rivercess_County.svg' },
+    { name: 'River Gee', uuid: '7d195291-4565-4031-b748-ec51c14d760d', code: 'LR-RG', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_River_Gee_County.svg' },
+    { name: 'Sinoe', uuid: '60d19394-fc82-478e-986e-a0cdd1125463', code: 'LR-SI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_Sinoe_County.svg' },
 
     // --- Netherlands (Kingdom) ---
     { name: 'Kingdom of the Netherlands', uuid: 'aee96acc-29ab-4f1b-b23d-52012b29c25b', code: 'NL-KD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Netherlands.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-03.2110
+// @version      2026-09-09.0851
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -19,7 +19,7 @@
 (function () {
   'use strict';
 
-  const ALL_FLAGS = [
+  const ALL_FLAGS_RAW = [
     { name: 'Afghanistan', uuid: 'aa95182f-df0a-3ad6-8bfb-4b63482cd276', code: 'AF', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_the_Taliban.svg' },
     { name: 'Åland Islands', uuid: '3519cc6e-ae19-3d2c-9b9e-575a860ef8e1', code: 'AX', url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_%C3%85land.svg' },
     { name: 'Albania', uuid: '1c69b790-b46b-3e92-b6b4-93b4364badbc', code: 'AL', url: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg' },
@@ -30,7 +30,7 @@
     { name: 'Anguilla', uuid: 'eed9e8bb-b48f-30af-95f5-f178762ee515', code: 'AI', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Anguilla.svg' },
     { name: 'Antarctica', uuid: 'aca6cbc7-4f3b-3020-8de3-c21718fe24f1', code: 'AQ', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/True_South_Antarctic_Flag.svg' },
     { name: 'Antigua and Barbuda', uuid: '2a8cc14f-8d47-389b-b54d-e94312b23d27', code: 'AG', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg' },
-    { name: 'Argentina', uuid: '0df04709-c7d8-3b55-a6ea-f3e5069a947b', code: 'AR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Argentina.svg' },
+    { name: 'Argentina', uuid: '0df04709-c7d8-3b55-a6ea-f3e5069a947b', code: 'AR', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg' },
     { name: 'Armenia', uuid: '6474fa20-e0d6-3ef2-95ce-a6f73408cd5e', code: 'AM', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Armenia.svg' },
     { name: 'Aruba', uuid: 'ae8222dd-0b5b-3962-9671-30375b625ce9', code: 'AW', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Aruba.svg' },
     { name: 'Australia', uuid: '106e0bec-b638-3b37-b731-f53d507dc00e', code: 'AU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Australia.svg' },
@@ -49,7 +49,7 @@
     { name: 'Bolivia', uuid: 'a5aed4a3-8ce1-3ab3-bfee-b008cff6b857', code: 'BO', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg' },
     { name: 'Bonaire, Sint Eustatius and Saba', uuid: 'fa3bd744-11d5-3ce1-ad1a-0254f178f9b1', code: 'BQ', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Bonaire.svg' },
     { name: 'Bosnia and Herzegovina', uuid: 'f2b64f81-6d36-35b3-94b9-5ba53d693914', code: 'BA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg' },
-    { name: 'Bostwana', uuid: 'e5e11b08-d26d-341c-af28-69d3c26607f7', code: 'BW', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg' },
+    { name: 'Botswana', uuid: 'e5e11b08-d26d-341c-af28-69d3c26607f7', code: 'BW', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg' },
     { name: 'Bouvet Island', uuid: '3413ecd3-a1f0-3e21-a226-d9ff3ed480b7', code: 'BV', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg' },
     { name: 'Brazil', uuid: 'f45b47f8-5796-386e-b172-6c31b009a5d8', code: 'BR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Brazil.svg' },
     { name: 'British Indian Ocean Territory', uuid: '41c97db3-0719-363f-ad0b-79451e0f381b', code: 'IO', url: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_the_British_Indian_Ocean_Territory_2025.svg' },
@@ -463,6 +463,11 @@
     // --- Colombia (Capital District) ---
     { name: 'Bogotá', uuid: '6f85c2b6-4250-468b-9bd8-300fd8b451ad', code: 'CO-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Bogotá.svg' },
 
+    // --- Comoros (Islands) ---
+    { name: 'Andjazîdja (Anjazījah)', uuid: 'c50166c5-4422-4490-a1c0-e465b4b26335', code: 'KM-G', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Grande_Comore.svg' },
+    { name: 'Andjouân (Anjwān)', uuid: '064512b6-d31f-4875-957b-0ab7b428d31f', code: 'KM-A', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Flag_of_Anjouan_%28official%29.svg' },
+    { name: 'Moûhîlî (Mūhīlī)', uuid: '3ebe38a6-03ef-43a8-af4d-e1a6d9a2e76c', code: 'KM-M', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag_of_Mohéli_%28official%29.svg' },
+
     // --- Czechia (Regions) ---
     { name: 'Jihočeský kraj', uuid: '91eb4aae-2c2b-4dc1-b972-1b44eaf6fbc1', code: 'CZ-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Bohemian_Region.svg' },
     { name: 'Jihomoravský kraj', uuid: 'e64ebd04-03cc-49c6-b64e-767bbc65e7b2', code: 'CZ-64', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Moravian_Region.svg' },
@@ -502,6 +507,20 @@
     { name: 'Valgamaa', uuid: '2b652d19-18e0-48d0-9a5a-03c23ce81244', code: 'EE-81', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Valgamaa_lipp.svg' },
     { name: 'Viljandimaa', uuid: 'e54b4028-d809-4fb8-adf1-73aa8791071f', code: 'EE-84', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Viljandimaa_lipp.svg' },
     { name: 'Võrumaa', uuid: '6cfe8fd8-20c7-4ca7-817e-fa6c41267f24', code: 'EE-87', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/V%C3%B5rumaa_lipp.svg' },
+
+    // --- Ethiopia (Regional States) ---
+    { name: 'Āfar', uuid: '341fe439-8b5f-4602-9d75-59c61cbb8ced', code: 'ET-AF', url: 'https://upload.wikimedia.org/wikipedia/commons/1/13/Flag_of_the_Afar_Region.svg' },
+    { name: 'Āmara', uuid: 'd575ba3a-157b-42e8-9f98-8caa7630ae59', code: 'ET-AM', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_the_Amhara_Region.svg' },
+    { name: 'Bīnshangul Gumuz', uuid: 'd2f4fa1f-2005-4633-97b7-39ed6a63e774', code: 'ET-BE', url: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_the_Benishangul-Gumuz_Region.svg' },
+    { name: 'Gambēla Hizboch', uuid: 'b941dd75-b0d1-47c3-a769-5b7cc4571069', code: 'ET-GA', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Flag_of_the_Gambella_Region.svg' },
+    { name: 'Hārerī Hizb', uuid: 'bda949af-d9e9-46c3-9fee-d26a2fc565cb', code: 'ET-HA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Harari_Flag.svg' },
+    { name: 'Oromīya', uuid: '75a0d079-4d6b-44bb-9386-82718fabeec3', code: 'ET-OR', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Flag_of_the_Oromia_Region.svg' },
+    { name: 'Sumalē', uuid: '64ca25d2-d3bb-4645-9b00-c1716b5ae855', code: 'ET-SO', url: 'https://upload.wikimedia.org/wikipedia/commons/9/92/Flag_of_the_Somali_Region_%281994-2008%2C_2018-%29.svg' },
+    { name: 'Tigray', uuid: '1ddf91bd-113c-4a9e-8a3f-d2e42631e8ca', code: 'ET-TI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_the_Tigray_Region.svg' },
+    { name: 'YeDebub Bihēroch Bihēreseboch na Hizboch', uuid: '90d4540e-7c0a-4bc4-a7c1-bf2c0a99b6e3', code: 'ET-SN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Flag_of_the_Southern_Nations%2C_Nationalities%2C_and_Peoples%27_Region.svg' },
+    // --- Ethiopia (Administrations) ---
+    { name: 'Ādīs Ābeba', uuid: '8474f16d-03a0-4a09-adf3-df2d1e65ba2f', code: 'ET-AA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Addis_Ababa.svg' },
+    { name: 'Dirē Dawa', uuid: 'c37f15fb-78f1-4117-8310-43aad0f3369f', code: 'ET-DD', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Dire_Dawa%2C_Ethiopia.svg' },
 
     // --- Finland (Regions) ---
     { name: 'Etelä-Karjala', uuid: '8a39f710-9e3a-424c-99c6-f7bdab06d1db', code: 'FI-02', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Etel%C3%A4-Karjala.vaakuna.svg' },
@@ -552,6 +571,16 @@
     { name: 'Picardie', uuid: '25fd67e9-3788-4cea-b26b-e6a4d36b43b5', code: 'FR-S', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_Picardie.svg' },
     { name: 'Poitou-Charentes', uuid: '76b1cb18-c458-419c-985f-5558870e48b1', code: 'FR-T', url: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Poitou-Charentes_flag.svg' },
     { name: 'Rhône-Alpes', uuid: '7f996abe-449b-4209-a0f8-c6ba9105e5e7', code: 'FR-V', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Rh%C3%B4ne-Alpes.svg' },
+
+    // --- Georgia (Autonomous Republics) ---
+    { name: 'Abkhazia', uuid: '2b9e5ac3-1583-44d9-9864-94919a58df51', code: 'GE-AB', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_the_Republic_of_Abkhazia.svg' },
+    { name: 'Ajaria', uuid: 'cbbe7923-a5e9-416a-994e-35fc4101c6ff', code: 'GE-AJ', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Adjara.svg' },
+    // --- Georgia (Cities) ---
+    { name: 'Batumi', uuid: 'e95abe3d-0f73-42b8-a023-5307cd71ca23', code: 'GE-BUS', url: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_Batumi.svg' },
+    { name: 'Kutaisi', uuid: 'cdc23cff-c4ec-4d47-9755-cc157c250bec', code: 'GE-KUT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_Kutaisi%2C_Georgia.svg' },
+    { name: 'Poti', uuid: '3d2c5c56-6a08-4b71-aa4d-1ec47ac22dbb', code: 'GE-PTI', url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Poti.svg' },
+    { name: 'Rustavi', uuid: '91ee99c6-6dbf-433e-b855-43c8e95bd71b', code: 'GE-RUS', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Rustavi.svg' },
+    { name: 'Tbilisi', uuid: '76c77b6c-f1e1-4a58-8fe1-01a7efadd1f7', code: 'GE-TB', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Tbilisi.svg' },
 
     // --- Germany (States) ---
     { name: 'Baden-Württemberg', uuid: '4b8c47dd-0fe2-450e-8a21-d4d739ee0e0c', code: 'DE-BW', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Baden-W%C3%BCrttemberg.svg' },
@@ -670,6 +699,55 @@
     { name: 'Yamagata', uuid: 'e8b89635-8f58-4d90-9db0-e0e5706de4b3', code: 'JP-06', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamagata_Prefecture.svg' },
     { name: 'Yamaguchi', uuid: 'e3e7bb57-f90c-4572-a628-e25d8d5397d6', code: 'JP-35', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamaguchi_Prefecture.svg' },
     { name: 'Yamanashi', uuid: '3a2b1ec7-c003-4f38-bf13-f4aefc994b5b', code: 'JP-19', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamanashi_Prefecture.svg' },
+
+    // --- Kenya (Counties) ---
+    { name: 'Kakamega County', uuid: 'a4d61696-08f0-4ba3-9ce0-dd330cdeb72f', code: 'KE-11', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Kakamega_County.gif' },
+    { name: 'Kisii County', uuid: 'adcd623b-bcbb-47ec-9669-3f44f903390e', code: 'KE-16', url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Flag_of_Kisii_County.gif' },
+    { name: 'Kisumu County', uuid: '0c72afd8-7b22-45e3-883c-2a86a1b9708a', code: 'KE-17', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Kisumu_County.png' },
+    { name: 'Laikipia County', uuid: '69ee8bca-a163-49f4-8ef4-fb546d2879b0', code: 'KE-20', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Laikipia_County.png' },
+    { name: 'Mombasa County', uuid: '822b5821-eac1-4c1a-bdf2-c0f995ffcf0b', code: 'KE-28', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Mombasa_County.png' },
+    { name: 'Nairobi County', uuid: '1daf3c54-771e-4d33-9fc3-445d6419f8a0', code: 'KE-30', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Nairobi_County.svg' },
+    { name: 'Taita–Taveta County', uuid: '39cd63ac-afc3-4c25-a4d5-8a33e8ba4fc5', code: 'KE-39', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Taita_Taveta_County.png' },
+    { name: 'Uasin Gishu County', uuid: 'e3120b6f-ee12-40df-be12-5f2fa4a2520f', code: 'KE-44', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Uasin_Gishu_County.gif' },
+    // --- Kenya (Cities) ---
+    { name: 'Mombasa', uuid: '0782e67a-4326-41e3-a49c-7db270efd87a', code: 'KE-MBS', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Mombasa_flag.png' },
+    { name: 'Nairobi', uuid: '4cc373f3-8b60-400b-8aa3-6df3fe4ab8fb', code: 'KE-NRB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Nairobi.svg' },
+
+    // --- Liberia (Counties) ---
+    { name: 'Bomi', uuid: 'c2d218fd-916b-46e8-b675-1cbb13f04118', code: 'LR-BM', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Flag_of_Bomi_County.svg' },
+    { name: 'Bong', uuid: 'babc18a8-cecc-40bf-b466-d389ff27acf4', code: 'LR-BG', url: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_Bong_County.svg' },
+    { name: 'Gbarpolu', uuid: '7736c174-0649-4a0a-9b44-c872d1ed96dd', code: 'LR-GP', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Gbarpolu_County.svg' },
+    { name: 'Grand Bassa', uuid: '2fc21911-7579-4a94-80a3-aa44a0fa0020', code: 'LR-GB', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Grand_Bassa_County.svg' },
+    { name: 'Grand Cape Mount', uuid: '5c97139a-e426-4535-9c4b-967bb0ffaa27', code: 'LR-CM', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Grand_Cape_Mount_County.svg' },
+    { name: 'Grand Gedeh', uuid: 'b655a7f5-e143-4cdf-ac43-da7ab055f801', code: 'LR-GG', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Grand_Gedeh_County.svg' },
+    { name: 'Grand Kru', uuid: '7388db1d-1039-4861-af3e-2c4a0381b1c2', code: 'LR-GK', url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Grand_Kru_County.svg' },
+    { name: 'Lofa', uuid: 'c5f2471a-3da7-47a2-be41-026fc9d3f174', code: 'LR-LO', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Lofa_County.svg' },
+    { name: 'Margibi', uuid: '52aca24c-161c-4e18-a777-b5b625dad52e', code: 'LR-MG', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Margibi_County.svg' },
+    { name: 'Maryland', uuid: '422ad54b-0d5f-4fc4-9142-920868320649', code: 'LR-MY', url: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Maryland_County.svg' },
+    { name: 'Montserrado', uuid: 'd777437d-cafe-4c80-84a2-8d68b64a9a74', code: 'LR-MO', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_of_Montserrado_County.svg' },
+    { name: 'Nimba', uuid: '9bb5d1ef-e346-4114-8bea-b18117ead23a', code: 'LR-NI', url: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Flag_of_Nimba_County.svg' },
+    { name: 'Rivercess', uuid: '2b470769-eb21-440a-ba1b-0b178fe5809e', code: 'LR-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_Rivercess_County.svg' },
+    { name: 'River Gee', uuid: '7d195291-4565-4031-b748-ec51c14d760d', code: 'LR-RG', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_River_Gee_County.svg' },
+    { name: 'Sinoe', uuid: '60d19394-fc82-478e-986e-a0cdd1125463', code: 'LR-SI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_Sinoe_County.svg' },
+
+    // --- Malaysia (States) ---
+    { name: 'Johor', uuid: '7074ad56-379d-4298-bb88-80fdf249cf86', code: 'MY-01', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Flag_of_Johor.svg' },
+    { name: 'Kedah', uuid: '4aba1d2e-5b87-49b4-a0e4-128897d999c1', code: 'MY-02', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Flag_of_Kedah.svg' },
+    { name: 'Kelantan', uuid: '25fd48af-150e-45fb-bf1e-2c268eb668a2', code: 'MY-03', url: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Kelantan.svg' },
+    { name: 'Melaka', uuid: '41e3bd81-5107-4c6d-9e34-740b1f40fc77', code: 'MY-04', url: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_Malacca.svg' },
+    { name: 'Negeri Sembilan', uuid: '82a31662-e192-4b17-a650-79b5b23adc5b', code: 'MY-05', url: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_Negeri_Sembilan.svg' },
+    { name: 'Pahang', uuid: '866822a9-5230-4293-9b43-257fc1e07eeb', code: 'MY-06', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Pahang.svg' },
+    { name: 'Perak', uuid: 'cf701d61-32b2-4306-b9cc-5659ef2db694', code: 'MY-08', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_Perak.svg' },
+    { name: 'Perlis', uuid: 'c753bdc6-9204-4417-af15-93a4994a0f22', code: 'MY-09', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Perlis.svg' },
+    { name: 'Pulau Pinang', uuid: '92f6eade-9f6d-4370-87ad-b9f3ffa573b0', code: 'MY-07', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Penang_%28Malaysia%29.svg' },
+    { name: 'Sabah', uuid: '4f73b407-722a-430b-af40-e477029ae6f8', code: 'MY-12', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Flag_of_Sabah.svg' },
+    { name: 'Sarawak', uuid: '05fa380d-3ced-4ff7-a005-ff2e7f4d05b0', code: 'MY-13', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Sarawak.svg' },
+    { name: 'Selangor', uuid: 'e5119ed0-a74d-46fe-ba24-efe5c39d8797', code: 'MY-10', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Flag_of_Selangor.svg' },
+    { name: 'Terengganu', uuid: '915dd65b-5f2e-4f96-a02d-32deb7989de7', code: 'MY-11', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Terengganu.svg' },
+    // --- Malaysia (Federal Territories) ---
+    { name: 'Kuala Lumpur', uuid: 'b9516e0b-4223-47a6-a64a-8750450c8c05', code: 'MY-14', url: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Kuala_Lumpur%2C_Malaysia.svg' },
+    { name: 'Putrajaya', uuid: '0814fbc0-db72-487b-ba05-9c83b6cf9af2', code: 'MY-16', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Putrajaya.svg' },
+    { name: 'Wilayah Persekutuan Labuan', uuid: 'a79d303b-1873-4357-a59d-5c060dbc2f92', code: 'MY-15', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Labuan.svg' },
 
     // --- Netherlands (Kingdom) ---
     { name: 'Kingdom of the Netherlands', uuid: 'aee96acc-29ab-4f1b-b23d-52012b29c25b', code: 'NL-KD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Netherlands.svg' },
@@ -1035,7 +1113,6 @@
 
     // --- United Kingdom (Countries) ---
     { name: 'England', uuid: '9d5dd675-3cf4-4296-9e39-67865ebee758', code: 'GB-ENG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_England.svg' },
-
     { name: 'Scotland', uuid: '6fa1c7da-6689-4cec-85f9-680f853e8a08', code: 'GB-SCT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Scotland.svg' },
     { name: 'Wales', uuid: '8297708c-5743-47d6-a5ac-f40a41c49ad9', code: 'GB-WLS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Wales.svg' },
     // --- United Kingdom (Crown Dependencies) ---
@@ -1051,7 +1128,6 @@
     { name: 'Derbyshire', uuid: '55dd286a-f047-423b-9062-37408f148633', code: 'GB-DBY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Derbyshire_flag.svg' },
     { name: 'Devon', uuid: '2021b983-80b8-4f6b-a2a9-7d33c23e15b6', code: 'GB-DEV', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Devon.svg' },
     { name: 'Dorset', uuid: '2d71b77c-cec0-47dd-9516-fd01db91ca13', code: 'GB-DOR', url: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Dorset.svg' },
-    { name: 'East Sussex', uuid: '61b6a12e-4751-4fe3-b40d-ecb84f29736c', code: 'GB-ESX', url: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_East_Sussex.svg' },
     { name: 'Essex', uuid: 'c58e25fa-9d99-4ff3-b4b8-a7e7b2cf452c', code: 'GB-ESS', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Flag_of_Essex.svg' },
     { name: 'Gloucestershire', uuid: 'da806ae8-ff93-4988-93ee-4bee3c5a56bf', code: 'GB-GLS', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Severn_Cross.svg' },
     { name: 'Hampshire', uuid: 'e12f6f8d-b5e9-4b15-ab88-4298e3e1a1b3', code: 'GB-HAM', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/County_Flag_of_Hampshire.svg' },
@@ -1072,13 +1148,31 @@
     { name: 'West Sussex', uuid: 'a7251dbd-388c-4fdf-a294-1bcde106ddf7', code: 'GB-WSX', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_West_Sussex.svg' },
     { name: 'Worcestershire', uuid: '2fb56867-9b52-4fd3-a562-6d7d13441d60', code: 'GB-WOR', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Worcestershire_flag.svg' },
     // --- United Kingdom (Unitary Authorities) ---
+    { name: 'Bournemouth', uuid: 'ca133b15-39a3-449a-95d8-9008c437da7d', code: 'GB-BCP', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Bournemouth_town_flag.svg' },
+    { name: 'Cardiff', uuid: 'f0b226db-8e22-40e6-9a53-d839cfec6228', code: 'GB-CRF', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Cardiff.svg' },
     { name: 'Cornwall', uuid: '03d7eb23-c924-4e46-af72-a45f6ee04c8b', code: 'GB-CON', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Saint_Piran%27s_Flag.svg' },
     { name: 'East Riding of Yorkshire', uuid: 'fce537c2-afa0-4bd5-b29b-2b75929f13f6', code: 'GB-ERY', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_North_Riding_of_Yorkshire.svg' },
+    { name: 'Gwynedd', uuid: '33a9cc60-fc72-4397-bd95-a94777d9e939', code: 'GB-GWN', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Gwynedd_%283-2%29.svg' },
+    { name: 'Isle of Anglesey', uuid: '74b3db14-539d-488d-8e66-1f5c8036e2ff', code: 'GB-AGY', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Anglesey.svg' },
     { name: 'Isle of Wight', uuid: '428c7efb-6480-483b-97e3-786d3f0c1954', code: 'GB-IOW', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_the_Isle_of_Wight.svg' },
     { name: 'Isles of Scilly', uuid: 'de98091e-bca6-45ff-8bed-c3302c5b0b28', code: 'GB-IOS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Baner_ynysek_Syllan.svg' },
+    { name: 'Kingston upon Hull', uuid: 'aab5b67e-3b98-44a5-8336-1c3d326d9082', code: 'GB-KHL', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Flag_of_Kingston-upon-Hull.png' },
+    { name: 'Leicester', uuid: '806b9b3b-5daf-4eaa-807d-7a2a29cde0da', code: 'GB-LCE', url: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_the_City_of_Leicester.png' },
+    { name: 'Luton', uuid: 'fce4afff-8d49-4f1f-977a-10edbe839331', code: 'GB-LUT', url: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_of_Luton.png' },
+    { name: 'Milton Keynes', uuid: '8d28d7ab-0714-4d07-aadb-8bf60dcce6f9', code: 'GB-MIK', url: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_Milton_Keynes.png' },
+    { name: 'Northumberland', uuid: '6beecf16-22b7-4463-9999-73c79243fd56', code: 'GB-NBL', url: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Northumberland.svg' },
+    { name: 'Nottingham', uuid: 'f988aff4-5221-4b36-9174-befec694f906', code: 'GB-NGM', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Flag_of_Nottingham.png' },
     { name: 'Plymouth', uuid: '27e496a5-2ad4-4d7e-a4ac-a3869b2bbad7', code: 'GB-PLY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Plymouth.svg' },
+    { name: 'Portsmouth', uuid: '7b6383fb-468f-4a2b-916f-b4cbbfb5253e', code: 'GB-POR', url: 'https://upload.wikimedia.org/wikipedia/commons/5/56/City_Flag_of_Portsmouth.svg' },
     { name: 'Rutland', uuid: 'a8000b64-a257-441c-9b1b-1084a7f5b626', code: 'GB-RUT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Rutland_County_Flag.svg' },
     { name: 'Shropshire', uuid: '3fd2c297-7015-4cc0-ad37-48dcb262621f', code: 'GB-SHR', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Flag_of_Shropshire.svg' },
+    { name: 'Southampton', uuid: '32950a38-9edd-42fd-aec9-26128507ff06', code: 'GB-STH', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Flag_of_Southampton.png' },
+    { name: 'Southend-on-Sea', uuid: 'f706259c-989f-4a92-bbac-211135b5c207', code: 'GB-SOS', url: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Flag_of_Southend-on-Sea.png' },
+    { name: 'Swansea', uuid: 'f449c819-0a9b-4c08-9446-6e7d5bd48d08', code: 'GB-SWA', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/SWANSEA_FLAG.jpg' },
+    { name: 'Swindon', uuid: 'aee482fe-df6b-4f0f-849f-18f2329bab7c', code: 'GB-SWD', url: 'https://www.fotw.info/images/g/gb-e-swindon.gif' },
+    { name: 'Torfaen', uuid: 'b51fabf7-3a82-430e-b553-e45b1ee724c6', code: 'GB-TOF', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/FLAG_OF_TORFAEN.jpg' },
+    { name: 'Vale of Glamorgan', uuid: '495c38be-f0cd-4206-a259-7ba778817975', code: 'GB-VGL', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Glamorgan_Flag.svg' },
+    { name: 'Wrexham', uuid: 'acd67bc2-3eac-4e04-afe1-70a0663ec59f', code: 'GB-WRC', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Flag_of_Wrexham.png' },
     { name: 'York', uuid: '3a28f05b-59e0-4aa1-9a79-b96f5ef6403b', code: 'GB-YOR', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_York.svg' },
 
     // --- United States (States) ---
@@ -1132,16 +1226,13 @@
     { name: 'West Virginia', uuid: 'bb32d812-8161-44e1-8a73-7a0d4a6d3f96', code: 'US-WV', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_West_Virginia.svg' },
     { name: 'Wisconsin', uuid: '10cb2ebd-1bc7-4c11-b10d-54f60c421d20', code: 'US-WI', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_Wisconsin.svg' },
     { name: 'Wyoming', uuid: 'c2dca60c-5a5f-43b9-8591-3d4e454cac4e', code: 'US-WY', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Wyoming.svg' },
-
     // --- United States (District) ---
     { name: 'Washington D.C.', uuid: 'af59135f-38b5-4ea4-b4e2-dd28c5f0bad7', code: 'US-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg' },
-
     // --- United States (Territories) ---
     { name: 'Johnston Atoll', uuid: '9eb0b3a4-b212-40ff-9009-6b65ff988ea2', code: 'UM-67', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flag_of_the_Johnston_Atoll.svg' },
     { name: 'Midway Islands', uuid: '0a2a0867-543f-40db-a8d8-6c6c99d55431', code: 'UM-71', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_the_Midway_Islands_%28local%29.svg' },
     { name: 'Palmyra Atoll', uuid: '3704d613-b691-4bc3-a535-4a25f5368d56', code: 'UM-95', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_Palmyra_Atoll_%28local%29.svg' },
     { name: 'Wake Island', uuid: '926aa4ca-d61b-4e42-b52b-7312351fabf5', code: 'UM-79', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Wake_Island.svg' },
-
     // --- United States (Cities) ---
     { name: 'Atlanta', uuid: '26e0e534-19ea-4645-bfb3-1aa4e83a4046', code: 'US-GA-ATL', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Atlanta.svg' },
     { name: 'Austin', uuid: '58d2816b-daf9-4fc5-962c-06967f14a5e5', code: 'US-TX-ATX', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Austin%2C_Texas.svg' },
@@ -1210,7 +1301,7 @@
     if (el.dataset && (el.dataset.hqSkip === 'true' || el.dataset.hqProcessed === 'true')) return true;
     try {
       if (el.closest('.tabs, ul.tabs, .subtabs, .page_tabs, [role="tablist"], .tabs-wrap')) {
-        try { el.dataset.hqSkip = 'true'; } catch (e) { }
+        try { el.dataset.hqSkip = 'true'; } catch (e) { /* console.warn('Failed to set hqSkip dataset property:', e); */ }
         return true;
       }
     } catch (e) {
@@ -1250,7 +1341,7 @@
   function styleExistingImg(img, code, url) {
     img.classList.add('mb-hq-flag-img');
     img.setAttribute('data-hq-flag', code);
-    try { img.alt = ''; } catch (e) { }
+    try { img.alt = ''; } catch (e) { console.warn('Failed to set image alt attribute:', e); }
     try { img.setAttribute('aria-hidden', 'true'); } catch (e) { }
     img.style.setProperty('width', 'auto', 'important');
     img.style.setProperty('height', '11px', 'important');
@@ -1300,16 +1391,18 @@
       // swallow
     }
   }
-  const flagDataMap = new Map();
+  const flagDataMap = new Map(); // code -> url
   const nodeCache = new Map();
-  const uuidFlagMap = new Map();
+  const uuidFlagMap = new Map(); // uuid -> flag object
+  const codeFlagMap = new Map(); // code -> flag object
 
   // Ensure map populated
   function ensureFlagMap() {
     if (flagDataMap.size === 0) {
-      ALL_FLAGS.forEach(c => {
+      ALL_FLAGS_RAW.forEach(c => {
         flagDataMap.set(c.code, c.url);
         uuidFlagMap.set(c.uuid, c);
+        codeFlagMap.set(c.code, c);
       });
     }
   }
@@ -1367,33 +1460,25 @@
     if (!url) return;
     if (shouldSkipElement(el)) return;
 
-    if (url.startsWith('data:')) {
-      _doApplyHQ(el, code, url, markOnSuccess);
-    } else {
-      if (!pendingPromises.has(code)) {
-        const p = getCachedFlagDB(code).then(cached => {
-          if (cached) {
-            flagDataMap.set(code, cached);
-            return cached;
-          }
-          const uuidMatch = el.className.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/);
-          const country = uuidMatch ? uuidFlagMap.get(uuidMatch[0]) : ALL_FLAGS.find(c => c.code === code);
-          if (country) {
-            fetchAndCache(country, (newData) => {
-              flagDataMap.set(country.code, newData);
-              updateAllProcessedFlagsForCode(country.code);
-            });
-          }
-          return url;
-        });
-        pendingPromises.set(code, p);
+    // Unify execution path for consistency
+    Promise.resolve(url.startsWith('data:') ? url : pendingPromises.get(code) || getCachedFlagDB(code).then(cached => {
+      if (cached) {
+        flagDataMap.set(code, cached);
+        return cached;
       }
-
-      pendingPromises.get(code).then(finalUrl => {
-        if (el.dataset.hqProcessed === 'true') return;
-        _doApplyHQ(el, code, finalUrl, markOnSuccess);
-      });
-    }
+      const uuidMatch = el.className.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/);
+      const country = uuidMatch ? uuidFlagMap.get(uuidMatch[0]) : codeFlagMap.get(code);
+      if (country) {
+        fetchAndCache(country, (newData) => {
+          flagDataMap.set(country.code, newData);
+          updateAllProcessedFlagsForCode(country.code);
+        });
+      }
+      return url;
+    })).then(finalUrl => {
+      if (el.dataset.hqProcessed === 'true') return;
+      _doApplyHQ(el, code, finalUrl, markOnSuccess);
+    });
   }
 
   function _doApplyHQ(el, code, url, markOnSuccess) {
@@ -1584,11 +1669,33 @@
   }
 
   function fetchAndCache(country, callback) {
-    const fetchingKey = 'mb_hq_flag_fetching_' + country.code;
-    try {
-      if (sessionStorage.getItem(fetchingKey)) return;
-      sessionStorage.setItem(fetchingKey, '1');
-    } catch (e) { }
+    if (pendingPromises.has(country.code)) return;
+    const promise = new Promise((resolve, reject) => {
+      GM_xmlhttpRequest({
+        method: 'GET',
+        url: country.url,
+        responseType: 'blob',
+        onload: function (response) {
+          if (response.status >= 200 && response.status < 300) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              try {
+                if (typeof reader.result === 'string') {
+                  setCachedFlagDB(country.code, reader.result);
+                  if (callback) callback(reader.result);
+                  resolve(reader.result);
+                }
+              } catch (e) { reject(e); } // Propagate error
+            };
+            reader.readAsDataURL(response.response);
+          } else {
+            reject(new Error(`HTTP error! status: ${response.status}`));
+          }
+        },
+        onerror: function (error) { reject(error); }
+      });
+    }).finally(() => { pendingPromises.delete(country.code); });
+    pendingPromises.set(country.code, promise);
 
     GM_xmlhttpRequest({
       method: 'GET',
@@ -1604,15 +1711,15 @@
                 if (callback) callback(reader.result);
               }
             } catch (e) { } finally {
-              try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
+              try { pendingPromises.delete(country.code); } catch (e) { }
             }
           };
           reader.readAsDataURL(response.response);
         } else {
-          try { sessionStorage.removeItem(fetchingKey); } catch (e) { }
+          try { pendingPromises.delete(country.code); } catch (e) { }
         }
       },
-      onerror: function () { try { sessionStorage.removeItem(fetchingKey); } catch (e) { } }
+      onerror: function () { try { pendingPromises.delete(country.code); } catch (e) { } }
     });
   }
 
@@ -1751,7 +1858,8 @@
 
   function insertFlags() {
     if (window.location.pathname.includes('/area/')) {
-      const pageMatch = ALL_FLAGS.find(p => window.location.pathname.includes(p.uuid));
+      const uuidMatch = window.location.pathname.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/);
+      const pageMatch = uuidMatch ? uuidFlagMap.get(uuidMatch[0]) : undefined;
       if (pageMatch) {
         document.querySelectorAll('h1').forEach(headingEl => {
           const heading = headingEl;
@@ -1794,7 +1902,7 @@
     document.querySelectorAll('a[href*="/area/"]').forEach(linkEl => {
       const link = linkEl;
       if (link.dataset.flagProcessed) return;
-      if (link.closest('.tabs')) { link.dataset.flagProcessed = '1'; return; }
+      if (link.closest('.tabs') || link.closest('.external_links')) { link.dataset.flagProcessed = '1'; return; }
 
       const rawText = link.textContent.replace(/[\s\u200B-\u200F\u202A-\u202E\uFEFF]/g, '');
       if (rawText.length < 2) return;
@@ -1812,10 +1920,8 @@
 
       link.dataset.flagProcessed = '1';
 
-      const match = ALL_FLAGS.find(p => {
-        const regex = new RegExp(`/area/${p.uuid}(/?|\\?.*|#.*)$`, 'i');
-        return regex.test(link.href);
-      });
+      const uuidMatch = link.href.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/);
+      const match = uuidMatch ? uuidFlagMap.get(uuidMatch[0]) : undefined;
 
       let instanceId = null;
       if (match) {
@@ -1880,7 +1986,7 @@
           targetNode = nxt;
         }
 
-        console.log(`[DEBUG MFE] Inserting flag for ${match.name}`);
+
         const finalUrl = flagDataMap.get(match.code) || match.url;
         const iconSpan = createFlagImgElement(match.code, finalUrl);
         iconSpan.dataset.mbFlag = "1";
@@ -1949,7 +2055,9 @@
 
       let next = icon.nextSibling;
       let foundLink = false;
-      for (let i = 0; i < 3 && next; i++) {
+      // Iterate through siblings to find the associated link
+      // The limit of 3 is arbitrary and might need adjustment based on expected DOM structure
+      for (let i = 0; i < 5 && next; i++) { // Increased limit for robustness
         if (next.nodeType === Node.ELEMENT_NODE) {
           if (next.tagName === 'A' && next.href && next.href.includes(targetUuid)) {
             foundLink = true;
@@ -2007,15 +2115,13 @@
       insertFlags();
       cleanupOrphanedFlags();
 
-      let rafScheduled = false;
+      let timeoutId;
       const observer = new MutationObserver(() => {
         injectLoadingStyle();
-        if (rafScheduled) return;
-        rafScheduled = true;
-        requestAnimationFrame(() => {
-          try { processFlags(); insertFlags(); cleanupOrphanedFlags(); } catch (e) { }
-          rafScheduled = false;
-        });
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          try { processFlags(); insertFlags(); cleanupOrphanedFlags(); } catch (e) { console.error('MBHQ: MutationObserver callback failed', e); }
+        }, 100); // Debounce by 100ms
       });
 
       observer.observe(document.documentElement, { childList: true, subtree: true });

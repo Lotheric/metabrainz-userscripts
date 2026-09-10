@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-10.1205
+// @version      2026-09-10.1227
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -28,6 +28,20 @@
 
   /** @type {Region[]} */
   const REGIONS = [
+    // --- Albania (Counties) ---
+    { name: 'Berat', uuid: 'ce027832-b77f-454a-bdda-f23d1413be4d', code: 'AL-01', url: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Berat.svg' },
+    { name: 'Dibër', uuid: 'a2c10437-9577-4380-b0bc-982d39d3eeff', code: 'AL-09', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/ALB_Qarku_i_Dibrës_flag.svg' },
+    { name: 'Durrës', uuid: '57a05f6c-a06f-4aab-b15b-b3af43e81f6d', code: 'AL-02', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_of_Durrës.svg' },
+    { name: 'Elbasan', uuid: '7875bedf-e279-4081-a694-997723b26a7c', code: 'AL-03', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Elbasan.svg' },
+    { name: 'Fier', uuid: '5dd2324d-c7e1-4fd3-b273-4a1538177385', code: 'AL-04', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Fier.svg' },
+    { name: 'Gjirokastër', uuid: '4e509c3c-3a6a-44cb-a1bd-4734a9964cc8', code: 'AL-05', url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_Gjirokastër.svg' },
+    { name: 'Korçë', uuid: '522a57eb-7833-440c-af9c-e7ae7fa7bc7d', code: 'AL-06', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Flag_of_Korçë.svg' },
+    { name: 'Kukës', uuid: 'e8bde374-c52b-4e23-be38-6015dcadb9eb', code: 'AL-07', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Kukës.svg' },
+    { name: 'Lezhë', uuid: '46cb7215-9e42-4f8d-aa37-950217341b34', code: 'AL-08', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Flag_of_Lezhë.svg' },
+    { name: 'Shkodër', uuid: '46daf055-87a7-4702-99a0-741eb203ead7', code: 'AL-10', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Shkodër.svg' },
+    { name: 'Tiranë', uuid: '877aea20-0d89-4209-94c2-2850f421d566', code: 'AL-11', url: 'https://upload.wikimedia.org/wikipedia/commons/1/13/Flag_of_Tiranë.svg' },
+    { name: 'Vlorë County', uuid: '74f8b2a3-00e5-45d8-af24-fac7fbb17cc0', code: 'AL-12', url: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Vlorë.svg' },
+
     // --- Argentina (Provinces) ---
     { name: 'Buenos Aires Province', uuid: 'a6e0a033-8f5d-438b-a99c-2d956f7a9661', code: 'AR-B', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Buenos_Aires.svg' },
     { name: 'Catamarca', uuid: '213be5eb-0b5c-4989-a3f0-b86da46b435c', code: 'AR-K', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Catamarca.svg' },

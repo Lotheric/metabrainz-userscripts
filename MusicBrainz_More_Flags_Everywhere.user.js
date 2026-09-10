@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-10.0922
+// @version      2026-09-10.1205
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -502,6 +502,18 @@
     { name: 'Rivercess', uuid: '2b470769-eb21-440a-ba1b-0b178fe5809e', code: 'LR-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_Rivercess_County.svg' },
     { name: 'River Gee', uuid: '7d195291-4565-4031-b748-ec51c14d760d', code: 'LR-RG', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_River_Gee_County.svg' },
     { name: 'Sinoe', uuid: '60d19394-fc82-478e-986e-a0cdd1125463', code: 'LR-SI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_Sinoe_County.svg' },
+
+    // --- Lithuania (Counties) ---
+    { name: 'Alytaus Apskritis', uuid: '20825a37-55e4-495f-ab6a-327494fbcf5e', code: 'LT-AL', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Alytus_County_flag.svg' },
+    { name: 'Kauno Apskritis', uuid: 'baf172aa-1aac-40e6-9949-fe180351fe5e', code: 'LT-KU', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/LTU_Kauno_apskritis_flag.svg' },
+    { name: 'Klaipėdos Apskritis', uuid: 'f856fca3-7de4-4f13-835f-e7f237f25a6b', code: 'LT-KL', url: 'https://upload.wikimedia.org/wikipedia/commons/3/38/LTU_Klaipėdos_apskritis_flag.svg' },
+    { name: 'Marijampolės Apskritis', uuid: '6c4082aa-548d-4649-b8b8-0f62ddc3fdd5', code: 'LT-MR', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Marijampole_County_flag.svg' },
+    { name: 'Panevėžio Apskritis', uuid: '566d632a-664a-4bb9-8ef3-cb04f774d444', code: 'LT-PN', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Panevezys_County_flag.svg' },
+    { name: 'Šiaulių Apskritis', uuid: 'bf011bec-23e1-44ea-b84a-ef9e57760fcf', code: 'LT-SA', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Siauliai_County_flag.svg' },
+    { name: 'Tauragės Apskritis', uuid: 'd3472619-cc55-4577-857f-c3e99370acd8', code: 'LT-TA', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Taurage_County_flag.svg' },
+    { name: 'Telšių Apskritis', uuid: '814355cf-e60d-495b-96ca-ff94325da291', code: 'LT-TE', url: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Telšiai_County_flag.svg' },
+    { name: 'Utenos Apskritis', uuid: 'fbdb4d9c-d65a-49cf-896f-6df8141aa8e6', code: 'LT-UT', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Utena_County_flag.svg' },
+    { name: 'Vilniaus Apskritis', uuid: '7c4c9ad2-aed7-4b60-b694-281936d7133f', code: 'LT-VL', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Vilnius_County_flag.svg' },
 
     // --- Malaysia (States) ---
     { name: 'Johor', uuid: '7074ad56-379d-4298-bb88-80fdf249cf86', code: 'MY-01', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Flag_of_Johor.svg' },

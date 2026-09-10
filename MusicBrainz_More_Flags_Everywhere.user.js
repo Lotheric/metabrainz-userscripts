@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-07.1228
+// @version      2026-09-10.0922
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -216,6 +216,30 @@
     { name: 'Andjazîdja (Anjazījah)', uuid: 'c50166c5-4422-4490-a1c0-e465b4b26335', code: 'KM-G', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Grande_Comore.svg' },
     { name: 'Andjouân (Anjwān)', uuid: '064512b6-d31f-4875-957b-0ab7b428d31f', code: 'KM-A', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Flag_of_Anjouan_%28official%29.svg' },
     { name: 'Moûhîlî (Mūhīlī)', uuid: '3ebe38a6-03ef-43a8-af4d-e1a6d9a2e76c', code: 'KM-M', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag_of_Mohéli_%28official%29.svg' },
+
+    // --- Croatia (Counties) ---
+    { name: 'Bjelovarsko-bilogorska županija', uuid: 'b328a7db-f4ee-4be5-9c00-6ebf786b363f', code: 'HR-07', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Bjelovar-Bilogora_County_flag.svg' },
+    { name: 'Brodsko-posavska županija', uuid: '1504483f-6e5d-471f-a8e5-3292bd2bc179', code: 'HR-12', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Brod-Posavina_County.svg' },
+    { name: 'Dubrovačko-neretvanska županija', uuid: '616dc59f-8837-417d-8724-5929de1d036f', code: 'HR-19', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Dubrovnik-Neretva_County.svg' },
+    { name: 'Istarska županija', uuid: 'a83aecf5-e5e8-48ff-97b0-7af602605c3a', code: 'HR-18', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Zastava_Istarske_županije.svg' },
+    { name: 'Karlovačka županija', uuid: '524f2140-0b0a-450e-9e88-48340e2d0b5e', code: 'HR-04', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_Karlovac_County.svg' },
+    { name: 'Koprivničko-križevačka županija', uuid: 'f8eb2baf-3e16-4e23-a804-c97eadcbce2b', code: 'HR-06', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_Koprivnica-Križevci_County.svg' },
+    { name: 'Krapinsko-zagorska županija', uuid: '1202fb1c-35e8-4d5e-b23a-56487d6fcfd5', code: 'HR-02', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Flag_of_Krapina-Zagorje_County.svg' },
+    { name: 'Ličko-senjska županija', uuid: '61c68e9f-13fc-4ed4-97a1-790af83c8f2d', code: 'HR-09', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Lika-Senj_County.svg' },
+    { name: 'Međimurska županija', uuid: '61de7c47-cafc-4956-b377-256d26def333', code: 'HR-20', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Međimurje_County.svg' },
+    { name: 'Osječko-baranjska županija', uuid: '8fab51ba-3556-408f-a543-e38a389099e0', code: 'HR-14', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Flag_of_Osijek-Baranja_County.svg' },
+    { name: 'Požeško-slavonska županija', uuid: '08ff8936-8821-4c48-9ac4-87f0ccfda9de', code: 'HR-11', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Požega-Slavonia_County.svg' },
+    { name: 'Primorsko-goranska županija', uuid: '62223575-5a29-4807-9616-8db66397d403', code: 'HR-08', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Primorje-Gorski_Kotar_County.svg' },
+    { name: 'Šibensko-kninska županija', uuid: '446b1247-33e8-4cb7-999c-0e187ffee01e', code: 'HR-15', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Šibenik-Knin_County.svg' },
+    { name: 'Sisačko-moslavačka županija', uuid: '87f30df5-1ba4-4a4e-a7a3-88d08864afa6', code: 'HR-03', url: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Sisak-Moslavina_County.svg' },
+    { name: 'Splitsko-dalmatinska županija', uuid: '93e86506-9d55-4078-9282-459bbc945603', code: 'HR-17', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Split-Dalmatia_County.svg' },
+    { name: 'Varaždinska županija', uuid: 'bd4ee1d5-0a13-441e-9b1f-2aeaf8d47aa5', code: 'HR-05', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Varaždin_County.svg' },
+    { name: 'Virovitičko-podravska županija', uuid: 'd2ab84e6-9b12-4262-8d0e-7dcff1ac9739', code: 'HR-10', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Virovitica-Podravina_County.svg' },
+    { name: 'Vukovarsko-srijemska županija', uuid: 'b9225d78-3773-44b2-b455-2eab1d6679a7', code: 'HR-16', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Vukovar-Syrmia_County.svg' },
+    { name: 'Zadarska županija', uuid: 'ea709922-0809-43d3-8dba-688384f9fea9', code: 'HR-13', url: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_Zadar_County.svg' },
+    { name: 'Zagrebačka županija', uuid: '8beba0b5-0bc6-4720-8d9e-ca8d351c058e', code: 'HR-01', url: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Zagreb_County.svg' },
+    // --- Croatia (City) ---
+    { name: 'Zagreb', uuid: '55f3682e-ff80-4f11-9ec9-8923608a6ee1', code: 'HR-21', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Flag_of_Zagreb.svg' },
 
     // --- Czechia (Regions) ---
     { name: 'Jihočeský kraj', uuid: '91eb4aae-2c2b-4dc1-b972-1b44eaf6fbc1', code: 'CZ-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Bohemian_Region.svg' },
@@ -975,16 +999,13 @@
     { name: 'West Virginia', uuid: 'bb32d812-8161-44e1-8a73-7a0d4a6d3f96', code: 'US-WV', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_West_Virginia.svg' },
     { name: 'Wisconsin', uuid: '10cb2ebd-1bc7-4c11-b10d-54f60c421d20', code: 'US-WI', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_Wisconsin.svg' },
     { name: 'Wyoming', uuid: 'c2dca60c-5a5f-43b9-8591-3d4e454cac4e', code: 'US-WY', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Wyoming.svg' },
-
     // --- United States (District) ---
     { name: 'Washington D.C.', uuid: 'af59135f-38b5-4ea4-b4e2-dd28c5f0bad7', code: 'US-DC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg' },
-
     // --- United States (Territories) ---
     { name: 'Johnston Atoll', uuid: '9eb0b3a4-b212-40ff-9009-6b65ff988ea2', code: 'UM-67', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flag_of_the_Johnston_Atoll.svg' },
     { name: 'Midway Islands', uuid: '0a2a0867-543f-40db-a8d8-6c6c99d55431', code: 'UM-71', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_the_Midway_Islands_%28local%29.svg' },
     { name: 'Palmyra Atoll', uuid: '3704d613-b691-4bc3-a535-4a25f5368d56', code: 'UM-95', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_Palmyra_Atoll_%28local%29.svg' },
     { name: 'Wake Island', uuid: '926aa4ca-d61b-4e42-b52b-7312351fabf5', code: 'UM-79', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Wake_Island.svg' },
-
     // --- United States (Cities) ---
     { name: 'Atlanta', uuid: '26e0e534-19ea-4645-bfb3-1aa4e83a4046', code: 'US-GA-ATL', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Atlanta.svg' },
     { name: 'Austin', uuid: '58d2816b-daf9-4fc5-962c-06967f14a5e5', code: 'US-TX-ATX', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Austin%2C_Texas.svg' },

@@ -468,6 +468,30 @@
     { name: 'Andjouân (Anjwān)', uuid: '064512b6-d31f-4875-957b-0ab7b428d31f', code: 'KM-A', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Flag_of_Anjouan_%28official%29.svg' },
     { name: 'Moûhîlî (Mūhīlī)', uuid: '3ebe38a6-03ef-43a8-af4d-e1a6d9a2e76c', code: 'KM-M', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag_of_Mohéli_%28official%29.svg' },
 
+    // --- Croatia (Counties) ---
+    { name: 'Bjelovarsko-bilogorska županija', uuid: 'b328a7db-f4ee-4be5-9c00-6ebf786b363f', code: 'HR-07', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Bjelovar-Bilogora_County_flag.svg' },
+    { name: 'Brodsko-posavska županija', uuid: '1504483f-6e5d-471f-a8e5-3292bd2bc179', code: 'HR-12', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Brod-Posavina_County.svg' },
+    { name: 'Dubrovačko-neretvanska županija', uuid: '616dc59f-8837-417d-8724-5929de1d036f', code: 'HR-19', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_Dubrovnik-Neretva_County.svg' },
+    { name: 'Istarska županija', uuid: 'a83aecf5-e5e8-48ff-97b0-7af602605c3a', code: 'HR-18', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Zastava_Istarske_županije.svg' },
+    { name: 'Karlovačka županija', uuid: '524f2140-0b0a-450e-9e88-48340e2d0b5e', code: 'HR-04', url: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag_of_Karlovac_County.svg' },
+    { name: 'Koprivničko-križevačka županija', uuid: 'f8eb2baf-3e16-4e23-a804-c97eadcbce2b', code: 'HR-06', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_Koprivnica-Križevci_County.svg' },
+    { name: 'Krapinsko-zagorska županija', uuid: '1202fb1c-35e8-4d5e-b23a-56487d6fcfd5', code: 'HR-02', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Flag_of_Krapina-Zagorje_County.svg' },
+    { name: 'Ličko-senjska županija', uuid: '61c68e9f-13fc-4ed4-97a1-790af83c8f2d', code: 'HR-09', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Lika-Senj_County.svg' },
+    { name: 'Međimurska županija', uuid: '61de7c47-cafc-4956-b377-256d26def333', code: 'HR-20', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_Međimurje_County.svg' },
+    { name: 'Osječko-baranjska županija', uuid: '8fab51ba-3556-408f-a543-e38a389099e0', code: 'HR-14', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Flag_of_Osijek-Baranja_County.svg' },
+    { name: 'Požeško-slavonska županija', uuid: '08ff8936-8821-4c48-9ac4-87f0ccfda9de', code: 'HR-11', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Požega-Slavonia_County.svg' },
+    { name: 'Primorsko-goranska županija', uuid: '62223575-5a29-4807-9616-8db66397d403', code: 'HR-08', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Primorje-Gorski_Kotar_County.svg' },
+    { name: 'Šibensko-kninska županija', uuid: '446b1247-33e8-4cb7-999c-0e187ffee01e', code: 'HR-15', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Šibenik-Knin_County.svg' },
+    { name: 'Sisačko-moslavačka županija', uuid: '87f30df5-1ba4-4a4e-a7a3-88d08864afa6', code: 'HR-03', url: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Sisak-Moslavina_County.svg' },
+    { name: 'Splitsko-dalmatinska županija', uuid: '93e86506-9d55-4078-9282-459bbc945603', code: 'HR-17', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Split-Dalmatia_County.svg' },
+    { name: 'Varaždinska županija', uuid: 'bd4ee1d5-0a13-441e-9b1f-2aeaf8d47aa5', code: 'HR-05', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Varaždin_County.svg' },
+    { name: 'Virovitičko-podravska županija', uuid: 'd2ab84e6-9b12-4262-8d0e-7dcff1ac9739', code: 'HR-10', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Virovitica-Podravina_County.svg' },
+    { name: 'Vukovarsko-srijemska županija', uuid: 'b9225d78-3773-44b2-b455-2eab1d6679a7', code: 'HR-16', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Vukovar-Syrmia_County.svg' },
+    { name: 'Zadarska županija', uuid: 'ea709922-0809-43d3-8dba-688384f9fea9', code: 'HR-13', url: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_Zadar_County.svg' },
+    { name: 'Zagrebačka županija', uuid: '8beba0b5-0bc6-4720-8d9e-ca8d351c058e', code: 'HR-01', url: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Zagreb_County.svg' },
+    // --- Croatia (City) ---
+    { name: 'Zagreb', uuid: '55f3682e-ff80-4f11-9ec9-8923608a6ee1', code: 'HR-21', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Flag_of_Zagreb.svg' },
+
     // --- Czechia (Regions) ---
     { name: 'Jihočeský kraj', uuid: '91eb4aae-2c2b-4dc1-b972-1b44eaf6fbc1', code: 'CZ-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Bohemian_Region.svg' },
     { name: 'Jihomoravský kraj', uuid: 'e64ebd04-03cc-49c6-b64e-767bbc65e7b2', code: 'CZ-64', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_South_Moravian_Region.svg' },

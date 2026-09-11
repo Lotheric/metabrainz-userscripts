@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1012
+// @version      2026-09-11.1151
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -446,8 +446,48 @@
         if (!uuidMatch) return;
 
         const code = uuidToCodeMap.get(uuidMatch[1].toLowerCase());
+
+        // Ensure wrap for all area links regardless of flag
+        if (!link.closest('.mfe-flag-wrapper')) {
+          let wrapStartNode = link;
+          if (link.parentElement && link.parentElement.classList.contains('flag')) {
+            wrapStartNode = link.parentElement;
+          }
+
+          let targetNode = wrapStartNode;
+          let nxt = targetNode.nextSibling;
+          if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
+            targetNode = nxt;
+            nxt = nxt.nextSibling;
+          }
+          if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (nxt.classList.contains('comment') || nxt.classList.contains('disambiguation'))) {
+            targetNode = nxt;
+            nxt = nxt.nextSibling;
+          }
+          if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*,/.test(nxt.nodeValue || '')) {
+            const commaIndex = nxt.nodeValue.indexOf(',');
+            if (commaIndex !== -1 && commaIndex + 1 < nxt.nodeValue.length) {
+              nxt.splitText(commaIndex + 1);
+            }
+            targetNode = nxt;
+          }
+
+          const wrapper = document.createElement('span');
+          wrapper.className = 'mfe-flag-wrapper';
+          wrapStartNode.parentNode.insertBefore(wrapper, wrapStartNode);
+
+          let curr = wrapStartNode;
+          while (curr) {
+            let next = curr.nextSibling;
+            wrapper.appendChild(curr);
+            if (curr === targetNode) break;
+            curr = next;
+          }
+        }
+
         if (!code) return;
 
+        link.classList.remove('arealink');
         applyHQToElement(link, code, true);
       });
     } catch (e) {
@@ -706,7 +746,12 @@
 
     // inject css
     const style = document.createElement('style');
-    style.textContent = 'span.flag { white-space: nowrap !important; }';
+    style.textContent = `
+      span.flag { white-space: nowrap !important; }
+      .mfe-flag-wrapper { display: inline !important; white-space: nowrap !important; }
+      .mfe-flag-wrapper * { white-space: nowrap !important; }
+      .mfe-flag-wrapper a.arealink { display: inline-block !important; }
+    `;
     document.head.appendChild(style);
 
     // initial processing

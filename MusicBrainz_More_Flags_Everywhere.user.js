@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1205
+// @version      2026-09-11.1232
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1296,12 +1296,14 @@
 
   function nukeIconsAndSpaces(el) {
     let currentEl = el;
+    let deletedSpace = false;
     while (currentEl) {
       let prev = currentEl.previousSibling;
       while (prev) {
         let toKill = prev;
         prev = prev.previousSibling;
         if (toKill.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(toKill.nodeValue || '')) {
+          if (toKill.nodeValue && toKill.nodeValue.length > 0) deletedSpace = true;
           if (toKill.parentNode) toKill.parentNode.removeChild(toKill);
         } else if (toKill.nodeType === Node.ELEMENT_NODE && toKill.dataset.mbFlag === '1') {
           toKill.remove();
@@ -1321,6 +1323,7 @@
         break;
       }
     }
+    return deletedSpace;
   }
 
   const nodeCache = new Map();
@@ -1424,10 +1427,11 @@
     link.dataset.flagProcessed = '1';
     let wrapper = link;
     let iconSpan = null;
+    let spaceDeleted = false;
 
     if (match) {
       hideAdjacentSiteIcons(wrapper);
-      nukeIconsAndSpaces(wrapper);
+      spaceDeleted = nukeIconsAndSpaces(wrapper);
       wrapper.classList.remove('arealink');
       iconSpan = createFlagIcon(match);
     }
@@ -1454,6 +1458,18 @@
       const nowrapSpan = document.createElement('span');
       nowrapSpan.className = 'mfe-flag-wrapper';
       nowrapSpan.style.setProperty('white-space', 'nowrap', 'important');
+
+      // Find the outermost wrapper so we can insert the space OUTSIDE all nowrap containers
+      let outermostWrapper = wrapper;
+      while (outermostWrapper.parentElement && outermostWrapper.parentElement.classList.contains('mfe-flag-wrapper')) {
+        outermostWrapper = outermostWrapper.parentElement;
+      }
+
+      // If we deleted a native space earlier, restore it as a regular space before the outermost wrapper
+      if (spaceDeleted) {
+        outermostWrapper.parentNode.insertBefore(document.createTextNode(' '), outermostWrapper);
+      }
+
       wrapper.parentNode.insertBefore(nowrapSpan, wrapper);
 
       let commaNode = null;

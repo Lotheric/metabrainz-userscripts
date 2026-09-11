@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.0923
+// @version      2026-09-11.0955
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -290,6 +290,22 @@
     { name: 'North Denmark Region', uuid: 'e1d068a6-d2c5-4dbb-8c37-1d1407097934', code: 'DK-81', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Region_Nordjylland.svg' },
     { name: 'Region of Southern Denmark', uuid: 'c99aceb6-1023-4316-8483-fac31dcd1d7c', code: 'DK-83', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Region_Syddanmark.svg' },
     { name: 'Region Zealand', uuid: '7d490078-4542-411d-aece-709afee04256', code: 'DK-85', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Region_Sj%C3%A6lland.svg' },
+
+    // --- El Salvador (Departments) ---
+    { name: 'Ahuachapán', uuid: 'f8840e75-f279-41ba-a1c6-cb29e4d50023', code: 'SV-AH', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Bandera_del_Departamento_de_Ahuachapán.PNG' },
+    { name: 'Cabañas', uuid: 'f345355f-2c66-44a5-a189-d493f964282f', code: 'SV-CA', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Flag_of_the_Cabañas_Department.svg' },
+    { name: 'Chalatenango', uuid: 'fb7f694f-627b-4ddf-8a35-bead1cdca543', code: 'SV-CH', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Chalatenango.svg' },
+    { name: 'Cuscatlán', uuid: 'f7223001-8483-42cf-8cdb-a275396760f9', code: 'SV-CU', url: 'https://upload.wikimedia.org/wikipedia/commons/5/59/Bandera_de_Cuscatlán.svg' },
+    { name: 'La Libertad', uuid: 'ceef1bba-70e9-4fd2-a796-9d7c4ca5cb30', code: 'SV-LI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_La_Libertad_Department_%28El_Salvador%29.svg' },
+    { name: 'La Paz', uuid: 'f23aa4bd-6355-4831-835d-da39be62796e', code: 'SV-PA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Bandera_del_Departamento_de_La_Paz.jpg' },
+    { name: 'La Unión', uuid: '49ec5170-5cd5-4d6e-bc16-3d102e12234d', code: 'SV-UN', url: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Departamento_de_La_Unión.svg' },
+    { name: 'Morazán', uuid: 'ae6a9481-3238-48e9-bcca-c0880fcdeb0d', code: 'SV-MO', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_Morazán_Department.svg' },
+    { name: 'San Miguel', uuid: 'd4b844af-00e1-47d7-b568-6b7020a0e160', code: 'SV-SM', url: 'https://upload.wikimedia.org/wikipedia/commons/6/64/SM_Bandera.png' },
+    { name: 'San Salvador', uuid: '011e3f92-ace3-4ebf-9081-4d7280842acc', code: 'SV-SS', url: 'https://upload.wikimedia.org/wikipedia/commons/7/73/San_Salvador_Flag.png' },
+    { name: 'San Vicente', uuid: 'eb9624b1-4506-4d7e-9dd4-269400dbcbb2', code: 'SV-SV', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_San_Vicente_Department.svg' },
+    { name: 'Santa Ana', uuid: '7616cc48-be46-430b-b30c-a755fb9198bb', code: 'SV-SA', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Bandera_de_Santa_Ana%2C_El_Salvador.svg' },
+    { name: 'Sonsonate', uuid: '1cba7206-2cad-41c2-bc10-8a2edad543b5', code: 'SV-SO', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Bandera_Sonsonate_SV.png' },
+    { name: 'Usulután', uuid: '81969fa0-ca9f-43fe-9802-8a4328f60ad7', code: 'SV-US', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Usulutan_flag.png' },
 
     // --- Estonia (Counties) ---
     { name: 'Harjumaa', uuid: 'ae44158c-c0b6-44c5-b41e-90e4da8497df', code: 'EE-37', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_et-Harju_maakond.svg' },

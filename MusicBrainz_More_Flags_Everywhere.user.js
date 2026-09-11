@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1232
+// @version      2026-09-11.1242
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1269,7 +1269,7 @@
       let steps = 0;
       while (prev && steps < 5) {
         if (prev.nodeType === Node.ELEMENT_NODE) {
-          if (prev.tagName === 'A' || prev.tagName === 'BDI') break;
+          if (prev.tagName === 'A' || prev.tagName === 'BDI' || prev.classList.contains('mfe-flag-wrapper')) break;
           if (prev.dataset.mbFlag !== '1') {
             const cls = prev.className || '';
             if (prev.tagName === 'IMG' || cls.includes('mb-hq-flag-img')) {
@@ -1414,9 +1414,6 @@
     // If the link is a native MB prepended annotation icon (usually inside .area-icon or has no text/an image), skip it.
     if (!link.textContent.trim() || link.closest('.area-icon') || link.closest('.type-icon') || link.querySelector('img')) {
       link.dataset.flagProcessed = '1';
-      link.style.display = 'none';
-      const iconSpanParent = link.closest('.area-icon');
-      if (iconSpanParent && iconSpanParent.tagName === 'SPAN') iconSpanParent.style.display = 'none';
       return;
     }
 

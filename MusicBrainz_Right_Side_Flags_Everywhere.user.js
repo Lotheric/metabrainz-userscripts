@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1040
+// @version      2026-09-11.1205
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -2054,73 +2054,84 @@
         wrapStartNode = linkWrapper;
       }
 
+      let targetNode = linkWrapper;
+      let nxt = targetNode.nextSibling;
+      if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
+        targetNode = nxt;
+        nxt = nxt.nextSibling;
+      }
+      if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (nxt.classList.contains('comment') || nxt.classList.contains('disambiguation'))) {
+        targetNode = nxt;
+        nxt = nxt.nextSibling;
+      }
+      if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*,/.test(nxt.nodeValue || '')) {
+        // If there's a comma right after the comment/link, include it in the wrap!
+        // We'll split the text node to only include up to the comma, so trailing spaces can still wrap natively if needed
+        const commaIndex = nxt.nodeValue.indexOf(',');
+        if (commaIndex !== -1 && commaIndex + 1 < nxt.nodeValue.length) {
+          nxt.splitText(commaIndex + 1);
+        }
+        targetNode = nxt;
+      }
+
+      let iconSpan = null;
       if (match) {
-        let targetNode = linkWrapper;
-        let nxt = targetNode.nextSibling;
-        if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
-          targetNode = nxt;
-          nxt = nxt.nextSibling;
-        }
-        if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (nxt.classList.contains('comment') || nxt.classList.contains('disambiguation'))) {
-          targetNode = nxt;
-        }
-
-
         const finalUrl = flagDataMap.get(match.code) || match.url;
-        const iconSpan = createFlagImgElement(match.code, finalUrl);
+        iconSpan = createFlagImgElement(match.code, finalUrl);
         iconSpan.dataset.mbFlag = "1";
         iconSpan.dataset.targetUuid = match.uuid;
         iconSpan.dataset.instanceId = instanceId;
-        if (linkWrapper.parentNode) {
-          let walk = targetNode.nextSibling;
-          while (walk) {
-            if (walk.nodeType === Node.TEXT_NODE) {
-              if (/^\s+/.test(walk.nodeValue)) walk.nodeValue = walk.nodeValue.replace(/^\s+/, '');
-              if (walk.nodeValue.length === 0) { walk = walk.nextSibling; continue; }
-              break;
-            } else if (walk.nodeType === Node.COMMENT_NODE) {
-              walk = walk.nextSibling;
-            } else break;
-          }
+      }
 
-          const wrapper = document.createElement('span');
-          wrapper.className = 'mfe-flag-wrapper';
-          wrapper.style.whiteSpace = 'nowrap';
+      if (linkWrapper.parentNode) {
+        const wrapper = document.createElement('span');
+        wrapper.className = 'mfe-flag-wrapper';
+        wrapper.style.whiteSpace = 'nowrap';
 
-          wrapStartNode.parentNode.insertBefore(wrapper, wrapStartNode);
+        wrapStartNode.parentNode.insertBefore(wrapper, wrapStartNode);
 
-          let curr = wrapStartNode;
-          let spaceCount = 0;
-          while (curr) {
-            let next = curr.nextSibling;
+        let curr = wrapStartNode;
+        let spaceCount = 0;
+        let commaNode = null;
+        if (targetNode.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*,/.test(targetNode.nodeValue || '')) {
+          commaNode = targetNode;
+        }
 
-            // Standardize spaces between globe and text
-            if (curr.nodeType === Node.TEXT_NODE && /^[\s\u00A0]+$/.test(curr.nodeValue)) {
-              let prevNode = curr.previousSibling;
-              let prevIsNoSpaceNode = prevNode && prevNode.nodeType === Node.ELEMENT_NODE && (
-                prevNode.classList.contains('arealink') ||
-                prevNode.classList.contains('flag')
-              );
+        while (curr) {
+          let next = curr.nextSibling;
 
-              if (spaceCount > 0 || curr === wrapStartNode || next === null || prevIsNoSpaceNode) {
-                // Remove redundant spaces
-                if (curr.parentNode) curr.parentNode.removeChild(curr);
-                curr = next;
-                continue;
-              } else {
-                curr.nodeValue = '\u00A0';
-                spaceCount++;
-              }
-            } else if (curr.nodeType === Node.ELEMENT_NODE) {
-              spaceCount = 0;
+          // Standardize spaces between globe and text
+          if (curr.nodeType === Node.TEXT_NODE && /^[\s\u00A0]+$/.test(curr.nodeValue)) {
+            let prevNode = curr.previousSibling;
+            let prevIsNoSpaceNode = prevNode && prevNode.nodeType === Node.ELEMENT_NODE && (
+              prevNode.classList.contains('arealink') ||
+              prevNode.classList.contains('flag')
+            );
+
+            if (spaceCount > 0 || curr === wrapStartNode || next === null || prevIsNoSpaceNode) {
+              // Remove redundant spaces
+              if (curr.parentNode) curr.parentNode.removeChild(curr);
+              curr = next;
+              continue;
+            } else {
+              curr.nodeValue = '\u00A0';
+              spaceCount++;
             }
-
-            wrapper.appendChild(curr);
-            if (curr === targetNode) break;
-            curr = next;
+          } else if (curr.nodeType === Node.ELEMENT_NODE) {
+            spaceCount = 0;
           }
 
+          if (iconSpan && curr === commaNode) {
+            wrapper.appendChild(iconSpan);
+            iconSpan = null; // Prevent appending again at the end
+          }
 
+          wrapper.appendChild(curr);
+          if (curr === targetNode) break;
+          curr = next;
+        }
+
+        if (iconSpan) {
           wrapper.appendChild(iconSpan);
         }
       }

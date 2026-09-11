@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.0955
+// @version      2026-09-11.1040
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -2172,11 +2172,14 @@
 
       /* Ensure flags and area links do not wrap across lines */
       .mfe-flag-wrapper {
-          display: inline-block !important;
+          display: inline !important;
           white-space: nowrap !important;
       }
       .mfe-flag-wrapper * {
           white-space: nowrap !important;
+      }
+      .mfe-flag-wrapper a.arealink {
+          display: inline-block !important;
       }
     `;
     if (document.head) document.head.appendChild(style);

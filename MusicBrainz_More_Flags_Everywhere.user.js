@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1047
+// @version      2026-09-11.1205
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1263,40 +1263,60 @@
       markHidden(el);
     });
 
-    let prev = wrapper.previousSibling;
-    let steps = 0;
-    while (prev && steps < 5) {
-      if (prev.nodeType === Node.ELEMENT_NODE) {
-        if (prev.tagName === 'A' || prev.tagName === 'BDI') break;
-        if (prev.dataset.mbFlag !== '1') {
-          const cls = prev.className || '';
-          if (prev.tagName === 'IMG' || cls.includes('mb-hq-flag-img')) {
-            markHidden(prev);
-          } else if (cls.includes('flag') || cls.includes('arealink') || cls.includes('area-icon')) {
-            if (!prev.textContent || prev.textContent.trim() === '') {
+    let currentEl = wrapper;
+    while (currentEl) {
+      let prev = currentEl.previousSibling;
+      let steps = 0;
+      while (prev && steps < 5) {
+        if (prev.nodeType === Node.ELEMENT_NODE) {
+          if (prev.tagName === 'A' || prev.tagName === 'BDI') break;
+          if (prev.dataset.mbFlag !== '1') {
+            const cls = prev.className || '';
+            if (prev.tagName === 'IMG' || cls.includes('mb-hq-flag-img')) {
               markHidden(prev);
+            } else if (cls.includes('flag') || cls.includes('arealink') || cls.includes('area-icon')) {
+              if (!prev.textContent || prev.textContent.trim() === '') {
+                markHidden(prev);
+              }
             }
           }
+        } else if (prev.nodeType === Node.TEXT_NODE) {
+          if (prev.nodeValue && prev.nodeValue.trim() !== '') break;
         }
-      } else if (prev.nodeType === Node.TEXT_NODE) {
-        if (prev.nodeValue && prev.nodeValue.trim() !== '') break;
+        prev = prev.previousSibling;
+        steps++;
       }
-      prev = prev.previousSibling;
-      steps++;
+      if (currentEl.parentElement && currentEl.parentElement.classList.contains('mfe-flag-wrapper')) {
+        currentEl = currentEl.parentElement;
+      } else {
+        break;
+      }
     }
   }
 
   function nukeIconsAndSpaces(el) {
-    let prev = el.previousSibling;
-    while (prev) {
-      let toKill = prev;
-      prev = prev.previousSibling;
-      if (toKill.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(toKill.nodeValue || '')) {
-        if (toKill.parentNode) toKill.parentNode.removeChild(toKill);
-      } else if (toKill.nodeType === Node.ELEMENT_NODE && toKill.dataset.mbFlag === '1') {
-        toKill.remove();
-      } else if (toKill.nodeType === Node.ELEMENT_NODE && toKill.dataset.mbFlagHidden === '1') {
-        // Skip over native hidden elements so we can continue stripping spaces/icons before them
+    let currentEl = el;
+    while (currentEl) {
+      let prev = currentEl.previousSibling;
+      while (prev) {
+        let toKill = prev;
+        prev = prev.previousSibling;
+        if (toKill.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(toKill.nodeValue || '')) {
+          if (toKill.parentNode) toKill.parentNode.removeChild(toKill);
+        } else if (toKill.nodeType === Node.ELEMENT_NODE && toKill.dataset.mbFlag === '1') {
+          toKill.remove();
+        } else if (toKill.nodeType === Node.ELEMENT_NODE && (toKill.classList.contains('area-icon') || toKill.classList.contains('arealink'))) {
+          toKill.style.display = 'none';
+          toKill.dataset.mbFlagHidden = '1';
+        } else if (toKill.nodeType === Node.ELEMENT_NODE && toKill.dataset.mbFlagHidden === '1') {
+          // Skip over native hidden elements so we can continue stripping spaces/icons before them
+        } else {
+          currentEl = null; // Also break outer loop
+          break;
+        }
+      }
+      if (currentEl && currentEl.parentElement && currentEl.parentElement.classList.contains('mfe-flag-wrapper')) {
+        currentEl = currentEl.parentElement;
       } else {
         break;
       }
@@ -1401,36 +1421,57 @@
     if (!uuidMatch) return;
 
     const match = regionMap.get(uuidMatch[1].toLowerCase());
+    link.dataset.flagProcessed = '1';
+    let wrapper = link;
+    let iconSpan = null;
+
     if (match) {
-      link.dataset.flagProcessed = '1';
-      let wrapper = link;
       hideAdjacentSiteIcons(wrapper);
       nukeIconsAndSpaces(wrapper);
-      const iconSpan = createFlagIcon(match);
-      if (wrapper.parentNode) {
-        let targetNode = wrapper;
-        let nxt = targetNode.nextSibling;
-        if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
-          targetNode = nxt;
-          nxt = nxt.nextSibling;
-        }
-        if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (nxt.classList.contains('comment') || nxt.classList.contains('disambiguation'))) {
-          targetNode = nxt;
-        }
+      wrapper.classList.remove('arealink');
+      iconSpan = createFlagIcon(match);
+    }
 
-        const nowrapSpan = document.createElement('span');
-        nowrapSpan.style.setProperty('white-space', 'nowrap', 'important');
-        wrapper.parentNode.insertBefore(nowrapSpan, wrapper);
+    if (wrapper.parentNode) {
+      let targetNode = wrapper;
+      let nxt = targetNode.nextSibling;
+      if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
+        targetNode = nxt;
+        nxt = nxt.nextSibling;
+      }
+      if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (nxt.classList.contains('comment') || nxt.classList.contains('disambiguation'))) {
+        targetNode = nxt;
+        nxt = nxt.nextSibling;
+      }
+      if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*,/.test(nxt.nodeValue || '')) {
+        const commaIndex = nxt.nodeValue.indexOf(',');
+        if (commaIndex !== -1 && commaIndex + 1 < nxt.nodeValue.length) {
+          nxt.splitText(commaIndex + 1);
+        }
+        targetNode = nxt;
+      }
+
+      const nowrapSpan = document.createElement('span');
+      nowrapSpan.className = 'mfe-flag-wrapper';
+      nowrapSpan.style.setProperty('white-space', 'nowrap', 'important');
+      wrapper.parentNode.insertBefore(nowrapSpan, wrapper);
+
+      let commaNode = null;
+      if (targetNode.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*,/.test(targetNode.nodeValue || '')) {
+        commaNode = targetNode;
+      }
+
+      if (iconSpan) {
         nowrapSpan.appendChild(iconSpan);
         nowrapSpan.appendChild(document.createTextNode('\u00A0'));
+      }
 
-        let curr = wrapper;
-        while (curr) {
-          let next = curr.nextSibling;
-          nowrapSpan.appendChild(curr);
-          if (curr === targetNode) break;
-          curr = next;
-        }
+      let curr = wrapper;
+      while (curr) {
+        let next = curr.nextSibling;
+        nowrapSpan.appendChild(curr);
+        if (curr === targetNode) break;
+        curr = next;
       }
     }
   }
@@ -1473,6 +1514,22 @@
   let accumulatedNodes = [];
   function init() {
     clearOldLocalStorageCache();
+
+    const style = document.createElement('style');
+    style.textContent = `
+      .mfe-flag-wrapper {
+          display: inline !important;
+          white-space: nowrap !important;
+      }
+      .mfe-flag-wrapper * {
+          white-space: nowrap !important;
+      }
+      .mfe-flag-wrapper a.arealink {
+          display: inline-block !important;
+      }
+    `;
+    if (document.head) document.head.appendChild(style);
+
     insertFlags();
     const observer = new MutationObserver((mutations) => {
       for (const mutation of mutations) {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1151
+// @version      2026-09-11.1254
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -508,7 +508,7 @@
       _doApplyHQ(el, code, url, markOnSuccess);
     } else {
       if (!pendingPromises.has(code)) {
-        const p = getCachedFlagDB(code).then(cached => {
+        const p = getCachedFlagDB(code, url).then(cached => {
           if (cached) {
             flagDataMap.set(code, cached);
             return cached;
@@ -668,27 +668,39 @@
     return dbPromise;
   }
 
-  function getCachedFlagDB(code) {
+  function getCachedFlagDB(code, currentUrl) {
     return getDB().then(db => {
       return new Promise((resolve) => {
         try {
           const transaction = db.transaction('flags', 'readonly');
           const store = transaction.objectStore('flags');
           const request = store.get(code);
-          request.onsuccess = () => resolve(request.result);
+          request.onsuccess = () => {
+            const result = request.result;
+            if (!result) return resolve(null);
+            if (typeof result === 'string') {
+              // Legacy format, invalidate
+              resolve(null);
+            } else if (result.source !== currentUrl) {
+              // URL changed, invalidate
+              resolve(null);
+            } else {
+              resolve(result.url);
+            }
+          };
           request.onerror = () => resolve(null);
         } catch (e) { resolve(null); }
       });
     }).catch(() => null);
   }
 
-  function setCachedFlagDB(code, dataUrl) {
+  function setCachedFlagDB(code, dataUrl, sourceUrl) {
     return getDB().then(db => {
       return new Promise((resolve, reject) => {
         try {
           const transaction = db.transaction('flags', 'readwrite');
           const store = transaction.objectStore('flags');
-          const request = store.put(dataUrl, code);
+          const request = store.put({ url: dataUrl, source: sourceUrl }, code);
           request.onsuccess = () => resolve();
           request.onerror = () => reject(request.error);
         } catch (e) { resolve(); }
@@ -722,7 +734,7 @@
           reader.onloadend = () => {
             try {
               if (typeof reader.result === 'string') {
-                setCachedFlagDB(country.code, reader.result);
+                setCachedFlagDB(country.code, reader.result, country.url);
                 if (callback) callback(reader.result);
               }
             } catch (e) { } finally {

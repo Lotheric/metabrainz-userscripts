@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.0955
+// @version      2026-09-11.1012
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1408,8 +1408,12 @@
       nukeIconsAndSpaces(wrapper);
       const iconSpan = createFlagIcon(match);
       if (wrapper.parentNode) {
-        wrapper.parentNode.insertBefore(iconSpan, wrapper);
-        wrapper.parentNode.insertBefore(document.createTextNode(' '), wrapper);
+        const nowrapSpan = document.createElement('span');
+        nowrapSpan.style.setProperty('white-space', 'nowrap', 'important');
+        wrapper.parentNode.insertBefore(nowrapSpan, wrapper);
+        nowrapSpan.appendChild(iconSpan);
+        nowrapSpan.appendChild(document.createTextNode(' '));
+        nowrapSpan.appendChild(wrapper);
       }
     }
   }

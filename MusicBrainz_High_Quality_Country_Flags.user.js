@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-05.2232
+// @version      2026-09-11.1012
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -703,6 +703,11 @@
     clearOldLocalStorageCache();
     clearStaleProcessedMarkers();
     ensureFlagMap();
+
+    // inject css
+    const style = document.createElement('style');
+    style.textContent = 'span.flag { white-space: nowrap !important; }';
+    document.head.appendChild(style);
 
     // initial processing
     processFlags();

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.0906
+// @version      2026-09-11.0923
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -234,6 +234,15 @@
     { name: 'Andjazîdja (Anjazījah)', uuid: 'c50166c5-4422-4490-a1c0-e465b4b26335', code: 'KM-G', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Grande_Comore.svg' },
     { name: 'Andjouân (Anjwān)', uuid: '064512b6-d31f-4875-957b-0ab7b428d31f', code: 'KM-A', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Flag_of_Anjouan_%28official%29.svg' },
     { name: 'Moûhîlî (Mūhīlī)', uuid: '3ebe38a6-03ef-43a8-af4d-e1a6d9a2e76c', code: 'KM-M', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag_of_Mohéli_%28official%29.svg' },
+
+    // --- Costa Rica (Provinces) ---
+    { name: 'Alajuela', uuid: '0298aba2-c05b-4b1e-ae25-180173a15366', code: 'CR-A', url: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Bandera_de_la_Provincia_de_Alajuela.svg' },
+    { name: 'Cartago', uuid: '67ca58e0-268b-468f-b2b9-10512c387909', code: 'CR-C', url: 'https://upload.wikimedia.org/wikipedia/commons/0/06/Bandera_de_la_Provincia_de_Cartago.svg' },
+    { name: 'Guanacaste', uuid: '5f32768d-9dac-430b-a4d9-24e325cc5216', code: 'CR-G', url: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Bandera_de_la_Provincia_de_Guanacaste.svg' },
+    { name: 'Heredia', uuid: '81457fdd-0dcc-41d4-a84a-9b002b93e078', code: 'CR-H', url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Bandera_de_la_Provincia_de_Heredia.svg' },
+    { name: 'Limón', uuid: 'ef1f864c-1827-4716-942e-ec654c532fe8', code: 'CR-L', url: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Bandera_de_la_Provincia_de_Limón.svg' },
+    { name: 'Puntarenas', uuid: '6ccb54c3-bc1c-4d1d-945f-e40b0d77040e', code: 'CR-P', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Bandera_de_la_Provincia_de_Puntarenas.svg' },
+    { name: 'San José', uuid: 'b63533c7-0c4f-443f-881f-b5ee6211208e', code: 'CR-SJ', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Bandera_de_la_Provincia_de_San_José.svg' },
 
     // --- Croatia (Counties) ---
     { name: 'Bjelovarsko-bilogorska županija', uuid: 'b328a7db-f4ee-4be5-9c00-6ebf786b363f', code: 'HR-07', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Bjelovar-Bilogora_County_flag.svg' },

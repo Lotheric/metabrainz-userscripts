@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1012
+// @version      2026-09-11.1047
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1408,12 +1408,29 @@
       nukeIconsAndSpaces(wrapper);
       const iconSpan = createFlagIcon(match);
       if (wrapper.parentNode) {
+        let targetNode = wrapper;
+        let nxt = targetNode.nextSibling;
+        if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
+          targetNode = nxt;
+          nxt = nxt.nextSibling;
+        }
+        if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (nxt.classList.contains('comment') || nxt.classList.contains('disambiguation'))) {
+          targetNode = nxt;
+        }
+
         const nowrapSpan = document.createElement('span');
         nowrapSpan.style.setProperty('white-space', 'nowrap', 'important');
         wrapper.parentNode.insertBefore(nowrapSpan, wrapper);
         nowrapSpan.appendChild(iconSpan);
-        nowrapSpan.appendChild(document.createTextNode(' '));
-        nowrapSpan.appendChild(wrapper);
+        nowrapSpan.appendChild(document.createTextNode('\u00A0'));
+
+        let curr = wrapper;
+        while (curr) {
+          let next = curr.nextSibling;
+          nowrapSpan.appendChild(curr);
+          if (curr === targetNode) break;
+          curr = next;
+        }
       }
     }
   }

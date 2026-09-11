@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-10.1227
+// @version      2026-09-11.0906
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -292,6 +292,10 @@
     { name: 'Shkodër', uuid: '46daf055-87a7-4702-99a0-741eb203ead7', code: 'AL-10', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Shkodër.svg' },
     { name: 'Tiranë', uuid: '877aea20-0d89-4209-94c2-2850f421d566', code: 'AL-11', url: 'https://upload.wikimedia.org/wikipedia/commons/1/13/Flag_of_Tiranë.svg' },
     { name: 'Vlorë County', uuid: '74f8b2a3-00e5-45d8-af24-fac7fbb17cc0', code: 'AL-12', url: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag_of_Vlorë.svg' },
+
+    // --- Antigua and Barbuda (Dependencies) ---
+    { name: 'Barbuda', uuid: '251b0c31-0b8e-491a-9c28-a44f39f97065', code: 'AG-10', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_Barbuda.svg' },
+    { name: 'Redonda', uuid: '40fd601e-345d-485d-be30-76481f83fa56', code: 'AG-11', url: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_the_Kingdom_of_Redonda.svg' },
 
     // --- Argentina (Provinces) ---
     { name: 'Buenos Aires Province', uuid: 'a6e0a033-8f5d-438b-a99c-2d956f7a9661', code: 'AR-B', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandera_de_la_Provincia_de_Buenos_Aires.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1242
+// @version      2026-09-11.1954
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -415,6 +415,30 @@
     { name: 'Sachsen-Anhalt', uuid: 'f58905b4-f974-4292-a259-befaf8a4e957', code: 'DE-ST', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saxony-Anhalt.svg' },
     { name: 'Schleswig-Holstein', uuid: '26486d74-1d5b-40db-857f-a8f49c64175b', code: 'DE-SH', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Schleswig-Holstein.svg' },
     { name: 'Thüringen', uuid: 'ff2ee1ad-febe-4b48-8999-e77870b62744', code: 'DE-TH', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Thuringia.svg' },
+
+    // --- Guatemala (Departments) ---
+    { name: 'Alta Verapaz', uuid: 'dfd54386-c36d-4375-a713-450524ccc06e', code: 'GT-AV', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Alta_Verapaz_Department.svg' },
+    { name: 'Baja Verapaz', uuid: '97e27cf3-e4d6-4362-ba94-baff53240cc6', code: 'GT-BV', url: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Baja_Verapaz_Department.svg' },
+    { name: 'Chimaltenango', uuid: '185cef1f-bc8b-4df0-abbb-194d09055d1c', code: 'GT-CM', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Chimaltenango_Department.svg' },
+    { name: 'Chiquimula', uuid: 'c38d91af-af8e-423c-b86b-2a53a6e087df', code: 'GT-CQ', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Chiquimula%2C_Guatemala.svg' },
+    { name: 'El Progreso', uuid: '33b68221-f50c-4540-a6c4-47886a7de426', code: 'GT-PR', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_El_Progreso_Department.svg' },
+    { name: 'Escuintla', uuid: 'b8694cca-365b-4475-aa71-32df36354348', code: 'GT-ES', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/Flag_of_Escuintla_Department.svg' },
+    { name: 'Guatemala', uuid: 'b5ab731d-acb9-4fda-9e89-f5e556251eee', code: 'GT-GU', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_the_Guatemala_Department.svg' },
+    { name: 'Huehuetenango', uuid: '6f361152-6bb7-442b-80bf-7943a1951345', code: 'GT-HU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Huehuetenango_Department.svg' },
+    { name: 'Izabal', uuid: 'ee52eef8-776d-4289-9af4-5cdfe7ba8fff', code: 'GT-IZ', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Izabal_Department.svg' },
+    { name: 'Jalapa', uuid: 'c42c483b-1d31-4cd4-821a-79b50e93ff1f', code: 'GT-JA', url: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_Jalapa_Department%2C_Guatemala.svg' },
+    { name: 'Jutiapa', uuid: 'a9e2dbc5-fa6e-46f4-9e72-7140129bcede', code: 'GT-JU', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Jutiapa_Department.svg' },
+    { name: 'Petén', uuid: '3ee853b5-46a7-48fc-a759-6e9326a8c469', code: 'GT-PE', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Flag_of_El_Petén_Department.svg' },
+    { name: 'Quetzaltenango', uuid: '615e16b7-822c-4ac3-9f73-64a170e80623', code: 'GT-QZ', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Quetzaltenango_Department.svg' },
+    { name: 'Quiché', uuid: '949b1122-bc52-4256-a9bc-fd30285529b6', code: 'GT-QC', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_Quiché_Department.svg' },
+    { name: 'Retalhuleu', uuid: '1fcccc51-15b4-454b-a159-602c24b72cea', code: 'GT-RE', url: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Flag_of_Retahuleu_Department.svg' },
+    { name: 'Sacatepéquez', uuid: 'fd8358cd-cdc8-4386-af10-f68ddd9c9467', code: 'GT-SA', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Sacatepéquez_Department.svg' },
+    { name: 'San Marcos', uuid: '4a2f7db6-b2cd-4e24-a47a-cd599a90ec20', code: 'GT-SM', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Flag_of_San_Marcos_Department.svg' },
+    { name: 'Santa Rosa', uuid: 'bf8ea43e-fb1c-47f1-87f3-226d94d73d3a', code: 'GT-SR', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Santa_Rosa_Department.svg' },
+    { name: 'Sololá', uuid: '999fa95b-a1b9-4de1-96e3-c81e0213a096', code: 'GT-SO', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Sololá_Department.svg' },
+    { name: 'Suchitepéquez', uuid: '7f7e7f3e-c705-4bac-9ab1-474522f8d3d7', code: 'GT-SU', url: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_Suchitepéquez_Department.svg' },
+    { name: 'Totonicapán', uuid: '8d769f15-8b85-482d-b6ef-b6cf3ec5a8c0', code: 'GT-TO', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b0/Flag_of_Totonicapán_Department.svg' },
+    { name: 'Zacapa', uuid: 'cfdc2ff6-ea0c-4a3f-894c-b6d43cea9b8e', code: 'GT-ZA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Zacapa_Department.svg' },
 
     // --- Hungary (Counties) ---
     { name: 'Bács-Kiskun', uuid: '87f750a3-698a-461a-9d4d-ffdf1c8ea32d', code: 'HU-BK', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_B%C3%A1cs-Kiskun_County.svg' },

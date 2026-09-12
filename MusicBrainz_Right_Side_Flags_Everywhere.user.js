@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1954
+// @version      2026-09-11.2035
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -691,6 +691,24 @@
     { name: 'Totonicapán', uuid: '8d769f15-8b85-482d-b6ef-b6cf3ec5a8c0', code: 'GT-TO', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b0/Flag_of_Totonicapán_Department.svg' },
     { name: 'Zacapa', uuid: 'cfdc2ff6-ea0c-4a3f-894c-b6d43cea9b8e', code: 'GT-ZA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Zacapa_Department.svg' },
 
+    // --- Honduras (Departments) ---
+    { name: 'Atlántida', uuid: '9f3686fa-b022-4329-849c-bb772bb81713', code: 'HN-AT', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Flag_Of_Atlantida_Department.png' },
+    { name: 'Colón', uuid: '678650df-e006-487a-8ec8-4c07512f0cad', code: 'HN-CL', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_of_Colon_Department.svg' },
+    { name: 'Comayagua', uuid: '16b06058-acd1-4b11-be5c-6504a4a88d2d', code: 'HN-CM', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Bandera_del_departamento_de_Comayagua.png' },
+    { name: 'Copán', uuid: '1e1630b2-558a-4d6f-987a-c89b626ff7fb', code: 'HN-CP', url: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Bandera_de_Copán.svg' },
+    { name: 'Cortés', uuid: '693f589c-86aa-4d7b-b30a-33d76dc8c7c5', code: 'HN-CR', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Bandera_Cortés.png' },
+    { name: 'El Paraíso', uuid: '03b41cf7-3527-4f55-8cb0-a38e7b81378c', code: 'HN-EP', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Bandera_del_Paraíso.png' },
+    { name: 'Francisco Morazán', uuid: '40a56626-6726-4a5d-8b4c-9ac9a19aa896', code: 'HN-FM', url: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Tegucigalpa.svg' },
+    { name: 'Gracias a Dios', uuid: '1b24c330-d503-4406-8cc8-c1e8dbe7d5a6', code: 'HN-GD', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Bandera_de_Gracias_a_Dios.png' },
+    { name: 'Intibucá', uuid: '44e794af-a746-43c9-b9f0-5e8ba5a1e62f', code: 'HN-IN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Bandera_de_Intibucá.svg' },
+    { name: 'Islas de la Bahía', uuid: '023ef0f6-7380-4e1c-bd45-bc3148da2e9b', code: 'HN-IB', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_the_Governor_of_British_Honduras_%281884–1981%29.svg' },
+    { name: 'La Paz', uuid: '365d7773-1614-4f88-8046-673de60c80ba', code: 'HN-LP', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/La_Paz_bandera.png' },
+    { name: 'Lempira', uuid: 'b4261204-ff32-4ebc-b020-1afdc6a3ac67', code: 'HN-LE', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Lempira_Bandera.png' },
+    { name: 'Ocotepeque', uuid: '9920954c-aaa6-40d9-a593-44f100d0e0cc', code: 'HN-OC', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Bandera_de_Ocotepeque.svg' },
+    { name: 'Olancho', uuid: '12a03011-1e06-45d5-b46d-406acfa39c22', code: 'HN-OL', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Flag_of_Olancho_Department%2C_Honduras.svg' },
+    { name: 'Santa Bárbara', uuid: 'bc55a120-dcb1-41c1-93a0-b5f9121ed524', code: 'HN-SB', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Bandera_de_Santa_Barbara_Honduras.svg' },
+    { name: 'Valle', uuid: '16dcfbd0-0d59-43be-8eff-b92d17bac8bb', code: 'HN-VA', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Valle_de_angeles_Flag.jpg' },
+    
     // --- Hungary (Counties) ---
     { name: 'Bács-Kiskun', uuid: '87f750a3-698a-461a-9d4d-ffdf1c8ea32d', code: 'HU-BK', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_B%C3%A1cs-Kiskun_County.svg' },
     { name: 'Baranya', uuid: '321a81c0-c248-4194-8a3b-07795e9d4403', code: 'HU-BA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Baranya_County.svg' },

@@ -710,7 +710,6 @@
     { name: 'Zelenikovo', uuid: 'ad903198-9801-4d84-b79f-893180af079e', code: 'MK-806', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Zelenikovo_Municipality%2C_North_Macedonia.svg' },
     { name: 'Želino', uuid: '9399085b-cd47-40b9-a923-05c03ddf734e', code: 'MK-605', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Želino_Municipality%2C_North_Macedonia.svg' },
     { name: 'Zrnovci', uuid: '63393dda-9689-4fc7-ba00-71d66b5b23b9', code: 'MK-204', url: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Zrnovci_Municipality%2C_North_Macedonia.svg' },
-
     // --- North Macedonia (Former Municipalities) ---
     { name: 'Drugovo', uuid: 'eea39907-e876-4fdb-b5fa-cb7a9f626074', code: 'MK-28', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Drugovo_Municipality%2C_North_Macedonia.svg' },
     { name: 'Oslomej', uuid: 'a72995e0-1199-42b7-80c0-6c786187bd56', code: 'MK-57', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Zname_na_Oslomej.jpg' },

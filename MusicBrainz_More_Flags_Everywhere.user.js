@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-16.1112
+// @version      2026-09-16.1151
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -640,14 +640,18 @@
     { name: 'Saba', uuid: '79bbadb0-3942-429f-b943-ee749d00cb91', code: 'BQ-SA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saba.svg' },
 
     // --- North Macedonia (Municipalities) ---
+    { name: 'Aerodrom', uuid: 'c0313322-5fb0-4ac3-9b52-24263ffb8723', code: 'MK-801', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_Aerodrom_Municipality%2C_North_Macedonia.svg' },
     { name: 'Aračinovo', uuid: 'b700d49d-7642-4ac1-9639-d0962a5c6ec6', code: 'MK-802', url: 'https://upload.wikimedia.org/wikipedia/commons/9/97/Flag_of_Aracinovo_Municipality%2C_North_Macedonia.svg' },
     { name: 'Berovo', uuid: '470b1f78-3ddf-48ee-8090-41231e9d3bbf', code: 'MK-201', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Berovo_Municipality%2C_North_Macedonia.svg' },
     { name: 'Bitola', uuid: '771696b0-de31-4a0e-812c-3fbc6b52ccac', code: 'MK-501', url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/Flag_of_Bitola_Municipality%2C_North_Macedonia.svg' },
     { name: 'Bogdanci', uuid: '23fc0abd-f4ef-4cc0-b8fe-95c7ae612ef6', code: 'MK-401', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Flag_of_Bogdanci_Municipality%2C_North_Macedonia.svg' },
     { name: 'Bogovinje', uuid: '00cc7671-8e29-4b22-a8b5-e9d8316edb2f', code: 'MK-601', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Bogovinje_Municipality%2C_North_Macedonia.svg' },
     { name: 'Bosilovo', uuid: '2e90b5ba-bd4f-446a-981a-4342d9ee937c', code: 'MK-402', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_the_Bosilovo_Municipality%2C_North_Macedonia.svg' },
+    { name: 'Butel', uuid: '706d1921-baf9-4188-9d2f-5183ee93bf24', code: 'MK-09', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Flag_of_Butel_Municipality%2C_North_Macedonia.svg' },
     { name: 'Brvenica', uuid: '82597814-2c46-4677-aac3-c59e8d213128', code: 'MK-602', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Flag_of_Brvenica_Municipality%2C_North_Macedonia.svg' },
+    { name: 'Čair', uuid: 'e3576af4-903c-435b-bae7-44ad94d39b3f', code: 'MK-815', url: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Čair_Municipality%2C_North_Macedonia.svg' },
     { name: 'Čaška', uuid: '30cecca5-4ff5-4a73-84c4-092f4063c02a', code: 'MK-109', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Čaška_Municipality%2C_North_Macedonia.svg' },
+    { name: 'Centar', uuid: '9d8aa5d2-8c81-46c0-bbfa-84d86e3fbc48', code: 'MK-814', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Flag_of_Centar_Municipality%2C_North_Macedonia.svg' },
     { name: 'Centar Župa', uuid: '8ee637cf-1934-410d-9e0a-cf0c6e899f65', code: 'MK-313', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Centar_Župa_Municipality%2C_North_Macedonia.svg' },
     { name: 'Češinovo-Obleševo', uuid: '387dd430-0e7f-48d2-bfc8-eca8682321f7', code: 'MK-210', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_Cheshinovo-Obleshevo.jpg' },
     { name: 'Čučer Sandevo', uuid: '3d2bc94e-e8e1-44c6-aa1a-8c297ec2fa0c', code: 'MK-816', url: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Знаме_на_Општина_Чучер-Сандево.png' },
@@ -658,14 +662,18 @@
     { name: 'Demir Kapija', uuid: 'f650dee2-609f-4dac-8bc4-fe50bc078b5f', code: 'MK-103', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_of_Demir_Kapija_Municipality%2C_North_Macedonia.svg' },
     { name: 'Dojran', uuid: 'a588a665-8883-4e2f-8b92-015dd80c15fd', code: 'MK-406', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Flag_of_Dojran_Municipality%2C_North_Macedonia.svg' },
     { name: 'Dolneni', uuid: '754beac6-1cc5-4858-80a8-d495d708c39f', code: 'MK-503', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Dolneni_Municipality%2C_North_Macedonia.svg' },
+    { name: 'Gazi Baba', uuid: 'b4da0d62-6245-4af7-8f37-c57ae4eff00c', code: 'MK-804', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Gazi_Baba_Municipality%2C_North_Macedonia.svg' },
     { name: 'Gevgelija', uuid: '0605fd0c-659d-4e17-afae-065ae89722d1', code: 'MK-405', url: 'https://upload.wikimedia.org/wikipedia/commons/1/14/Flag_of_Gevgelija_Municipality%2C_North_Macedonia.svg' },
+    { name: 'Gjorče Petrov', uuid: 'd82ac23f-44c1-400a-b52f-a187ab90c57b', code: 'MK-805', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Ǵorče_Petrov_Municipality%2C_North_Macedonia.svg' },
     { name: 'Gostivar', uuid: '96b2d6b3-f41c-4075-b666-4a25635914ea', code: 'MK-604', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Flag_of_Gostivar_Municipality%2C_North_Macedonia.svg' },
     { name: 'Gradsko', uuid: 'fd0eeea0-ddf2-45c0-acb3-3cf74684b312', code: 'MK-102', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Mk-grad.gif' },
     { name: 'Ilinden', uuid: '28e84d11-b7bc-421f-b632-a9e9dbe78e6a', code: 'MK-807', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Ilinden_Municipality%2C_North_Macedonia.svg' },
     { name: 'Jegunovce', uuid: '95a3ff9a-b686-4a3b-ae41-235fe2cd63f0', code: 'MK-606', url: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Jegunovce_Municipality%2C_North_Macedonia.svg' },
     { name: 'Karbinci', uuid: 'ef7e4592-649a-425c-aa49-27b8f055c31c', code: 'MK-205', url: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_of_Karbinci_Municipality%2C_North_Macedonia.svg' },
+    { name: 'Karpoš', uuid: '57d021de-6a62-4ee1-a14f-73ec2a8fb35e', code: 'MK-808', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Karpoš_Municipality%2C_North_Macedonia.svg' },
     { name: 'Kavadarci', uuid: 'f58248e6-a38d-4ffb-8530-6cbb0b5792ee', code: 'MK-104', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Kavadarci_Municipality%2C_North_Macedonia.svg' },
     { name: 'Kičevo', uuid: 'fb1d5b0a-3178-4957-a3fa-d062d54c68bf', code: 'MK-307', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Kičevo_Municipality.svg' },
+    { name: 'Kisela Voda', uuid: '4a7f33db-1b9e-44f5-aaed-ff63b0dee597', code: 'MK-809', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Flag_of_Kisela_Voda_Municipality%2C_North_Macedonia.svg' },
     { name: 'Kočani', uuid: '24391132-fcef-400b-90f8-ef834d0aa7c3', code: 'MK-206', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flag_of_Kocani_Municipality%2C_North_Macedonia.svg' },
     { name: 'Konče', uuid: '01865408-9524-4c5d-899a-e2603f0443e1', code: 'MK-407', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Konče_Municipality%2C_North_Macedonia.svg' },
     { name: 'Kratovo', uuid: '4730bce3-0c68-419a-be14-8bf9ff94a977', code: 'MK-701', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_Kratovo_Municipality%2C_North_Macedonia.svg' },
@@ -692,12 +700,15 @@
     { name: 'Rankovce', uuid: '852bbc68-c5fa-4e0e-855d-f9f9e0860a84', code: 'MK-705', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Rankovce_Municipality.svg' },
     { name: 'Resen', uuid: 'f18d13a0-31bb-474d-b9a5-87bb368f40b7', code: 'MK-509', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_Resen_Municipality.svg' },
     { name: 'Rosoman', uuid: '9d8f8e5c-0696-4367-8d2b-91acc405cea1', code: 'MK-107', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Rosoman_Municipality.svg' },
+    { name: 'Saraj', uuid: '4dd293d9-8175-44d7-b5eb-279941bd28a3', code: 'MK-811', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Flag_of_Saraj_Municipality.svg' },
+    { name: 'Skopje', uuid: 'a24c1b18-6aad-41e3-9c6d-e9853c97e2c8', code: 'MK-85', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_Skopje%2C_North_Macedonia.svg' },
     { name: 'Sopište', uuid: '108bf52a-b9dc-429c-a36b-d83045219763', code: 'MK-812', url: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Sopište_Municipality%2C_North_Macedonia.svg' },
     { name: 'Staro Nagoričane', uuid: 'c4d606c2-2dfc-4838-9860-0543a48ca1fd', code: 'MK-706', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_Staro_Nagoričane%2C_North_Macedonia.svg' },
     { name: 'Štip', uuid: '9d4bce1e-ee68-4509-a2a3-e38264053b99', code: 'MK-211', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Štip_Municipality%2C_North_Macedonia.svg' },
     { name: 'Struga', uuid: '9ae5d594-af67-4c7e-b24c-435a253dd94a', code: 'MK-312', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Struga_Municipality.svg' },
     { name: 'Strumica', uuid: '1a0f5a6d-e57a-4e1c-8dc9-3200811863f0', code: 'MK-410', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Strumica_Municipality.svg' },
     { name: 'Studeničani', uuid: 'ca622026-7373-42c8-b6d3-7e50a8d15e7f', code: 'MK-813', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Flag_of_Studeničani_municipality.png' },
+    { name: 'Šuto Orizari', uuid: '1dac87f7-5583-40d3-b083-9172c32fe367', code: 'MK-817', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Flag_of_Šuto_Orizari_Municipality%2C_North_Macedonia.svg' },
     { name: 'Sveti Nikole', uuid: 'da8e56ec-02f7-49b7-bc5c-9ada5d9b85a7', code: 'MK-108', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_Sveti_Nikole.svg' },
     { name: 'Tearce', uuid: 'ed91f2e1-8f86-4a6a-ae5b-0a0f84402e9d', code: 'MK-608', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Tearce_Municipality%2C_North_Macedonia.svg' },
     { name: 'Tetovo', uuid: '8c8e18b0-fb3c-421e-86cb-c24105cd8f84', code: 'MK-609', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Tetovo_Municipality%2C_North_Macedonia.svg' },
@@ -713,7 +724,6 @@
     // --- North Macedonia (Former Municipalities) ---
     { name: 'Drugovo', uuid: 'eea39907-e876-4fdb-b5fa-cb7a9f626074', code: 'MK-28', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_Drugovo_Municipality%2C_North_Macedonia.svg' },
     { name: 'Oslomej', uuid: 'a72995e0-1199-42b7-80c0-6c786187bd56', code: 'MK-57', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Zname_na_Oslomej.jpg' },
-    { name: 'Skopje', uuid: 'a24c1b18-6aad-41e3-9c6d-e9853c97e2c8', code: 'MK-85', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_Skopje%2C_North_Macedonia.svg' },
     { name: 'Vraneštica', uuid: '39078e3c-5e52-401c-841a-22f6717fe7fe', code: 'MK-15', url: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Flag_of_Vraneštica_Municipality.png' },
     { name: 'Zajas', uuid: 'c60be42d-6ba2-4605-b084-e6c2f3b50c32', code: 'MK-31', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Zajas_Municipality%2C_North_Macedonia.svg' },
 

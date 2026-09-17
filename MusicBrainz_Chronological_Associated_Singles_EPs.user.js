@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Chronological Associated Singles/EPs
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts
-// @version      2026-07-01.1314
+// @version      2026-09-17.1029
 // @description  Sorts associated singles by release date for MusicBrainz Table layouts with custom date styling.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Chronological_Associated_Singles_EPs.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Chronological_Associated_Singles_EPs.user.js
@@ -14,7 +14,7 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
     const mbid = window.location.href.match(/\/release-group\/([a-f0-9-]+)/)?.[1];
@@ -26,7 +26,7 @@
         if (hasRun) return;
 
         // 1. Locate the table header (th) and its corresponding cell (td)
-        const header = Array.from(document.querySelectorAll('th')).find(th => 
+        const header = Array.from(document.querySelectorAll('th')).find(th =>
             th.textContent.toLowerCase().includes('associated')
         );
 
@@ -77,7 +77,7 @@
         cell.innerHTML = '';
         sortedGroups.forEach((group, index) => {
             group.nodes.forEach(node => cell.appendChild(node));
-            
+
             // Add styled date (10px, italic)
             const dateSpan = document.createElement('span');
             dateSpan.style.fontSize = '10px';

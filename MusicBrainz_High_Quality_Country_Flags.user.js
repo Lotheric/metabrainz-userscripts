@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: High Quality Country Flags
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-11.1254
+// @version      2026-09-23.1846
 // @description  Replaces MusicBrainz country flags with Wikimedia SVGs.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_High_Quality_Country_Flags.user.js
@@ -85,7 +85,7 @@
     { name: 'Côte d\'Ivoire', uuid: 'e56e3d7a-4b90-3546-8450-49548050924a', code: 'CI', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Côte_d%27Ivoire.svg' },
     { name: 'Croatia', uuid: '7d30afff-e425-356a-873e-17ae9745b31d', code: 'HR', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg' },
     { name: 'Cuba', uuid: 'b06c4e86-97f7-3419-84a9-a23c60ea0b22', code: 'CU', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Flag_of_Cuba.svg' },
-    { name: 'Curaçao', uuid: '71bbafaa-e825-3e15-8ca9-017dcad1748b', code: 'CW', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_Curaçao.svg' },
+    { name: 'Curaçao', uuid: '53ccc8be-1551-3e28-965b-7f95465f2093', code: 'CW', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_Curaçao.svg' },
     { name: 'Cyprus', uuid: 'a75b525f-8c01-31f6-975e-4a32a2b001d5', code: 'CY', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg' },
     { name: 'Czechia', uuid: '51d34c28-61bf-3d21-849f-7492672a9d44', code: 'CZ', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg' },
     { name: 'Czechoslovakia', uuid: '88f49821-05a3-3bbc-a24b-bbd6b918c07b', code: 'XC', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_Czech_Republic.svg' },

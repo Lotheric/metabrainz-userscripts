@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-24.1051
+// @version      2026-09-24.1133
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1097,6 +1097,15 @@
     { name: 'Sevastopol\'', uuid: '9c50516f-5315-4fba-a279-c09511dd6d5a', code: 'UA-40', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sevastopol.svg' },
     // --- Ukraine (Autonomous Republic) ---
     { name: 'Avtonomna Respublika Krym', uuid: '3cc9dfbe-e4b6-4e49-8bbc-3cb16932086a', code: 'UA-43', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Crimea.svg' },
+
+    // --- United Arab Emirates (Emirates) ---
+    { name: '\'Ajmān', uuid: '5f00e0c3-5817-4378-a64d-028571f5d4e4', code: 'AE-AJ', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Flag_of_Ajman.svg' },
+    { name: 'Abū Z̧aby [Abu Dhabi]', uuid: 'd73e3cd8-011a-49b6-8bcb-6707ff051d4a', code: 'AE-AZ', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Abu_Dhabi.svg' },
+    { name: 'Al Fujayrah', uuid: '1f99dbe0-05aa-42bc-bab0-f67ac4820c99', code: 'AE-FU', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg' },
+    { name: 'Ash Shāriqah [Sharjah]', uuid: 'c5cc4615-765a-410b-82e9-c24d64b917e8', code: 'AE-SH', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_Sharjah_and_Ras_Al_Khaimah.svg' },
+    { name: 'Dubayy [Dubai]', uuid: 'a8b39e69-e41f-4b8d-8b6e-8ca24884027a', code: 'AE-DU', url: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Dubai.svg' },
+    { name: 'Ra’s al Khaymah', uuid: 'f5b609cb-e0f7-40af-9a1e-89f8c4e122d8', code: 'AE-RK', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_Sharjah_and_Ras_Al_Khaimah.svg' },
+    { name: 'Umm al Qaywayn', uuid: '84024802-0143-495d-a460-f76527c23464', code: 'AE-UQ', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Flag_of_Umm_al-Qaiwain.svg' },
 
     // --- United Kingdom (Countries) ---
     { name: 'England', uuid: '9d5dd675-3cf4-4296-9e39-67865ebee758', code: 'GB-ENG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_England.svg' },

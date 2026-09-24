@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-16.1151
+// @version      2026-09-24.1051
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -770,6 +770,35 @@
     { name: 'Ñeembucú', uuid: 'bfc82496-8d99-48d8-94f2-cedefde32f9b', code: 'PY-12', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Bandera_del_Departamento_de_Ñeembucú.jpg' },
     // --- Paraguay (Capital District) ---
     { name: 'Asunción', uuid: 'f1d8d4e7-e72a-4782-a350-f60a3e5b69b6', code: 'PY-ASU', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Flag_of_Asunción.svg' },
+
+    // --- Peru (Regions) ---
+    { name: 'Amazonas', uuid: '13f1c00a-b2df-4ade-9ee4-fa909e7f4041', code: 'PE-AMA', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Amazonas_bandera.svg' },
+    { name: 'Ancash', uuid: '0654442d-ad1e-4449-911d-8f2ae0efc091', code: 'PE-ANC', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Bandera_Ancash.svg' },
+    { name: 'Apurímac', uuid: '8e25e53a-7477-4631-a7c3-44b4a72fb654', code: 'PE-APU', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Bandera_Región_Apurimac.svg' },
+    { name: 'Arequipa', uuid: '5734aa45-6305-4210-ba9c-04bf7a98fc1c', code: 'PE-ARE', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Bandera_de_Arequipa.svg' },
+    { name: 'Ayacucho', uuid: '6f444248-ee78-4477-b14e-a083ecfe33a7', code: 'PE-AYA', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ed/Flag_of_Ayacucho.svg' },
+    { name: 'Cajamarca', uuid: '32060e94-bea6-4bbd-b597-08f4c98fab92', code: 'PE-CAJ', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Bandera_de_Cajamarca.svg' },
+    { name: 'Cusco', uuid: '50d3a86e-b842-442f-a3d9-0e43e893eef9', code: 'PE-CUS', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Cusco_%282021%29.svg' },
+    { name: 'El Callao', uuid: '25babcb1-caaa-4081-a5ba-a05e0f96afc0', code: 'PE-CAL', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Callao.png' },
+    { name: 'Huancavelica', uuid: '1810cbc0-554a-4463-bd42-1fceca928d2d', code: 'PE-HUV', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_Huancavelica.svg' },
+    { name: 'Huánuco', uuid: '4109d063-69bc-4de0-890b-1c7f242a7ab5', code: 'PE-HUC', url: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Flag_of_Huánuco.svg' },
+    { name: 'Ica', uuid: 'dd4d28b9-93b0-4990-8a16-3e11aefef96d', code: 'PE-ICA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/80/Bandera_Región_Ica.svg' },
+    { name: 'Junín', uuid: '8d227410-052d-4065-b76c-91aa04716864', code: 'PE-JUN', url: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Flag_of_Junin.svg' },
+    { name: 'La Libertad', uuid: '9fcb5dec-28f2-47ed-93fe-a4868d5e3f2a', code: 'PE-LAL', url: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Bandera_de_La_Libertad_Peru.svg' },
+    { name: 'Lambayeque', uuid: '7a815815-0603-4529-9afd-5f616a4717d2', code: 'PE-LAM', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Lambayeque_Department.svg' },
+    { name: 'Lima Region', uuid: 'c70fe2c6-a19d-4663-8095-cdfba4730cd5', code: 'PE-LIM', url: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Lima_region_flag.svg' },
+    { name: 'Loreto', uuid: '935f6e83-067e-4074-854d-9a142c434cd4', code: 'PE-LOR', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Bandera_Región_Loreto.svg' },
+    { name: 'Madre de Dios', uuid: '6b920a01-a7e8-4740-b432-9622e0fa5cea', code: 'PE-MDD', url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Madre_de_Dios_Department.svg' },
+    { name: 'Moquegua', uuid: 'ae8fc844-b692-46d8-a550-8f60baf15cdd', code: 'PE-MOQ', url: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Moquegua.svg' },
+    { name: 'Pasco', uuid: '01ce7389-854f-4380-95c4-0ed22e720147', code: 'PE-PAS', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag_of_Pasco_Department.svg' },
+    { name: 'Piura', uuid: '7f8edcaf-c4a7-401f-9362-517938aa41de', code: 'PE-PIU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Bandera_de_la_región_de_Piura.svg' },
+    { name: 'Puno', uuid: 'db023494-03da-4ebe-a5d5-ffb37986b9a4', code: 'PE-PUN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Bandera_Región_Puno.svg' },
+    { name: 'San Martín', uuid: 'e6c77da7-5835-4f0c-ba40-2cd4a9f22468', code: 'PE-SAM', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Bandera_Región_San_Martín.svg' },
+    { name: 'Tacna', uuid: '4ded19a6-1d9c-4af2-adf3-1994ee00ade6', code: 'PE-TAC', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Tacna.svg' },
+    { name: 'Tumbes', uuid: '3d544acb-e0a3-486f-af25-2ae12ce5e011', code: 'PE-TUM', url: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Bandera_de_Tumbes.svg' },
+    { name: 'Ucayali', uuid: '94d6b4d3-19fa-44e1-afd6-7c45ca7a9168', code: 'PE-UCA', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Bandera_de_Ucayali.svg' },
+    // --- Peru (Municipality) ---
+    { name: 'Municipalidad Metropolitana de Lima', uuid: 'fd36bfd6-37a5-474e-9b28-db98fc7151ae', code: 'PE-LMA', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag_of_Lima.svg' },
 
     // --- Poland (Voivodeships) ---
     { name: 'Dolnośląskie', uuid: 'e01a7d82-16e5-4644-9359-eaf2cef729fa', code: 'PL-DS', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_dolno%C5%9Bl%C4%85skie_flag.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1845
+// @version      2026-09-28.1902
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -625,6 +625,12 @@
     // --- Ethiopia (Administrations) ---
     { name: 'Ādīs Ābeba', uuid: '8474f16d-03a0-4a09-adf3-df2d1e65ba2f', code: 'ET-AA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Addis_Ababa.svg' },
     { name: 'Dirē Dawa', uuid: 'c37f15fb-78f1-4117-8310-43aad0f3369f', code: 'ET-DD', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Dire_Dawa%2C_Ethiopia.svg' },
+
+    // --- Federated States of Micronesia (States) ---
+    { name: 'Chuuk', uuid: 'e43df1a7-65b5-446f-9b4e-733848780328', code: 'FM-TRK', url: 'https://upload.wikimedia.org/wikipedia/commons/5/55/Flag_of_Chuuk.svg' },
+    { name: 'Kosrae', uuid: '30a6dc03-b3a1-4faf-a780-46b5b571329e', code: 'FM-KSA', url: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Flag_of_Kosrae.svg' },
+    { name: 'Pohnpei', uuid: '01c58349-a06b-4fbb-8911-00ad3170c470', code: 'FM-PNI', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Pohnpei.svg' },
+    { name: 'Yap', uuid: 'f1163f6b-a48e-4cd7-8ee8-274830a2b203', code: 'FM-YAP', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Yap.svg' },
 
     // --- Finland (Regions) ---
     { name: 'Etelä-Karjala', uuid: '8a39f710-9e3a-424c-99c6-f7bdab06d1db', code: 'FI-02', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Etel%C3%A4-Karjala.vaakuna.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1927
+// @version      2026-09-28.1956
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -864,6 +864,32 @@
     { name: 'Emberá', uuid: '7708f82f-3418-4241-b925-44aabb7443e0', code: 'PA-EM', url: 'https://www.crwflags.com/fotw/images/p/pa-da-ew.gif' },
     { name: 'Kuna Yala', uuid: '3dec1571-fe89-4005-9432-6915c45d4af6', code: 'PA-KY', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Bandera_de_la_Comarca_Guna_Yala.svg' },
     { name: 'Ngöbe-Buglé', uuid: '129f0580-ea15-4901-897d-5fedf96d8946', code: 'PA-NB', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Bandera_de_la_Comarca_Ngäbe-Buglé.svg' },
+
+    // --- Papua New Guinea (Provinces) ---
+    { name: 'Central', uuid: 'c1717b74-4ccd-4106-9585-20d882453693', code: 'PG-CPM', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Central_Province%2C_Papua_New_Guinea.svg' },
+    { name: 'Chimbu', uuid: '3aef81c1-e4bf-47b3-9306-3ff7ba2543c3', code: 'PG-CPK', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Chimbu.svg' },
+    { name: 'East New Britain', uuid: 'f4de8d81-ba0d-4343-a81d-304136556938', code: 'PG-EBR', url: 'https://upload.wikimedia.org/wikipedia/commons/1/10/Flag_of_East_New_Britain.svg' },
+    { name: 'East Sepik', uuid: '0dd190d3-86a0-428b-8a75-bc69d1ad577f', code: 'PG-ESW', url: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_East_Sepik.png' },
+    { name: 'Eastern Highlands', uuid: '292723d7-933b-4460-adf2-aef93d6ba45c', code: 'PG-EHG', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Eastern_Highlands.svg' },
+    { name: 'Enga', uuid: '45c82077-b754-44ff-be6f-892d044c7598', code: 'PG-EPW', url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_Enga.png' },
+    { name: 'Gulf', uuid: 'fe1c1685-b48a-468b-bf4e-d5e3ed2a2f50', code: 'PG-GPK', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_Gulf_Province.png' },
+    { name: 'Hela', uuid: '8bd79b95-60c3-43b1-9bd5-781a29c165ec', code: 'PG-HLA', url: 'https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Hela.svg' },
+    { name: 'Jiwaka', uuid: 'f63d0f62-11aa-4dfe-8840-50f73b7e263b', code: 'PG-JWK', url: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Jiwaka.svg' },
+    { name: 'Madang', uuid: '10f62287-f821-4c66-9bd5-5a8610a8ae7a', code: 'PG-MPM', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Madang.svg' },
+    { name: 'Manus', uuid: '93aa90e3-83e9-4ac4-9015-826b7e5cb377', code: 'PG-MRL', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Flag_of_Manus.svg' },
+    { name: 'Milne Bay', uuid: '53a08dd8-172e-4b02-93c6-2a546e3046af', code: 'PG-MBA', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Milne_Bay.svg' },
+    { name: 'Morobe', uuid: 'ad370927-2a0f-40d3-8107-7c854cd8bef4', code: 'PG-MPL', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Morobe.png' },
+    { name: 'New Ireland', uuid: '2c10d5ea-d02a-4986-8134-a98d238d6317', code: 'PG-NIK', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Flag_of_New_Ireland.svg' },
+    { name: 'Northern', uuid: 'f6993dca-4353-4afd-82fe-634627963e69', code: 'PG-NPP', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_Flag_Oro_new.png' },
+    { name: 'Sandaun [West Sepik]', uuid: 'b98e6879-7c91-429b-ab1d-7ab99225cd4d', code: 'PG-SAN', url: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Flag_of_Sandaun.svg' },
+    { name: 'Southern Highlands', uuid: 'c8abad13-8f9b-4f39-b405-24772ea115f2', code: 'PG-SHM', url: 'https://upload.wikimedia.org/wikipedia/commons/6/60/Flag_of_Southern_Highlands_Province_%28Papua_New_Guinea%29.svg' },
+    { name: 'West New Britain', uuid: 'c236d775-a819-4e7e-a03a-35cff5943042', code: 'PG-WBK', url: 'https://upload.wikimedia.org/wikipedia/commons/2/26/Flag_of_West_New_Britain.svg' },
+    { name: 'Western', uuid: 'a381d95a-52a7-415b-b6f3-8516cd53de4f', code: 'PG-WPD', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Western_Province.svg' },
+    { name: 'Western Highlands', uuid: 'd2b31c6f-c4cd-47e6-acce-8ee415171f0c', code: 'PG-WHM', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_Western_Highlands.svg' },
+    // --- Papua New Guinea (Autonomous Region) ---
+    { name: 'Bougainville', uuid: 'c45165ec-5bdf-4681-bebb-e83623506ea3', code: 'PG-NSB', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_of_Bougainville.svg' },
+    // --- Papua New Guinea (District) ---
+    { name: 'National Capital District', uuid: '53986fd3-d20b-4ea0-834c-9981e11c620a', code: 'PG-NCD', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_NCD.svg' },
 
     // --- Paraguay (Departments) ---
     { name: 'Alto Paraguay', uuid: 'b60d6245-4660-4ed5-8f01-0f6f4fc69b50', code: 'PY-16', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Bandera_de_Alto_Paraguay.png' },

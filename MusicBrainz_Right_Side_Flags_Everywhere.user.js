@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-24.1133
+// @version      2026-09-28.0845
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -361,6 +361,17 @@
     { name: 'Oost-Vlaanderen', uuid: '8db16337-f875-47dd-a9b8-cd539712ed64', code: 'BE-VOV', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Vlag_van_Oost-Vlaanderen.svg' },
     { name: 'Vlaams-Brabant', uuid: '31a26a2c-f032-46a5-a55d-7c878f3ddb05', code: 'BE-VBR', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Flemish_Brabant.svg' },
     { name: 'West-Vlaanderen', uuid: '69b9ee64-44ca-4fc1-9f53-d52b9cf55dd8', code: 'BE-VWV', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_West_Flanders.svg' },
+
+    // --- Bolivia (Departments) ---
+    { name: 'Chuquisaca', uuid: '43a9410a-0dc5-47aa-9ab6-0806725f2846', code: 'BO-H', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Sucre_and_Chuquisaca.svg' },
+    { name: 'Cochabamba', uuid: '5bba7ec1-fc21-4aa5-ba3a-ae8e7c367258', code: 'BO-C', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Cochabamba.svg' },
+    { name: 'El Beni', uuid: 'bab3c66a-e15a-4d99-aab6-c79a353376ed', code: 'BO-B', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Beni_Department%2C_Bolivia.svg' },
+    { name: 'La Paz', uuid: 'aae79a6c-cddb-45a6-b3c7-6a0cd040836c', code: 'BO-L', url: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Bandera_de_La_Paz.svg' },
+    { name: 'Oruro', uuid: '7f5ec938-97a3-47f2-8e85-3d4ec2aba984', code: 'BO-O', url: 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Oruro.svg' },
+    { name: 'Pando', uuid: 'e04294c0-8506-4505-827f-df191394dc27', code: 'BO-N', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Pando.svg' },
+    { name: 'Potosí', uuid: 'f2d995c5-00b8-4752-9c58-18a96c613927', code: 'BO-P', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Potosí.svg' },
+    { name: 'Santa Cruz', uuid: '183bf327-c332-4e60-941a-e251f75592fb', code: 'BO-S', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_Santa_Cruz.svg' },
+    { name: 'Tarija', uuid: '477bfd17-de30-422e-b1da-c4b41eb6a07e', code: 'BO-T', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_Tarija.svg' },
 
     // --- Brazil (States) ---
     { name: 'Acre', uuid: '93ca9825-7ed3-49e9-9292-52c1c9473ca0', code: 'BR-AC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandeira_do_Acre.svg' },

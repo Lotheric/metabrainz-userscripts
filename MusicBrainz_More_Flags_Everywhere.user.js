@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1902
+// @version      2026-09-28.1914
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1402,6 +1402,14 @@
     { name: 'San José', uuid: '95dac740-75da-484f-8094-3d4b547391fe', code: 'UY-SJ', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_San_Jos%C3%A9_Department.svg' },
     { name: 'Soriano', uuid: '41fe82fc-014c-40fa-b8e0-681bda0eaefa', code: 'UY-SO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Soriano_Department.svg' },
     { name: 'Treinta y Tres', uuid: '94349cbf-8dde-4187-9343-69f6851c78c2', code: 'UY-TT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Treinta_y_Tres_Department.svg' },
+
+    // --- Vanuatu (Provinces) ---
+    { name: 'Malampa', uuid: '6bf165e5-0d1a-4915-a165-c658e9f72981', code: 'VU-MAP', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Malampa_Province.svg' },
+    { name: 'Pénama', uuid: 'b611b089-2eb1-4399-a0ea-a0aafd421ba4', code: 'VU-PAM', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Flag_of_Penama_Province.svg' },
+    { name: 'Sanma', uuid: 'dffab096-50a9-42e2-969e-da0516c6f561', code: 'VU-SAM', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Sanma_Province.svg' },
+    { name: 'Shéfa', uuid: 'e743e67e-4881-4bd6-a153-0055ea9f3861', code: 'VU-SEE', url: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Shefa_Province.svg' },
+    { name: 'Taféa', uuid: 'cfe79620-6684-45cb-9bbd-99741871933f', code: 'VU-TAE', url: 'https://upload.wikimedia.org/wikipedia/commons/5/55/Tafea_Province_Flag.svg' },
+    { name: 'Torba', uuid: '78a0facb-4039-4c72-9363-b0ec22a815a6', code: 'VU-TOB', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Flag_of_Torba_Province.png' },
 
     // --- Venezuela (States) ---
     { name: 'Amazonas', uuid: '606381b2-9f8e-4146-bc92-605ae8fe458a', code: 'VE-Z', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Flag_of_Amazonas_Indigenous_State.svg' },

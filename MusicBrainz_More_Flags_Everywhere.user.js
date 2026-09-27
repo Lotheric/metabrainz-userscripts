@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1300
+// @version      2026-09-28.1321
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -818,6 +818,21 @@
     // --- Norway (Former Counties) ---
     { name: 'Aust-Agder', uuid: '0bd0e394-e3aa-4e33-b06c-80a4aede075f', code: 'NO-09', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aust-Agder.svg' },
     { name: 'Vest-Agder', uuid: 'dd3304af-d4a7-44e2-838d-aa539bbac0be', code: 'NO-10', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vest-Agder.svg' },
+
+    // --- Panama (Provinces) ---
+    { name: 'Bocas del Toro', uuid: '88837e0d-bdf0-415c-ae1d-5684683950ea', code: 'PA-1', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Bandera_de_la_Provincia_de_Bocas_del_Toro.svg' },
+    { name: 'Chiriquí', uuid: '6ef01921-fb0e-4182-b0b8-4956363a573a', code: 'PA-4', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Bandera_de_la_Provincia_de_Chiriquí.svg' },
+    { name: 'Coclé', uuid: 'f4d9c28c-5db1-4cea-ad5d-459b3ab15190', code: 'PA-2', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Bandera_de_la_Provincia_de_Coclé.svg' },
+    { name: 'Colón', uuid: '3463449e-5e10-4278-8648-34a4fd2582f0', code: 'PA-3', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Bandera_de_la_Provincia_de_Colón.svg' },
+    { name: 'Darién', uuid: '4d936bf7-31a8-4d74-b8a9-c8d4e03bacab', code: 'PA-5', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Bandera_de_la_Provincia_de_Darién.svg' },
+    { name: 'Herrera', uuid: '24b16bd8-80d5-4491-96d9-7707b1348564', code: 'PA-6', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bandera_de_la_Provincia_de_Herrera.svg' },
+    { name: 'Los Santos', uuid: '464ad00f-cf65-4b3b-90ac-8d2825614c36', code: 'PA-7', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Bandera_de_la_Provincia_de_Los_Santos.svg' },
+    { name: 'Panamá', uuid: 'e4038ab2-0e15-4987-855a-adf4f0878645', code: 'PA-8', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg' },
+    { name: 'Veraguas', uuid: '1dfc8b6b-a3ad-48eb-a07a-af335f2416fe', code: 'PA-9', url: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Bandera_de_la_Provincia_de_Veraguas.svg' },
+    // --- Panama (Indigenous Regions) ---
+    { name: 'Emberá', uuid: '7708f82f-3418-4241-b925-44aabb7443e0', code: 'PA-EM', url: 'https://www.crwflags.com/fotw/images/p/pa-da-ew.gif' },
+    { name: 'Kuna Yala', uuid: '3dec1571-fe89-4005-9432-6915c45d4af6', code: 'PA-KY', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Bandera_de_la_Comarca_Guna_Yala.svg' },
+    { name: 'Ngöbe-Buglé', uuid: '129f0580-ea15-4901-897d-5fedf96d8946', code: 'PA-NB', url: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Bandera_de_la_Comarca_Ngäbe-Buglé.svg' },
 
     // --- Paraguay (Departments) ---
     { name: 'Alto Paraguay', uuid: 'b60d6245-4660-4ed5-8f01-0f6f4fc69b50', code: 'PY-16', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Bandera_de_Alto_Paraguay.png' },

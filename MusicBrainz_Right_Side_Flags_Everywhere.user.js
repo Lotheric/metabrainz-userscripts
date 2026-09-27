@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1413
+// @version      2026-09-28.1845
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1076,6 +1076,24 @@
     // --- Norway (Former Counties) ---
     { name: 'Aust-Agder', uuid: '0bd0e394-e3aa-4e33-b06c-80a4aede075f', code: 'NO-09', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aust-Agder.svg' },
     { name: 'Vest-Agder', uuid: 'dd3304af-d4a7-44e2-838d-aa539bbac0be', code: 'NO-10', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vest-Agder.svg' },
+
+    // --- Palau (States) ---
+    { name: 'Aimeliik', uuid: '6417659f-769b-4b45-b5a8-50684392be86', code: 'PW-002', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Aimeliik.svg' },
+    { name: 'Airai', uuid: '236f15c4-a6dc-400c-b9d1-3fad1e0c1228', code: 'PW-004', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Airai_State.png' },
+    { name: 'Angaur', uuid: '4b56ffdb-8455-449e-a2a3-d690ba6325a9', code: 'PW-010', url: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Angaur_State.svg' },
+    { name: 'Hatobohei', uuid: 'e1a69873-648d-46ac-8259-4f2c7d5bc2f1', code: 'PW-050', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Flag_of_Hatohobei.svg' },
+    { name: 'Kayangel', uuid: 'a6cd5dda-8057-4897-9b86-d31db364cc7b', code: 'PW-100', url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Kayangel.svg' },
+    { name: 'Koror', uuid: 'e1611f99-912f-4997-96f7-536993bbbe80', code: 'PW-150', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Koror_State.png' },
+    { name: 'Melekeok', uuid: '392d7558-ad30-408b-a44e-000bd3a57029', code: 'PW-212', url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Flag_of_Melekeok.svg' },
+    { name: 'Ngaraard', uuid: 'ddf0f499-2ab2-40f5-bb55-85d62a530efb', code: 'PW-214', url: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag_of_Ngaraard_State.svg' },
+    { name: 'Ngarchelong', uuid: 'ec45fc11-7850-489a-a492-971db632254c', code: 'PW-218', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Ngarchelong.svg' },
+    { name: 'Ngardmau', uuid: 'c50d7bf3-003d-4590-b52d-2b7078394a57', code: 'PW-222', url: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Ngardmau_State.svg' },
+    { name: 'Ngatpang', uuid: '84424467-a595-4a14-bf2c-5d96bef82be5', code: 'PW-224', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Ngatpang.svg' },
+    { name: 'Ngchesar', uuid: '7e1192d9-a74c-4310-8a27-dddcff5b9cdf', code: 'PW-226', url: 'https://upload.wikimedia.org/wikipedia/commons/d/df/Flag_of_Ngchesar_State%2C_Palau.svg' },
+    { name: 'Ngeremlengui', uuid: '85cff638-1e22-4509-8dfc-fd023b9fdfe1', code: 'PW-227', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Ngeremlengui_State%2C_Palau.svg' },
+    { name: 'Ngiwal', uuid: '9cacbcd2-c46b-40b6-9a50-f9d08f106770', code: 'PW-228', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Flag_of_Ngiwal.png' },
+    { name: 'Peleliu', uuid: '8be8b255-fbe3-4bdd-b2b5-649a04e84623', code: 'PW-350', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Peleliu.svg' },
+    { name: 'Sonsorol', uuid: 'ce251d60-06f2-463f-ba4b-cf8f6d536bb5', code: 'PW-370', url: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sonsorol.svg' },
 
     // --- Panama (Provinces) ---
     { name: 'Bocas del Toro', uuid: '88837e0d-bdf0-415c-ae1d-5684683950ea', code: 'PA-1', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Bandera_de_la_Provincia_de_Bocas_del_Toro.svg' },

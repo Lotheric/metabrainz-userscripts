@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.0933
+// @version      2026-09-28.1021
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1586,7 +1586,38 @@
     { name: 'Salto', uuid: '26c5c977-c9a5-4b8e-a985-08e4221e0567', code: 'UY-SA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Salto_Department.svg' },
     { name: 'San José', uuid: '95dac740-75da-484f-8094-3d4b547391fe', code: 'UY-SJ', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_San_Jos%C3%A9_Department.svg' },
     { name: 'Soriano', uuid: '41fe82fc-014c-40fa-b8e0-681bda0eaefa', code: 'UY-SO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Soriano_Department.svg' },
-    { name: 'Treinta y Tres', uuid: '94349cbf-8dde-4187-9343-69f6851c78c2', code: 'UY-TT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Treinta_y_Tres_Department.svg' }
+    { name: 'Treinta y Tres', uuid: '94349cbf-8dde-4187-9343-69f6851c78c2', code: 'UY-TT', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Treinta_y_Tres_Department.svg' },
+
+    // --- Venezuela (States) ---
+    { name: 'Amazonas', uuid: '606381b2-9f8e-4146-bc92-605ae8fe458a', code: 'VE-Z', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Flag_of_Amazonas_Indigenous_State.svg' },
+    { name: 'Anzoátegui', uuid: 'd254f72c-69db-4efd-ae8a-f97bfe3f40eb', code: 'VE-B', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Anzoátegui_State_%28original_version%29.svg' },
+    { name: 'Apure', uuid: '52b6f959-14d1-4937-85b4-9e270245480b', code: 'VE-C', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Apure_State.svg' },
+    { name: 'Aragua', uuid: 'c87626d5-7514-4ca3-a899-5170595762e6', code: 'VE-D', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Aragua_State.svg' },
+    { name: 'Barinas', uuid: '28a6cca3-e00d-437f-b54b-2374616a8d80', code: 'VE-E', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Flag_of_Barinas_State.svg' },
+    { name: 'Bolívar', uuid: 'bfa23914-cb3f-45a4-ab87-9f01181a1fb1', code: 'VE-F', url: 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Bolívar_State.svg' },
+    { name: 'Carabobo', uuid: 'f7c7c7e6-d7e4-445d-852b-00a6e787cb2a', code: 'VE-G', url: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Flag_of_Carabobo_State.svg' },
+    { name: 'Cojedes', uuid: '0fcb87e8-e491-4bd8-8434-288953e99cba', code: 'VE-H', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Flag_of_Cojedes_State.svg' },
+    { name: 'Delta Amacuro', uuid: '5dfc33de-4fcd-45ec-9211-6a39483ac1ba', code: 'VE-Y', url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_Delta_Amacuro_State.svg' },
+    { name: 'Falcón', uuid: '0e02a266-6444-444d-b4b7-00d95f97ebca', code: 'VE-I', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Flag_of_Falcón.svg' },
+    { name: 'Guárico', uuid: '3f53bfa2-8a5a-4920-a701-4f1ae5324904', code: 'VE-J', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Flag_of_Guárico_State.svg' },
+    { name: 'La Guaira', uuid: '747cb307-8872-4f1a-96b4-de847f45cd90', code: 'VE-X', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_La_Guaira_State.svg' },
+    { name: 'Lara', uuid: '9b047cfa-9856-4d12-a848-91094039aeee', code: 'VE-K', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_Lara_State.svg' },
+    { name: 'Mérida', uuid: 'e0fc16ac-997b-420a-a44a-4a7c15b7452b', code: 'VE-L', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Mérida_State.svg' },
+    { name: 'Miranda', uuid: 'bd79b189-ff8d-4a47-a907-a49f71ca7fd2', code: 'VE-M', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Bandera_estatal_de_Miranda.svg' },
+    { name: 'Monagas', uuid: 'ab33ecc9-9f0e-429a-ab8b-7f156ae1dfc6', code: 'VE-N', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Monagas_State.svg' },
+    { name: 'Nueva Esparta', uuid: '01ac40a3-523c-473c-8613-933dca16063e', code: 'VE-O', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Flag_of_Nueva_Esparta.svg' },
+    { name: 'Portuguesa', uuid: '4ce54399-1e2a-4173-9dc5-7883646ab955', code: 'VE-P', url: 'https://upload.wikimedia.org/wikipedia/commons/8/81/Flag_of_Portuguesa.svg' },
+    { name: 'Sucre', uuid: '26a04c09-1be6-45ea-a7a3-6092efb69d7d', code: 'VE-R', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Sucre_State.svg' },
+    { name: 'Táchira', uuid: '8c171f41-da49-4772-981d-cf43dc41a430', code: 'VE-S', url: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Táchira.svg' },
+    { name: 'Trujillo', uuid: 'd9d8131e-9ce7-4077-a43c-8119910cb734', code: 'VE-T', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b0/Flag_of_Trujillo_State.svg' },
+    { name: 'Yaracuy', uuid: '7d218f1e-e98c-4f43-a63a-5bd5007b4ddd', code: 'VE-U', url: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Flag_of_Yaracuy_State.svg' },
+    { name: 'Zulia', uuid: 'f76c356a-1061-4050-bba1-527dc3a941e5', code: 'VE-V', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c6/Flag_of_Zulia_State.svg' },
+    // --- Venezuela (Federal Dependency) ---
+    { name: 'Dependencias Federales', uuid: '53ee3820-3b6e-4824-9f0d-96f1e973792c', code: 'VE-W', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Federal_dependencies_of_Venezuela%27s_Flag.svg' },
+    // --- Venezuela (Capital District) ---
+    { name: 'Distrito Federal', uuid: '8a9b85eb-ded0-469b-9bcc-4f224c1d9c28', code: 'VE-A', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Caracas_%282022%29.svg' },
+    // --- Venezuela (City) ---
+    { name: 'Caracas', uuid: '58ab1035-dbbb-4e58-87f7-210cd0351664', code: 'VE-CRC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Caracas_%282022%29.svg' }
   ];
 
 

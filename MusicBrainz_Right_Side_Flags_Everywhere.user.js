@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1321
+// @version      2026-09-28.1413
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -675,6 +675,13 @@
     { name: 'Picardie', uuid: '25fd67e9-3788-4cea-b26b-e6a4d36b43b5', code: 'FR-S', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_Picardie.svg' },
     { name: 'Poitou-Charentes', uuid: '76b1cb18-c458-419c-985f-5558870e48b1', code: 'FR-T', url: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Poitou-Charentes_flag.svg' },
     { name: 'Rhône-Alpes', uuid: '7f996abe-449b-4209-a0f8-c6ba9105e5e7', code: 'FR-V', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Rh%C3%B4ne-Alpes.svg' },
+
+    // --- French Polynesia (Administrative Divisions) ---
+    { name: 'Austral Islands', uuid: '94f27de2-b6ad-4c5a-b05b-047e384f0089', code: 'FP-987-4', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_the_Austral_Islands.svg' },
+    { name: 'Leeward Islands', uuid: '1bd4bb5d-0824-4ec7-8207-57d7a4f9b18d', code: 'FP-987-5', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Flag_of_the_Leeward_Islands.svg' },
+    { name: 'Marquesas Islands', uuid: 'd47ff002-fd52-4b72-bd8f-b0754a813833', code: 'FP-987-1', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Flag_of_Marquesas_Islands.svg' },
+    // --- French Polynesia (Island) ---
+    { name: 'Tahiti', uuid: '3ed4901a-0051-4e06-a9dd-d454ac6e6ee4', code: 'FP-987-2-THT', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Tahiti.svg' },
 
     // --- Georgia (Autonomous Republics) ---
     { name: 'Abkhazia', uuid: '2b9e5ac3-1583-44d9-9864-94919a58df51', code: 'GE-AB', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_the_Republic_of_Abkhazia.svg' },
@@ -1652,7 +1659,12 @@
     // --- Venezuela (Capital District) ---
     { name: 'Distrito Federal', uuid: '8a9b85eb-ded0-469b-9bcc-4f224c1d9c28', code: 'VE-A', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Caracas_%282022%29.svg' },
     // --- Venezuela (City) ---
-    { name: 'Caracas', uuid: '58ab1035-dbbb-4e58-87f7-210cd0351664', code: 'VE-CRC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Caracas_%282022%29.svg' }
+    { name: 'Caracas', uuid: '58ab1035-dbbb-4e58-87f7-210cd0351664', code: 'VE-CRC', url: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Caracas_%282022%29.svg' },
+
+    // --- Wallis and Futuna (Chiefdoms) ---
+    { name: 'Alo', uuid: '6cbe995a-b434-4381-8db1-33f7f25f95c7', code: 'WF-AL', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Alo.svg' },
+    { name: 'Sigave', uuid: 'ab05b0bb-83cc-4caa-8129-6d1ce0fa386a', code: 'WF-SG', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Sigave.svg' },
+    { name: 'Uvea', uuid: '0a03d719-6db9-4e12-9c8f-229751dc1a8c', code: 'WF-UV', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Uvea.svg' }
   ];
 
 

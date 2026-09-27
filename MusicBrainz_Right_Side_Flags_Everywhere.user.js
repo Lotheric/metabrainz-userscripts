@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.0919
+// @version      2026-09-28.0933
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -727,6 +727,18 @@
     { name: 'Suchitepéquez', uuid: '7f7e7f3e-c705-4bac-9ab1-474522f8d3d7', code: 'GT-SU', url: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_Suchitepéquez_Department.svg' },
     { name: 'Totonicapán', uuid: '8d769f15-8b85-482d-b6ef-b6cf3ec5a8c0', code: 'GT-TO', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b0/Flag_of_Totonicapán_Department.svg' },
     { name: 'Zacapa', uuid: 'cfdc2ff6-ea0c-4a3f-894c-b6d43cea9b8e', code: 'GT-ZA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Zacapa_Department.svg' },
+
+    // --- Guyana (Regions) ---
+    { name: 'Barima-Waini', uuid: '9818a652-2ac1-4ab4-a0e3-8f2a9592bd08', code: 'GY-BA', url: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Flag_of_Barima-Waini%2C_Guyana.svg' },
+    { name: 'Cuyuni-Mazaruni', uuid: '1ae545d8-db73-431c-b99c-b955156f90fe', code: 'GY-CU', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Yellow%2C_white%2C_green_flag.svg' },
+    { name: 'Demerara-Mahaica', uuid: '7d988377-b1c4-4df7-aa12-4a8b1c336f4e', code: 'GY-DE', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Red_and_black_flag.svg' },
+    { name: 'East Berbice-Corentyne', uuid: '4c2fa825-7154-454f-ab3c-c9d0fb8302fa', code: 'GY-EB', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Green_and_red_flag.svg' },
+    { name: 'Essequibo Islands-West Demerara', uuid: 'c94c172c-5f3b-4f74-87e5-3c5f0e30fb87', code: 'GY-ES', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Flagge_Preußen_-_Provinz_Westfalen_%281882%29.svg' },
+    { name: 'Mahaica-Berbice', uuid: '1eff1841-1ed8-46d0-affe-49678636f8f3', code: 'GY-MA', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_black_green_5x3.svg' },
+    { name: 'Pomeroon-Supenaam', uuid: '2d62cb59-02f7-4e6d-8cfa-22bb4542e266', code: 'GY-PM', url: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_white_green_5x3.svg' },
+    { name: 'Potaro-Siparuni', uuid: '6c066aaf-7128-4308-9e12-c00c5642bc58', code: 'GY-PT', url: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Green%2C_black%2C_yellow_flag.svg' },
+    { name: 'Upper Demerara-Berbice', uuid: '7d60616f-2bf0-475e-ab10-b2308bcf6452', code: 'GY-UD', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_yellow_black_5x3.svg' },
+    { name: 'Upper Takutu-Upper Essequibo', uuid: '336125c7-1a78-4b8d-a0d4-5d54c5a1aa13', code: 'GY-UT', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Flag_green_white_red_5x3.svg' },
 
     // --- Honduras (Departments) ---
     { name: 'Atlántida', uuid: '9f3686fa-b022-4329-849c-bb772bb81713', code: 'HN-AT', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Flag_Of_Atlantida_Department.png' },

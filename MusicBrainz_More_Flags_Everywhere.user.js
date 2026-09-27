@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.0845
+// @version      2026-09-28.0919
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -301,6 +301,32 @@
     { name: 'North Denmark Region', uuid: 'e1d068a6-d2c5-4dbb-8c37-1d1407097934', code: 'DK-81', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Region_Nordjylland.svg' },
     { name: 'Region of Southern Denmark', uuid: 'c99aceb6-1023-4316-8483-fac31dcd1d7c', code: 'DK-83', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Region_Syddanmark.svg' },
     { name: 'Region Zealand', uuid: '7d490078-4542-411d-aece-709afee04256', code: 'DK-85', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Region_Sj%C3%A6lland.svg' },
+
+    // --- Ecuador (Provinces) ---
+    { name: 'Azuay', uuid: 'a0512ef6-aeb1-4859-9e4b-183058758c7b', code: 'EC-A', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Bandera_Provincia_Azuay.svg' },
+    { name: 'Bolívar ', uuid: 'c6c0732d-142a-4532-9676-6586e2aa49cc', code: 'EC-B', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Bandera_Provincia_Bolívar.svg' },
+    { name: 'Cañar', uuid: 'bd53476f-ffd4-4348-8983-54c8ff853a10', code: 'EC-F', url: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Bandera_Provincia_Cañar.svg' },
+    { name: 'Carchi', uuid: '620f7378-7d81-48f3-9dfa-57fab6e4d4e6', code: 'EC-C', url: 'https://upload.wikimedia.org/wikipedia/commons/9/97/Bandera_Provincia_Carchi.svg' },
+    { name: 'Chimborazo', uuid: '08fbd664-5765-49cd-be55-80d014962ab2', code: 'EC-H', url: 'https://upload.wikimedia.org/wikipedia/commons/1/14/Bandera_Provincia_Chimborazo.svg' },
+    { name: 'Cotopaxi', uuid: '0503a1a0-d5c8-40bf-9470-70753093bd32', code: 'EC-X', url: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Bandera_Provincia_Cotopaxi.svg' },
+    { name: 'El Oro', uuid: 'b283dfe4-b5ef-43f3-a8bd-d8761f3c40be', code: 'EC-O', url: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Bandera_Provincia_El_Oro.svg' },
+    { name: 'Esmeraldas', uuid: '2e307147-cbe7-443d-bb16-606e33cf5e3a', code: 'EC-E', url: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Bandera_Provincia_Esmeraldas.svg' },
+    { name: 'Galápagos', uuid: '5ddbb59c-68e9-4970-811c-36ac06722e51', code: 'EC-W', url: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Bandera_Provincia_Galápagos.svg' },
+    { name: 'Guayas', uuid: 'd062f2a4-8b27-4341-94f0-3c6cacefc632', code: 'EC-G', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e3/Bandera_de_Guayaquil.svg' },
+    { name: 'Imbabura', uuid: 'd675b39d-dfff-4aac-9f4b-2ed2c73a9ec3', code: 'EC-I', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Bandera_Provincia_Imbabura.svg' },
+    { name: 'Loja', uuid: 'abd80933-9c23-480e-b98c-b6441b1b02e1', code: 'EC-L', url: 'https://upload.wikimedia.org/wikipedia/commons/9/97/Bandera_Provincia_Loja.svg' },
+    { name: 'Los Ríos', uuid: '2efb1ead-ea9c-4311-8dd8-a23b833b2441', code: 'EC-R', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Bandera_de_Los_Ríos.svg' },
+    { name: 'Manabí', uuid: 'aa4dd74d-e64c-42dc-8fcc-799b19ad83db', code: 'EC-M', url: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Bandera_Provincia_Manabí.svg' },
+    { name: 'Morona-Santiago', uuid: '7e800c8f-8e2f-47bb-9f86-01a0bfca4363', code: 'EC-S', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Bandera_Provincia_Morona_Santiago.svg' },
+    { name: 'Napo', uuid: '71bf64ab-7b26-481b-84fc-33ee230b451b', code: 'EC-N', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Bandera_Provincia_Napo.svg' },
+    { name: 'Orellana', uuid: 'fc113fb5-66e8-4993-a4b9-0739226d6b4b', code: 'EC-D', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Bandera_Provincia_Orellana.svg' },
+    { name: 'Pastaza', uuid: '87d9a5af-9fea-4bb3-84fc-00917296f796', code: 'EC-Y', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Bandera_Provincia_Pastaza.svg' },
+    { name: 'Pichincha', uuid: 'da0d389e-577e-473f-820c-2525608bcba5', code: 'EC-P', url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Bandera_Provincia_Pichincha.svg' },
+    { name: 'Santa Elena', uuid: 'add84c52-6107-4c51-b465-e90c2a04a746', code: 'EC-SE', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Bandera_Provincia_Santa_Elena.svg' },
+    { name: 'Santo Domingo de los Tsáchilas', uuid: '9069065e-d0c2-4e2e-a915-17f84b4760ac', code: 'EC-SD', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Bandera_Provincia_Santo_Domingo_de_los_Tsáchilas.svg' },
+    { name: 'Sucumbíos', uuid: '2871bff5-a963-4ec0-969a-b7c0442a4da6', code: 'EC-U', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Bandera_Provincia_Sucumbíos.svg' },
+    { name: 'Tungurahua', uuid: 'ac5d8788-1345-44c1-a661-776f9f1a5d12', code: 'EC-T', url: 'https://upload.wikimedia.org/wikipedia/commons/6/62/Bandera_Provincia_Tungurahua.svg' },
+    { name: 'Zamora-Chinchipe', uuid: '3df83c3d-8027-4031-8f0d-27d6d17569f2', code: 'EC-Z', url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Bandera_Provincia_Zamora_Chinchipe.svg' },
 
     // --- El Salvador (Departments) ---
     { name: 'Ahuachapán', uuid: 'f8840e75-f279-41ba-a1c6-cb29e4d50023', code: 'SV-AH', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Bandera_del_Departamento_de_Ahuachapán.PNG' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1021
+// @version      2026-09-28.1300
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -687,6 +687,26 @@
     { name: 'Bonaire', uuid: '48b6011b-bfe4-49c6-b215-a6a15b9af756', code: 'BQ-BO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Bonaire.svg' },
     { name: 'Sint Eustatius', uuid: '4e1fa760-00ea-4dc8-8456-96104f683c2b', code: 'BQ-SE', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sint_Eustatius.svg' },
     { name: 'Saba', uuid: '79bbadb0-3942-429f-b943-ee749d00cb91', code: 'BQ-SA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saba.svg' },
+
+    // --- Nicaragua (Departments) ---
+    { name: 'Boaco', uuid: '9321810c-0f6e-4be6-937a-f9095a137b69', code: 'NI-BO', url: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Boaco.svg' },
+    { name: 'Carazo', uuid: 'a9d9daac-acee-4105-8000-700fb4247021', code: 'NI-CA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Jinotepe.svg' },
+    { name: 'Chinandega', uuid: 'c6b2f7db-f41c-48e9-b00a-092524618fa4', code: 'NI-CI', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bb/Flag_of_Chinandega.svg' },
+    { name: 'Chontales', uuid: '2f4584c5-1cf4-4fbd-9d24-297e58c5dec2', code: 'NI-CO', url: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Juigalpa.svg' },
+    { name: 'Estelí', uuid: 'd0a96c55-fd61-4921-ae92-253cbe88cf51', code: 'NI-ES', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_Esteli.svg' },
+    { name: 'Granada', uuid: '74c5f89c-c25b-48b3-a1b2-9f622d0219fc', code: 'NI-GR', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Granada%2C_Nicaragua.svg' },
+    { name: 'Jinotega', uuid: '296465f5-bf2c-4199-bcaf-a1562881ed5a', code: 'NI-JI', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Jinotega.svg' },
+    { name: 'León', uuid: 'eda834d6-742b-4473-b158-e13f9c9ad700', code: 'NI-LE', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_of_Leon%2C_Nicaragua.svg' },
+    { name: 'Madriz', uuid: '363ab71d-4295-424c-9d28-bde5e995013b', code: 'NI-MD', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Flag_of_Somoto.svg' },
+    { name: 'Managua', uuid: '9015e73a-ccb4-4198-a9ec-d1f9b02b92fd', code: 'NI-MN', url: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Flag_of_Managua.svg' },
+    { name: 'Masaya', uuid: '63b18f04-eee9-4092-b48c-a45e65b33a83', code: 'NI-MS', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Flag_of_Masaya.svg' },
+    { name: 'Matagalpa', uuid: 'b4a97037-03fc-40c8-ae29-9c90d124fc51', code: 'NI-MT', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Matagalpa.svg' },
+    { name: 'Nueva Segovia', uuid: '152df48f-808d-4d15-9535-aa23916c6486', code: 'NI-NS', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Nueva_Segovia.svg' },
+    { name: 'Río San Juan', uuid: 'f479deb8-7679-4769-9714-a60e1555fa52', code: 'NI-SJ', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Flag_of_San_Carlos%2C_Nicaragua.svg' },
+    { name: 'Rivas', uuid: '1b86fc33-41f4-4c06-8990-303c0ea7f9bd', code: 'NI-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag_of_Rivas.svg' },
+    // --- Nicaragua (Autonomous Regions) ---
+    { name: 'Atlántico Norte', uuid: '777eab91-df56-4b0d-92c8-d4fe1cd67469', code: 'NI-AN', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Region_Autonoma_del_Atlantico_Norte.svg' },
+    { name: 'Atlántico Sur', uuid: '83ddb8d9-393f-478e-8d3b-c9d2439f153c', code: 'NI-AS', url: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Flag_of_Region_Autonoma_Atlantico_Sur.svg' },
 
     // --- North Macedonia (Municipalities) ---
     { name: 'Aerodrom', uuid: 'c0313322-5fb0-4ac3-9b52-24263ffb8723', code: 'MK-801', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_Aerodrom_Municipality%2C_North_Macedonia.svg' },

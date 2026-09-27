@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1914
+// @version      2026-09-28.1927
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1327,6 +1327,19 @@
     { name: 'Trenčiansky kraj', uuid: '08affe0c-f350-4567-866b-75b1cd352219', code: 'SK-TC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Trenciansky_vlajka.svg' },
     { name: 'Trnavský kraj', uuid: 'af74bfa5-35cc-451b-8e94-12aa83645647', code: 'SK-TA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Trnavsky_vlajka.svg' },
     { name: 'Žilinský kraj', uuid: 'c21410fe-17d0-43f2-8c53-a44f1c350612', code: 'SK-ZI', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Zilinsky_vlajka.svg' },
+
+    // --- Solomon Islands (Provinces) ---
+    { name: 'Central', uuid: 'b90ea314-d4a9-4168-bbdc-70d1ee358671', code: 'SB-CE', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Flag_of_Central_Province_Solomon_Islands.png' },
+    { name: 'Choiseul', uuid: '0eb679ad-2238-4268-ab9a-8aef4dd75a74', code: 'SB-CH', url: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Flag_of_Choiseul.png' },
+    { name: 'Guadalcanal', uuid: '089c65f8-8dcf-4a74-84e2-67b2858397da', code: 'SB-GU', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Flag_of_Guadalcanal.png' },
+    { name: 'Isabel', uuid: '5b666e1a-c054-42a3-aca1-0098e007608d', code: 'SB-IS', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag_of_Isabel_Province_Solomon_Islands.png' },
+    { name: 'Makira', uuid: '74abcf4b-ff5b-40b6-a22c-40d09112173d', code: 'SB-MK', url: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Flag_Makira_and_Ulawa.png' },
+    { name: 'Malaita', uuid: '3017c595-39ee-4b9f-9d45-740a29cdc93c', code: 'SB-ML', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Malaita.svg' },
+    { name: 'Rennell and Bellona', uuid: '48b70366-9af9-4f25-94d1-ebeb8ba5a556', code: 'SB-RB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Rennell_and_Bellona_Province.svg' },
+    { name: 'Temotu', uuid: '22522afa-b0f2-45ea-828b-5ac3a81b189f', code: 'SB-TE', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Temotu_province_flag.svg' },
+    { name: 'Western', uuid: '11d2aa2f-e4cd-4c43-a84a-b728bca1ae82', code: 'SB-WE', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Western_Province_Solomon_Islands.png' },
+    // --- Solomon Islands (Capital Territory) ---
+    { name: 'Capital Territory (Honiara)', uuid: '75d2d55d-e6d6-41c8-9c45-02e69500a17b', code: 'SB-CT', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Honiara.svg' },
 
     // --- South Africa (Provinces) ---
     { name: 'Eastern Cape', uuid: 'b0f5a1fc-2f41-4c64-9383-19074799469c', code: 'ZA-EC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Eastern_Cape_Province.png' },

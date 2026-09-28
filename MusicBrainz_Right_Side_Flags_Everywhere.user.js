@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.1956
+// @version      2026-09-28.2209
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -931,6 +931,23 @@
     { name: 'Kuala Lumpur', uuid: 'b9516e0b-4223-47a6-a64a-8750450c8c05', code: 'MY-14', url: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Kuala_Lumpur%2C_Malaysia.svg' },
     { name: 'Putrajaya', uuid: '0814fbc0-db72-487b-ba05-9c83b6cf9af2', code: 'MY-16', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Putrajaya.svg' },
     { name: 'Wilayah Persekutuan Labuan', uuid: 'a79d303b-1873-4357-a59d-5c060dbc2f92', code: 'MY-15', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Labuan.svg' },
+
+    // --- Myanmar (Regions) ---
+    { name: 'Ayeyarwady', uuid: 'be526dbc-6c23-4ca7-b5fe-cbf16a357e26', code: 'MM-07', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Ayeyarwady_Region.svg' },
+    { name: 'Bago', uuid: 'b45a1abe-6743-4b51-8807-7c46bc547f88', code: 'MM-02', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_Bago_Region.svg' },
+    { name: 'Magway', uuid: 'fcb9411c-d9dd-4193-bb7e-9a4b2e102df4', code: 'MM-03', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_Magway_Region.svg' },
+    { name: 'Mandalay', uuid: '514390bd-bdc1-4424-b26e-9d4e2a9563f0', code: 'MM-04', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Mandalay_Region.svg' },
+    { name: 'Sagaing', uuid: 'ef1a48fe-6104-4c00-b90a-5dbb9820c25f', code: 'MM-01', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Sagaing_Region_%282019%29.svg' },
+    { name: 'Tanintharyi', uuid: '806f4b98-a380-4d4c-8fcd-28c6f17f72ab', code: 'MM-05', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Tanintharyi_Region.svg' },
+    { name: 'Yangon', uuid: '1c395ff2-4b25-487b-a2c9-e62d9242d0cb', code: 'MM-06', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_Yangon_Region.svg' },
+    // --- Myanmar (States) ---
+    { name: 'Chin', uuid: '48de89f1-8987-422a-9dc8-5df112bce689', code: 'MM-14', url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/Flag_of_Chin_State.svg' },
+    { name: 'Kachin', uuid: '10842a78-6871-4904-849a-decb5c0112d2', code: 'MM-11', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Kachin_State.svg' },
+    { name: 'Kayah', uuid: '3bc373de-3882-4897-b598-5de764bcfef3', code: 'MM-12', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_Kayah_State.svg' },
+    { name: 'Kayin', uuid: '99d4413b-7fb4-4883-8fca-5c5ae44464b1', code: 'MM-13', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Kayin_State.svg' },
+    { name: 'Mon', uuid: '27fd4e93-dd37-42a5-bad3-ebc8b00e19a0', code: 'MM-15', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Mon_State_%282018%29.svg' },
+    { name: 'Rakhine', uuid: 'ab3e48ec-e4d2-4396-b6e0-5dcf893db5b8', code: 'MM-16', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Rakhine.svg' },
+    { name: 'Shan', uuid: '6c77b284-a0fe-4190-9d97-f4f0eeb842c8', code: 'MM-17', url: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Shan_State.svg' },
 
     // --- Netherlands (Kingdom) ---
     { name: 'Kingdom of the Netherlands', uuid: 'aee96acc-29ab-4f1b-b23d-52012b29c25b', code: 'NL-KD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Netherlands.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1728
+// @version      2026-09-29.1857
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1325,6 +1325,11 @@
     { name: 'Montegiardino', uuid: 'c71f8a3d-f6e5-4d0a-9b6c-232535878b94', code: 'SM-08', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Montegiardino_%28RSM%29-Bandiera.svg' },
     { name: 'San Marino', uuid: '0c616beb-6288-4906-a137-e3cfc27141de', code: 'SM-07', url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/San_Marino_%28RSM%29-Bandiera.svg' },
     { name: 'Serravalle', uuid: '98c13a99-411c-400a-8a57-f70e697add3a', code: 'SM-09', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Serravalle_%28RSM%29-Bandiera.svg' },
+
+    // --- Serbia (Autonomous Province) ---
+    { name: 'Vojvodina', uuid: '28c6ba1f-78d5-4769-acb7-111a96029e12', code: 'RS-VO', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Vojvodina.svg' },
+    // --- Serbia (City) ---
+    { name: 'Beograd', uuid: '0e4c5a2b-b595-494d-8c3e-2968d18b6e1f', code: 'RS-00', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Flag_of_Belgrade%2C_Serbia.svg' },
 
     // --- Slovakia (Regions) ---
     { name: 'Banskobystrický kraj', uuid: '9fc6ee0c-980a-4c41-9616-55ee8521874d', code: 'SK-BC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Banskobystricky_vlajka.svg' },

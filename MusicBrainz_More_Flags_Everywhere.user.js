@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1456
+// @version      2026-09-29.1547
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -680,6 +680,47 @@
     { name: 'Kuala Lumpur', uuid: 'b9516e0b-4223-47a6-a64a-8750450c8c05', code: 'MY-14', url: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_Kuala_Lumpur%2C_Malaysia.svg' },
     { name: 'Putrajaya', uuid: '0814fbc0-db72-487b-ba05-9c83b6cf9af2', code: 'MY-16', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Putrajaya.svg' },
     { name: 'Wilayah Persekutuan Labuan', uuid: 'a79d303b-1873-4357-a59d-5c060dbc2f92', code: 'MY-15', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Labuan.svg' },
+
+    // --- Moldova (Districts) ---
+    { name: 'Anenii Noi', uuid: 'b2608d40-076f-4a1d-9259-1e9095245835', code: 'MD-AN', url: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Anenii_Noi_District%2C_Moldova.svg' },
+    { name: 'Basarabeasca', uuid: 'fb4b1c1f-b36f-4e40-896d-4028bbfb3609', code: 'MD-BS', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Basarabeasca_District.svg' },
+    { name: 'Briceni', uuid: '172832c4-1ffc-434b-80f0-02b6e2829170', code: 'MD-BR', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Briceni.svg' },
+    { name: 'Cahul', uuid: 'eeb60457-b912-416f-a020-841061b707e7', code: 'MD-CA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_District_Cahul.svg' },
+    { name: 'Călăraşi', uuid: '9682fbfc-1d9c-423f-be53-b1a08e1501da', code: 'MD-CL', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Rajon_Calarasi_flag.gif' },
+    { name: 'Cantemir', uuid: 'abe712a8-9c84-4a94-b5a8-3bea42d2b78f', code: 'MD-CT', url: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Cantemir_District.svg' },
+    { name: 'Căuşeni', uuid: 'fe52d424-41c0-42a9-8056-630b66284140', code: 'MD-CS', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Flag_of_Căușeni_District.jpg' },
+    { name: 'Cimişlia', uuid: 'c0323b07-92c1-4427-b18a-b3ff356ea8df', code: 'MD-CM', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Cimislia_flag.png' },
+    { name: 'Criuleni', uuid: '6b9422f9-9d7c-4ce8-a9ac-198c114b336d', code: 'MD-CR', url: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Drapel_Raionul_Criuleni.svg' },
+    { name: 'Donduşeni', uuid: '33d917cb-22d7-4351-8604-25e85357b7d8', code: 'MD-DO', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Flag_of_Dondușeni_District.svg' },
+    { name: 'Drochia', uuid: '5509886c-113c-426a-9dec-75de23d6f69f', code: 'MD-DR', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Drochia_rajon_flag.png' },
+    { name: 'Dubăsari', uuid: 'fb848315-1cd7-4c24-969f-1eafa1dbb6c4', code: 'MD-DU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Dubăsari_District_flag.svg' },
+    { name: 'Edineţ', uuid: '51a1f33b-c5fa-47c3-9be6-2d11c5f99197', code: 'MD-ED', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Steag_raionul_edinet.svg' },
+    { name: 'Făleşti', uuid: '6b79d6bd-77ce-4703-91bf-598c40f6e721', code: 'MD-FA', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Rajon_Fălești_Flag.gif' },
+    { name: 'Floreşti', uuid: '83de18b2-e0f7-4d76-9feb-fcb6673f5cf5', code: 'MD-FL', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Florești_District%2C_Moldova.svg' },
+    { name: 'Glodeni', uuid: 'fa8a7c35-e232-4094-8c52-37ba47c5a346', code: 'MD-GL', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag_of_Glodeni_District.svg' },
+    { name: 'Hînceşti', uuid: '81e8ff6f-00d2-4cb3-ace8-f1038537a5ce', code: 'MD-HI', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Hincesti_rajon_flag.svg' },
+    { name: 'Ialoveni', uuid: '8c0b4e5b-3f7a-4647-bba0-95680d3b05db', code: 'MD-IA', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_Ialoveni_District.gif' },
+    { name: 'Leova', uuid: '9216fe0d-4697-4e90-b07c-8b4c584d5b86', code: 'MD-LE', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Drapel_Raionul_Leova.png' },
+    { name: 'Nisporeni', uuid: 'd7f67456-4cd3-404d-8d14-e42719b360ce', code: 'MD-NI', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Nisporeni_rajon_flag.gif' },
+    { name: 'Ocniţa', uuid: 'c3881809-b508-428c-9355-032a7b93c29f', code: 'MD-OC', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Ocnitar.gif' },
+    { name: 'Orhei', uuid: '1ce9c958-6e33-4251-8791-e63022887b65', code: 'MD-OR', url: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Orhei2.gif' },
+    { name: 'Rezina', uuid: 'be831bda-84b0-460c-970e-e40cc19d9fb3', code: 'MD-RE', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_District_Rezina.svg' },
+    { name: 'Rîşcani', uuid: '4b0ac47c-87f2-4f76-918e-61ce08280293', code: 'MD-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Riscani_rajon_flag.gif' },
+    { name: 'Sîngerei', uuid: 'bb4721d4-eff2-487a-aba4-ce2c0721b665', code: 'MD-SI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Flag_of_Sîngerei_District.svg' },
+    { name: 'Şoldăneşti', uuid: '7c0287ce-1e55-4c76-be5e-e146aa118738', code: 'MD-SD', url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/Soldanesti_rajon_flag.gif' },
+    { name: 'Soroca', uuid: '79955053-af72-40fb-9cc0-753d8f36784e', code: 'MD-SO', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_District_Soroca.svg' },
+    { name: 'Ştefan Vodă', uuid: 'ba1aee33-13c6-410c-9308-13075327ac67', code: 'MD-SV', url: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Stefan_voda_rajon_flag.gif' },
+    { name: 'Străşeni', uuid: '91ab404f-d274-4263-9eb1-90297e661e15', code: 'MD-ST', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Straseni_rajon_flag.gif' },
+    { name: 'Taraclia', uuid: 'e89c66b4-8ff2-4871-a5f8-24cdfa574ea9', code: 'MD-TA', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Drapel_Raionul_Taraclia.png' },
+    { name: 'Teleneşti', uuid: 'ec32ab4a-a6c5-4c64-9490-2a258be17f5c', code: 'MD-TE', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Drapel_Raionul_Telenești.png' },
+    { name: 'Ungheni', uuid: '76a59ea6-b65a-4cac-b248-4f254be48596', code: 'MD-UN', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_District_Ungheni.svg' },
+    // --- Moldova (Territorial Units) ---
+    { name: 'Găgăuzia', uuid: '60c554ba-59e4-4371-9de3-65f8aca040bd', code: 'MD-GA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Gagauzia.svg' },
+    { name: 'Transnistria', uuid: 'cc696318-7de1-4267-89d7-75975326269a', code: 'MD-SN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Transnistria_%28state%29.svg' },
+    // --- Moldova (Cities) ---
+    { name: 'Bălţi', uuid: '82fc96f7-22d8-4f39-9288-cf30e1f70c63', code: 'MD-BA', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_Bălți.png' },
+    { name: 'Bender', uuid: '9fe28938-2be6-435b-b682-d3d1249182ed', code: 'MD-BD', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Bendery-Flag.jpg' },
+    { name: 'Chişinău', uuid: 'b4c55385-d2ef-45bb-ba47-86adbecaeb01', code: 'MD-CU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Flag_of_Chișinău.svg' },
 
     // --- Myanmar (Regions) ---
     { name: 'Ayeyarwady', uuid: 'be526dbc-6c23-4ca7-b5fe-cbf16a357e26', code: 'MM-07', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Ayeyarwady_Region.svg' },

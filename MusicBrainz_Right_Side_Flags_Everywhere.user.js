@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1918
+// @version      2026-09-29.1937
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1671,6 +1671,17 @@
     // --- Spain (Autonomous Cities) ---
     { name: 'Ceuta', uuid: '381524a3-718f-4a22-837e-e3bc698a45ef', code: 'ES-CE', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Ceuta.svg' },
     { name: 'Melilla', uuid: '74bd349c-179d-444b-b816-ec5cdfe789c7', code: 'ES-ML', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Melilla.svg' },
+
+    // --- Sri Lanka (Provinces) ---
+    { name: 'Basnāhira paḷāta', uuid: '14ea4825-659e-4448-940f-1c74dd04714b', code: 'LK-1', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Western_Province_Flag_%28SRI_LANKA%29.png' },
+    { name: 'Dakuṇu paḷāta', uuid: '1ce53d91-b1a4-4153-a5be-23dad38a0ace', code: 'LK-3', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Flag_of_the_Southern_Province_%28Sri_Lanka%29.PNG' },
+    { name: 'Madhyama paḷāta', uuid: '4785ca7d-8d17-4537-99e0-083147ef754f', code: 'LK-2', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Central_Province.png' },
+    { name: 'Næ̆gĕnahira paḷāta', uuid: 'f98bc970-5108-476a-85f5-8546f494551e', code: 'LK-5', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Eastern_Province_Flag_%28SRI_LANKA%29.png' },
+    { name: 'Sabaragamuva paḷāta', uuid: '9d5019b9-b8d9-4aed-94c0-5e5229d47958', code: 'LK-9', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Flag_of_the_Sabaragamuwa_Province_%28Sri_Lanka%29.PNG' },
+    { name: 'Uturu paḷāta', uuid: 'bb03f113-27b7-406f-8fb5-49a268f16895', code: 'LK-4', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Flag_of_the_Northern_Province.svg' },
+    { name: 'Uturumæ̆da paḷāta', uuid: '6eaabf52-7451-4611-a83f-4d4512ee910e', code: 'LK-7', url: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Flag_of_the_North_Central_Province_Sri_Lanka.png' },
+    { name: 'Ūva paḷāta', uuid: 'babbb38b-ca9a-4233-ad6a-0c2819ef50e2', code: 'LK-8', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Flag_of_the_Uva_Province_%28Sri_Lanka%29.svg' },
+    { name: 'Vayamba paḷāta', uuid: '8dfab964-e56c-4fb8-8218-2fd3b7bb2994', code: 'LK-6', url: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Flag_of_the_North_Western_Province_%28Sri_Lanka%29.svg' },
 
     // --- Sweden (Counties) ---
     { name: 'Blekinge', uuid: 'b8955c64-bd6a-4b6f-ba1c-3a105f9dc85d', code: 'SE-K', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/Blekinge_län_vapenflagga.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1003
+// @version      2026-09-29.1456
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1484,6 +1484,17 @@
     // --- Russia (Federal Cities) ---
     { name: 'Moscow', uuid: 'f310740c-ad62-48c0-839b-e86581b9f464', code: 'RU-MOW', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Moscow.svg' },
     { name: 'Sankt-Peterburg', uuid: '808e1ef8-5390-4300-a615-c4df977cc349', code: 'RU-SPE', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saint_Petersburg.svg' },
+
+    // --- San Marino (Municipalities) ---
+    { name: 'Acquaviva', uuid: '18c7aa3f-c12b-4ce5-8d54-ffdc6afdb1d9', code: 'SM-01', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Acquaviva_%28RSM%29-Bandiera.svg' },
+    { name: 'Borgo Maggiore', uuid: '7af32581-31d1-4d9b-9f26-2051724e7d98', code: 'SM-06', url: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Borgo_Maggiore_%28RSM%29-Bandiera.svg' },
+    { name: 'Chiesanuova', uuid: 'e42fee3e-df7d-4569-931f-899a561d306a', code: 'SM-02', url: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Chiesanuova_%28RSM%29-Bandiera.svg' },
+    { name: 'Domagnano', uuid: 'c583ca2a-0442-4780-a6f4-7999c6512104', code: 'SM-03', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Domagnano_%28RSM%29-Bandiera.svg' },
+    { name: 'Faetano', uuid: 'f2892bb3-5ea4-4f2f-b7c7-322016b57c48', code: 'SM-04', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Faetano_%28RSM%29-Bandiera.svg' },
+    { name: 'Fiorentino', uuid: '5c851007-7803-4943-ad45-a713635fc1ae', code: 'SM-05', url: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Fiorentino_%28RSM%29-Bandiera.svg' },
+    { name: 'Montegiardino', uuid: 'c71f8a3d-f6e5-4d0a-9b6c-232535878b94', code: 'SM-08', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Montegiardino_%28RSM%29-Bandiera.svg' },
+    { name: 'San Marino', uuid: '0c616beb-6288-4906-a137-e3cfc27141de', code: 'SM-07', url: 'https://upload.wikimedia.org/wikipedia/commons/1/16/San_Marino_%28RSM%29-Bandiera.svg' },
+    { name: 'Serravalle', uuid: '98c13a99-411c-400a-8a57-f70e697add3a', code: 'SM-09', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Serravalle_%28RSM%29-Bandiera.svg' },
 
     // --- Slovakia (Regions) ---
     { name: 'Banskobystrický kraj', uuid: '9fc6ee0c-980a-4c41-9616-55ee8521874d', code: 'SK-BC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Banskobystricky_vlajka.svg' },

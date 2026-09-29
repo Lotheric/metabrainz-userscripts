@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1547
+// @version      2026-09-29.1630
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -372,6 +372,21 @@
     { name: 'Potosí', uuid: 'f2d995c5-00b8-4752-9c58-18a96c613927', code: 'BO-P', url: 'https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Potosí.svg' },
     { name: 'Santa Cruz', uuid: '183bf327-c332-4e60-941a-e251f75592fb', code: 'BO-S', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_Santa_Cruz.svg' },
     { name: 'Tarija', uuid: '477bfd17-de30-422e-b1da-c4b41eb6a07e', code: 'BO-T', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_Tarija.svg' },
+
+    // --- Bosnia and Herzegovina (Entities) ---
+    { name: 'Federacija Bosna i Hercegovina', uuid: '8474c97f-3d52-4359-aecf-a9e59a177611', code: 'BA-BIH', url: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_the_Federation_of_Bosnia_and_Herzegovina_%281996–2007%29.svg' },
+    { name: 'Republika Srpska', uuid: 'bdf81fc6-7f94-493d-b55a-a6a95a7873e3', code: 'BA-SRP', url: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_the_Republika_Srpska.svg' },
+    // --- Bosnia and Herzegovina (Cantons) ---
+    { name: 'Bosansko-podrinjski kanton', uuid: '8b1ce74f-2cd3-492a-ba95-49bb7d9f4bef', code: 'BA-05', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_Bosnian_Podrinje.svg' },
+    { name: 'Hercegovačko-neretvanski kanton', uuid: 'f68eb3db-0053-49de-9895-6080fd8a5ad1', code: 'BA-07', url: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Flag_of_Herzegovina-Neretva.svg' },
+    { name: 'Kanton br. 10 (Livanjski kanton)', uuid: '96332e60-74ac-4be1-8794-cf271c2cef8b', code: 'BA-10', url: 'https://www.crwflags.com/fotw/images/b/ba-10.gif' },
+    { name: 'Kanton Sarajevo', uuid: 'daa1d864-bbfe-4d57-a8cc-c42a099e8121', code: 'BA-09', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Sarajevo_Canton.svg' },
+    { name: 'Posavski kanton', uuid: '0a744967-771e-4be9-83fe-aaa7ff8852ac', code: 'BA-02', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Flag_of_Posavina.svg' },
+    { name: 'Srednjobosanski kanton', uuid: '366b3fde-d7f5-4559-9106-ff22ec7014c7', code: 'BA-06', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Flag_of_Central_Bosnia.svg' },
+    { name: 'Tuzlanski kanton', uuid: '55e8a857-2c84-4fb9-9edd-5b4b59114a60', code: 'BA-03', url: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Flag_of_Tuzla_Canton.svg' },
+    { name: 'Unsko-sanski kanton', uuid: '095a5583-40f3-4ee7-9fc8-404195823369', code: 'BA-01', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Flag_of_Una-Sana.svg' },
+    { name: 'Zapadnohercegovački kanton', uuid: '04fca156-7051-4824-8fde-582ca4ce083f', code: 'BA-08', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_the_Croatian_Republic_of_Herzeg-Bosnia.svg' },
+    { name: 'Zeničko-dobojski kanton', uuid: '69ed1437-5c1d-46b6-ba2c-ddb27be7fa8c', code: 'BA-04', url: 'https://upload.wikimedia.org/wikipedia/commons/5/58/Flag_of_Zenica-Doboj.svg' },
 
     // --- Brazil (States) ---
     { name: 'Acre', uuid: '93ca9825-7ed3-49e9-9292-52c1c9473ca0', code: 'BR-AC', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Bandeira_do_Acre.svg' },

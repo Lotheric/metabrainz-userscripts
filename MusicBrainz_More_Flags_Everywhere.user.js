@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-28.15510
+// @version      2026-09-29.1003
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1076,6 +1076,29 @@
     { name: 'Warmińsko-mazurskie', uuid: '14fec11f-829b-4127-9a96-e83b272ed9ee', code: 'PL-WN', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_warmi%C5%84sko-mazurskie_flag.svg' },
     { name: 'Wielkopolskie', uuid: '52e7ac8f-4a25-49c6-8637-1bdaa4b08d74', code: 'PL-WP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_wielkopolskie_flag.svg' },
     { name: 'Zachodniopomorskie', uuid: '78ab1f28-e113-4491-a483-09addee2ecdc', code: 'PL-ZP', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/POL_wojew%C3%B3dztwo_zachodniopomorskie_flag.svg' },
+
+    // --- Portugal (Districts) ---
+    { name: 'Aveiro', uuid: 'd7f443f8-baab-45ea-b2eb-750b21e96164', code: 'PT-01', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Aveiro_Flag.svg' },
+    { name: 'Beja', uuid: 'ea2c07b3-5d99-4139-84b8-9b8ed0c106eb', code: 'PT-02', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_of_Beja.svg' },
+    { name: 'Braga', uuid: 'a909a4a6-0c95-41a1-b96f-d0a4f7394049', code: 'PT-03', url: 'https://upload.wikimedia.org/wikipedia/commons/archive/4/40/20091120194452%21Pt-brg1.png' },
+    { name: 'Bragança', uuid: '589cf788-79c3-418e-ba67-62bdfb3e547f', code: 'PT-04', url: 'https://upload.wikimedia.org/wikipedia/commons/archive/4/4a/20091120194449%21Pt-bgc1.png' },
+    { name: 'Castelo Branco', uuid: 'e6d9cf23-db3d-4372-9d5c-98a7a40ce7d1', code: 'PT-05', url: 'https://upload.wikimedia.org/wikipedia/commons/archive/2/2e/20091120194447%21Pt-ctb1.png' },
+    { name: 'Coimbra', uuid: 'e342e391-216d-428f-8d89-1f09daf0bda9', code: 'PT-06', url: 'https://upload.wikimedia.org/wikipedia/commons/archive/8/87/20131029011528%21Pt-cbr1.png' },
+    { name: 'Évora', uuid: 'cc0c81fa-1d3c-433b-b138-ac1af871f72c', code: 'PT-07', url: 'https://upload.wikimedia.org/wikipedia/commons/archive/0/00/20091120194443%21Pt-evr1.png' },
+    { name: 'Faro', uuid: 'abc1b593-cfae-4b8b-bd28-e6533ed0e3eb', code: 'PT-08', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Faroflag.svg' },
+    { name: 'Guarda', uuid: '8e09774c-bbde-4872-a8fd-53fb14ae2964', code: 'PT-09', url: 'https://upload.wikimedia.org/wikipedia/commons/archive/9/96/20091120194439%21Pt-grd1.png' },
+    { name: 'Leiria', uuid: 'a9cfeb4d-4426-4488-8916-ca1387af9e6e', code: 'PT-10', url: 'https://upload.wikimedia.org/wikipedia/commons/archive/f/f5/20091120194459%21Pt-lra1.png' },
+    { name: 'Lisboa', uuid: '4f01d77c-1e16-4e8c-b1c2-7c8d76dcae7b', code: 'PT-11', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Flag_of_Lisbon.svg' },
+    { name: 'Portalegre', uuid: 'cafae8f2-6765-4cec-868d-b0fea003ecb0', code: 'PT-12', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Bandeira_de_Portalegre.jpg' },
+    { name: 'Porto', uuid: 'a6b011eb-b9ab-453e-af95-4fdd9d040ba1', code: 'PT-13', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Flag_of_Porto.svg' },
+    { name: 'Santarém', uuid: 'b2eec9f2-14d6-4359-87f2-5890cf39c0df', code: 'PT-14', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Santarém_PT_Flag.jpg' },
+    { name: 'Setúbal', uuid: 'c6fd772b-952f-452c-9fad-3301938de9ca', code: 'PT-15', url: 'https://www.magflags.net/media/catalog/product/cache/8cf168c4cb81685e3b89c0586044f7f8/P/T/PT-15_11.png' },
+    { name: 'Viana do Castelo', uuid: '9c48914d-86af-4979-a732-280cc69fba78', code: 'PT-16', url: 'https://www.crwflags.com/fotw/images/p/pt-vct.gif' },
+    { name: 'Vila Real', uuid: 'fc3ab0c6-c0e0-4320-86df-9ac7ec2d802e', code: 'PT-17', url: 'https://www.crwflags.com/fotw/images/p/pt-vrl.gif' },
+    { name: 'Viseu', uuid: '46696dd4-e1dd-4572-8c50-98dc85b56c5d', code: 'PT-18', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Bandeira_de_Viseu.jpg' },
+    // --- Portugal (Autonomous Regions) ---
+    { name: 'Açores', uuid: 'c998ef9b-8656-45f3-ba70-8d8c15a33a29', code: 'PT-20', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/Flag_of_the_Azores.svg' },
+    { name: 'Madeira', uuid: '9cdaf9c8-4d0a-4ca6-8737-4fed25d642c5', code: 'PT-30', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_Madeira.svg' },
 
     // --- Romania (Counties) ---
     { name: 'Alba', uuid: 'e1448a13-a925-41e0-861e-9c378e323ec6', code: 'RO-AB', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/RO_Alba_County_Flag.svg' },

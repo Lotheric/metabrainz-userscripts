@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1857
+// @version      2026-09-29.1918
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -647,6 +647,18 @@
     // --- Kenya (Cities) ---
     { name: 'Mombasa', uuid: '0782e67a-4326-41e3-a49c-7db270efd87a', code: 'KE-MBS', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Mombasa_flag.png' },
     { name: 'Nairobi', uuid: '4cc373f3-8b60-400b-8aa3-6df3fe4ab8fb', code: 'KE-NRB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Nairobi.svg' },
+
+    // --- Kyrgyzstan (Regions) ---
+    { name: 'Batken', uuid: '8193d2e8-7cf8-4dbe-9e76-c343061a6d78', code: 'KG-B', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Batken_obl_flag.svg' },
+    { name: 'Chü', uuid: 'f52fe40a-c66b-4223-929b-b9de86e65e1d', code: 'KG-C', url: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Flag_of_Chuy_Province.svg' },
+    { name: 'Jalal-Abad', uuid: 'c5c55fae-692f-4c0f-9a52-c6d5172a841d', code: 'KG-J', url: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Jalal-Abad_Region.svg' },
+    { name: 'Naryn', uuid: '4340d4ce-7e4a-436b-a358-a1e236f48ae5', code: 'KG-N', url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Naryn_obl_flag.svg' },
+    { name: 'Osh', uuid: 'f23f3a0d-ec0c-4534-89ab-24947c1a0404', code: 'KG-O', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Osh.svg' },
+    { name: 'Talas', uuid: 'c82a593e-6d45-4364-a160-13794c6cd6fa', code: 'KG-T', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Talas_Province_Kyrgyzstan.svg' },
+    { name: 'Ysyk-Köl', uuid: '35aa7428-2d82-4521-89d7-504219d9d54a', code: 'KG-Y', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Issyk-Kul_Region.svg' },
+    // --- Kyrgyzstan (Cities) ---
+    { name: 'Bishkek', uuid: '8e148744-f4d0-49fc-875b-b01f43adcc75', code: 'KG-GB', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Bishkek.svg' },
+    { name: 'Osh', uuid: 'd07c1bbc-94ab-492f-8320-29e4e55218db', code: 'KG-GO', url: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Osh.svg' },
 
     // --- Liberia (Counties) ---
     { name: 'Bomi', uuid: 'c2d218fd-916b-46e8-b675-1cbb13f04118', code: 'LR-BM', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Flag_of_Bomi_County.svg' },

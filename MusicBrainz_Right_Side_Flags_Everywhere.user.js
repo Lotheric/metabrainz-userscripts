@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1630
+// @version      2026-09-29.1728
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -987,6 +987,31 @@
     { name: 'Bălţi', uuid: '82fc96f7-22d8-4f39-9288-cf30e1f70c63', code: 'MD-BA', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_Bălți.png' },
     { name: 'Bender', uuid: '9fe28938-2be6-435b-b682-d3d1249182ed', code: 'MD-BD', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Bendery-Flag.jpg' },
     { name: 'Chişinău', uuid: 'b4c55385-d2ef-45bb-ba47-86adbecaeb01', code: 'MD-CU', url: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Flag_of_Chișinău.svg' },
+
+    // --- Mongolia (Provinces) ---
+    { name: 'Arhangay', uuid: 'd97a5302-c0f3-4469-9e95-5bea5f98c065', code: 'MN-073', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Mn_flag_arkhangai_aimag_2014.svg' },
+    { name: 'Bayan-Ölgiy', uuid: 'c5128567-32ef-4d25-896d-d7174c916f82', code: 'MN-071', url: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Mn_flag_bayan_olgiy_aymag.svg' },
+    { name: 'Bayanhongor', uuid: '8f2b0832-41f5-4ec2-9c3f-6966da8fac3d', code: 'MN-069', url: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Mn_flag_bayankhongor_aymag.png' },
+    { name: 'Bulgan', uuid: '2dbf68f8-1fa4-427c-b10b-022ec137d0d1', code: 'MN-067', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Mn_flag_bulgan_aimag_2022.svg' },
+    { name: 'Darhan uul', uuid: '49e2023d-b37d-4db6-b360-b8a4a29f8a58', code: 'MN-037', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Mn_flag_darkhan_uul_aymag.svg' },
+    { name: 'Dornod', uuid: '0210b86a-2f3d-485b-85dc-725280665d4f', code: 'MN-061', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Mn_flag_dornod_aimag_2001.svg' },
+    { name: 'Dornogovĭ', uuid: 'dd402eb2-c19f-46d3-8d47-ff7aa9167e8e', code: 'MN-063', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Mn_flag_dornogovi_aimag_2011.svg' },
+    { name: 'Dundgovĭ', uuid: '0f0f8fb8-b0e7-4cea-97af-2ee2f3d1de4b', code: 'MN-059', url: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Mn_flag_dundgovi_aimag.svg' },
+    { name: 'Dzavhan', uuid: '7318d447-7dc4-499f-ab9b-d1285f8db41c', code: 'MN-057', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Mn_flag_zavkhan_aimag.svg' },
+    { name: 'Govĭ-Altay', uuid: 'be962535-fe2c-4ba4-b620-c7e343d7b66b', code: 'MN-065', url: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Mn_flag_govi-altai_aimag_2011.svg' },
+    { name: 'Govĭ-Sümber', uuid: '2e0bb980-f8d7-4e9d-a2f5-648944f5f1f4', code: 'MN-064', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Mn_flag_govisümber_aimag.svg' },
+    { name: 'Hentiy', uuid: 'be992814-91a6-492b-9b27-cc2c6abc27a4', code: 'MN-039', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Khentii_aimag_Flag.svg' },
+    { name: 'Hovd', uuid: '8b430f9a-b2ab-4baa-a5e7-fcc1c64c8e17', code: 'MN-043', url: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Khovd_Aimag_%28since_2014%29.svg' },
+    { name: 'Hövsgöl', uuid: 'a2f627e0-9479-4ab0-998a-89b2abb6c1f5', code: 'MN-041', url: 'https://upload.wikimedia.org/wikipedia/commons/7/72/Mn_flag_khövsgöl_aimag_2014.svg' },
+    { name: 'Ömnögovĭ', uuid: '29b897c6-a9d9-4dd7-911c-fee5ad5ba133', code: 'MN-053', url: 'https://upload.wikimedia.org/wikipedia/commons/9/97/Mn_flag_ömnögovi_aimag_2011.svg' },
+    { name: 'Orhon', uuid: 'fd78b920-96b7-4709-8cd4-5b7ed6aa7bd3', code: 'MN-035', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Mn_flag_orkhon_aimag_2024.svg' },
+    { name: 'Övörhangay', uuid: '946cef05-0893-4536-9c13-2c9a903b0710', code: 'MN-055', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Mn_flag_Ovurhangai_aymag.svg' },
+    { name: 'Selenge', uuid: '4a07046c-a379-49b4-bced-115f14453b76', code: 'MN-049', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Mn_flag_selenge_aimag_1999.svg' },
+    { name: 'Sühbaatar', uuid: 'b1a71691-f98c-424d-8549-b7ea89163c89', code: 'MN-051', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Mn_flag_sükhbaatar_aimag.svg' },
+    { name: 'Töv', uuid: 'd9535b36-7db9-48c4-a376-8737b1dbaef7', code: 'MN-047', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Tov_aymag_flag.svg' },
+    { name: 'Uvs', uuid: '115ad3c2-c453-4170-9b32-cbeab42d91e7', code: 'MN-046', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Uvs_Aimag_Flag.svg' },
+    // --- Mongolia (Capital City) ---
+    { name: 'Ulaanbaatar', uuid: '0c220b8d-4eda-43be-96e9-5d1a180cadc5', code: 'MN-1', url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Ulaanbaatar%2C_Mongolia.svg' },
 
     // --- Myanmar (Regions) ---
     { name: 'Ayeyarwady', uuid: 'be526dbc-6c23-4ca7-b5fe-cbf16a357e26', code: 'MM-07', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Ayeyarwady_Region.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-30.1047
+// @version      2026-09-30.1102
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -2156,7 +2156,7 @@
     img.style.setProperty('display', 'inline-block', 'important');
     img.style.setProperty('vertical-align', 'baseline', 'important');
     img.style.setProperty('margin-left', '0.40em', 'important');
-    img.style.setProperty('margin-right', '0.40em', 'important');
+    img.style.setProperty('margin-right', '0.05em', 'important');
     img.style.setProperty('object-fit', 'contain', 'important');
     img.style.setProperty('box-shadow', '0 0 0 1px #ccc', 'important');
     img.style.setProperty('border', 'none', 'important');
@@ -2175,7 +2175,7 @@
     img.style.setProperty('height', '11px', 'important');
     img.style.setProperty('display', 'inline-block', 'important');
     img.style.setProperty('vertical-align', 'baseline', 'important');
-    img.style.setProperty('margin-right', '0.40em', 'important');
+    img.style.setProperty('margin-right', '0.05em', 'important');
     img.style.setProperty('object-fit', 'contain', 'important');
     img.style.setProperty('box-shadow', '0 0 0 1px #ccc', 'important');
     img.style.setProperty('border', 'none', 'important');
@@ -2674,7 +2674,7 @@
       let toKill = prev;
       prev = prev.previousSibling;
       if (toKill.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(toKill.nodeValue || '')) {
-        if (toKill.parentNode) toKill.parentNode.removeChild(toKill);
+        continue;
       } else if (toKill.nodeType === Node.ELEMENT_NODE) {
         const elNode = toKill;
         if (elNode.dataset && elNode.dataset.mbFlag === '1') elNode.remove();
@@ -2940,6 +2940,9 @@
       }
       .mfe-flag-wrapper a.arealink {
           display: inline-block !important;
+      }
+      .release-country .mfe-flag-wrapper {
+          margin-right: 0.4em !important;
       }
     `;
     if (document.head) document.head.appendChild(style);

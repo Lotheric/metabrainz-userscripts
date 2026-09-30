@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-09-29.1937
+// @version      2026-09-30.0856
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -830,6 +830,46 @@
     // --- Nicaragua (Autonomous Regions) ---
     { name: 'Atlántico Norte', uuid: '777eab91-df56-4b0d-92c8-d4fe1cd67469', code: 'NI-AN', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Region_Autonoma_del_Atlantico_Norte.svg' },
     { name: 'Atlántico Sur', uuid: '83ddb8d9-393f-478e-8d3b-c9d2439f153c', code: 'NI-AS', url: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Flag_of_Region_Autonoma_Atlantico_Sur.svg' },
+
+    // --- Nigeria (States) ---
+    { name: 'Abia', uuid: 'bafbae84-4dd1-4b73-af90-b94cf03f8cad', code: 'NG-AB', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Abia_%28new%29.png' },
+    { name: 'Adamawa', uuid: '5e71004b-0df7-489a-a40f-cd3ea5646cd0', code: 'NG-AD', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Adamawa_State_Flag.svg' },
+    { name: 'Akwa Ibom', uuid: '9367616a-d4db-4498-9150-373dc517aef3', code: 'NG-AK', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Flag_of_Akwa_Ibom_State.svg' },
+    { name: 'Anambra', uuid: 'b4af8fc1-c57d-4e95-910e-42eecea63311', code: 'NG-AN', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Flag_of_Anambra_State.png' },
+    { name: 'Bayelsa', uuid: '6c4ed057-a06b-4bde-bb50-229dc1bba59c', code: 'NG-BY', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Bayelsa_State.svg' },
+    { name: 'Bauchi', uuid: 'b99953fd-2374-4e15-8959-b979f6558a63', code: 'NG-BA', url: 'https://static.wikia.nocookie.net/vexillology/images/d/d5/Bauchi_flag.png/revision/latest' },
+    { name: 'Benue', uuid: '55ca770c-5760-41c8-9011-54ebfdc2986b', code: 'NG-BE', url: 'https://upload.wikimedia.org/wikipedia/en/8/89/Flag_of_Benue_State.png' },
+    { name: 'Borno', uuid: '9d57ffa4-023e-454b-8da7-d599d905994c', code: 'NG-BO', url: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Flag_of_Borno_State.svg' },
+    { name: 'Cross River', uuid: '18afb07d-6f51-40d4-a3b6-89f9df57ecc3', code: 'NG-CR', url: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Cross_River_State_Flag.svg' },
+    { name: 'Delta', uuid: '58bc04e7-f7b6-4929-bfa4-6cef80f6c2a2', code: 'NG-DE', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Delta_State.gif' },
+    { name: 'Ebonyi', uuid: 'fdd3df7b-e5b3-4261-bb13-f3613ed47d8b', code: 'NG-EB', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Seal_of_Ebonyi_State.png' },
+    { name: 'Edo', uuid: '6d2ae907-d149-41ec-b4c0-c7fc7cb09f1c', code: 'NG-ED', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Edo_State.svg' },
+    { name: 'Ekiti', uuid: 'af3bc0bf-5c5b-4cb8-8fe4-1eb535fff1e4', code: 'NG-EK', url: 'https://upload.wikimedia.org/wikipedia/commons/0/02/Ekiti_State_Flag.gif' },
+    { name: 'Enugu', uuid: 'fef2d6b0-713c-4e49-8ea4-4c07cf98bc5b', code: 'NG-EN', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Enugu_State.png' },
+    { name: 'Gombe', uuid: '4470c012-c68b-4daf-9676-a7451a2ee206', code: 'NG-GO', url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Gombe_State.svg' },
+    { name: 'Imo', uuid: 'e24417f7-a245-46c2-9970-564b9488c83b', code: 'NG-IM', url: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Imo_State_Flag.svg' },
+    { name: 'Jigawa', uuid: 'dde90094-42ca-4693-9231-1cd6a325be09', code: 'NG-JI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Flag_of_Jigawa_State.svg' },
+    { name: 'Kaduna', uuid: '0a77f0b2-60ff-4349-bf55-8e3ed0f378f1', code: 'NG-KD', url: 'https://static.wikia.nocookie.net/nigeriainformation/images/e/e5/Kaduna%E2%80%99s_Flag.png' },
+    { name: 'Kano', uuid: '7e2f532d-8327-487e-a9e0-2e0c398c2da7', code: 'NG-KN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Kano_State_flag_official.png' },
+    { name: 'Katsina', uuid: '53bafd1d-4dbe-4bfe-9430-feab26768922', code: 'NG-KT', url: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Flag_of_Katsina_State.svg' },
+    { name: 'Kebbi', uuid: '3e739908-f6b0-4f38-9b09-5346cd81c177', code: 'NG-KE', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Kebbi_flag.png' },
+    { name: 'Kogi', uuid: '82e2a7eb-ee63-41c5-b827-d317746ae161', code: 'NG-KO', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Kogi_State_Flag.svg' },
+    { name: 'Kwara', uuid: '304ae6c7-35b4-4a05-be8e-45e857af6232', code: 'NG-KW', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c6/Kwara_State_Flag.jpg' },
+    { name: 'Lagos', uuid: '2e1382b1-3949-4f85-8c87-6ac554f44d8f', code: 'NG-LA', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Lagos_State_Flag.svg' },
+    { name: 'Nassarawa', uuid: '9db2f27f-2dc8-436a-b5b4-5bc99100e35b', code: 'NG-NA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Nasarawa_State.png' },
+    { name: 'Niger', uuid: 'fb3c51b0-3919-4fbb-be31-8cda5fcdfdb4', code: 'NG-NI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Niger_state_flag.png' },
+    { name: 'Ogun', uuid: '791de9fe-d225-46ce-9965-7d13ad3a45f1', code: 'NG-OG', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Ogun_State_Flag.jpg' },
+    { name: 'Ondo', uuid: 'f7c0865a-927d-45b8-b3a6-d7b2501a0bab', code: 'NG-ON', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_Ondo_State.png' },
+    { name: 'Osun', uuid: '0c339022-4786-408d-871c-f0f2aa7d833b', code: 'NG-OS', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Osun_State%2C_Nigeria.svg' },
+    { name: 'Oyo', uuid: '2a13608b-e49f-46a6-bd4d-af469d59fc20', code: 'NG-OY', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Oyo_State_Flag.svg' },
+    { name: 'Plateau', uuid: 'bf5d62f7-11c1-4d87-99fc-984f8219657c', code: 'NG-PL', url: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Plateau_State_Flag.jpg' },
+    { name: 'Rivers', uuid: '053658bc-9ef4-458e-8ba8-26120a35650c', code: 'NG-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Rivers_State_Flag.svg' },
+    { name: 'Sokoto', uuid: '27299bc5-6f74-4c98-86b9-029a2a4a827c', code: 'NG-SO', url: 'https://upload.wikimedia.org/wikipedia/commons/8/85/Sokoto_State_Flag.svg' },
+    { name: 'Taraba', uuid: '1db90d3a-1a43-4598-ab7b-5d148d6a00cd', code: 'NG-TA', url: 'https://static.wikia.nocookie.net/vexillology/images/3/35/Taraba.png/revision/latest/scale-to-width-down/1000' },
+    { name: 'Yobe', uuid: '56925af3-2e33-4ecf-a088-99e17fca7529', code: 'NG-YO', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Yobe_State.svg' },
+    { name: 'Zamfara', uuid: '805f3cf5-9074-4299-93a9-8a2a132f8cda', code: 'NG-ZA', url: 'https://static.wikia.nocookie.net/nigeriainformation/images/7/77/Flag_of_Zamfara.png/revision/latest/scale-to-width-down/1000' },
+    // --- Nigeria (Capital Territory) ---
+    { name: 'Abuja Federal Capital Territory', uuid: '50ed0c0d-fdce-4b38-882d-f67b003ebdbc', code: 'NG-FC', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Abuja.svg' },
 
     // --- North Macedonia (Municipalities) ---
     { name: 'Aerodrom', uuid: 'c0313322-5fb0-4ac3-9b52-24263ffb8723', code: 'MK-801', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_Aerodrom_Municipality%2C_North_Macedonia.svg' },

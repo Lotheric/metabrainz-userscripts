@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-07.0532
+// @version      2026-10-07.1039
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -2021,6 +2021,8 @@
     { name: 'Ascension', uuid: '17e091a9-f91d-494f-bd63-3ec6f0c38d73', code: 'SH-AC', url: 'https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Ascension_Island.svg' },
     { name: 'Saint Helena', uuid: '8a2a7450-8ab1-485f-b63d-f849f2966c0b', code: 'SH-HL', url: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Saint_Helena.svg' },
     { name: 'Tristan da Cunha', uuid: 'd19ab530-a1d4-4c89-ba92-d89ed771fcac', code: 'SH-TA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Tristan_da_Cunha.svg' },
+    // --- United Kingdom (Region) ---
+    { name: 'West Midlands', uuid: '07607044-8140-47ba-bb24-7129babe586b', code: 'GB-WEMI', url: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Flag_of_the_West_Midlands_County.svg' },
     // --- United Kingdom (Counties) ---
     { name: 'Cambridgeshire', uuid: 'a7206e39-259e-4d27-8c6c-7c29c3926385', code: 'GB-CAM', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Cambridgeshire_Flag.svg' },
     { name: 'Cumbria', uuid: '8923be10-140a-4efc-bc9a-112ae16512ed', code: 'GB-CMA', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Community_flag_of_Cumbria.svg' },
@@ -2049,6 +2051,7 @@
     // --- United Kingdom (Unitary Authorities) ---
     { name: 'Bournemouth', uuid: 'ca133b15-39a3-449a-95d8-9008c437da7d', code: 'GB-BCP', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Bournemouth_town_flag.svg' },
     { name: 'Cardiff', uuid: 'f0b226db-8e22-40e6-9a53-d839cfec6228', code: 'GB-CRF', url: 'https://upload.wikimedia.org/wikipedia/commons/2/25/Flag_of_Cardiff.svg' },
+    { name: 'Ceredigion', uuid: 'c80e1519-df6f-4d12-9859-fdd1b1ad695f', code: 'GB-CGN', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Flag_of_Ceredigion.svg' },
     { name: 'Cornwall', uuid: '03d7eb23-c924-4e46-af72-a45f6ee04c8b', code: 'GB-CON', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Saint_Piran%27s_Flag.svg' },
     { name: 'East Riding of Yorkshire', uuid: 'fce537c2-afa0-4bd5-b29b-2b75929f13f6', code: 'GB-ERY', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_North_Riding_of_Yorkshire.svg' },
     { name: 'Gwynedd', uuid: '33a9cc60-fc72-4397-bd95-a94777d9e939', code: 'GB-GWN', url: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Gwynedd_%283-2%29.svg' },
@@ -2061,6 +2064,7 @@
     { name: 'Milton Keynes', uuid: '8d28d7ab-0714-4d07-aadb-8bf60dcce6f9', code: 'GB-MIK', url: 'https://upload.wikimedia.org/wikipedia/commons/d/db/Flag_of_Milton_Keynes.png' },
     { name: 'Northumberland', uuid: '6beecf16-22b7-4463-9999-73c79243fd56', code: 'GB-NBL', url: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Flag_of_Northumberland.svg' },
     { name: 'Nottingham', uuid: 'f988aff4-5221-4b36-9174-befec694f906', code: 'GB-NGM', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Flag_of_Nottingham.png' },
+    { name: 'Pembrokeshire', uuid: '05c149b4-6a57-4af3-ae0e-575022a5537e', code: 'GB-PEM', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Pembrokeshire.svg' },
     { name: 'Plymouth', uuid: '27e496a5-2ad4-4d7e-a4ac-a3869b2bbad7', code: 'GB-PLY', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Plymouth.svg' },
     { name: 'Portsmouth', uuid: '7b6383fb-468f-4a2b-916f-b4cbbfb5253e', code: 'GB-POR', url: 'https://upload.wikimedia.org/wikipedia/commons/5/56/City_Flag_of_Portsmouth.svg' },
     { name: 'Rutland', uuid: 'a8000b64-a257-441c-9b1b-1084a7f5b626', code: 'GB-RUT', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Rutland_County_Flag.svg' },
@@ -2073,6 +2077,23 @@
     { name: 'Vale of Glamorgan', uuid: '495c38be-f0cd-4206-a259-7ba778817975', code: 'GB-VGL', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Glamorgan_Flag.svg' },
     { name: 'Wrexham', uuid: 'acd67bc2-3eac-4e04-afe1-70a0663ec59f', code: 'GB-WRC', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Flag_of_Wrexham.png' },
     { name: 'York', uuid: '3a28f05b-59e0-4aa1-9a79-b96f5ef6403b', code: 'GB-YOR', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_York.svg' },
+    // --- United Kingdom (Council Areas) ---
+    { name: 'Aberdeen', uuid: '7749e9ec-716b-4197-bd2c-1dd480e9c36a', code: 'GB-ABE', url: 'https://upload.wikimedia.org/wikipedia/commons/0/02/City_Flag_of_Aberdeen.svg' },
+    { name: 'Dundee', uuid: '9f160583-bd60-4f8d-bfd5-56c2f0d6f51c', code: 'GB-DND', url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Dundee_City_Flag.svg' },
+    { name: 'East Lothian', uuid: '10748123-5f07-4593-a0b8-4adf51333cca', code: 'GB-ELN', url: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag_of_East_Lothian.svg' },
+    { name: 'Edinburgh', uuid: '6658f787-692d-417f-852c-dcca728d5849', code: 'GB-EDH', url: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Flag_of_Edinburgh.svg' },
+    { name: 'Eilean Siar', uuid: '4c21a66f-c266-4d88-843b-757ab540b164', code: 'GB-ELS', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Western_Isles_Council_Flag.svg' },
+    { name: 'Glasgow', uuid: 'c279f805-01f8-46f5-99cf-51f165a1adad', code: 'GB-GLG', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Flag_of_Glasgow%2C_from_image.svg' },
+    { name: 'Orkney Islands', uuid: 'e66ff555-5b61-4820-9c1d-b388b7926a3d', code: 'GB-ORK', url: 'https://upload.wikimedia.org/wikipedia/commons/4/42/2007_Flag_of_Orkney.svg' },
+    { name: 'Shetland Islands', uuid: 'ddb39253-06b3-4e3a-b218-21bdc94172b5', code: 'GB-ZET', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Flag_of_Shetland.svg' },
+    { name: 'South Lanarkshire', uuid: '7845dd3e-c94d-4355-b9be-3456e1ec420c', code: 'GB-SLK', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_South_Lanarkshire.svg' },
+    // --- United Kingdom (District) ---
+    { name: 'Belfast', uuid: 'b3cb9848-1440-4c2b-b258-f849f8a9d50a', code: 'GB-BFS', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Flag_of_Belfast.svg' },
+    // --- United Kingdom (Metropolitan Districts) ---
+    { name: 'Birmingham', uuid: '226c4dca-ef2a-4d4b-ba25-4118d116557a', code: 'GB-BIR', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Birmingham%2C_United_Kingdom.svg' },
+    { name: 'Coventry', uuid: 'aab979a4-b106-4baa-a4a3-fc45f775cff9', code: 'GB-COV', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Coventry_city_flag.svg' },
+    // --- United Kingdom (City Corporation) ---
+    { name: 'London', uuid: 'f03d09b3-39dc-4083-afd6-159e3f0d462f', code: 'GB-LND', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_of_the_City_of_London.svg' },
 
     // --- United States (States) ---
     { name: 'Alabama', uuid: 'cffc0190-1aa2-489f-b6f9-43b9a9e01a91', code: 'US-AL', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Alabama.svg' },

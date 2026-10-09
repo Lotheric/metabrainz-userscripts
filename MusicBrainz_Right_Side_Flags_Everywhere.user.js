@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.1130
+// @version      2026-10-09.1449
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1984,6 +1984,35 @@
     { name: 'Vaud', uuid: '2c333d07-cd97-440c-8c91-8833c921a04a', code: 'CH-VD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canton_of_Vaud.svg' },
     { name: 'Zug', uuid: '81c0bef1-9878-48bf-aaa2-e0342f0688cc', code: 'CH-ZG', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canton_of_Zug.svg' },
     { name: 'Zürich', uuid: '6e9c8367-459e-4271-ac33-7658cdeeb271', code: 'CH-ZH', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Canton_of_Z%C3%BCrich.svg' },
+
+    // --- Taiwan (Counties) ---
+    { name: 'Changhua County', uuid: '01a45032-976d-408d-89dd-2633c5eb7811', code: 'TW-CHA', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Flag_of_Changhua_County.svg' },
+    { name: 'Chiayi County', uuid: 'dabf4433-1673-43cd-b504-31a061019b1a', code: 'TW-CYQ', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_Chiayi_County.svg' },
+    { name: 'Hsinchu County', uuid: '2f05cb5d-8e1f-4f09-bc4d-45b42248abc5', code: 'TW-HSQ', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Flag_of_Hsinchu_County_%28since_2019%29.svg' },
+    { name: 'Hualien County', uuid: '8a31cf35-0e1b-472f-9045-e871b496c31b', code: 'TW-HUA', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Hualien_County.svg' },
+    { name: 'Ilan County', uuid: '3042c0ba-a2af-4ef6-acaa-ad82ee509b33', code: 'TW-ILA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Flag_of_Yilan_County.svg' },
+    { name: 'Kaohsiung County', uuid: 'e2d44c72-17b8-4390-b22b-87b45823cd84', code: 'TW-KHQ', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_Kaohsiung_County.svg' },
+    { name: 'Kinmen County', uuid: '38f164ad-63e9-46a4-9307-01045ea6cb9b', code: 'TW-KIN', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Kinmen_County.svg' },
+    { name: 'Lienchiang County', uuid: 'f850b7b1-6fcf-4af9-a2aa-d9c38eb66034', code: 'TW-LIE', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_of_Lienchiang_County.svg' },
+    { name: 'Miaoli County', uuid: 'c3f70c88-9e5c-4e2b-ad20-89446fd946a4', code: 'TW-MIA', url: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Flag_of_Miaoli_County.svg' },
+    { name: 'Nantou County', uuid: 'c4495b84-f8df-4e8e-8483-fc7894ea8416', code: 'TW-NAN', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Nantou_County.svg' },
+    { name: 'Penghu County', uuid: '1eb28871-061f-42d8-bb0f-168291e6bc5d', code: 'TW-PEN', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Flag_of_Penghu_County.svg' },
+    { name: 'Pingtung County', uuid: 'ac9eaa31-49ca-4f82-80d5-451bc9211786', code: 'TW-PIF', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Flag_of_Pingtung_County.svg' },
+    { name: 'Taichung County', uuid: 'ad19d67b-3926-4ca5-92c3-97b4e1a2a78f', code: 'TW-TXQ', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fe/Taichung_County_Flag.svg' },
+    { name: 'Tainan County', uuid: 'a3d2eaf8-648d-403e-b54a-4ff0f3bdf9a0', code: 'TW-TNQ', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Tainan_County_Flag.svg' },
+    { name: 'Taitung County', uuid: '8bef2557-cb81-4ec3-b49d-36737437e36c', code: 'TW-TTT', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Taitung_County_%282014%29.svg' },
+    { name: 'Taoyuan County', uuid: '86c415b3-7ce8-4971-b4a5-536678101444', code: 'TW-TAO', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_Taoyuan_City.svg' },
+    { name: 'Yunlin County', uuid: '65cadeee-4b07-4527-aad7-a632db8a92ad', code: 'TW-YUN', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Yunlin_County.svg' },
+    // --- Taiwan (Special Municipalities) ---
+    { name: 'Kaohsiung', uuid: '03be6fde-7d55-4dea-ab29-1791782cb858', code: 'TW-KHH', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Flag_of_Kaohsiung_City.svg' },
+    { name: 'New Taipei City', uuid: 'f1c6ae76-bc95-4c2c-9c69-1eff4db8949b', code: 'TW-NWT', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Flag_of_New_Taipei_City.svg' },
+    { name: 'Taichung', uuid: '82134e1f-a265-4522-a008-d40ed84379e8', code: 'TW-TXG', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Flag_of_Taichung_City.jpg' },
+    { name: 'Tainan', uuid: 'd0b3ea24-3b8a-4457-8418-af8dfcf01654', code: 'TW-TNN', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Flag_of_Tainan_City.svg' },
+    { name: 'Taipei', uuid: 'd7089183-0ad8-42f1-b6e4-fff99ee6d1bf', code: 'TW-TPE', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Taipei_City.svg' },
+    // --- Taiwan (Cities) ---
+    { name: 'Chiayi', uuid: '5882d497-8ac2-4003-a9bd-b44ca0fad752', code: 'TW-CYI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Chiayi_City.svg' },
+    { name: 'Hsinchu', uuid: '4ac9e935-d200-4500-b3c9-8b5b10bc25f8', code: 'TW-HSZ', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Hsinchu_City.svg' },
+    { name: 'Keelung', uuid: '5f7d73ee-5c9c-4485-9fc5-11da7624b451', code: 'TW-KEE', url: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag_of_Keelung_City.svg' },
 
     // --- Thailand (Provinces) ---
     { name: 'Amnat Charoen', uuid: '8324277f-7e78-4ebd-99f1-bb183aae9dee', code: 'TH-37', url: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Amnat_Charoen_province.svg' },

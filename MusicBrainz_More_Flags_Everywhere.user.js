@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.0853
+// @version      2026-10-09.1001
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -630,6 +630,44 @@
     { name: 'Jammu and Kashmir', uuid: '6c9c57c7-b882-4bd1-936b-f2bb4ac466b2', code: 'IN-JK', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Jammu_and_Kashmir_%281952-2019%29.svg' },
     { name: 'Lakshadweep', uuid: '4dbeee93-758b-4cf9-8130-b98fa6ce3795', code: 'IN-LD', url: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Lakshadweep.png' },
     { name: 'Puducherry (Pondicherry)', uuid: 'c8ede064-85bd-4d63-a2a2-d8414d845817', code: 'IN-PY', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Puducherry_Flag%28INDIA%29.png' },
+
+    // --- Indonesia (Provinces) ---
+    { name: 'Aceh', uuid: '64711e91-f9c7-4009-a8ef-e7bfbb0408b7', code: 'ID-AC', url: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Aceh%2C_Indonesia.svg' },
+    { name: 'Bali', uuid: 'a3af9f50-448a-4e19-a947-aeaa50c00c09', code: 'ID-BA', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_Bali.svg' },
+    { name: 'Bangka Belitung', uuid: '1729be76-60c6-4691-a25a-bb09d53945b7', code: 'ID-BB', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Flag_of_Bangka-Belitung.svg' },
+    { name: 'Banten', uuid: '59d1b4b5-190d-4025-afae-7198732723ea', code: 'ID-BT', url: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Banten%2C_Indonesia.svg' },
+    { name: 'Bengkulu', uuid: '3ea3eb5f-1e31-406a-98f6-13497ffe7db3', code: 'ID-BE', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Bengkulu.svg' },
+    { name: 'Gorontalo', uuid: 'e966adee-5492-47cd-9241-217b15bd7587', code: 'ID-GO', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Flag_of_Gorontalo.svg' },
+    { name: 'Jambi', uuid: '4f114b27-bd31-4e27-8636-08322617175e', code: 'ID-JA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Flag_of_Jambi.svg' },
+    { name: 'Jawa Barat', uuid: 'f127ed5e-324a-4c91-aa49-39e35cfc6d9c', code: 'ID-JB', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_West_Java_%28vectorised%29.svg' },
+    { name: 'Jawa Tengah', uuid: 'f524979f-f48c-4161-8b97-2ca2dc0fc021', code: 'ID-JT', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Flag_of_Province_of_Central_Java.svg' },
+    { name: 'Jawa Timur', uuid: 'c6145d16-ea91-4e50-b7de-7afb141be41d', code: 'ID-JI', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Flag_of_East_Java.svg' },
+    { name: 'Kalimantan Barat', uuid: '3305f629-f127-4279-9945-305ab0f6feb4', code: 'ID-KB', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Flag_of_West_Kalimantan.svg' },
+    { name: 'Kalimantan Selatan', uuid: '21f1842c-3960-4766-be6d-d0895de7db58', code: 'ID-KS', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_South_Kalimantan.svg' },
+    { name: 'Kalimantan Tengah', uuid: 'fee227c7-7a51-4ca6-a784-6cd44483f2af', code: 'ID-KT', url: 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Central_Kalimantan.svg' },
+    { name: 'Kalimantan Timur', uuid: 'aaa7c99a-49b0-4b2f-8f89-f27510bbd05b', code: 'ID-KI', url: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_East_Kalimantan.svg' },
+    { name: 'Kalimantan Utara', uuid: 'a0b92aa4-a67d-448d-a5bf-d614cc14292c', code: 'ID-KU', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Flag_of_North_Kalimantan.svg' },
+    { name: 'Kepulauan Riau', uuid: '99179a50-946c-486a-b92e-135b7a657e0e', code: 'ID-KR', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Riau_Islands.svg' },
+    { name: 'Lampung', uuid: 'adcce682-71cc-46fd-a525-d20e2570ad11', code: 'ID-LA', url: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_Lampung.svg' },
+    { name: 'Maluku', uuid: '18b8f9da-50df-4059-844c-a26d23176c0c', code: 'ID-MA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Flag_of_Maluku.svg' },
+    { name: 'Maluku Utara', uuid: '5855d763-265b-45fe-9f45-3d98263e0517', code: 'ID-MU', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_of_North_Maluku.svg' },
+    { name: 'Nusa Tenggara Barat', uuid: '0d55f6de-e8cf-4eed-bbf5-db1298f92319', code: 'ID-NB', url: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Flag_of_West_Nusa_Tenggara.svg' },
+    { name: 'Nusa Tenggara Timur', uuid: '21dc2b5b-f6e8-4ea6-b8ba-fb757854cc4f', code: 'ID-NT', url: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Flag_of_East_Nusa_Tenggara.svg' },
+    { name: 'Papua', uuid: 'a7a3ff5f-1107-49a0-91d8-f029bbcb996e', code: 'ID-PA', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Papua_2.svg' },
+    { name: 'Papua Barat', uuid: '88177fe7-a13f-4b43-bb58-3202e90f241a', code: 'ID-PB', url: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_West_Papua_%28vectorised%29.svg' },
+    { name: 'Riau', uuid: 'c248df35-5333-4348-8d6f-4c92217e7151', code: 'ID-RI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Flag_of_Riau.svg' },
+    { name: 'Sulawesi Barat', uuid: '38089a32-e2df-4227-a41f-b9b3da4aa4fe', code: 'ID-SR', url: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Flag_of_West_Sulawesi.svg' },
+    { name: 'Sulawesi Selatan', uuid: '24983b78-c6d9-4bcf-93dd-165484f8874c', code: 'ID-SN', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Flag_of_South_Sulawesi.svg' },
+    { name: 'Sulawesi Tengah', uuid: '26a61fbc-fdd0-4c28-a3c8-3713a8af296c', code: 'ID-ST', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Flag_of_Central_Sulawesi.svg' },
+    { name: 'Sulawesi Tenggara', uuid: 'd51a01eb-f73b-42e5-913b-b8e4670e8e42', code: 'ID-SG', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Flag_of_Southeast_Sulawesi.svg' },
+    { name: 'Sulawesi Utara', uuid: '2bf2eee3-172c-4cb4-9412-1b82661ecdac', code: 'ID-SA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_North_Sulawesi.svg' },
+    { name: 'Sumatera Barat', uuid: '7db9930f-6d74-4141-bc65-51113db578ee', code: 'ID-SB', url: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_West_Sumatra.svg' },
+    { name: 'Sumatera Selatan', uuid: 'cfe45f7d-167b-42c4-8171-70486fa5a751', code: 'ID-SS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_South_Sumatra_%28vectorised%29.svg' },
+    { name: 'Sumatera Utara', uuid: '1359effa-f09a-4ad3-a82c-045a7dade4d1', code: 'ID-SU', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_North_Sumatra.svg' },
+    // --- Indonesia (Special Region) ---
+    { name: 'Yogyakarta', uuid: 'f395ada2-8a2c-43c2-a95f-0a89ca2293ab', code: 'ID-YO', url: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Flag_of_Yogyakarta.svg' },
+    // --- Indonesia (Capital District) ---
+    { name: 'Jakarta', uuid: 'c0448520-84ef-441e-9320-cd7fd21004c3', code: 'ID-JK', url: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_of_Jakarta_%28vectorised%29.svg' },
 
     // --- Ireland (Provinces) ---
     { name: 'Connaught', uuid: '99c3f001-64d3-4174-a302-fb14204117af', code: 'IE-C', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Connacht.svg' },

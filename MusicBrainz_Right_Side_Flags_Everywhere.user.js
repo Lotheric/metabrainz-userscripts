@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.1449
+// @version      2026-10-09.1906
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1241,6 +1241,11 @@
     { name: 'Mon', uuid: '27fd4e93-dd37-42a5-bad3-ebc8b00e19a0', code: 'MM-15', url: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Mon_State_%282018%29.svg' },
     { name: 'Rakhine', uuid: 'ab3e48ec-e4d2-4396-b6e0-5dcf893db5b8', code: 'MM-16', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Rakhine.svg' },
     { name: 'Shan', uuid: '6c77b284-a0fe-4190-9d97-f4f0eeb842c8', code: 'MM-17', url: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Flag_of_Shan_State.svg' },
+
+    // --- New Caledonia (Provinces) ---
+    { name: 'Loyalty Islands', uuid: '1c84fc29-3ef0-419a-a84e-52097007e5b3', code: 'NC-01', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Iles-Loyauté_drapeau.svg' },
+    { name: 'North Province', uuid: '144dd93f-aaac-460f-b1e0-c73188d66531', code: 'NC-02', url: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Drapeau_Province_Nord_Nouvelle_Calédonie.svg' },
+    { name: 'South Province', uuid: '8052fff2-d445-448d-a548-ac7a69dfad78', code: 'NC-03', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bandera_Province_Sud.svg' },
 
     // --- Netherlands (Kingdom) ---
     { name: 'Kingdom of the Netherlands', uuid: 'aee96acc-29ab-4f1b-b23d-52012b29c25b', code: 'NL-KD', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_the_Netherlands.svg' },

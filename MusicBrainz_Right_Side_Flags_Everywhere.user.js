@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.0749
+// @version      2026-10-09.0853
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -854,32 +854,33 @@
     // --- Hungary (Autonomous City) ---
     { name: 'Budapest', uuid: 'f1ac379f-8cd3-45c3-8da0-80c429b36c5e', code: 'HU-BU', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Budapest.svg' },
 
-    // --- India (Region) ---
-    { name: 'Andaman and Nicobar Islands', uuid: 'efacd46e-bcd2-4d29-9dcd-e36d8ff9348d', code: 'IN-AN', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Andaman_and_Nicobar_Administration_Banner.png' },
+    // --- India (States) ---
     { name: 'Andhra Pradesh', uuid: '87e57205-0790-47c0-90ad-63a6888c99d9', code: 'IN-AP', url: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Government_Banner_of_Andhra_Pradesh.svg' },
     { name: 'Bihar', uuid: '8b7a43fc-0719-4cf5-b570-00a903a40ec5', code: 'IN-BR', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Bihar_Government_Banner.png' },
-    { name: 'Chandigarh', uuid: 'f883deef-5c07-4aa1-853b-96f5900f81b9', code: 'IN-CH', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Flag_of_Chandigarh.svg' },
-    { name: 'Delhi', uuid: 'ae724c3f-35ab-41f6-aa97-07c63f778fca', code: 'IN-DL', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Delhi_Capital_Territory.svg' },
     { name: 'Goa', uuid: '50332d7b-4cf9-4947-a791-b8ff95b07767', code: 'IN-GA', url: 'https://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Goa%2C_India.svg' },
     { name: 'Haryana', uuid: 'ca888285-6e73-4823-8843-267b01dc0480', code: 'IN-HR', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Haryana.svg' },
     { name: 'Himachal Pradesh', uuid: 'bff0c577-eed0-4496-a0d3-9f34d12fd174', code: 'IN-HP', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Government_Banner_of_Himachal_Pradesh.svg' },
-    { name: 'Jammu and Kashmir', uuid: '6c9c57c7-b882-4bd1-936b-f2bb4ac466b2', code: 'IN-JK', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Jammu_and_Kashmir_%281952-2019%29.svg' },
     { name: 'Jharkhand', uuid: '31c0eb71-18a4-4946-97a7-d732a35cb08f', code: 'IN-JH', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Flag_of_Jharkhand.svg' },
     { name: 'Karnataka', uuid: '0ca39eb5-3e8a-4447-8ac9-f3f1e83f97c9', code: 'IN-KA', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Karnataka_Flag_Proposal.png' },
     { name: 'Kerala', uuid: 'b93b3304-38fb-4615-8d7b-fda24616d825', code: 'IN-KL', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Kerala.png' },
-    { name: 'Lakshadweep', uuid: '4dbeee93-758b-4cf9-8130-b98fa6ce3795', code: 'IN-LD', url: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Lakshadweep.png' },
     { name: 'Madhya Pradesh', uuid: '48adc76b-4299-4b06-bbd5-d1d0e3b98469', code: 'IN-MP', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Flag_of_Madhya_Pradesh.svg' },
     { name: 'Maharashtra', uuid: '02d26ad7-9445-42ee-8434-229698918c70', code: 'IN-MH', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Maharashtra.svg' },
     { name: 'Manipur', uuid: 'd655bb1e-a215-4419-bd17-3272d9ea3ea7', code: 'IN-MN', url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_the_Government_of_Manipur.svg' },
     { name: 'Meghalaya', uuid: '6db6caf3-97aa-4fde-b795-5b7aa4dc1034', code: 'IN-ML', url: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Banner_of_Meghalaya.png' },
     { name: 'Mizoram', uuid: '0775a6c9-b261-4c7e-9cdb-3f5f66da0b2e', code: 'IN-MZ', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Mizoram_Flag%28INDIA%29.png' },
     { name: 'Odisha', uuid: '6525c3dc-8fae-4c85-9fbc-5f13f5cda3fe', code: 'IN-OD', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag_of_Odisha.svg' },
-    { name: 'Puducherry (Pondicherry)', uuid: 'c8ede064-85bd-4d63-a2a2-d8414d845817', code: 'IN-PY', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Puducherry_Flag%28INDIA%29.png' },
     { name: 'Punjab', uuid: '8df37637-2eb2-424b-9e1d-c90586509826', code: 'IN-PB', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Emblem_of_Punjab_%28India%29_on_a_white_background_%281%29.png' },
     { name: 'Sikkim', uuid: '769e13af-3580-4cf6-9a84-94105bdb0910', code: 'IN-SK', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_the_Government_of_Sikkim.svg' },
     { name: 'Tamil Nadu', uuid: '150d0e1b-2416-4f23-ba79-e9c677324ad6', code: 'IN-TN', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Proposed_flag_of_Tamil_Nadu.svg' },
     { name: 'Uttarakhand', uuid: 'b9b5b779-2343-4e72-a1d2-e050391fac28', code: 'IN-UK', url: 'https://upload.wikimedia.org/wikipedia/commons/4/46/Flag_of_Uttarakhand.svg' },
     { name: 'Uttar Pradesh', uuid: '842ce4dd-4e61-420d-aabf-f3005487ce60', code: 'IN-UP', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Uttar_Pradesh.svg' },
+    // --- India (Union Territories) ---
+    { name: 'Andaman and Nicobar Islands', uuid: 'efacd46e-bcd2-4d29-9dcd-e36d8ff9348d', code: 'IN-AN', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Andaman_and_Nicobar_Administration_Banner.png' },
+    { name: 'Chandigarh', uuid: 'f883deef-5c07-4aa1-853b-96f5900f81b9', code: 'IN-CH', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Flag_of_Chandigarh.svg' },
+    { name: 'Delhi', uuid: 'ae724c3f-35ab-41f6-aa97-07c63f778fca', code: 'IN-DL', url: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/Flag_of_Delhi_Capital_Territory.svg' },
+    { name: 'Jammu and Kashmir', uuid: '6c9c57c7-b882-4bd1-936b-f2bb4ac466b2', code: 'IN-JK', url: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Jammu_and_Kashmir_%281952-2019%29.svg' },
+    { name: 'Lakshadweep', uuid: '4dbeee93-758b-4cf9-8130-b98fa6ce3795', code: 'IN-LD', url: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Flag_of_Lakshadweep.png' },
+    { name: 'Puducherry (Pondicherry)', uuid: 'c8ede064-85bd-4d63-a2a2-d8414d845817', code: 'IN-PY', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Puducherry_Flag%28INDIA%29.png' },
 
     // --- Ireland (Provinces) ---
     { name: 'Connaught', uuid: '99c3f001-64d3-4174-a302-fb14204117af', code: 'IE-C', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Connacht.svg' },
@@ -1374,6 +1375,18 @@
     // --- Norway (Former Counties) ---
     { name: 'Aust-Agder', uuid: '0bd0e394-e3aa-4e33-b06c-80a4aede075f', code: 'NO-09', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aust-Agder.svg' },
     { name: 'Vest-Agder', uuid: 'dd3304af-d4a7-44e2-838d-aa539bbac0be', code: 'NO-10', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vest-Agder.svg' },
+
+    // --- Pakistan (Provinces) ---
+    { name: 'Balochistan', uuid: 'c0c3ef36-316b-4ff5-bc6b-2835cc3d4df7', code: 'PK-BA', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Balochistan.svg' },
+    { name: 'Khyber Pakhtunkhwa', uuid: '8dd868ba-4d97-4739-9c94-537cee8a2fd0', code: 'PK-KP', url: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Flag_of_Khyber_Pakhtunkhwa.svg' },
+    { name: 'Punjab', uuid: 'dd27835c-fd7b-4a0d-9b20-8ec0af59ff20', code: 'PK-PB', url: 'https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_Punjab.svg' },
+    { name: 'Sindh', uuid: '82112217-60d3-4a2b-a377-e93538bd1e6e', code: 'PK-SD', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_Sindh.svg' },
+    // --- Pakistan (Pakistan Administered Areas) ---
+    { name: 'Azad Kashmir', uuid: '5c2916a8-dde0-4285-8063-da5c6ef31a78', code: 'PK-JK', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag_of_Azad_Kashmir.svg' },
+    { name: 'Federally Administered Tribal Areas', uuid: 'b3c04238-01de-4266-9f44-6cce98da4722', code: 'PK-TA', url: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_FATA.svg' },
+    { name: 'Gilgit-Baltistan', uuid: '651275cc-8271-4808-8f57-f4335bdd0b86', code: 'PK-GB', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Flag_of_Gilgit_Baltistan_%282011-Present%29.png' },
+    // --- Pakistan (Federal Capital Territory) ---
+    { name: 'Islamabad', uuid: '1f835719-88f3-441d-bc42-9ca24c80f79d', code: 'PK-IS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/Islamabad_City_Flag.png' },
 
     // --- Palau (States) ---
     { name: 'Aimeliik', uuid: '6417659f-769b-4b45-b5a8-50684392be86', code: 'PW-002', url: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Aimeliik.svg' },

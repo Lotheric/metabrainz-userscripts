@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.1001
+// @version      2026-10-09.1130
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -996,6 +996,25 @@
     { name: 'Yamagata', uuid: 'e8b89635-8f58-4d90-9db0-e0e5706de4b3', code: 'JP-06', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamagata_Prefecture.svg' },
     { name: 'Yamaguchi', uuid: 'e3e7bb57-f90c-4572-a628-e25d8d5397d6', code: 'JP-35', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamaguchi_Prefecture.svg' },
     { name: 'Yamanashi', uuid: '3a2b1ec7-c003-4f38-bf13-f4aefc994b5b', code: 'JP-19', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Yamanashi_Prefecture.svg' },
+
+    // --- Kazakhstan (Regions) ---
+    { name: 'Abai oblysy', uuid: 'f4329694-1ad4-4cd2-9934-4863a50e038f', code: 'KZ-10', url: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Abai_oblysy_eltanba.jpg' },
+    { name: 'Almaty oblysy', uuid: '4373bebc-ac03-465d-be32-8763f10fa994', code: 'KZ-19', url: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Almaty_Region.gif' },
+    { name: 'Aqmola oblysy', uuid: 'fae29ecd-634f-4356-a77e-0fc27fd28c5b', code: 'KZ-11', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f1/Bandera_de_Akmola.png' },
+    { name: 'Aqtöbe oblysy', uuid: '9993ecff-0040-4c8d-b543-dc9ff4e803ad', code: 'KZ-15', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Aktobe.jpg' },
+    { name: 'Atyraū oblysy', uuid: '7a7440f0-b250-4849-bd9e-395a507cdc97', code: 'KZ-23', url: 'https://upload.wikimedia.org/wikipedia/commons/7/71/Flag_of_Atyrau%2C_Kazakhstan.svg' },
+    { name: 'Batys Qazaqstan oblysy', uuid: '26e123d5-b9dc-40ec-a75f-dd12229ed8b9', code: 'KZ-27', url: 'https://upload.wikimedia.org/wikipedia/commons/6/62/Flag_of_West_Kazakhstan_Region.png' },
+    { name: 'Ongtüstik Qazaqstan oblysy', uuid: 'fd5f45d9-174c-4099-a03e-ec7d3ed0c4bf', code: 'KZ-61', url: 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Bandera_de_Turkestán.png' },
+    { name: 'Pavlodar oblysy', uuid: 'e849eef1-2a39-4fb5-9ae6-9453e39f2385', code: 'KZ-55', url: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Flag_of_Pavlodar.png' },
+    { name: 'Qaraghandy oblysy', uuid: 'faaabd03-5760-4072-9722-6eba05a1f3d2', code: 'KZ-35', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Flag_of_Karagandy_Oblast.svg' },
+    { name: 'Qostanay oblysy', uuid: 'c4394921-b38b-4480-a786-b527e1034ff8', code: 'KZ-39', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Bandera_de_la_Región_de_Kostanay.png' },
+    { name: 'Qyzylorda oblysy', uuid: '7d49ca43-0d45-448d-b3c8-b038a3fa2d01', code: 'KZ-43', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Flag_Kyzylorda_Oblast.jpg' },
+    { name: 'Shyghys Qazaqstan oblysy', uuid: '19a45aa8-0bbf-441a-ae43-c89ef12f4d9f', code: 'KZ-63', url: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag_of_East_Kazakhstan_Province.svg' },
+    { name: 'Soltüstik Qazaqstan oblysy', uuid: '6153ddd7-f38d-42ab-940a-5173dda3603d', code: 'KZ-59', url: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Bandera_de_la_Región_del_norte_de_Kazajstán.svg' },
+    { name: 'Zhambyl oblysy', uuid: '92b0e89d-f7b1-4dd8-a619-e9b43002f178', code: 'KZ-31', url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Zhambyl_Flag.png' },
+    // --- Kazakhstan (Cities) ---
+    { name: 'Almaty', uuid: '8ca93644-c3a4-41f4-aba4-39bd13736393', code: 'KZ-75', url: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Flag_of_Almaty.svg' },
+    { name: 'Astana', uuid: 'fdae6cdd-ce2e-4634-be88-ca56d6a081f2', code: 'KZ-71', url: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Astana%2C_Kazakhstan_%28latin%29.svg' },
 
     // --- Kenya (Counties) ---
     { name: 'Kakamega County', uuid: 'a4d61696-08f0-4ba3-9ce0-dd330cdeb72f', code: 'KE-11', url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Kakamega_County.gif' },

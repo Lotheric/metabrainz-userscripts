@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.1449
+// @version      2026-10-09.1906
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -1010,6 +1010,11 @@
     { name: 'Bonaire', uuid: '48b6011b-bfe4-49c6-b215-a6a15b9af756', code: 'BQ-BO', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Bonaire.svg' },
     { name: 'Sint Eustatius', uuid: '4e1fa760-00ea-4dc8-8456-96104f683c2b', code: 'BQ-SE', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Sint_Eustatius.svg' },
     { name: 'Saba', uuid: '79bbadb0-3942-429f-b943-ee749d00cb91', code: 'BQ-SA', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Saba.svg' },
+
+    // --- New Caledonia (Provinces) ---
+    { name: 'Loyalty Islands', uuid: '1c84fc29-3ef0-419a-a84e-52097007e5b3', code: 'NC-01', url: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Iles-Loyauté_drapeau.svg' },
+    { name: 'North Province', uuid: '144dd93f-aaac-460f-b1e0-c73188d66531', code: 'NC-02', url: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Drapeau_Province_Nord_Nouvelle_Calédonie.svg' },
+    { name: 'South Province', uuid: '8052fff2-d445-448d-a548-ac7a69dfad78', code: 'NC-03', url: 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bandera_Province_Sud.svg' },
 
     // --- Nicaragua (Departments) ---
     { name: 'Boaco', uuid: '9321810c-0f6e-4be6-937a-f9095a137b69', code: 'NI-BO', url: 'https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Boaco.svg' },

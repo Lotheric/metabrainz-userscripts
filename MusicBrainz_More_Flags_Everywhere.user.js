@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.1906
+// @version      2026-10-09.2027
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -2358,7 +2358,11 @@
     // --- Wallis and Futuna (Chiefdoms) ---
     { name: 'Alo', uuid: '6cbe995a-b434-4381-8db1-33f7f25f95c7', code: 'WF-AL', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Alo.svg' },
     { name: 'Sigave', uuid: 'ab05b0bb-83cc-4caa-8129-6d1ce0fa386a', code: 'WF-SG', url: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Sigave.svg' },
-    { name: 'Uvea', uuid: '0a03d719-6db9-4e12-9c8f-229751dc1a8c', code: 'WF-UV', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Uvea.svg' }
+    { name: 'Uvea', uuid: '0a03d719-6db9-4e12-9c8f-229751dc1a8c', code: 'WF-UV', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag_of_Uvea.svg' },
+
+    // --- Zimbabwe (Provinces) ---
+    { name: 'Bulawayo', uuid: '981188ed-b071-40ef-8388-24fe0da86342', code: 'ZW-BU', url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Flag_of_Bulawayo.svg' },
+    { name: 'Harare', uuid: 'ae69de84-fe07-4cc3-8fab-6a2b201ca270', code: 'ZW-HA', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e7/Flag_of_Harare.svg' }
   ];
 
   const css = `

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: More Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-09.2027
+// @version      2026-10-10.0759
 // @description  Shows flags of areas that aren't countries on MusicBrainz.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_More_Flags_Everywhere.user.js
@@ -94,6 +94,16 @@
     { name: 'Tirol', uuid: '94c82f6a-70ed-485e-aaa2-5dcf11f80e98', code: 'AT-7', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Tirol.svg' },
     { name: 'Vorarlberg', uuid: 'eacec681-6fb0-4e14-96a1-e181320c5c07', code: 'AT-8', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vorarlberg.svg' },
     { name: 'Wien', uuid: 'afff1a94-a98b-4322-8874-3148139ab6da', code: 'AT-9', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vienna.svg' },
+
+    // --- Belarus (Oblasts) ---
+    { name: 'Brestskaya voblasts\'', uuid: '7bd6e3ad-ee0f-4b06-99f4-1498a06f310d', code: 'BY-BR', url: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag_of_Brest_Voblast%2C_Belarus.svg' },
+    { name: 'Homyel\'skaya voblasts\'', uuid: 'b750b3b2-2bd3-4b3f-9a9c-a30555b4ae71', code: 'BY-HO', url: 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Homyel_Voblast.svg' },
+    { name: 'Hrodzenskaya voblasts\'', uuid: '91dad2ee-75ea-485a-b62f-4206bd1f4b9c', code: 'BY-HR', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Flag_of_Hrodna_Voblasts.svg' },
+    { name: 'Mahilyowskaya voblasts\'', uuid: '86a159ce-8b18-40be-9a53-7242ed0ee92e', code: 'BY-MA', url: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Mahilyow_Voblast.svg' },
+    { name: 'Minskaya voblasts\'', uuid: '2032a2d1-81bc-4b4b-99f3-d898d28beb87', code: 'BY-MI', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_Minsk_Voblast.svg' },
+    { name: 'Vitsyebskaya voblasts\'', uuid: '02503953-a453-45e0-a522-63224342d696', code: 'BY-VI', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Flag_of_Vitsebsk_region.svg' },
+    // --- Belarus (City) ---
+    { name: 'Minsk', uuid: '47323b71-af21-42f7-ae02-380b31ee1b94', code: 'BY-HM', url: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Flag_of_Minsk%2C_Belarus.svg' },
 
     // --- Belgium (Regions) ---
     { name: 'Brussels', uuid: '7bda5d46-4809-41dc-a0b8-e889ff818f2e', code: 'BE-BRU', url: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_the_Brussels-Capital_Region.svg' },

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Instrument Icons Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-12.2121
+// @version      2026-10-12.2134
 // @description  Shows instrument icons before or after instrument links on MusicBrainz pages, matched by UUID. Position is configurable via the CONFIG block.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Instrument_Icons_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Instrument_Icons_Everywhere.user.js
@@ -11,6 +11,8 @@
 // @match        https://musicbrainz.org/*
 // @match        https://beta.musicbrainz.org/*
 // @grant        GM_xmlhttpRequest
+// @grant        GM_getValue
+// @grant        GM_setValue
 // @connect      musicbrainz.org
 // @connect      beta.musicbrainz.org
 // @connect      raw.githubusercontent.com
@@ -28,9 +30,31 @@
   //   'before'  – icon appears to the LEFT  of the link  (default / original behaviour)
   //   'after'   – icon appears to the RIGHT of the link
   //
-  const CONFIG = {
-    iconPosition: 'before',   // ← change to 'after' to place icons after the link
+  // Your chosen value is saved in the userscript manager's own storage
+  // (GM_getValue / GM_setValue) and survives script auto-updates.
+  // The value below is only used the very first time the script ever runs.
+  //
+  const CONFIG_DEFAULTS = {
+    iconPosition: 'before',   // ← first-run default; your saved preference takes over after that
   };
+
+  // Read each key from persistent storage, falling back to CONFIG_DEFAULTS.
+  // On first run the default is immediately saved so future updates never
+  // overwrite a preference the user has already expressed.
+  const CONFIG = (function () {
+    const cfg = {};
+    for (const [key, def] of Object.entries(CONFIG_DEFAULTS)) {
+      const stored = GM_getValue(key, null);
+      if (stored === null) {
+        // First run for this key – persist the default so it is owned by storage
+        GM_setValue(key, def);
+        cfg[key] = def;
+      } else {
+        cfg[key] = stored;
+      }
+    }
+    return cfg;
+  }());
 
   // ─── Constants ────────────────────────────────────────────────────────────
 

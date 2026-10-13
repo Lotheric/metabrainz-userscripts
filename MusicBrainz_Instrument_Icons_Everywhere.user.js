@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         MusicBrainz: Instrument Icons Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-07.1444
-// @description  Shows instrument icons before instrument links on MusicBrainz pages, matched by UUID.
+// @version      2026-10-12.2121
+// @description  Shows instrument icons before or after instrument links on MusicBrainz pages, matched by UUID. Position is configurable via the CONFIG block.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Instrument_Icons_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Instrument_Icons_Everywhere.user.js
 // @author       Lotheric
@@ -19,6 +19,18 @@
 
 (function () {
   'use strict';
+
+  // ─── User Configuration ───────────────────────────────────────────────────
+  //
+  // iconPosition: Controls where the instrument icon is placed relative to
+  //               the instrument link.
+  //
+  //   'before'  – icon appears to the LEFT  of the link  (default / original behaviour)
+  //   'after'   – icon appears to the RIGHT of the link
+  //
+  const CONFIG = {
+    iconPosition: 'before',   // ← change to 'after' to place icons after the link
+  };
 
   // ─── Constants ────────────────────────────────────────────────────────────
 
@@ -218,11 +230,16 @@
 
   /**
    * Create a small icon <img> for the given instrument icon data URL.
+   * Margins are adjusted based on whether the icon will appear before or
+   * after the link so spacing always looks natural.
+   *
    * @param {string} dataUrl
    * @param {string} folderName  Used as title text
+   * @param {'before'|'after'} [position]  Defaults to CONFIG.iconPosition
    * @returns {HTMLImageElement}
    */
-  function createIconImg(dataUrl, folderName) {
+  function createIconImg(dataUrl, folderName, position) {
+    const pos = position || CONFIG.iconPosition;
     const img = document.createElement('img');
     img.className = 'mb-ii-icon';
     img.src = dataUrl;
@@ -233,10 +250,17 @@
     img.style.setProperty('height', '16px', 'important');
     img.style.setProperty('display', 'inline-block', 'important');
     img.style.setProperty('vertical-align', 'middle', 'important');
-    img.style.setProperty('margin-right', '0.30em', 'important');
-    img.style.setProperty('margin-left', '0.05em', 'important');
     img.style.setProperty('object-fit', 'contain', 'important');
     img.style.setProperty('border', 'none', 'important');
+    if (pos === 'after') {
+      // Icon sits to the RIGHT of the link
+      img.style.setProperty('margin-left',  '0.30em', 'important');
+      img.style.setProperty('margin-right', '0.05em', 'important');
+    } else {
+      // Icon sits to the LEFT of the link (default)
+      img.style.setProperty('margin-right', '0.30em', 'important');
+      img.style.setProperty('margin-left',  '0.05em', 'important');
+    }
     return img;
   }
 
@@ -251,9 +275,26 @@
     // Guard: don't insert twice
     const prev = link.previousSibling;
     if (prev && prev.nodeType === 1 && prev.classList && prev.classList.contains('mb-ii-icon')) return;
-    const img = createIconImg(dataUrl, folderName);
+    const img = createIconImg(dataUrl, folderName, 'before');
     try {
       link.parentNode.insertBefore(img, link);
+    } catch (e) { /* swallow */ }
+  }
+
+  /**
+   * Insert an icon <img> immediately after the given link element.
+   * @param {HTMLAnchorElement} link
+   * @param {string} dataUrl
+   * @param {string} folderName
+   */
+  function insertIconAfterLink(link, dataUrl, folderName) {
+    if (!link || !link.parentNode) return;
+    // Guard: don't insert twice
+    const next = link.nextSibling;
+    if (next && next.nodeType === 1 && next.classList && next.classList.contains('mb-ii-icon')) return;
+    const img = createIconImg(dataUrl, folderName, 'after');
+    try {
+      link.parentNode.insertBefore(img, link.nextSibling);
     } catch (e) { /* swallow */ }
   }
 
@@ -289,7 +330,11 @@
       // Step 2: resolve icon data URL
       function withIcon(dataUrl) {
         if (!dataUrl || dataUrl === 'NONE') return;
-        insertIconBeforeLink(link, dataUrl, folderName);
+        if (CONFIG.iconPosition === 'after') {
+          insertIconAfterLink(link, dataUrl, folderName);
+        } else {
+          insertIconBeforeLink(link, dataUrl, folderName);
+        }
       }
 
       const cachedIcon = iconDataCache.get(folderName);

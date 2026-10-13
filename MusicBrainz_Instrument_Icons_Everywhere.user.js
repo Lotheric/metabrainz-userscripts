@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Instrument Icons Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-12.2134
+// @version      2026-10-12.2140
 // @description  Shows instrument icons before or after instrument links on MusicBrainz pages, matched by UUID. Position is configurable via the CONFIG block.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Instrument_Icons_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Instrument_Icons_Everywhere.user.js
@@ -13,6 +13,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
+// @grant        GM_registerMenuCommand
 // @connect      musicbrainz.org
 // @connect      beta.musicbrainz.org
 // @connect      raw.githubusercontent.com
@@ -33,28 +34,26 @@
   // Your chosen value is saved in the userscript manager's own storage
   // (GM_getValue / GM_setValue) and survives script auto-updates.
   // The value below is only used the very first time the script ever runs.
+  // To change it afterwards, use the "Toggle icon position" entry in your
+  // userscript manager's popup menu (Tampermonkey / Violentmonkey / etc.).
   //
   const CONFIG_DEFAULTS = {
-    iconPosition: 'before',   // ← first-run default; your saved preference takes over after that
+    iconPosition: 'before',   // ← first-run default only
   };
 
   // Read each key from persistent storage, falling back to CONFIG_DEFAULTS.
   // On first run the default is immediately saved so future updates never
   // overwrite a preference the user has already expressed.
-  const CONFIG = (function () {
-    const cfg = {};
-    for (const [key, def] of Object.entries(CONFIG_DEFAULTS)) {
-      const stored = GM_getValue(key, null);
-      if (stored === null) {
-        // First run for this key – persist the default so it is owned by storage
-        GM_setValue(key, def);
-        cfg[key] = def;
-      } else {
-        cfg[key] = stored;
-      }
+  const CONFIG = {};
+  for (const [key, def] of Object.entries(CONFIG_DEFAULTS)) {
+    const stored = GM_getValue(key, null);
+    if (stored === null) {
+      GM_setValue(key, def);
+      CONFIG[key] = def;
+    } else {
+      CONFIG[key] = stored;
     }
-    return cfg;
-  }());
+  }
 
   // ─── Constants ────────────────────────────────────────────────────────────
 
@@ -445,6 +444,21 @@
       childList: true,
       subtree: true
     });
+
+    // Register menu command so the user can toggle the icon position at any time
+    // without editing the script. The new value is saved to GM storage and the
+    // page is reloaded so icons re-render in the correct position.
+    try {
+      GM_registerMenuCommand(
+        `Icon position: ${CONFIG.iconPosition === 'before' ? '⬅ before link' : 'after link ➡'} — click to toggle`,
+        () => {
+          const next = CONFIG.iconPosition === 'before' ? 'after' : 'before';
+          GM_setValue('iconPosition', next);
+          CONFIG.iconPosition = next;
+          location.reload();
+        }
+      );
+    } catch (e) { /* GM_registerMenuCommand not available in this manager */ }
 
     // Expose manual trigger for debugging
     try { window.MBII_processPage = processPage; } catch (e) { }

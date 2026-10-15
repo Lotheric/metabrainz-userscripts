@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-10.1330
+// @version      2026-10-15.1300
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -3317,21 +3317,42 @@
           if (target === heading) {
             heading.appendChild(iconSpan);
           } else if (target.parentNode) {
+            let targetEnd = target;
             let walk = target.nextSibling;
             while (walk) {
-              if (walk.nodeType === Node.TEXT_NODE) {
-                if (/^\s+/.test(walk.nodeValue)) walk.nodeValue = walk.nodeValue.replace(/^\s+/, '');
-                if (walk.nodeValue.length === 0) { walk = walk.nextSibling; continue; }
-                break;
-              } else if (walk.nodeType === Node.COMMENT_NODE) {
+              if (walk.nodeType === Node.COMMENT_NODE) {
                 walk = walk.nextSibling;
-              } else break;
+                continue;
+              }
+              let ws = null;
+              if (walk.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(walk.nodeValue || '')) {
+                ws = walk;
+                walk = walk.nextSibling;
+                while (walk && walk.nodeType === Node.COMMENT_NODE) walk = walk.nextSibling;
+              }
+              if (walk && walk.nodeType === Node.ELEMENT_NODE && (
+                walk.classList.contains('historical') ||
+                walk.classList.contains('comment') ||
+                walk.classList.contains('disambiguation')
+              )) {
+                targetEnd = walk;
+                walk = walk.nextSibling;
+                continue;
+              }
+              break;
             }
             const wrapper = document.createElement('span');
             wrapper.style.whiteSpace = 'nowrap';
             wrapper.className = 'mfe-flag-wrapper';
             target.parentNode.insertBefore(wrapper, target);
-            wrapper.appendChild(target);
+
+            let curr = target;
+            while (curr) {
+              let next = curr.nextSibling;
+              wrapper.appendChild(curr);
+              if (curr === targetEnd) break;
+              curr = next;
+            }
             wrapper.appendChild(iconSpan);
           }
         });
@@ -3408,30 +3429,82 @@
         }
       }
 
-      if (!hasGlobe && !link.closest('h1')) {
-        linkWrapper.classList.add('arealink');
-        linkWrapper.dataset.mbFlag = '1';
+      if (!hasGlobe) {
+        if (!link.closest('h1')) {
+          linkWrapper.classList.add('arealink');
+          linkWrapper.dataset.mbFlag = '1';
+        }
         wrapStartNode = linkWrapper;
+
+        // If the link is inside a native .flag element (e.g. <span class="flag flag-FR"> or <span class="flag flag-XC">),
+        // promote wrapStartNode to that .flag parent so the wrapper is inserted at the
+        // correct DOM level — making .historical and .comment siblings accessible for the
+        // targetNode walk below (otherwise they'd be unreachable inside the nested wrapper).
+        if (linkWrapper.parentElement &&
+            linkWrapper.parentElement.classList.contains('flag') &&
+            !linkWrapper.parentElement.classList.contains('arealink')) {
+          wrapStartNode = linkWrapper.parentElement;
+        }
       }
 
-      let targetNode = linkWrapper;
-      let nxt = targetNode.nextSibling;
-      if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
-        targetNode = nxt;
-        nxt = nxt.nextSibling;
-      }
-      if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (nxt.classList.contains('comment') || nxt.classList.contains('disambiguation'))) {
-        targetNode = nxt;
-        nxt = nxt.nextSibling;
-      }
-      if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*,/.test(nxt.nodeValue || '')) {
-        // If there's a comma right after the comment/link, include it in the wrap!
-        // We'll split the text node to only include up to the comma, so trailing spaces can still wrap natively if needed
-        const commaIndex = nxt.nodeValue.indexOf(',');
-        if (commaIndex !== -1 && commaIndex + 1 < nxt.nodeValue.length) {
-          nxt.splitText(commaIndex + 1);
+      // Walk forward to find how far the wrapper should extend (to include all annotation
+      // spans such as .historical, .comment, .disambiguation before appending the flag icon).
+      // When wrapStartNode was promoted to a .flag parent it *contains* linkWrapper, so
+      // we start the walk from wrapStartNode to reach its siblings.
+      // In the native-globe case wrapStartNode is a *preceding* sibling element, so we
+      // must start from linkWrapper as before to avoid short-circuiting the walk.
+      let targetNode = (wrapStartNode !== linkWrapper && wrapStartNode.contains && wrapStartNode.contains(linkWrapper))
+        ? wrapStartNode   // .flag parent promotion case
+        : linkWrapper;    // default / native-globe case
+
+      while (true) {
+        let nxt = targetNode.nextSibling;
+        while (nxt && nxt.nodeType === Node.COMMENT_NODE) {
+          nxt = nxt.nextSibling;
         }
-        targetNode = nxt;
+
+        let wsNode = null;
+        if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*$/.test(nxt.nodeValue || '')) {
+          wsNode = nxt;
+          nxt = nxt.nextSibling;
+          while (nxt && nxt.nodeType === Node.COMMENT_NODE) {
+            nxt = nxt.nextSibling;
+          }
+        }
+
+        // Only advance targetNode across whitespace if an annotation element actually follows
+        if (nxt && nxt.nodeType === Node.ELEMENT_NODE && (
+          nxt.classList.contains('historical') ||
+          nxt.classList.contains('comment') ||
+          nxt.classList.contains('disambiguation')
+        )) {
+          targetNode = nxt;
+          continue;
+        }
+
+        // Check if there is a comma right after targetNode
+        let commaCandidate = null;
+        if (nxt && nxt.nodeType === Node.TEXT_NODE && /^[\s\u00A0]*,/.test(nxt.nodeValue || '')) {
+          commaCandidate = nxt;
+        }
+
+        if (commaCandidate) {
+          if (wsNode && wsNode.parentNode) {
+            wsNode.parentNode.removeChild(wsNode);
+          }
+          if (/^[\s\u00A0]+,/.test(commaCandidate.nodeValue || '')) {
+            commaCandidate.nodeValue = commaCandidate.nodeValue.replace(/^[\s\u00A0]+,/, ',');
+          }
+          const commaIndex = commaCandidate.nodeValue.indexOf(',');
+          if (commaIndex !== -1 && commaIndex + 1 < commaCandidate.nodeValue.length) {
+            commaCandidate.splitText(commaIndex + 1);
+          }
+          targetNode = commaCandidate;
+        }
+
+        // No more annotation spans and comma handled (if any); stop the walk
+        // (crucially leaving any following whitespace untouched so it remains outside the wrapper)
+        break;
       }
 
       let iconSpan = null;
@@ -3462,10 +3535,15 @@
 
           // Standardize spaces between globe and text
           if (curr.nodeType === Node.TEXT_NODE && /^[\s\u00A0]+$/.test(curr.nodeValue)) {
-            let prevNode = curr.previousSibling;
+            let prevNode = wrapper.lastChild || curr.previousSibling;
+            // Only strip whitespace when it follows a pure icon/arealink node.
+            // A .flag element that contains an area link is a content container (not a bare
+            // icon), so preserve the space after it (e.g. between "Limousin" and "(historical)").
             let prevIsNoSpaceNode = prevNode && prevNode.nodeType === Node.ELEMENT_NODE && (
-              prevNode.classList.contains('arealink') ||
-              prevNode.classList.contains('flag')
+              prevNode.classList.contains('area-icon') ||
+              (prevNode.tagName === 'IMG' && prevNode.src && prevNode.src.includes('area.svg')) ||
+              (prevNode.classList.contains('arealink') && prevNode.tagName !== 'A' && !prevNode.querySelector('a[href*="/area/"]')) ||
+              (prevNode.classList.contains('flag') && !prevNode.querySelector('a[href*="/area/"]'))
             );
 
             if (spaceCount > 0 || curr === wrapStartNode || next === null || prevIsNoSpaceNode) {

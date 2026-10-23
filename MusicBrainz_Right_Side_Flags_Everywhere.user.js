@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-23.1032
+// @version      2026-10-23.1059
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -1551,6 +1551,7 @@
     { name: 'Vestfold', uuid: 'c3bb81dc-642e-4f9d-9d9c-3bc7b671b07c', code: 'NO-39', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Vestfold.svg' },
     { name: 'Østfold', uuid: 'c65cf3eb-e577-4c5e-820c-222ac18ce621', code: 'NO-31', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_%C3%98stfold.svg' },
     // --- Norway (Territory) ---
+    { name: 'Jan Mayen', uuid: '7df7d0e1-471e-453b-ad38-5d3d8c46c7c6', code: 'NO-22', url: 'https://static.wikia.nocookie.net/vexillology/images/9/95/Jan_Mayen_Flag_Proposal_Kelethin.png' },
     { name: 'Svalbard', uuid: '13fdd600-e404-4c8a-8834-6181bafcac0f', code: 'NO-21', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Fictional_flag_of_Svalbard.svg' },
     // --- Norway (Former Counties) ---
     { name: 'Aust-Agder', uuid: '0bd0e394-e3aa-4e33-b06c-80a4aede075f', code: 'NO-09', url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Aust-Agder.svg' },

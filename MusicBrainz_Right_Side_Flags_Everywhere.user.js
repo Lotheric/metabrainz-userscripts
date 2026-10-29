@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MusicBrainz: Right Side Flags Everywhere
 // @namespace    https://github.com/Lotheric/metabrainz-userscripts/
-// @version      2026-10-24.1858
+// @version      2026-10-29.1842
 // @description  Replaces MusicBrainz country/region flags with Wikimedia SVGs on the right side keeping aspect ratio.
 // @downloadURL  https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
 // @updateURL    https://github.com/Lotheric/metabrainz-userscripts/raw/refs/heads/main/MusicBrainz_Right_Side_Flags_Everywhere.user.js
@@ -2325,6 +2325,7 @@
     { name: 'Surrey', uuid: 'fe92d6d6-4f35-4a0e-a48a-b802ae9cdaf4', code: 'GB-SRY', url: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_the_County_of_Surrey.svg' },
     { name: 'Warwickshire', uuid: 'bbfed5f7-9a49-40f0-a787-9ce951e3097d', code: 'GB-WAR', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Warwickshire.svg' },
     { name: 'West Sussex', uuid: 'a7251dbd-388c-4fdf-a294-1bcde106ddf7', code: 'GB-WSX', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Flag_of_West_Sussex.svg' },
+    { name: 'West Yorkshire', uuid: 'c996bd09-5afd-4a0d-adf0-61aebb7b795d', code: 'GB-EN-WYS', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Unofficial_Flag_of_West_Yorkshire.svg' },
     { name: 'Worcestershire', uuid: '2fb56867-9b52-4fd3-a562-6d7d13441d60', code: 'GB-WOR', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Worcestershire_flag.svg' },
     // --- United Kingdom (Unitary Authorities) ---
     { name: 'Bournemouth', uuid: 'ca133b15-39a3-449a-95d8-9008c437da7d', code: 'GB-BCP', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Bournemouth_town_flag.svg' },
